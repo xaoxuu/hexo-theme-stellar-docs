@@ -427,6 +427,34 @@ func test() {
 {% endfolding %}
 {% endfolding %}
 
+## Folders（一组折叠标签）
+
+样式相比 `folding` 简单一些，适用于多个折叠标签平铺显示的场景，例如题目列表：
+
+{% folders %}
+<!-- folder 题目1 -->
+这是答案1
+<!-- folder 题目2 -->
+这是答案2
+<!-- folder 题目3 -->
+这是答案3
+{% endfolders %}
+
+代码如下：
+
+```
+{% folders %}
+<!-- folder 题目1 -->
+这是答案1
+<!-- folder 题目2 -->
+这是答案2
+<!-- folder 题目3 -->
+这是答案3
+{% endfolders %}
+```
+
+
+
 ## Link（外链卡片标签）
 
 外链卡片标签的语法格式为：
