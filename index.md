@@ -2,7 +2,8 @@
 layout: wiki
 wiki: Stellar
 seo_title: 一个实用简约主义的 Hexo 主题
-title: 快速开始您的博客之旅
+title: 安装与更新
+h1: 快速开始您的博客之旅
 ---
 
 Stellar 是一个内置 wiki 系统的 hexo 主题，拥有简约而精美的视觉设计和丰富又灵活的标签插件，帮助您简单从容地应对各种表达需求，十分推荐内容创作者使用 Stellar 开始您全新的博客之旅。
@@ -125,12 +126,6 @@ npm: 6.14.13 ~ 8.5.5
 {% endgrid %}
 
 
-## 示例博客
-
-{% sites repo:xaoxuu/hexo-theme-stellar-examples %}
-
-{% note 小提示 如果您也使用了 Stellar 并希望显示在这里，可以在[hexo-theme-stellar-examples](https://github.com/xaoxuu/hexo-theme-stellar-examples/issues)中提交 issue 告知您的站点信息，在您提交后的大约 3 分钟内生效。 %}
-
 ## 开源许可协议
 
 {% quot 项目中的许可声明文件应包含在所有副本中 %}
@@ -160,30 +155,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-
-## 鸣谢
-
-感谢以下开发者贡献代码：
-
-{% users api:https://api.github.xaoxuu.com/repos/xaoxuu/hexo-theme-stellar/contributors?per_page=100&direction=asc %}
-
-{% folding 感谢点赞的用户 %}
-
-{% quot icon:hashtag 1-100 %}
-{% users api:https://api.github.xaoxuu.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=1 %}
-{% quot icon:hashtag 101-200 %}
-{% users api:https://api.github.xaoxuu.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=2 %}
-{% quot icon:hashtag 201-300 %}
-{% users api:https://api.github.xaoxuu.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=3 %}
-{% endfolding %}
-
-## 更新日志
-
-{% timeline api:https://api.github.xaoxuu.com/repos/xaoxuu/hexo-theme-stellar/releases %}
-{% endtimeline %}
-
-
-## Todo
-
-{% timeline api:https://api.github.xaoxuu.com/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=20 %}
-{% endtimeline %}
