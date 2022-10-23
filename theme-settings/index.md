@@ -12,6 +12,7 @@ Stellar 会读取站点根目录下的 `_config.yml` 文件中的一些信息来
 ```yaml blog/_config.yml
 title: 您的网站名称
 avatar: 您的头像链接
+favicon: 您的网站icon
 # 多语言
 language:
   - zh-CN
@@ -114,6 +115,15 @@ comments:
   valine:
     appId: # your appId
     appKey: # your appKey
+{% endcodeblock %}
+
+<!-- tab Waline -->
+
+{% codeblock blog/_config.stellar.yml lang:yaml %}
+comments:
+  service: waline
+  waline:
+    serverURL: https://xxx # your waline url
 {% endcodeblock %}
 
 {% endtabs %}
