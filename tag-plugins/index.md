@@ -527,11 +527,15 @@ icon: 可选，缩略图链接
 {% radio 没有勾选的单选框 %}
 {% radio checked:true 已勾选的单选框 %}
 
+```md 写法如下
+{% radio 没有勾选的单选框 %}
+{% radio checked:true 已勾选的单选框 %}
+```
+
 ```yaml 支持的参数
 checked: true/false
 color: red/orange/yellow/green/cyan/blue/purple
 ```
-
 
 ## Checkbox（复选样式标签）
 
@@ -540,6 +544,14 @@ color: red/orange/yellow/green/cyan/blue/purple
 {% checkbox symbol:plus color:green checked:true 显示为加号的绿色的已勾选的复选框 %}
 {% checkbox symbol:minus color:yellow checked:true 显示为减号的黄色的已勾选的复选框 %}
 {% checkbox symbol:times color:red checked:true 显示为乘号的红色的已勾选的复选框 %}
+
+```md 写法如下
+{% checkbox 普通的没有勾选的复选框 %}
+{% checkbox checked:true 普通的已勾选的复选框 %}
+{% checkbox symbol:plus color:green checked:true 显示为加号的绿色的已勾选的复选框 %}
+{% checkbox symbol:minus color:yellow checked:true 显示为减号的黄色的已勾选的复选框 %}
+{% checkbox symbol:times color:red checked:true 显示为乘号的红色的已勾选的复选框 %}
+```
 
 ```yaml 支持的参数
 checked: true/false

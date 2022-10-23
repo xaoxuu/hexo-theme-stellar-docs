@@ -5,6 +5,74 @@ order: 900
 title: 探索个性化选项
 ---
 
+## 主题色 & 字体
+
+{% note 自定义主题色于1.11.0版本支持 color:orange %}
+
+```yaml blog/_config.stellar.yml
+style:
+  font-size: 16px
+  font-family:
+    logo: system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif
+    body: system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif
+    code: Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif
+  color:
+    common:
+      theme: '#1BCDFC' # 主题色
+      accent: '#ff5722' # 强调色
+      link: '#2196f3' # 超链接颜色
+      button: '#1BCDFC' # 按钮颜色
+      hover: '#ff5722' # 按钮高亮颜色
+    light:
+      background: '#f8f8f8' # 浅色背景颜色
+      block: '#f2f2f2' # 块背景颜色
+      card: white # 卡片背景颜色
+      title: '#000' # 标题文本颜色
+      text: '#333' # 正文文本颜色
+      code: '#111' # 行内代码颜色
+    dark:
+      background: '#313438' # 深色背景颜色
+      background-mobile: black # 移动端深色背景（OLED调成纯黑可以省电）
+      block: '#2B2F33' # 块背景颜色
+      card: '#464D57' # 卡片背景颜色
+      title: '#fff' # 标题文本颜色
+      text: '#eee' # 正文文本颜色
+      code: '#ff7043' # 行内代码颜色
+```
+
+引入外部字体，在 `_config.yml` 中写入
+
+```yaml blog/_config.yml
+inject:
+  head:
+    - <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+  script:
+```
+
+
+## 页面缓入效果
+
+```yaml blog/_config.stellar.yml
+# 默认关闭，目前已知scrollreveal与lazyload同时打开时会有footer不显示的bug
+scrollreveal:
+  enable: false
+  js: https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js
+  distance: 4px # 执行距离
+  duration: 400 # ms # 执行时长
+  interval: 100 # ms # 执行间隔（时间）
+  scale: 0.1 # 0.1~1 # 执行方式（缩放）
+```
+
+## 延迟加载
+
+```yaml blog/_config.stellar.yml
+# 默认打开
+lazyload:
+  enable: true # [hexo clean && hexo s] is required after changing this value.
+  js: https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js
+  transition: blur # blur, fade
+```
+
 ## 评论
 
 

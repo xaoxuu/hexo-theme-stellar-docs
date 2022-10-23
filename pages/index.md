@@ -9,7 +9,7 @@ title: 编写文章以及独立页面
 
 ### 封面图片
 
-在文章列表页面或者其他位置显示的文章摘要卡片上面的图片称之为「文章封面」，设置方法如下：
+在文章列表页面或者其他位置显示的文章摘要卡片上面的图片称之为「文章封面」
 
 在文章的 `front-matter` 中写上 `cover: xxx` 即可。例如：
 
@@ -18,6 +18,25 @@ title: 编写文章以及独立页面
 cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 ---
 ```
+
+{% folding 显示效果 open:false %}
+{% image https://pic1.imgdb.cn/item/6354e0a216f2c2beb100617c.jpg width:600px %}
+{% endfolding %}
+
+上面这种方式会显示title与description或者摘要，若你想要图片全显示，可以加入 `cover_info:` 例如
+
+```yaml blog/source/xxx.md
+---
+cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
+cover_info:
+  meta: 这是meta
+  title: 这是title（此title可正文title不一致）
+---
+```
+
+{% folding 显示效果 open:false %}
+{% image https://pic1.imgdb.cn/item/6354e2a616f2c2beb1038f73.jpg width:600px %}
+{% endfolding %}
 
 如果您想使用 Unsplash 搜索图片作为封面，可以在 `cover` 设置搜索关键词（用英文逗号隔开）：
 
