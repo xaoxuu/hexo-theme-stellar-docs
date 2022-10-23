@@ -13,9 +13,9 @@ title: 探索个性化选项
 style:
   font-size: 16px
   font-family:
-    logo: system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif
-    body: system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif
-    code: Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif
+    logo: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
+    body: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
+    code: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
   color:
     common:
       theme: '#1BCDFC' # 主题色
@@ -48,6 +48,10 @@ inject:
     - <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
   script:
 ```
+
+选择在线字体：
+
+{% link https://www.googlefonts.cn/ Google&nbsp;Fonts %}
 
 
 ## 页面缓入效果
