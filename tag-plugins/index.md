@@ -86,7 +86,7 @@ tag_plugins:
 ```
 {% endgrid %}
 
-> 表情速查表：[stellar表情标签索引](https://www.hermitlsr.top/2021-08-02/36b0e529.html)
+> 表情速查表：[stellar表情标签索引](https://www.hermitlsr.top/2021-08-02/stellar%E8%A1%A8%E6%83%85%E6%8F%92%E4%BB%B6%E7%B4%A2%E5%BC%95/)
 
 ## Image（图片标签）
 
