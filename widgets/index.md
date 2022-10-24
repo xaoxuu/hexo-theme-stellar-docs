@@ -14,6 +14,12 @@ title: 网站名称
 avatar: 头像
 ```
 
+设置鼠标指上 `subtitle` 后翻转另一行字（您可以将鼠标移至左上角的Stellar查看效果）
+
+```yaml blog/_config.yml
+subtitle:  标题1 | 标题2
+```
+
 如果您想用一个图片作为 logo，可以直接在主题配置文件 sidebar.logo.title 中设置：
 
 ```yaml blog/_config.stellar.yml
@@ -41,11 +47,44 @@ sidebar:
 
 ### recent（最近更新）
 
+```yaml blog/source/_data/widgets.yml
+recent:
+  layout: recent
+  rss: # /atom.xml # npm i hexo-generator-feed
+  limit: 5 # Count of posts
+```
+
 在 `wiki` 板块显示的是最近更新的 `wiki` 页面，其余地方显示最近更新的文章。
+
+`hexo` 的覆盖规则是合并而不是替换，所以若不想使用 `recent`，除了在 `_config.stellar.yml` 中删除 `recent` 你还需要将此处的 `recent` 置空，即
+
+```yaml blog/source/_data/widgets.yml
+recent:
+#  layout: recent
+#  rss: # /atom.xml # npm i hexo-generator-feed
+#  limit: 5 # Count of posts
+```
+
+然后自己需要的地方用自己另建的一个 `my_recent` 组件
+
+```yaml blog/source/_data/widgets.yml
+my_recent:
+  layout: recent
+  ...
+```
 
 ### toc（目录）
 
-- `list_number`: 是否显示序号
+```yaml blog/source/_data/widgets.yml
+toc:
+  layout: toc
+  list_number: false # 是否显示序号
+  min_depth: 2
+  max_depth: 5
+  fallback: recent # Use a backup widget when toc does not exist.
+```
+
+`toc` 的 `fallback` 默认是 `recent`，即一篇文章没有 `TOC` 的时候会显示一个 `recent`
 
 ### markdown（富文本）
 
