@@ -77,6 +77,17 @@ lazyload:
   transition: blur # blur, fade
 ```
 
+## 加载提示
+
+加载动态时间线、动态友链等显示提示
+
+```yaml blog/_config.stellar.yml
+# 默认打开
+loading:
+  loading: 正在加载
+  error: 加载失败，请稍后重试。
+```
+
 ## 评论
 
 
