@@ -53,6 +53,15 @@ inject:
 
 {% link https://www.googlefonts.cn/ Google&nbsp;Fonts %}
 
+## 文本对齐方向
+
+此功能尚在测试中，谨慎更改
+
+```yaml blog/_config.stellar.yml
+style:
+  # 默认为left
+  text-align: left # center,right
+```
 
 ## 页面缓入效果
 
