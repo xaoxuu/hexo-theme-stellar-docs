@@ -131,7 +131,7 @@ welcome:
 
 目前支持的布局模板有：`markdown`，后续将会加入列表、网格等布局模板。
 
-{% grid Q & A %}
+{% border Q & A %}
 
 Q: 如果不想显示默认的 welcome 组件怎么办？
 A: 删掉它就可以啦。
@@ -139,7 +139,7 @@ A: 删掉它就可以啦。
 Q: 如果想在 welcome 那个位置显示成其它布局的组件？
 A: 把 welcome 组件的属性都改成你想要的那个组件的就可以啦。
 
-{% endgrid %}
+{% endborder %}
 
 ### ghuser（用户信息）
 

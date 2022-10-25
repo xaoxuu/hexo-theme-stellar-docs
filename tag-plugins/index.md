@@ -78,13 +78,13 @@ tag_plugins:
     tieba: https://fastly.jsdelivr.net/gh/cdn-x/emoji/tieba/%s.png
 ```
 
-{% grid %}
+{% border %}
 在配置文件中，文件名用 `%s` 代替。这种集成方式虽然不那么优雅，但也能用，主要是配置起来比较灵活。 {% emoji aru 0180 %}
 如果对高度有特别要求，可以指定高度，例如：{% emoji aru 5150 height:3em %}
 ```
 {% emoji aru 5150 height:3em %}
 ```
-{% endgrid %}
+{% endborder %}
 
 > 表情速查表：[stellar表情标签索引](https://www.hermitlsr.top/2021-08-02/stellar%E8%A1%A8%E6%83%85%E6%8F%92%E4%BB%B6%E7%B4%A2%E5%BC%95/)
 
@@ -182,7 +182,9 @@ tag_plugins:
 ```
 {% endfolding %}
 
-> 此外，加上 `el:h2` 可以作为标题使用
+{% quot 特别引用 icon:default %}
+
+> 此外，加上 `el:h2/h3/h4/h5/h6` 可以作为标题使用
 
 ## Poetry（诗词标签）
 
@@ -211,9 +213,9 @@ tag_plugins:
 ```
 
 ```md block
-{% grid [title] [color:color] [codeblock:bool] %}
+{% border [title] [color:color] [codeblock:bool] %}
 ...
-{% endgrid %}
+{% endborder %}
 ```
 
 ```yaml 参数说明
@@ -259,28 +261,28 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark
 {% note 这是标题 这是正文 哈哈。 %}
 ```
 
-## Grid（格子标签）
+## Border（边框标签）
 
-使用过 `noteblock` 标签的朋友对这个新标签会比较熟悉，它是从 `noteblock` 演化而来的，基础功能和 `noteblock` 是一致的，后续会推出多列布局可供选择。
+使用过 `noteblock` 标签的朋友对这个新标签会比较熟悉，它是从 `noteblock` 演化而来的，基础功能和 `noteblock` 是一致的，这是一个容器类标签，可以放置丰富的内容。
 
 ### 文本内容
 
-{% grid 这是标题 %}
+{% border 这是标题 %}
 这是正文 哈哈。
-{% endgrid %}
+{% endborder %}
 
-{% grid 彩色块标题 color:yellow %}
+{% border 彩色块标题 color:yellow %}
 这是彩色块正文 啊哈哈哈。
-{% endgrid %}
+{% endborder %}
 
 ```md 写法如下
-{% grid 这是标题 %}
+{% border 这是标题 %}
 这是正文 哈哈。
-{% endgrid %}
+{% endborder %}
 
-{% grid 彩色块标题 color:yellow %}
+{% border 彩色块标题 color:yellow %}
 这是彩色块正文 啊哈哈哈。
-{% endgrid %}
+{% endborder %}
 ```
 
 ### 彩色代码块
@@ -293,17 +295,17 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark
 
 推荐的写法：
 
-{% grid child:codeblock color:green %}
+{% border child:codeblock color:green %}
 {% codeblock lang:swift %}
 func test() {
     // ...
 }
 {% endcodeblock %}
-{% endgrid %}
+{% endborder %}
 
 不推荐的写法：
 
-{% grid child:codeblock color:red %}
+{% border child:codeblock color:red %}
 {% codeblock lang:swift %}
 func test() -> Void {
     // ...
@@ -313,24 +315,24 @@ func test() -> () {
     // ...
 }
 {% endcodeblock %}
-{% endgrid %}
+{% endborder %}
 
 <!-- tab 写法 -->
 
 {% codeblock %}{% raw %}
 推荐的写法：
 
-{% grid child:codeblock color:green %}
+{% border child:codeblock color:green %}
 {% codeblock lang:swift %}
 func test() {
     // ...
 }
 {% endcodeblock %}
-{% endgrid %}
+{% endborder %}
 
 不推荐的写法：
 
-{% grid child:codeblock color:red %}
+{% border child:codeblock color:red %}
 {% codeblock lang:swift %}
 func test() -> Void {
     // ...
@@ -340,14 +342,14 @@ func test() -> () {
     // ...
 }
 {% endcodeblock %}
-{% endgrid %}
+{% endborder %}
 {% endraw %}{% endcodeblock %}
 
 {% endtabs %}
 
 ### 嵌套其它标签
 
-{% grid child:tabs %}
+{% border child:tabs %}
 {% tabs %}
 <!-- tab 图文示例 -->
 {% image /assets/xaoxuu/blog/2020-0627a@2x.jpg 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
@@ -362,10 +364,10 @@ node.js: 14.15.4 LTS # 建议使用LTS版本
 npm: 6.14.10 LTS
 {% endcodeblock %}
 {% endtabs %}
-{% endgrid %}
+{% endborder %}
 
 ```md 写法如下
-{% grid %}
+{% border %}
 {% tabs %}
 <!-- tab 图文示例 -->
 {% image /assets/xaoxuu/blog/2020-0627a@2x.jpg 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
@@ -378,8 +380,40 @@ node.js: 14.15.4 LTS # 建议使用LTS版本
 npm: 6.14.10 LTS
 {% endcodeblock %}
 {% endtabs %}
-{% endgrid %}
+{% endborder %}
 ```
+
+## Split（两列分区标签）
+
+{% split bg:block %}
+
+<!-- cell -->
+
+<center>左侧内容</center>
+
+<!-- cell -->
+
+<center>右侧内容</center>
+
+{% endsplit %}
+
+示例代码：
+
+```
+{% split bg:block %}
+
+<!-- cell -->
+
+<center>左侧内容</center>
+
+<!-- cell -->
+
+<center>右侧内容</center>
+
+{% endsplit %}
+```
+
+> `bg` 为可选参数，默认没有背景，可设置为 `block/card` 两种样式
 
 ## Folding（折叠块标签）
 
@@ -455,53 +489,36 @@ func test() {
 
 
 
-## Link（外链卡片标签）
+## Link（链接卡片标签）
 
 外链卡片标签的语法格式为：
 
 ```
-{% link href title [description] [icon:src] %}
+{% link href [title] [desc:true/false] [icon:src] %}
 ```
 
 ```yaml 参数说明
 href: 链接
-title: 标题
-description: 可选，副标题，不填写时默认值为链接
-icon: 可选，缩略图链接
+title: 可选，默认标题（读取到标题后会被替换）
+desc: 可选，副标题，为true时将会显示页面描述
+icon: 可选，默认缩略图链接（读取到图标后会被替换）
 ```
 
-{% tabs align:center active:4 %}
+{% tabs align:center active:1 %}
 
 <!-- tab 样式1 -->
 
-{% link https://github.com/xaoxuu/hexo-theme-stellar Stellar&nbsp;-&nbsp;每个人的独立博客 %}
+{% link https://github.com/xaoxuu/hexo-theme-stellar %}
 
 <!-- tab 样式2 -->
 
-{% link https://github.com/xaoxuu/hexo-theme-stellar Stellar&nbsp;-&nbsp;每个人的独立博客 icon:/assets/wiki/stellar/icon.svg %}
-
-<!-- tab 样式3 -->
-
-{% link https://github.com/xaoxuu/hexo-theme-stellar Stellar&nbsp;-&nbsp;每个人的独立博客 Stellar 是一个内置 wiki 系统的 hexo 主题，适合综合型站点使用。同时也拥有简约而精美的视觉设计和丰富的标签插件，帮助您简单从容地应对各种场合。 %}
-
-<!-- tab 样式4 -->
-
-{% link https://github.com/xaoxuu/hexo-theme-stellar Stellar&nbsp;-&nbsp;每个人的独立博客 Stellar 是一个内置 wiki 系统的 hexo 主题，适合综合型站点使用。同时也拥有简约而精美的视觉设计和丰富的标签插件，帮助您简单从容地应对各种场合。 icon:/assets/wiki/stellar/icon.svg %}
+{% link https://github.com/xaoxuu/hexo-theme-stellar desc:true %}
 
 {% endtabs %}
 
 ```
-链接 + 标题：
-{% link https://github.com/xaoxuu/hexo-theme-stellar Stellar&nbsp;-&nbsp;每个人的独立博客 %}
-
-链接 + 标题 + 图标：
-{% link https://github.com/xaoxuu/hexo-theme-stellar Stellar&nbsp;-&nbsp;每个人的独立博客 icon:/assets/wiki/stellar/icon.svg %}
-
-链接 + 标题 + 描述：
-{% link https://github.com/xaoxuu/hexo-theme-stellar/hexo-theme-stellar Stellar&nbsp;-&nbsp;每个人的独立博客 Stellar 是一个内置 wiki 系统的 hexo 主题，适合综合型站点使用。同时也拥有简约而精美的视觉设计和丰富的标签插件，帮助您简单从容地应对各种场合。 %}
-
-链接 + 标题 + 图标 + 描述：
-{% link https://github.com/xaoxuu/hexo-theme-stellar/hexo-theme-stellar Stellar&nbsp;-&nbsp;每个人的独立博客 Stellar 是一个内置 wiki 系统的 hexo 主题，适合综合型站点使用。同时也拥有简约而精美的视觉设计和丰富的标签插件，帮助您简单从容地应对各种场合。 icon:/assets/wiki/stellar/icon.svg %}
+{% link https://github.com/xaoxuu/hexo-theme-stellar %}
+{% link https://github.com/xaoxuu/hexo-theme-stellar desc:true %}
 ```
 
 ## Copy（复制标签）
