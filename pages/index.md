@@ -13,8 +13,10 @@ title: 编写文章以及独立页面
 
 在文章的 `front-matter` 中写上 `cover: xxx` 即可。例如：
 
-```yaml blog/source/xxx.md
+```yaml blog/source/_posts/xxx.md
 ---
+# 本地图片路径为 blog/source/assets/xaoxuu/blog/2020-0927a@1x.svg
+# 也可以直接引用图片直链 https://xxx.jpg
 cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 ---
 ```
@@ -25,7 +27,7 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 
 上面这种方式会显示title与description或者摘要，若你想要图片全显示，可以加入 `cover_info:` 例如
 
-```yaml blog/source/xxx.md
+```yaml blog/source/_posts/xxx.md
 ---
 cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 cover_info:
@@ -40,7 +42,7 @@ cover_info:
 
 如果您想使用 Unsplash 搜索图片作为封面，可以在 `cover` 设置搜索关键词（用英文逗号隔开）：
 
-```yaml blog/source/xxx.md
+```yaml blog/source/_posts/xxx.md
 ---
 cover: workout,strava
 ---
@@ -50,7 +52,7 @@ cover: workout,strava
 
 一篇文章开头一段文字描述就是摘要，摘要和正文用 `<!-- more -->` 隔开，前后一定要有空行。例如：
 
-```yaml blog/source/xxx.md
+```yaml blog/source/_posts/xxx.md
 ---
 cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 ---
@@ -69,13 +71,13 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 
 文章页面顶部区域可以显示长长的横幅图片，设置方法如下：
 
-```yaml blog/source/xxx.md
+```yaml blog/source/_posts/xxx.md
 banner: /assets/xaoxuu/blog/2020-0927a@1x.svg
 ```
 
 如果您想使用 Unsplash 搜索图片作为横幅，可以在 `banner` 中设置搜索关键词（用英文逗号隔开）：
 
-```yaml blog/source/xxx.md
+```yaml blog/source/_posts/xxx.md
 ---
 banner: workout,strava
 ---
@@ -85,7 +87,7 @@ banner: workout,strava
 
 默认的一级标题是文章的 `title`，如果希望使用别的文字作为一级标题，可以指定 `h1`，例如：
 
-```yaml blog/source/xxx.md
+```yaml blog/source/_posts/xxx.md
 ---
 h1: 快速开始
 ---
@@ -99,7 +101,7 @@ h1: 快速开始
 
 在文章列表页面会显示文章所属的第一级分类，例如：
 
-```yaml blog/source/xxx.md
+```yaml blog/source/_posts/xxx.md
 ---
 categories: [设计开发, iOS开发]
 ---
@@ -111,7 +113,7 @@ categories: [设计开发, iOS开发]
 
 文章标签目前不可见，用于关键词、搜索、按标签检索、相关文章推荐等功能，例如：
 
-```yaml blog/source/xxx.md
+```yaml blog/source/_posts/xxx.md
 ---
 tags: [iOS, 心率]
 ---
