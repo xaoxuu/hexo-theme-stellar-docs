@@ -25,16 +25,18 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 {% image https://pic1.imgdb.cn/item/6354e0a216f2c2beb100617c.jpg width:600px %}
 {% endfolding %}
 
-上面这种方式会显示title与description或者摘要，若你想要图片全显示，可以加入 `cover_info:` 例如
+上面这种方式会显示title与description或者摘要，若你想要图片全显示，可以加入如下参数：
 
 ```yaml blog/source/_posts/xxx.md
 ---
-cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
-cover_info:
-  meta: 这是meta
-  title: 这是title（此title可正文title不一致）
+cover: /assets/xaoxuu/blog/2020-0927a@1x.svg # 必选
+cover-cat: 标题上方的小字 # 可选
+cover-title: 大标题 # 必选
+cover-subtitle: 标题下方的小字 # 可选
 ---
 ```
+
+> 为了显示美观，建议 `cat` 和 `subtitle` 选择其一与 `title` 搭配使用。
 
 {% folding 显示效果 open:false %}
 {% image https://pic1.imgdb.cn/item/6354e2a616f2c2beb1038f73.jpg width:600px %}
