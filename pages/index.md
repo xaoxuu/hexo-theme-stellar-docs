@@ -39,7 +39,15 @@ cover-subtitle: 标题下方的小字 # 可选
 > 为了显示美观，建议 `cat` 和 `subtitle` 选择其一与 `title` 搭配使用。
 
 {% folding 显示效果 open:false %}
-{% image https://pic1.imgdb.cn/item/6354e2a616f2c2beb1038f73.jpg width:600px %}
+
+只填写 `cover-title` 或填写 `cover-title` 与 `cover-cat` 时大标题位于上方
+
+{% image https://pic1.imgdb.cn/item/635aa9d016f2c2beb1fe4f53.jpg width:600px %}
+
+填写 `cover-title` 与 `cover-subtitle` 时大标题位于下方
+
+{% image https://pic1.imgdb.cn/item/635aaa8116f2c2beb1ffdd19.jpg width:600px %}
+
 {% endfolding %}
 
 如果您想使用 Unsplash 搜索图片作为封面，可以在 `cover` 设置搜索关键词（用英文逗号隔开）：
