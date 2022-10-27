@@ -33,8 +33,9 @@ title: 这是分页标题
 
 ```yaml blog/source/_data/projects.yml
 Stellar:
-  title: Stellar
-  subtitle: 每个人的独立博客
+  name: Stellar
+  title: Stellar - 每个人的独立博客
+  subtitle: '每个人的独立博客 | Designed by xaoxuu'
   tags: 博客主题
   cover: true
   logo:
