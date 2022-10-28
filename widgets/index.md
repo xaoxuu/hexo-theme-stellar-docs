@@ -164,7 +164,7 @@ tagcloud:
 ```yaml
 ghuser:
   layout: ghuser
-  api: https://api.github.com
+  api: https://api.github.com # 若有 api.github.com 镜像可填，否则保持默认
   username: github # your github login username
   avatar: true # show avatar or not
   menu: true # show menu or not
