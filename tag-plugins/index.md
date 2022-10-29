@@ -668,93 +668,72 @@ symbol: plus/minus/times
 {% link https://docs.github.com/en/rest/issues/issues#list-issues-assigned-to-the-authenticated-user GitHub&nbsp;REST&nbsp;API %}
 
 
-## Friends（友链标签）
+## Friends（友链组标签）
 
-{% friends only:group2 %}
+{% friends 开源大佬 %}
 
-您可以在任何位置插入友链，支持静态数据和动态数据，静态数据需要写在数据文件中：
+您可以在任何位置插入友链组，支持静态数据和动态数据，静态数据需要写在数据文件中：
 
-```yaml blog/source/_data/friends.yml
-group1:
-  title: 海内存知己 天涯若比邻
-  description: 感谢人生旅途中的每一份真挚的友谊，按结识先后顺序：
-  items:
+```yaml blog/source/_data/links.yml
+'开源大佬':
     - title: 某某某
-      ...
-# 如果不需要 title 和 description，可以直接把 items 内容提升到 group 层级中，例如：
-group2:
-  - title: 某某某
-    ...
-  - title: 某某某
-    ...
-# 可以设置 api、repo 来显示 GitHub Issues 中的数据：
-group3:
-  title: 来自 GitHub 的朋友
-  description: '以下友链通过[GitHub Issue](https://github.com/xaoxuu/friends/issues/)提交，按 issue 最后更新时间排序：'
-  api: https://issues-api.xaoxuu.com
-  repo: xaoxuu/friends
+      url: https://
+      screenshot:
+      avatar:
+      description:
 ```
 
-标题和描述都支持 md 格式，需要写在引号中。如果指定了 `api` 和 `repo` 字段，则从 issues 中取第一个 `json` 代码块数据作为友链。
+在需要的位置这样写：
 
-```md 写法如下
-{% friends %}
-```
-
-### 数据按组筛选
-
-友链支持分组（白名单模式和黑名单模式）显示：
-
-```md 写法如下
-// 显示 group1
-{% friends only:group1 %}
-
-// 显示 group1 和 group2
-{% friends only:group1,group2 %}
-
-// 除了 group2 别的都显示
-{% friends not:group2 %}
+```md 示例写法
+{% sites 分组名 %}
 ```
 
 ### 实现动态友链
 
-可以加载来自 issues 的友链数据，除了需要在 `_data/friends.yml` 中指定 `api` 和 `repo` 外，还需要做一下几件事：
+从[xaoxuu/issues-json-generator](https://github.com/xaoxuu/issues-json-generator)作为模板克隆或者 fork 仓库，然后在自己的仓库里提交一个 issue 进行测试，不出意外的话，仓库中已经配置好了 issue 模板，只需要在模板中指定的位置填写信息就可以了。
 
-从[xaoxuu/issues-api](https://github.com/xaoxuu/issues-api)作为模板克隆或者 fork 仓库，然后提交一个 issue 进行测试，不出意外的话，仓库中已经配置好了 issue 模板，只需要在模板中指定的位置填写信息就可以了。
+提交完 issue 一分钟左右，如果仓库中出现了 `output` 分支提交，可以点击查看一下文件内容是否已经包含了刚刚提交的 issue 中的数据，如果包含，那么前端页面就可以使用友链数据了。
 
-提交完 issue 一分钟左右，如果仓库中出现了 `output` 分支提交，可以点击查看一下文件内容是否已经包含了刚刚提交的 issue 中的数据，如果包含，那么再次回到前端页面刷新就可以看到来自 issue 的友链数据了。
+使用方法为（地址替换成自己的）：
+
+```
+{% friends repo:xaoxuu/issues-json-generator %}
+```
+
+也支持把数据托管到任何其他地方来使用：
+
+```
+{% friends data:https://raw.github.xaoxuu.com/xaoxuu/issues-json-generator/output/v2/data.json %}
+```
 
 {% note 关于自建&nbsp;Vercel&nbsp;API 如果您想使用自己的 api，请把您刚创建的仓库导入到 Vercel 项目，详见[小冰博客](https://zfe.space/post/python-issues-api.html)的教程。 %}
 
 {% note color:green 特别感谢 特别感谢小冰博客通过 Vercel 进行加速的方案，解决了原本直接请求 GitHub API 速度过慢的问题。 %}
 
-### 只显示动态数据
 
-如果您不想创建 `friends.yml` 来设置任何静态数据，可以在标签中设置 `repo` 来只显示动态数据：
+## Sites（网站卡片组标签）
 
+{% sites mac_app_download %}
+
+您可以在任何位置插入网站卡片组，支持静态数据和动态数据，静态数据需要写在数据文件中：
+
+```yaml blog/source/_data/links.yml
+'分组名':
+    - title: 某某某
+      url: https://
+      screenshot:
+      avatar:
+      description:
 ```
-{% friends repo:xaoxuu/friends %}
-```
 
-当然，如果您自己部署了 API 接口，可以指定：
-
-```
-{% friends repo:xaoxuu/friends api:https://issues-api.xaoxuu.com %}
-```
-
-## Sites（网站卡片标签）
-
-{% sites only:examples %}
-
-网站卡片可以显示网站截图、logo、标题、描述，使用方法和友链标签一模一样，唯一的区别是数据文件名称为 `sites.yml`，可以和友链数据混用，通过分组过滤实现不一样的效果。
+在需要的位置这样写：
 
 ```md 示例写法
-{% sites only:mac %}
+{% sites 分组名 %}
 ```
 
-{% folding sites only:mac %}
-{% sites only:mac %}
-{% endfolding %}
+动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
 
 ## GitHub Card（GitHub卡片标签）
 
