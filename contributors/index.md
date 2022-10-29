@@ -1,7 +1,7 @@
 ---
 layout: wiki
 wiki: Stellar
-order: 60
+order: 1000
 title: 感谢开发者和点赞名单
 ---
 
