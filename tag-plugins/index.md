@@ -704,7 +704,7 @@ symbol: plus/minus/times
 也支持把数据托管到任何其他地方来使用：
 
 ```
-{% friends data:https://raw.github.xaoxuu.com/xaoxuu/issues-json-generator/output/v2/data.json %}
+{% friends api:https://raw.github.xaoxuu.com/xaoxuu/issues-json-generator/output/v2/data.json %}
 ```
 
 {% note 关于自建&nbsp;Vercel&nbsp;API 如果您想使用自己的 api，请把您刚创建的仓库导入到 Vercel 项目，详见[小冰博客](https://zfe.space/post/python-issues-api.html)的教程。 %}

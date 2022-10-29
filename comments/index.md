@@ -67,16 +67,6 @@ comments:
     envId: https://xxx # vercel函数
 ```
 
-## Valine
-
-```yaml blog/_config.stellar.yml
-comments:
-  service: valine
-  valine:
-    appId: # your appId
-    appKey: # your appKey
-```
-
 ## waline
 
 ```yaml blog/_config.stellar.yml
