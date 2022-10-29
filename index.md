@@ -1,12 +1,12 @@
 ---
 layout: wiki
 wiki: Stellar
-seo_title: 一个实用简约主义的 Hexo 主题
+seo_title: 每个人的独立博客
 title: 安装与更新
 h1: 快速开始您的博客之旅
 ---
 
-Stellar 是一个内置 wiki 系统的 hexo 主题，拥有简约而精美的视觉设计和丰富又灵活的标签插件，帮助您简单从容地应对各种表达需求，十分推荐内容创作者使用 Stellar 开始您全新的博客之旅。
+Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件，帮助您简单从容地应对各种表达需求，十分推荐内容创作者使用 Stellar 开始您全新的博客之旅。
 
 {% folding 了解 Stellar 的设计理念 %}
 
