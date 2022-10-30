@@ -691,7 +691,19 @@ symbol: plus/minus/times
 
 ### 实现动态友链
 
-从[xaoxuu/issues-json-generator](https://github.com/xaoxuu/issues-json-generator)作为模板克隆或者 fork 仓库，然后在自己的仓库里提交一个 issue 进行测试，不出意外的话，仓库中已经配置好了 issue 模板，只需要在模板中指定的位置填写信息就可以了。
+从[xaoxuu/issues-json-generator](https://github.com/xaoxuu/issues-json-generator)作为模板克隆或者 fork 仓库
+
+修改`config.yml`并打开github action的运行权限
+
+```yaml config.yml
+# 要抓取的 issues 配置
+issues:
+  repo: xaoxuu/friends # 仓库持有者/仓库名（改成自己的）
+  label: active # 筛选具有 active 标签的 issue ，取消此项则会提取所有 open 状态的 issue
+  sort: # updated-desc # 排序，按最近更新，取消此项则按创建时间排序
+```
+
+不出意外的话，仓库中已经配置好了 issue 模板，只需要在模板中指定的位置填写信息就可以了。然后在自己的仓库里提交一个 issue 并将 `Label` 设置为 `active` 进行测试。
 
 提交完 issue 一分钟左右，如果仓库中出现了 `output` 分支提交，可以点击查看一下文件内容是否已经包含了刚刚提交的 issue 中的数据，如果包含，那么前端页面就可以使用友链数据了。
 
