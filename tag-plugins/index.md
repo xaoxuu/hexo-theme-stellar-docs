@@ -686,7 +686,7 @@ symbol: plus/minus/times
 在需要的位置这样写：
 
 ```md 示例写法
-{% sites 分组名 %}
+{% friends 开源大佬 %}
 ```
 
 ### 实现动态友链
