@@ -5,6 +5,26 @@ order: 900
 title: 探索个性化选项
 ---
 
+## 文章模板
+
+我一看这文档，每次写一篇新文章都要重新写一遍`cover`,`desciption`,`categories`多麻烦，直接让hexo替我写了它不香吗
+
+根目录下 `scaffolds` 文件夹中编辑 `post.md` 的 `font-matter`
+
+```md blog/scaffolds/post.md
+---
+title: {{ title }}
+date: {{ date }}
+tags: []
+categories: []
+cover:
+cover-cat: 标题上方的小字 # 可选
+cover-title: 大标题 # 必选
+cover-subtitle: 标题下方的小字 # 可选
+cover-text-color: 标题颜色 # 可选
+---
+```
+
 ## 主题色 & 字体
 
 {% note 自定义主题色于1.11.0版本支持 color:orange %}

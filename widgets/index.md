@@ -213,11 +213,42 @@ wiki: [toc, ghrepo, related] # for pages using 'layout:wiki'
 
 ### timeline（时间线）
 
-```yaml
+```yaml blog/source/_data/widgets.yml
 timeline:
   layout: timeline
   title: 近期动态
-  api: https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues
+  api: https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues # 若你想限制数量，在api链接后面加上?per_page=1指限制为1条
   user: # 是否过滤只显示某个人发布的内容，如果要筛选多人，用英文逗号隔开
   hide: # title,footer # 隐藏标题或底部
+```
+
+现在侧边栏不仅能放置近期动态，还可以放置朋友圈
+
+```yaml blog/source/_data/widgets.yml
+# 愣着干啥，新建啊
+'朋友圈':
+  layout: timeline
+  title: 近期动态
+  api: https://raw.github.xaoxuu.com/xaoxuu/friends-rss/output/data.json # 你的朋友圈数据文件地址
+  type: fcircle
+  limit: # 可通过这个限制数量
+```
+
+然后你可以在`_config.stellar.yml`中设置引用
+
+```yaml blog/_config.stellar.yml
+sidebar:
+  ...
+  widgets:
+    index: [welcome, 朋友圈]
+```
+
+或者在你需要显示的页面引入
+
+{% note 页面引入＞设置引入 %}
+
+```md blog/source/_posts/xxx.md
+---
+sidebar: [ghuser, 朋友圈]
+---
 ```
