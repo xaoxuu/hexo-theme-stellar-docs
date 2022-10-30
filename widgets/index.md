@@ -219,4 +219,5 @@ timeline:
   title: 近期动态
   api: https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues
   user: # 是否过滤只显示某个人发布的内容，如果要筛选多人，用英文逗号隔开
+  hide: # title,footer # 隐藏标题或底部
 ```

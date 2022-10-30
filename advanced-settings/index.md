@@ -227,10 +227,6 @@ fork [@Rock-Candy-Tea/hexo-circle-of-friends](https://github.com/Rock-Candy-Tea/
 
 {% codeblock lang:yaml %}
 GITHUB_FRIENDS_LINKS: {
-    enable: false, # true 开启github issue兼容
-    type: "normal",  # volantis/stellar用户请在这里填写volantis
-    owner: "ccknbc",  # 填写你的github用户名
-    repo: "ccknbc-actions",  # 填写你的github仓库名
     enable: true, # true 开启github issue兼容
     type: "volantis",  # volantis/stellar用户请在这里填写volantis
     owner: "xaoxuu",  # 填写你的github用户名
