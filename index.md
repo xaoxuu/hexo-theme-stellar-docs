@@ -35,13 +35,13 @@ Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富
 
 ## 开始前的准备工作
 
-尽管我们致力于降低使用门槛，但是自建独立博客仍然需要一定的相关知识，[markdown](https://www.runoob.com/markdown/md-tutorial.html)常用语法是必须要掌握的，除此之外，您还需要知道 `yaml` 文件格式、简单的 `git` 知识，最最重要的是，遇到问题知道该如何高效地寻找答案：
+尽管我们致力于降低使用门槛，但是自建独立博客仍然需要一定的相关知识，[markdown](https://www.runoob.com/markdown/md-tutorial.html) 常用语法是必须要掌握的，除此之外，您还需要知道 `yaml` 文件格式、简单的 `git` 知识，最最重要的是，遇到问题知道该如何高效地寻找答案：
 
 {% checkbox checked:true 翻阅和搜索文档 %}
 {% checkbox checked:true 搜索 issues 中是否已经有解决办法 %}
 {% checkbox checked:true 如果没有，新建 issue 并按照要求进行操作，详尽地描述您遇到的问题 %}
 
-如果您没有使用过 Hexo 也不要着急，可以先通读一遍[Hexo](https://hexo.io/zh-cn/docs/)中文文档。此外，如果您从旧版本更新或着其它主题迁移，请确保环境版本不要太低，否则会产生兼容性问题：
+如果您没有使用过 Hexo 也不要着急，可以先通读一遍 [Hexo](https://hexo.io/zh-cn/docs/) 中文文档。此外，如果您从旧版本更新或着其它主题迁移，请确保环境版本不要太低，否则会产生兼容性问题：
 
 ```yaml 建议的版本
 Hexo: 5.4.0 ~ 6.3.0
@@ -70,7 +70,7 @@ npm: 6.14.13 ~ 8.19.2
 1. 在 package.json 中修改 stellar 的版本号，然后执行：
 {% copy npm i %}
 
-2. 阅读[更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)进行迁移操作。
+2. 阅读 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases) 进行迁移操作。
 
 {% note color:green 适用范围 稳定版适用于以内容创作为主，不需要自定义主题，追求稳定和可靠性的用户。 %}
 
@@ -89,7 +89,7 @@ npm: 6.14.13 ~ 8.19.2
 1. 打开终端并进入主题文件夹，执行：
 {% copy git pull %}
 
-2. 阅读[更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)进行迁移操作。
+2. 阅读 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases) 进行迁移操作。
 
 {% note color:blue 适用范围 最新版适用于以内容创作为主，不需要自定义主题，追求新特性的用户。 %}
 
@@ -97,7 +97,7 @@ npm: 6.14.13 ~ 8.19.2
 
 **安装方法**
 
-1. 把 Stellar 主题仓库[fork](https://github.com/xaoxuu/hexo-theme-stellar)到您的 GitHub 账号下
+1. 把 Stellar 主题仓库 [fork](https://github.com/xaoxuu/hexo-theme-stellar) 到您的 GitHub 账号下
 
 2. 把您 fork 的 Stellar 主题仓库添加为博客仓库的子模块
 {% copy git submodule add https://github.com/#yourname#/hexo-theme-stellar.git themes/stellar %}
@@ -110,13 +110,13 @@ npm: 6.14.13 ~ 8.19.2
 1. 在您 fork 的 Stellar 主题仓库打开终端，执行：
 {% copy git pull %}
 
-2. 阅读[更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)进行迁移操作。
+2. 阅读 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases) 进行迁移操作。
 
 {% note color:yellow 适用范围 自定义版适用于对主题有自定义需求，且掌握了一定的前端知识和动手能力的用户。 %}
 
 **自动更新💡**
 
-安装并授权[pull](https://github.com/apps/pull)这个机器人，当源仓库发生更新时，机器人会自动提 `PR` 到自己 `fork` 的仓库中。
+安装并授权 [pull](https://github.com/apps/pull) 这个机器人，当源仓库发生更新时，机器人会自动提 `PR` 到自己 `fork` 的仓库中。
 
 <!-- tab 引用源码 -->
 
@@ -134,7 +134,7 @@ npm: 6.14.13 ~ 8.19.2
 
 {% quot 项目中的许可声明文件应包含在所有副本中 %}
 
-本主题是由[@xaoxuu](https://github.com/xaoxuu)设计和开发，使用[MIT License](https://fastly.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/LICENSE)开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
+本主题是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，使用 [MIT License](https://fastly.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
 
 ```license
 MIT License

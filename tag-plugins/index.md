@@ -691,7 +691,7 @@ symbol: plus/minus/times
 
 ### 实现动态友链
 
-从[xaoxuu/issues-json-generator](https://github.com/xaoxuu/issues-json-generator)作为模板克隆或者 fork 仓库
+从 [xaoxuu/issues-json-generator](https://github.com/xaoxuu/issues-json-generator) 作为模板克隆或者 fork 仓库
 
 修改`config.yml`并打开github action的运行权限
 
@@ -801,7 +801,7 @@ XAOXUU 目前是一个 iOS 开发者，代表作品有：ProHUD、ValueX 等。�
 
 ## Tabs（分栏标签）
 
-这个标签移植自[NexT](https://theme-next.js.org/docs/tag-plugins/tabs.html)主题，但做了以下修改：
+这个标签移植自 [NexT](https://theme-next.js.org/docs/tag-plugins/tabs.html) 主题，但做了以下修改：
 
 - 支持设置 `align:center` 来使内容居中
 - 设置默认激活的标签方式为 `active:1` 而非 `, 1`（使用默认格式降低学习成本，且显式声明可读性更强）

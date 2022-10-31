@@ -225,7 +225,7 @@ inject:
 
 ## 友链朋友圈
 
-{% note 特别感谢 主题内置版本数据服务由[@Rock-Candy-Tea/hexo-circle-of-friends](https://github.com/Rock-Candy-Tea/hexo-circle-of-friends)友链朋友圈极简版提供。 %}
+{% note 特别感谢 主题内置版本数据服务由 [友链朋友圈](https://github.com/Rock-Candy-Tea/hexo-circle-of-friends) 极简版提供。 %}
 
 {% timeline %}
 
