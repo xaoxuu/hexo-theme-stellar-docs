@@ -16,7 +16,7 @@ comments:
     repo: xaoxuu/blog-comments
 ```
 
-[Beaudar](https://beaudar.lipk.org)的配置方法很简单，创建一个仓库，在仓库中创建一个[域名白名单文件](https://github.com/xaoxuu/blog-comments/blob/main/beaudar.json)，然后在[此处](https://github.com/apps/beaudar)授权安装即可。
+[Beaudar](https://beaudar.lipk.org) 的配置方法很简单，创建一个仓库，在仓库中创建一个 [域名白名单文件](https://github.com/xaoxuu/blog-comments/blob/main/beaudar.json)，然后在 [此处](https://github.com/apps/beaudar) 授权安装即可。
 
 ## utterances
 
@@ -29,12 +29,12 @@ comments:
     repo: xaoxuu/blog-comments
 ```
 
-[utterances](https://utteranc.es)的配置方法很简单，创建一个仓库，在仓库中创建一个[域名白名单文件](https://github.com/xaoxuu/blog-comments/blob/main/utterances.json)，然后在[此处](https://github.com/apps/utterances)授权安装即可。
+[utterances](https://utteranc.es) 的配置方法很简单，创建一个仓库，在仓库中创建一个 [域名白名单文件](https://github.com/xaoxuu/blog-comments/blob/main/utterances.json)，然后在 [此处](https://github.com/apps/utterances) 授权安装即可。
 
 ## giscus
 
 
-[giscus](https://giscus.app/zh-CN)是由 GitHub Discussions 驱动的评论系统。让访客借助 GitHub 在你的网站上留下评论和反应吧！本项目受 utterances 强烈启发。
+[giscus](https://giscus.app/zh-CN) 是由 GitHub Discussions 驱动的评论系统。让访客借助 GitHub 在你的网站上留下评论和反应吧！本项目受 utterances 强烈启发。
 
 ```yaml blog/_config.stellar.yml
 comments:

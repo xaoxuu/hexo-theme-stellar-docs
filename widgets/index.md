@@ -197,7 +197,7 @@ Stellar:
 
 ### related（更多）
 
-原 `wiki_more`，于 [c1183fd](https://github.com/xaoxuu/hexo-theme-stellar/commit/c1183fd0c114d68d28e19bca8db17f3e93b56773)更换为 `related`，若您的版本低于此时间，请自行更改
+原 `wiki_more`，于 [c1183fd](https://github.com/xaoxuu/hexo-theme-stellar/commit/c1183fd0c114d68d28e19bca8db17f3e93b56773) 更换为 `related`，若您的版本低于此时间，请自行更改
 
 ```yaml blog/source/_data/widgets
 # wiki_more:
