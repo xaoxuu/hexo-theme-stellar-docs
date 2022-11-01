@@ -229,7 +229,7 @@ timeline:
 '朋友圈':
   layout: timeline
   title: 近期动态
-  api: https://raw.github.xaoxuu.com/xaoxuu/friends-rss/output/data.json # 你的朋友圈数据文件地址
+  api: https://raw.github.xaoxuu.com/friends-rss/output/data.json # 你的朋友圈数据文件地址
   type: fcircle
   limit: # 可通过这个限制数量
 ```
