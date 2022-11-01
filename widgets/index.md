@@ -229,10 +229,14 @@ timeline:
 '朋友圈':
   layout: timeline
   title: 近期动态
-  api: https://raw.github.xaoxuu.com/friends-rss/output/data.json # 你的朋友圈数据文件地址
+  api: https://raw.githubusercontent.com/yourname/yourepo/main/data.json # 你的朋友圈数据文件地址
   type: fcircle
   limit: # 可通过这个限制数量
 ```
+
+{% border 注意！ color:red %}
+源api地址 https://raw.github.xaoxuu.com/ 已经无法使用，请自行替换为 https://raw.githubusercontent.com/ 或者自行想其他方法加速
+{% endborder %}
 
 然后你可以在`_config.stellar.yml`中设置引用
 
