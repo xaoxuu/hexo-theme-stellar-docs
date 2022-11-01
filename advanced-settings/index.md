@@ -271,11 +271,15 @@ comments: false
 post_list: true # 这就意味着页面会显示首页文章导航栏
 sidebar: [welcome, recent]
 ---
-{% timeline type:fcircle api:https://raw.github.xaoxuu.com/friends-rss/output/data.json %}
+{% timeline type:fcircle api:https://raw.githubusercontent.com/friends-rss/output/data.json %}
 {% endtimeline %}
 {% endraw %}{% endcodeblock %}
 
 其中，`api` 部分替换为自己仓库地址及其对应的 `data.json` 文件路径。
+
+{% border 注意！ color:red %}
+源api地址 https://raw.github.xaoxuu.com/ 已经无法使用，请自行替换为 https://raw.githubusercontent.com/ 或者自行想其他方法加速
+{% endborder %}
 
 其中，`post_list: true` 意味着页面会显示首页文章导航栏，搭配主题配置文件中的：
 {% codeblock lang:yaml %}
