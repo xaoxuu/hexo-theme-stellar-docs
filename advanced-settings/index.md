@@ -271,15 +271,11 @@ comments: false
 post_list: true # 这就意味着页面会显示首页文章导航栏
 sidebar: [welcome, recent]
 ---
-{% timeline type:fcircle api:https://data.json.vlts.cc/v1/xaoxuu/friends-rss-generator %}
+{% timeline type:fcircle api:https://raw.githubusercontent.com/xaoxuu/friends-rss-generator/output/data.json %}
 {% endtimeline %}
 {% endraw %}{% endcodeblock %}
 
-其中，`api` 部分替换为自己仓库地址及其对应的 `data.json` 文件路径。
-
-{% border 注意！ color:red %}
-源api地址 https://raw.github.xaoxuu.com/ 已经无法使用，请自行替换为 https://raw.githubusercontent.com/ 或者自行想其他方法加速
-{% endborder %}
+其中，`api` 部分替换为自己仓库地址及其对应的 `data.json` 文件真实路径。
 
 其中，`post_list: true` 意味着页面会显示首页文章导航栏，搭配主题配置文件中的：
 {% codeblock lang:yaml %}
@@ -292,5 +288,10 @@ post-index:
 {% endtimeline %}
 
 > - 你依然可以按照官方教程使用完整版。
-> - 本站示例仓库：[@xaoxuu/friends-rss](https://github.com/xaoxuu/friends-rss)
+> - 本站示例仓库：[@xaoxuu/friends-rss-generator](https://github.com/xaoxuu/friends-rss-generator)
 
+如果像我一样把 `data.json` 输出到 [output](https://github.com/xaoxuu/friends-rss-generator/blob/a97f385398928d2c0b5c7988cff34505eb3ae8fd/.github/workflows/main.yml#L115) 分支，可以直接使用下面的 API 来访问文件：
+
+```
+https://data.json.vlts.cc/v1/xaoxuu/friends-rss-generator
+```
