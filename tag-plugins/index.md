@@ -705,7 +705,13 @@ issues:
 
 不出意外的话，仓库中已经配置好了 issue 模板，只需要在模板中指定的位置填写信息就可以了。然后在自己的仓库里提交一个 issue 并将 `Label` 设置为 `active` 进行测试。
 
-提交完 issue 一分钟左右，如果仓库中出现了 `output` 分支提交，可以点击查看一下文件内容是否已经包含了刚刚提交的 issue 中的数据，如果包含，那么前端页面就可以使用友链数据了，支持把数据托管到任何其他地方来使用：
+提交完 issue 一分钟左右，如果仓库中出现了 `output` 分支提交，可以点击查看一下文件内容是否已经包含了刚刚提交的 issue 中的数据，如果包含，那么前端页面就可以使用友链数据了：
+
+```
+{% friends api:https://raw.githubusercontent.com/xaoxuu/friends/output/v2/data.json %}
+```
+
+支持把数据托管到任何其他地方来使用，例如：
 
 ```
 {% friends api:https://data.json.vlts.cc/v2/xaoxuu/friends %}
