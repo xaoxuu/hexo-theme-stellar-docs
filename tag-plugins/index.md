@@ -708,7 +708,7 @@ issues:
 提交完 issue 一分钟左右，如果仓库中出现了 `output` 分支提交，可以点击查看一下文件内容是否已经包含了刚刚提交的 issue 中的数据，如果包含，那么前端页面就可以使用友链数据了，支持把数据托管到任何其他地方来使用：
 
 ```
-{% friends api:https://raw.github.xaoxuu.com/friends/output/v2/data.json %}
+{% friends api:https://data.json.vlts.cc/v2/xaoxuu/friends %}
 ```
 
 {% note 关于自建&nbsp;Vercel&nbsp;API 如果您想使用自己的 api，请把您刚创建的仓库导入到 Vercel 项目，详见[小冰博客](https://zfe.space/post/python-issues-api.html)的教程。 %}
