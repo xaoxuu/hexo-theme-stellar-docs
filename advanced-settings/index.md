@@ -17,7 +17,9 @@ title: {{ title }}
 date: {{ date }}
 tags: []
 categories: []
-cover:
+description: 
+cover: 
+banner: 
 cover-cat: 标题上方的小字 # 可选
 cover-title: 大标题 # 必选
 cover-subtitle: 标题下方的小字 # 可选
@@ -60,13 +62,23 @@ style:
       code: '#ff7043' # 行内代码颜色
 ```
 
-引入外部字体，在 `_config.yml` 中写入
+要想引用外部字体，你需要先在 `_config.yml` 中 `inject` 引入
+
+举例，引用 [Noto Serif SC](https://fonts.google.com/noto/specimen/Noto+Serif+SC?query=noto+&subset=chinese-simplified) 在 `_config.yml` 中写入
 
 ```yaml blog/_config.yml
 inject:
   head:
     - <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
   script:
+```
+
+并在 `_config.stellar.yml` 中填写你引入的字体名称
+
+```yaml blog/_config.stellar.yml
+style:
+  font-family:
+    body: '"Noto Serif SC", "Microsoft Yahei",..., sans-serif'
 ```
 
 选择在线字体：

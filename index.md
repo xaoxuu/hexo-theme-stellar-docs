@@ -41,7 +41,11 @@ Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富
 {% checkbox checked:true 搜索 issues 中是否已经有解决办法 %}
 {% checkbox checked:true 如果没有，新建 issue 并按照要求进行操作，详尽地描述您遇到的问题 %}
 
-如果您没有使用过 Hexo 也不要着急，可以先通读一遍 [Hexo](https://hexo.io/zh-cn/docs/) 中文文档。此外，如果您从旧版本更新或着其它主题迁移，请确保环境版本不要太低，否则会产生兼容性问题：
+**如果您没有使用过 Hexo 也不要着急，我十分建议您去通读一遍 [Hexo](https://hexo.io/zh-cn/docs/) 中文文档**。
+
+{% link https://hexo.io/zh-cn/docs/ icon:https://hexo.io/icon/favicon-32x32.png %}
+
+此外，如果您从旧版本更新或着其它主题迁移，请确保环境版本不要太低，否则会产生兼容性问题：
 
 ```yaml 建议的版本
 Hexo: 5.4.0 ~ 6.3.0
