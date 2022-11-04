@@ -92,7 +92,7 @@ style:
 
 选择在线字体：
 
-{% link https://www.googlefonts.cn/ Google&nbsp;Fonts %}
+{% link https://www.googlefonts.cn/ %}
 
 ## 文本对齐方向
 

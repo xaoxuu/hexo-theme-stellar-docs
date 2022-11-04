@@ -174,7 +174,7 @@ sidebar:
 
 友链被设计成标签，您可以在任何页面任何位置插入友链，详见：
 
-{% link /wiki/stellar/tag-plugins/#友链标签 友链标签 %}
+{% link https://xaoxuu.com/wiki/stellar/tag-plugins/#友链标签 #友链标签 %}
 
 ## 关于页面
 
