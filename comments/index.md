@@ -82,3 +82,7 @@ comments:
     # Pageviews count, Note: You should not enable both `waline.pageview` and `leancloud_visitors`.
     pageview: false
 ```
+
+## valine
+
+{% note Stellar&nbsp;v1.13.0已移除对Valine评论的支持 color:red %}

@@ -5,6 +5,10 @@ order: 104
 title: 侧边栏配置
 ---
 
+{% border Stellar&nbsp;v1.11.0 color:red %}
+侧边栏组件配置从 _config.yml 中转移到数据文件 _data/widgets.yml 中，且仅支持在数据文件中配置。同时布局由 sidebar.widgets_layout 改名为 sidebar.widgets
+{% endborder %}
+
 ## Logo
 
 左上角的 logo 和标题取自站点根目录的配置文件：
@@ -197,7 +201,9 @@ Stellar:
 
 ### related（更多）
 
-原 `wiki_more`，于 [c1183fd](https://github.com/xaoxuu/hexo-theme-stellar/commit/c1183fd0c114d68d28e19bca8db17f3e93b56773) 更换为 `related`，若您的版本低于此时间，请自行更改
+{% border Stellar&nbsp;v1.12.0 color:red %}
+v1.12.0 已将 `wiki_more`，更名为 `related`
+{% endborder %}
 
 ```yaml blog/source/_data/widgets
 # wiki_more:
@@ -213,16 +219,20 @@ wiki: [toc, ghrepo, related] # for pages using 'layout:wiki'
 
 ### timeline（时间线）
 
+{% note 此功能需要Stellar&nbsp;version>=1.12.0 %}
+
 ```yaml blog/source/_data/widgets.yml
 timeline:
   layout: timeline
   title: 近期动态
   api: https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues # 若你想限制数量，在api链接后面加上?per_page=1指限制为1条
   user: # 是否过滤只显示某个人发布的内容，如果要筛选多人，用英文逗号隔开
-  hide: # title,footer # 隐藏标题或底部
+  hide: # title,footer # 隐藏标题或底部 # 此功能需要 Stellar v1.13.0
 ```
 
-现在侧边栏不仅能放置近期动态，还可以放置朋友圈
+现在侧边栏不仅能放置近期动态，还可以放置朋友圈文章
+
+{% note Stellar&nbsp;v1.13.0 color:red %}
 
 ```yaml blog/source/_data/widgets.yml
 # 愣着干啥，新建啊

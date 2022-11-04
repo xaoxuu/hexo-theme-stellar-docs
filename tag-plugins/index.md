@@ -263,6 +263,10 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark
 
 ## Border（边框标签）
 
+{% border Stellar&nbsp;v1.12.0 color:red %}
+grid 标签名更改为 border
+{% endborder %}
+
 使用过 `noteblock` 标签的朋友对这个新标签会比较熟悉，它是从 `noteblock` 演化而来的，基础功能和 `noteblock` 是一致的，这是一个容器类标签，可以放置丰富的内容。
 
 ### 文本内容
@@ -385,6 +389,8 @@ npm: 6.14.10 LTS
 
 ## Split（两列分区标签）
 
+{% note Stellar&nbsp;v1.12.0 color:red %}
+
 {% split bg:block %}
 
 <!-- cell -->
@@ -462,6 +468,8 @@ func test() {
 {% endfolding %}
 
 ## Folders（一组折叠标签）
+
+{% note Stellar&nbsp;v1.11.0 color:red %}
 
 样式相比 `folding` 简单一些，适用于多个折叠标签平铺显示的场景，例如题目列表：
 
@@ -717,6 +725,11 @@ issues:
 {% friends api:https://data.json.vlts.cc/v2/xaoxuu/friends %}
 ```
 
+{% border Stellar&nbsp;v1.13.0 color:red %}
+动态数据 API 升级至 v2 版本，原使用 issue-api 仓库的需要将友链仓库同步更新。
+v1 版本已经停止维护。
+{% endborder %}
+
 {% note 关于自建&nbsp;Vercel&nbsp;API 如果您想使用自己的 api，请把您刚创建的仓库导入到 Vercel 项目，详见[小冰博客](https://zfe.space/post/python-issues-api.html)的教程。 %}
 
 {% note color:green 特别感谢 特别感谢小冰博客通过 Vercel 进行加速的方案，解决了原本直接请求 GitHub API 速度过慢的问题。 %}
@@ -743,7 +756,9 @@ issues:
 {% sites 分组名 %}
 ```
 
-动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
+{% border color:red %}
+Stellar v1.13.0 将原 friends 和 site 标签数据合并至 links.yml 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
+{% endborder %}
 
 ## GitHub Card（GitHub卡片标签）
 

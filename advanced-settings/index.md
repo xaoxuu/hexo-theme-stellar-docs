@@ -27,17 +27,13 @@ cover-text-color: 标题颜色 # 可选
 ---
 ```
 
-## 主题色 & 字体
+## 主题色
 
-{% note 自定义主题色于1.11.0版本支持 color:orange %}
+{% note Stellar&nbsp;v1.11.0 color:red %}
 
 ```yaml blog/_config.stellar.yml
 style:
-  font-size: 16px
-  font-family:
-    logo: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
-    body: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
-    code: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
+  ...
   color:
     common:
       theme: '#1BCDFC' # 主题色
@@ -60,6 +56,19 @@ style:
       title: '#fff' # 标题文本颜色
       text: '#eee' # 正文文本颜色
       code: '#ff7043' # 行内代码颜色
+```
+
+## 字体
+
+{% note Stellar&nbsp;v1.10.0 color:red %}
+
+```yaml blog/_config.stellar.yml
+style:
+  font-size: 16px
+  font-family:
+    logo: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
+    body: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
+    code: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
 ```
 
 要想引用外部字体，你需要先在 `_config.yml` 中 `inject` 引入
@@ -236,6 +245,8 @@ inject:
 ```
 
 ## 友链朋友圈
+
+{% note Stellar&nbsp;v1.13.0 color:red %}
 
 {% note 特别感谢 主题内置版本数据服务由 [友链朋友圈](https://github.com/Rock-Candy-Tea/hexo-circle-of-friends) 极简版提供。 %}
 
