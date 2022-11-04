@@ -85,4 +85,4 @@ comments:
 
 ## valine
 
-{% note Stellar&nbsp;v1.13.0已移除对Valine评论的支持 color:red %}
+{% note Stellar v1.13.0已移除对Valine评论的支持 color:red %}

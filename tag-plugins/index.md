@@ -263,7 +263,7 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark
 
 ## Border（边框标签）
 
-{% border Stellar&nbsp;v1.12.0 color:red %}
+{% border Stellar v1.12.0 color:red %}
 grid 标签名更改为 border
 {% endborder %}
 
@@ -389,7 +389,7 @@ npm: 6.14.10 LTS
 
 ## Split（两列分区标签）
 
-{% note Stellar&nbsp;v1.12.0 color:red %}
+{% note Stellar v1.12.0 color:red %}
 
 {% split bg:block %}
 
@@ -469,7 +469,7 @@ func test() {
 
 ## Folders（一组折叠标签）
 
-{% note Stellar&nbsp;v1.11.0 color:red %}
+{% note Stellar v1.11.0 color:red %}
 
 样式相比 `folding` 简单一些，适用于多个折叠标签平铺显示的场景，例如题目列表：
 

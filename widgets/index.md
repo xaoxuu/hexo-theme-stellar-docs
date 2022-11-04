@@ -5,7 +5,7 @@ order: 104
 title: 侧边栏配置
 ---
 
-{% border Stellar&nbsp;v1.11.0 color:red %}
+{% border Stellar v1.11.0 color:red %}
 侧边栏组件配置从 _config.yml 中转移到数据文件 _data/widgets.yml 中，且仅支持在数据文件中配置。同时布局由 sidebar.widgets_layout 改名为 sidebar.widgets
 {% endborder %}
 
@@ -201,7 +201,7 @@ Stellar:
 
 ### related（更多）
 
-{% border Stellar&nbsp;v1.12.0 color:red %}
+{% border Stellar v1.12.0 color:red %}
 v1.12.0 已将 `wiki_more`，更名为 `related`
 {% endborder %}
 
@@ -219,7 +219,7 @@ wiki: [toc, ghrepo, related] # for pages using 'layout:wiki'
 
 ### timeline（时间线）
 
-{% note 此功能需要Stellar&nbsp;version>=1.12.0 %}
+{% note Stellar v1.12.0 color:red %}
 
 ```yaml blog/source/_data/widgets.yml
 timeline:
@@ -232,7 +232,7 @@ timeline:
 
 现在侧边栏不仅能放置近期动态，还可以放置朋友圈文章
 
-{% note Stellar&nbsp;v1.13.0 color:red %}
+{% note Stellar v1.13.0 color:red %}
 
 ```yaml blog/source/_data/widgets.yml
 # 愣着干啥，新建啊

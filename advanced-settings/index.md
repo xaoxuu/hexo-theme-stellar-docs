@@ -30,7 +30,7 @@ poster: # 海报（可选，全图封面卡片）
 
 ## 主题色
 
-{% note Stellar&nbsp;v1.11.0 color:red %}
+{% note Stellar v1.11.0 color:red %}
 
 ```yaml blog/_config.stellar.yml
 style:
@@ -61,7 +61,7 @@ style:
 
 ## 字体
 
-{% note Stellar&nbsp;v1.10.0 color:red %}
+{% note Stellar v1.10.0 color:red %}
 
 ```yaml blog/_config.stellar.yml
 style:
@@ -247,7 +247,7 @@ inject:
 
 ## 友链朋友圈
 
-{% note Stellar&nbsp;v1.13.0 color:red %}
+{% note Stellar v1.13.0 color:red %}
 
 {% note 特别感谢 主题内置版本数据服务由 [友链朋友圈](https://github.com/Rock-Candy-Tea/hexo-circle-of-friends) 极简版提供。 %}
 
