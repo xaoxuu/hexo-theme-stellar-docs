@@ -30,10 +30,11 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 ```yaml blog/source/_posts/xxx.md
 ---
 cover: /assets/xaoxuu/blog/2020-0927a@1x.svg # 必选
-cover-cat: 标题上方的小字 # 可选
-cover-title: 大标题 # 必选
-cover-subtitle: 标题下方的小字 # 可选
-cover-text-color: 字体颜色 # 可选，默认为黑色 # white,red...
+poster: # 海报（可选，全图封面卡片）
+  topic: 标题上方的小字 # 可选
+  headline: 大标题 # 必选
+  caption: 标题下方的小字 # 可选
+  color: 标题颜色 # 可选，默认为跟随主题的动态颜色 # white,red...
 ---
 ```
 
@@ -41,11 +42,11 @@ cover-text-color: 字体颜色 # 可选，默认为黑色 # white,red...
 
 {% folding 显示效果 open:false %}
 
-填写 `cover-title` 与 `cover-cat` 时大标题位于上方
+填写 `topic` 与 `headline` 时大标题位于上方
 
 {% image https://pic1.imgdb.cn/item/635aa9d016f2c2beb1fe4f53.jpg width:600px %}
 
-只填写 `cover-title` 或填写 `cover-title` 与 `cover-subtitle` 时大标题位于下方
+只填写 `headline` 或填写 `headline` 与 `caption` 时大标题位于下方
 
 {% image https://pic1.imgdb.cn/item/635aaa8116f2c2beb1ffdd19.jpg width:600px %}
 
