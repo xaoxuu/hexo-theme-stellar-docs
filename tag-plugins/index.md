@@ -208,84 +208,68 @@ tag_plugins:
 
 ## Note（备注标签）
 
-```md note
+```md 语法格式
 {% note [title] content [color:color] %}
-```
-
-```md block
-{% border [title] [color:color] [codeblock:bool] %}
-...
-{% endborder %}
 ```
 
 ```yaml 参数说明
 title: 标题（可选）
 content: 内容
-color: red/orange/yellow/green/cyan/blue/purple/light/dark
+color: red/orange/yellow/green/cyan/blue/purple/light/dark/warning/error
+```
+
+### 具有标题的备注标签
+
+直接写备注内容，默认是和代码块一样的样式，第一个空格前面的是标题，后面的是正文，如果标题中需要显示空格，请使用 `&nbsp;` 代替。
+
+{% note 这&nbsp;是标题 这是正文 哈哈。 %}
+
+```md 写法如下
+{% note 这&nbsp;是标题 这是正文 哈哈。 %}
 ```
 
 ### 彩色备注标签
 
-备注标签相较于旧版进行了增强，可以实现更多种颜色， note 标签可以用空格隔开标题和内容。 block 标签适用于应对更复杂的场合。
+{% note 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 
-{% note 直接写备注内容，默认是和代码块一样的样式，如果内容中需要显示空格，请使用&nbsp;代替。 %}
-
-
-```md 写法如下
-{% note 直接写备注内容，默认是和代码块一样的样式，如果内容中需要显示空格，请使用&nbsp;代替。 %}
-```
-
-{% folding 更多颜色 %}
-
-{% note color:red 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
-{% note color:orange 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
-{% note color:yellow 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
-{% note color:green 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
-{% note color:cyan 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
-{% note color:blue 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
-{% note color:purple 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
-{% note color:light 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
-{% note color:dark 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
+{% note color:red 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:orange 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:yellow 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:green 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:cyan 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:blue 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:purple 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:light 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:dark 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:warning 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:error 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 
 ```md 写法如下
-{% note color:cyan 一共支持10种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark 9种值。 %}
-```
-
-{% endfolding %}
-
-### 具有标题的备注标签
-
-{% note 这是标题 这是正文 哈哈。 %}
-
-```md 写法如下
-{% note 这是标题 这是正文 哈哈。 %}
+{% note 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% note color:cyan 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 ```
 
 ## Border（边框标签）
 
-{% border Stellar v1.12.0 color:red %}
-grid 标签名更改为 border
+border 标签和 note 标签样式相同：
+
+{% border Stellar v1.12.0 color:warning %}
+因为原 noteblock 标签在升级到 hexo 6.0 之后跟官方库冲突了，官方一直没有解释原因，后不得不改名：
+noteblock -> grid -> border
+详情见：[#172](https://github.com/volantis-x/hexo-theme-volantis/issues/712)
 {% endborder %}
 
-使用过 `noteblock` 标签的朋友对这个新标签会比较熟悉，它是从 `noteblock` 演化而来的，基础功能和 `noteblock` 是一致的，这是一个容器类标签，可以放置丰富的内容。
-
-### 文本内容
-
-{% border 这是标题 %}
-这是正文 哈哈。
+```md 语法格式
+{% border [title] [color:color] [child:codeblock/tabs] %}
+...
 {% endborder %}
-
-{% border 彩色块标题 color:yellow %}
-这是彩色块正文 啊哈哈哈。
-{% endborder %}
+```
 
 ```md 写法如下
-{% border 这是标题 %}
-这是正文 哈哈。
-{% endborder %}
-
-{% border 彩色块标题 color:yellow %}
-这是彩色块正文 啊哈哈哈。
+{% border Stellar v1.12.0 color:warning %}
+因为原 noteblock 标签在升级到 hexo 6.0 之后跟官方库冲突了，官方一直没有解释原因，后不得不改名：
+noteblock -> grid -> border
+详情见：[#172](https://github.com/volantis-x/hexo-theme-volantis/issues/712)
 {% endborder %}
 ```
 
@@ -356,7 +340,7 @@ func test() -> () {
 {% border child:tabs %}
 {% tabs %}
 <!-- tab 图文示例 -->
-{% image /assets/xaoxuu/blog/2020-0627a@2x.jpg 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
+{% image /assets/xaoxuu/blog/2020-0627a@2x.webp 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
 
 公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
 
@@ -389,33 +373,43 @@ npm: 6.14.10 LTS
 
 ## Split（两列分区标签）
 
-{% note Stellar v1.12.0 color:red %}
+这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，只支持显示两列，且手机端会恢复为单列显示。
+
+无修饰样式：
+
+{% split %}
+<!-- cell -->
+{% emoji aru 5150 height:3em %}
+<!-- cell -->
+{% emoji aru 5150 height:3em %}
+{% endsplit %}
+
+块样式：
 
 {% split bg:block %}
-
 <!-- cell -->
-
 <center>左侧内容</center>
-
 <!-- cell -->
-
 <center>右侧内容</center>
+{% endsplit %}
 
+卡片样式：
+
+{% split bg:card %}
+<!-- cell -->
+<center>左侧内容</center>
+<!-- cell -->
+<center>右侧内容</center>
 {% endsplit %}
 
 示例代码：
 
 ```
 {% split bg:block %}
-
 <!-- cell -->
-
 <center>左侧内容</center>
-
 <!-- cell -->
-
 <center>右侧内容</center>
-
 {% endsplit %}
 ```
 
@@ -468,8 +462,6 @@ func test() {
 {% endfolding %}
 
 ## Folders（一组折叠标签）
-
-{% note Stellar v1.11.0 color:red %}
 
 样式相比 `folding` 简单一些，适用于多个折叠标签平铺显示的场景，例如题目列表：
 
@@ -701,7 +693,7 @@ symbol: plus/minus/times
 
 从 [xaoxuu/issues-json-generator](https://github.com/xaoxuu/issues-json-generator) 作为模板克隆或者 fork 仓库
 
-修改`config.yml`并打开github action的运行权限
+修改 `config.yml` 并打开 github action 的运行权限
 
 ```yaml config.yml
 # 要抓取的 issues 配置
@@ -719,21 +711,24 @@ issues:
 {% friends api:https://raw.githubusercontent.com/xaoxuu/friends/output/v2/data.json %}
 ```
 
+### 数据托管
+
+{% border 特别感谢 color:light %}
+特别感谢小冰博客的加速访问方案，解决了直接请求 GitHub API 速度过慢的问题，详见 [小冰博客](https://zfe.space/post/python-issues-api.html) 的教程。
+{% endborder %}
+
 支持把数据托管到任何其他地方来使用，例如：
 
 ```
 {% friends api:https://data.json.vlts.cc/v2/xaoxuu/friends %}
 ```
 
-{% border Stellar&nbsp;v1.13.0 color:red %}
+{% border Stellar 1.13.0 color:warning %}
 动态数据 API 升级至 v2 版本，原使用 issue-api 仓库的需要将友链仓库同步更新。
 v1 版本已经停止维护。
 {% endborder %}
 
-{% note 关于自建&nbsp;Vercel&nbsp;API 如果您想使用自己的 api，请把您刚创建的仓库导入到 Vercel 项目，详见[小冰博客](https://zfe.space/post/python-issues-api.html)的教程。 %}
-
-{% note color:green 特别感谢 特别感谢小冰博客通过 Vercel 进行加速的方案，解决了原本直接请求 GitHub API 速度过慢的问题。 %}
-
+> 你可以有 N 种办法加速访问 GitHub 仓库里的文件。
 
 ## Sites（网站卡片组标签）
 
@@ -756,8 +751,8 @@ v1 版本已经停止维护。
 {% sites 分组名 %}
 ```
 
-{% border color:red %}
-Stellar v1.13.0 将原 friends 和 site 标签数据合并至 links.yml 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
+{% border Stellar v1.13.0 color:warning %}
+原 friends 和 sites 标签数据合并至 `links.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
 {% endborder %}
 
 ## GitHub Card（GitHub卡片标签）

@@ -1,55 +1,51 @@
 ---
 layout: wiki
 wiki: Stellar
-order: 104
-title: 侧边栏配置
+order: 920
+title: 自定义小组件的配置与使用
 ---
 
-{% border Stellar v1.11.0 color:red %}
-侧边栏组件配置从 _config.yml 中转移到数据文件 _data/widgets.yml 中，且仅支持在数据文件中配置。同时布局由 sidebar.widgets_layout 改名为 sidebar.widgets
+侧边栏组件库在 `_data/widgets.yml` 文件中，配置和使用是两个部分，使用较为简单，即在需要的地方指定组件名：
+
+```yaml blog/source/_posts/xxx.md
+---
+sidebar: ['我的小组件1', '我的小组件2']
+---
+```
+
+也可以在配置文件中指定各个页面默认使用哪些组件：
+
+```yaml blog/_config.stellar.yml
+sidebar:
+  widgets:
+    index: [welcome, recent, timeline] # for home/wiki/categories/tags/archives/404 pages
+    page: [welcome, toc] # for pages using 'layout:page'
+    post: [toc, ghrepo, ghissues] # for pages using 'layout:post'
+    wiki: [toc, ghrepo, ghissues, related] # for pages using 'layout:wiki'
+```
+
+{% border Stellar 1.11.0 color:red %}
+侧边栏组件配置从` _config.yml` 中转移到数据文件 `_data/widgets.yml` 中，且仅支持在数据文件中配置。同时布局由 `sidebar.widgets_layout` 改名为 `sidebar.widgets`
 {% endborder %}
 
-## Logo
+各种组件配置方法如下：
 
-左上角的 logo 和标题取自站点根目录的配置文件：
+{% quot el:h2 toc %}
 
-```yaml blog/_config.yml
-title: 网站名称
-avatar: 头像
+这是文章/文档的目录树组件，显示文章和文档的目录结构：
+
+```yaml blog/source/_data/widgets.yml
+toc:
+  layout: toc
+  list_number: false # 是否显示序号
+  min_depth: 2 # 建议不要低于 2 即从 H2 标签开始解析（H1标签用于文章大标题）
+  max_depth: 5 # 5 代表最多解析到 H5 标签
+  fallback: recent # Use a backup widget when toc does not exist.
 ```
 
-设置鼠标指上 `subtitle` 后翻转另一行字（您可以将鼠标移至左上角的Stellar查看效果）
+`toc` 的 `fallback` 默认是 `recent`，即一篇文章没有 `TOC` 的时候会显示一个 `recent`
 
-```yaml blog/_config.yml
-subtitle:  标题1 | 标题2
-```
-
-如果您想用一个图片作为 logo，可以直接在主题配置文件 sidebar.logo.title 中设置：
-
-```yaml blog/_config.stellar.yml
-sidebar:
-  logo:
-    title: '[<img no-lazy height="32px" src="xxx"/>](/)'
-```
-
-## 主导航栏
-
-```yaml blog/_config.stellar.yml
-sidebar:
-  menu:
-    post: '[btn.blog](/)'
-    wiki: '[btn.wiki](/wiki/)'
-    notes: '[笔记](/notes/)'
-    more: '[更多](/more/)'
-```
-
-侧边栏宽度有限，如何在不影响观感的情况下设置更多的主导航栏按钮呢？建议设置一个「更多」按钮，然后在「更多」页面的侧边栏放上列表组件。
-
-## 个性化组件
-
-侧边栏组件库在 `_data/widgets.yml` 文件中。
-
-### recent（最近更新）
+{% quot el:h2 recent %}
 
 ```yaml blog/source/_data/widgets.yml
 recent:
@@ -77,75 +73,42 @@ my_recent:
   ...
 ```
 
-### toc（目录）
+{% quot el:h2 related %}
+
+相关文档组件，用于显示具有相同 `tags` 的其它项目列表，暂不支持自定义内容：
+
+{% border Stellar 1.12.0 color:red %}
+1.12.0 已将 `wiki_more`，更名为 `related`
+{% endborder %}
 
 ```yaml blog/source/_data/widgets.yml
-toc:
-  layout: toc
-  list_number: false # 是否显示序号
-  min_depth: 2
-  max_depth: 5
-  fallback: recent # Use a backup widget when toc does not exist.
+related:
+  layout: related
 ```
 
-`toc` 的 `fallback` 默认是 `recent`，即一篇文章没有 `TOC` 的时候会显示一个 `recent`
+{% quot el:h2 markdown %}
 
-### markdown（富文本）
-
-Stellar 和 Volantis 同样支持强大的自定义组件功能，默认提供的组件在主题配置文件中已经列出：
-
-```yaml
-# Sidebar widgets
-widgets:
-  # Recent update
-  recent:
-    layout: recent
-    rss: /atom.xml # npm i hexo-generator-feed
-    limit: 5 # Count of posts
-  # TOC (valid only in layout:post/wiki)
-  toc:
-    layout: toc
-    list_number: false
-    min_depth: 2
-    max_depth: 5
-  # welcome
-  welcome:
-    layout: markdown
-    title: 欢迎
-    content: |
-      欢迎光临小站，这是一个全新的主题，拥有精心设计的样式，保留了 Volantis 的自定义侧边栏，可以写一些公告。
-      本站主题还没开发完毕，旧的文章正在逐步迁移至新主题。
-```
-
-在 `front-matter` 中写上它们的名字，侧边栏就会按顺序显示这些小组件：
-
-```yaml blog/source/xxx.md
-sidebar: [welcome, toc]
-```
-
-和 Volantis 一样，您可以使用模板创建任何组件，在任何页面的侧边栏显示。推荐将自己的组件配置写在数据文件中：
+这是一个自由度很高的标签，可以显示 [markdown](https://docs.github.com/cn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 文本内容：
 
 ```yaml blog/source/_data/widgets.yml
 welcome:
   layout: markdown
   title: 欢迎欢迎
-  content:
-    - 这里写的内容会覆盖主题配置文件中的
+  content: |
+    欢迎使用 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar/) 主题，下面是您的入门指南，祝您使用愉快！
+    <br>
+    **第一步**
+    创建 `blog/_config.stellar.yml` 文件，在此文件中填写需要自定义的主题配置。
+    <br>
+    **第二步**
+    创建 `blog/source/_data/widgets.yml` 文件，此文件中填写需要自定义的侧边栏组件，例如 `welcome` 组件。
+    <br>
+    如果有任何疑问，请先查阅 [文档](https://xaoxuu.com/wiki/stellar/)，如果文档中没有提供，请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues/) 向开发中询问。
 ```
 
-目前支持的布局模板有：`markdown`，后续将会加入列表、网格等布局模板。
+{% quot el:h2 tagcloud %}
 
-{% border Q & A %}
-
-Q: 如果不想显示默认的 welcome 组件怎么办？
-A: 删掉它就可以啦。
-
-Q: 如果想在 welcome 那个位置显示成其它布局的组件？
-A: 把 welcome 组件的属性都改成你想要的那个组件的就可以啦。
-
-{% endborder %}
-
-### tagcloud（词云）
+标签云组件：
 
 ```yaml blog/source/_data/widgets.yml
 tagcloud:
@@ -163,9 +126,11 @@ tagcloud:
   show_count: false # 显示每个标签的文章总数
 ```
 
-### ghuser（用户信息）
+{% quot el:h2 ghuser %}
 
-```yaml
+显示 GitHub 用户基础信息：
+
+```yaml blog/source/_data/widgets.yml
 ghuser:
   layout: ghuser
   api: https://api.github.com # 若有 api.github.com 镜像可填，否则保持默认
@@ -174,16 +139,18 @@ ghuser:
   menu: true # show menu or not
 ```
 
-### ghrepo（仓库信息）
+{% quot el:h2 ghrepo %}
 
-```yaml
+显示 GitHub 仓库基础信息，需要搭配 `repo` 一起使用：
+
+```yaml blog/source/_data/widgets.yml
 ghrepo:
   layout: ghrepo
 ```
 
-默认显示，需要在需要显示的文章页面的 `front-matter` 中按照如下格式写上仓库持有者和仓库名：
+需要在需要显示的文章页面的 `front-matter` 中按照如下格式写上仓库持有者和仓库名：
 
-```yaml
+```yaml blog/source/_posts/xxx.md
 ---
 repo: xaoxuu/hexo-theme-stellar
 ---
@@ -191,7 +158,7 @@ repo: xaoxuu/hexo-theme-stellar
 
 如果需要显示在 `wiki` 项目中，则在 `_data/projects.yml` 中填写到对应项目的信息中：
 
-```yaml
+```yaml blog/source/_data/projects.yml
 Stellar:
   title: Stellar
   subtitle: '每个人的独立博客 | Designed by xaoxuu'
@@ -199,27 +166,9 @@ Stellar:
   ...
 ```
 
-### related（更多）
+{% quot el:h2 timeline %}
 
-{% border Stellar v1.12.0 color:red %}
-v1.12.0 已将 `wiki_more`，更名为 `related`
-{% endborder %}
-
-```yaml blog/source/_data/widgets
-# wiki_more:
-#   layout: wiki_more
-related:
-  layout: related
-```
-
-```yaml blog/_config.stellar.yml
-# wiki: [toc, ghrepo, wiki_more] # for pages using 'layout:wiki'
-wiki: [toc, ghrepo, related] # for pages using 'layout:wiki'
-```
-
-### timeline（时间线）
-
-{% note Stellar v1.12.0 color:red %}
+时间线组件，这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持：
 
 ```yaml blog/source/_data/widgets.yml
 timeline:
@@ -230,9 +179,7 @@ timeline:
   hide: # title,footer # 隐藏标题或底部 # 此功能需要 Stellar v1.13.0
 ```
 
-现在侧边栏不仅能放置近期动态，还可以放置朋友圈文章
-
-{% note Stellar v1.13.0 color:red %}
+现在侧边栏不仅能放置近期动态，还可以放置朋友圈文章，这个功能在 {% mark 1.13.0 color:dark %} 版本后开始支持。
 
 ```yaml blog/source/_data/widgets.yml
 # 愣着干啥，新建啊
@@ -241,14 +188,10 @@ timeline:
   title: 近期动态
   api: https://data.json.vlts.cc/v1/xaoxuu/friends-rss-generator # 你的朋友圈数据文件地址
   type: fcircle
-  limit: # 可通过这个限制数量
+  limit: # 可通过这个限制最大数量
 ```
 
-{% border 注意！ color:red %}
-源api地址 https://raw.github.xaoxuu.com/ 已经无法使用，请自行替换为 https://raw.githubusercontent.com/ 或者自行想其他方法加速
-{% endborder %}
-
-然后你可以在`_config.stellar.yml`中设置引用
+然后你可以在 `_config.stellar.yml` 中设置引用
 
 ```yaml blog/_config.stellar.yml
 sidebar:
@@ -257,11 +200,9 @@ sidebar:
     index: [welcome, 朋友圈]
 ```
 
-或者在你需要显示的页面引入
+或者在你需要显示的页面引入，页面内引入优先于配置文件引入：
 
-{% note 页面引入＞设置引入 %}
-
-```md blog/source/_posts/xxx.md
+```yaml blog/source/_posts/xxx.md
 ---
 sidebar: [ghuser, 朋友圈]
 ---
