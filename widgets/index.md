@@ -2,54 +2,35 @@
 layout: wiki
 wiki: Stellar
 order: 104
-title: 侧边栏配置
+title: 侧边栏小组件的配置与使用
 ---
+
+侧边栏组件库在 `_data/widgets.yml` 文件中，配置和使用是两个部分，使用较为简单，即在需要的地方指定组件名：
+
+```yaml _posts/xxx.md
+---
+sidebar: ['我的小组件1', '我的小组件2']
+---
+```
+
+也可以在配置文件中指定各个页面默认使用哪些组件：
+
+```yaml _config.yml
+sidebar:
+  widgets:
+    index: [welcome, recent, timeline] # for home/wiki/categories/tags/archives/404 pages
+    page: [welcome, toc] # for pages using 'layout:page'
+    post: [toc, ghrepo, ghissues] # for pages using 'layout:post'
+    wiki: [toc, ghrepo, ghissues, related] # for pages using 'layout:wiki'
+```
 
 {% border Stellar 1.11.0 color:red %}
 侧边栏组件配置从` _config.yml` 中转移到数据文件 `_data/widgets.yml` 中，且仅支持在数据文件中配置。同时布局由 `sidebar.widgets_layout` 改名为 `sidebar.widgets`
 {% endborder %}
 
-## Logo
+各种组件配置方法如下：
 
-左上角的 logo 和标题取自站点根目录的配置文件：
-
-```yaml blog/_config.yml
-title: 网站名称
-avatar: 头像
-```
-
-设置鼠标指上 `subtitle` 后翻转另一行字（您可以将鼠标移至左上角的Stellar查看效果）
-
-```yaml blog/_config.yml
-subtitle:  标题1 | 标题2
-```
-
-如果您想用一个图片作为 logo，可以直接在主题配置文件 sidebar.logo.title 中设置：
-
-```yaml blog/_config.stellar.yml
-sidebar:
-  logo:
-    title: '[<img no-lazy height="32px" src="xxx"/>](/)'
-```
-
-## 主导航栏
-
-```yaml blog/_config.stellar.yml
-sidebar:
-  menu:
-    post: '[btn.blog](/)'
-    wiki: '[btn.wiki](/wiki/)'
-    notes: '[笔记](/notes/)'
-    more: '[更多](/more/)'
-```
-
-侧边栏宽度有限，如何在不影响观感的情况下设置更多的主导航栏按钮呢？建议设置一个「更多」按钮，然后在「更多」页面的侧边栏放上列表组件。
-
-## 个性化组件
-
-侧边栏组件库在 `_data/widgets.yml` 文件中。
-
-### recent（最近更新）
+## recent（最近更新）
 
 ```yaml blog/source/_data/widgets.yml
 recent:
@@ -77,7 +58,7 @@ my_recent:
   ...
 ```
 
-### toc（目录）
+## toc（目录）
 
 ```yaml blog/source/_data/widgets.yml
 toc:
@@ -90,25 +71,11 @@ toc:
 
 `toc` 的 `fallback` 默认是 `recent`，即一篇文章没有 `TOC` 的时候会显示一个 `recent`
 
-### markdown（富文本）
-
-Stellar 和 Volantis 同样支持强大的自定义组件功能，默认提供的组件在主题配置文件中已经列出：
+## markdown
 
 ```yaml
 # Sidebar widgets
 widgets:
-  # Recent update
-  recent:
-    layout: recent
-    rss: /atom.xml # npm i hexo-generator-feed
-    limit: 5 # Count of posts
-  # TOC (valid only in layout:post/wiki)
-  toc:
-    layout: toc
-    list_number: false
-    min_depth: 2
-    max_depth: 5
-  # welcome
   welcome:
     layout: markdown
     title: 欢迎
@@ -117,13 +84,7 @@ widgets:
       本站主题还没开发完毕，旧的文章正在逐步迁移至新主题。
 ```
 
-在 `front-matter` 中写上它们的名字，侧边栏就会按顺序显示这些小组件：
-
-```yaml blog/source/xxx.md
-sidebar: [welcome, toc]
-```
-
-和 Volantis 一样，您可以使用模板创建任何组件，在任何页面的侧边栏显示。推荐将自己的组件配置写在数据文件中：
+您可以使用模板创建任何组件，在任何页面的侧边栏显示。推荐将自己的组件配置写在数据文件中：
 
 ```yaml blog/source/_data/widgets.yml
 welcome:
@@ -133,19 +94,7 @@ welcome:
     - 这里写的内容会覆盖主题配置文件中的
 ```
 
-目前支持的布局模板有：`markdown`，后续将会加入列表、网格等布局模板。
-
-{% border Q & A %}
-
-Q: 如果不想显示默认的 welcome 组件怎么办？
-A: 删掉它就可以啦。
-
-Q: 如果想在 welcome 那个位置显示成其它布局的组件？
-A: 把 welcome 组件的属性都改成你想要的那个组件的就可以啦。
-
-{% endborder %}
-
-### tagcloud（词云）
+## tagcloud（标签云）
 
 ```yaml blog/source/_data/widgets.yml
 tagcloud:
@@ -163,7 +112,7 @@ tagcloud:
   show_count: false # 显示每个标签的文章总数
 ```
 
-### ghuser（用户信息）
+## ghuser（用户信息）
 
 ```yaml
 ghuser:
@@ -174,7 +123,7 @@ ghuser:
   menu: true # show menu or not
 ```
 
-### ghrepo（仓库信息）
+## ghrepo（仓库信息）
 
 ```yaml
 ghrepo:
@@ -199,7 +148,7 @@ Stellar:
   ...
 ```
 
-### related（更多）
+## related（相关文章/项目）
 
 {% border Stellar 1.12.0 color:red %}
 v1.12.0 已将 `wiki_more`，更名为 `related`
@@ -217,7 +166,7 @@ related:
 wiki: [toc, ghrepo, related] # for pages using 'layout:wiki'
 ```
 
-### timeline（时间线）
+## timeline（时间线）
 
 这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持。
 
@@ -241,10 +190,6 @@ timeline:
   type: fcircle
   limit: # 可通过这个限制数量
 ```
-
-{% border 注意！ color:red %}
-源api地址 https://raw.github.xaoxuu.com/ 已经无法使用，请自行替换为 https://raw.githubusercontent.com/ 或者自行想其他方法加速
-{% endborder %}
 
 然后你可以在`_config.stellar.yml`中设置引用
 
