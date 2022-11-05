@@ -5,13 +5,23 @@ order: 900
 title: 探索个性化选项
 ---
 
+## 自定义主页文章检索栏
+
+这个功能在 {% mark 1.13.0 color:dark %} 版本后开始支持。
+
+```yaml blog/_config.stellar.yml
+######## Index ########
+post-index: # 近期发布 分类 标签 归档 and ...
+  '朋友文章': /friends/rss/ # 这里填写的链接要与对应页面一致，否则可能无法正确高亮
+```
+ 
 ## 文章模板
 
-我一看这文档，每次写一篇新文章都要重新写一遍`cover`,`desciption`,`categories`多麻烦，直接让hexo替我写了它不香吗
+我一看这文档，每次写一篇新文章都要重新写一遍 `cover`,`desciption`,`categories` 多麻烦，直接让 hexo 替我写了它不香吗
 
-根目录下 `scaffolds` 文件夹中编辑 `post.md` 的 `font-matter`
+根目录下 `scaffolds` 文件夹中编辑 `post.md` 的 `font-matter`：
 
-```md blog/scaffolds/post.md
+```yaml blog/scaffolds/post.md
 ---
 title: {{ title }}
 date: {{ date }}
@@ -29,8 +39,6 @@ poster: # 海报（可选，全图封面卡片）
 ```
 
 ## 主题色
-
-{% note Stellar&nbsp;v1.11.0 color:red %}
 
 ```yaml blog/_config.stellar.yml
 style:
@@ -60,8 +68,6 @@ style:
 ```
 
 ## 字体
-
-{% note Stellar&nbsp;v1.10.0 color:red %}
 
 ```yaml blog/_config.stellar.yml
 style:
@@ -97,12 +103,9 @@ style:
 
 ## 文本对齐方向
 
-此功能尚在测试中，谨慎更改
-
 ```yaml blog/_config.stellar.yml
 style:
-  # 默认为left
-  text-align: left # center,right
+  text-align: left # justify/left/center/right
 ```
 
 ## 页面缓入效果
@@ -118,7 +121,9 @@ scrollreveal:
   scale: 0.1 # 0.1~1 # 执行方式（缩放）
 ```
 
-## 延迟加载
+{% note color:warning 此效果会和图片懒加载插件冲突，导致部分卡片可能加载不出来 %}
+
+## 图片懒加载
 
 ```yaml blog/_config.stellar.yml
 # 默认打开
@@ -139,8 +144,7 @@ loading:
   error: 加载失败，请稍后重试。
 ```
 
-## 评论
-
+## 评论的灵活用法
 
 ### 共用评论数据
 
@@ -247,9 +251,10 @@ inject:
 
 ## 友链朋友圈
 
-{% note Stellar&nbsp;v1.13.0 color:red %}
-
-{% note 特别感谢 主题内置版本数据服务由 [友链朋友圈](https://github.com/Rock-Candy-Tea/hexo-circle-of-friends) 极简版提供。 %}
+{% border 特别感谢 color:light %}
+主题内置版本数据服务由 [友链朋友圈](https://github.com/Rock-Candy-Tea/hexo-circle-of-friends) 极简版提供。
+这个功能在 1.13.0 版本后开始支持。
+{% endborder %}
 
 {% timeline %}
 

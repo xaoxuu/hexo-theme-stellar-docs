@@ -109,17 +109,6 @@ h1: 快速开始
 
 文章如果有分类和标签就会自动在主页出现「分类」、「标签」选项卡实现分类浏览，不需要手动添加页面。
 
-### 自定义文章检索栏
-
-{% note Stellar&nbsp;v1.13.0 color:red %}
-
-```yaml blog/_config.stellar.yml
-######## Index ########
-post-index: # 近期发布 分类 标签 归档 and ...
-  '友人': /friends/
-  # '朋友圈': /friends/rss/
-```
- 
 ### 文章分类
 
 在文章列表页面会显示文章所属的第一级分类，例如：
@@ -141,6 +130,25 @@ categories: [设计开发, iOS开发]
 tags: [iOS, 心率]
 ---
 ```
+
+## 参考资料
+
+填写引用文章的标题和链接：
+
+```yaml
+---
+references:
+  - title: '心跳之旅—💗—iOS用手机摄像头检测心率(PPG)'
+    url: https://punmy.cn/2016/07/28/15231176397746.html
+  - title: 'PPG光电容积脉搏波描记法技术概况'
+    url: https://www.jianshu.com/p/695c131abfa5
+  ...
+---
+```
+
+效果见这篇文章：
+
+{% link https://xaoxuu.com/blog/20200927/#references %}
 
 ## 更多的独立页面
 
