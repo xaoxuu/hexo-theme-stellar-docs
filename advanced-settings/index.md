@@ -249,6 +249,37 @@ inject:
     - https://fastly.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js
 ```
 
+## 实现「笔记」页面
+
+创建一个项目，设置为不索引：
+
+```yaml
+Notes:
+  name: 笔记
+  title: 笔记
+  description: 一个隐藏项目：笔记
+  index: false
+  # sidebar: [toc]
+  tags: 知识库
+  sections:
+    '日常问题解决方案': [100, 199]
+    '移动端开发笔记': [200, 299]
+    '前端学习笔记': [300, 399]
+    '在线工具': [400, 499]
+```
+
+然后笔记页面的 `front-matter` 中指定要高亮的 `menu_id`：
+
+```yaml
+---
+layout: wiki
+wiki: Notes
+menu_id: notes
+---
+```
+
+这样就可以啦～
+
 ## 友链朋友圈
 
 {% border 特别感谢 color:light %}
