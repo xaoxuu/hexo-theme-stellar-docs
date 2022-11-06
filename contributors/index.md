@@ -19,3 +19,5 @@ title: 感谢开发者和点赞名单
 {% users api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=3 %}
 
 {% endtabs %}
+
+{% image https://api.star-history.com/svg?repos=xaoxuu/hexo-theme-stellar&type=Date %}
