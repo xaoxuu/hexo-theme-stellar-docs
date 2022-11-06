@@ -1,7 +1,7 @@
 ---
 layout: wiki
 wiki: Stellar
-seo_title: 每个人的独立博客
+seo_title: Stellar：每个人的独立博客 - XAOXUU
 title: 安装与更新
 h1: 快速开始您的博客之旅
 ---

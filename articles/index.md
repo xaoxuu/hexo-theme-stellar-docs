@@ -2,7 +2,6 @@
 layout: wiki
 wiki: Stellar
 order: 1020
-seo_title: 探索号（教程分享）
 title: Stellar 探索号（教程分享）
 ---
 
