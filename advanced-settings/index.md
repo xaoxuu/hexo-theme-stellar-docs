@@ -253,7 +253,7 @@ inject:
 
 创建一个项目，设置为不索引：
 
-```yaml
+```yaml blog/source/_data/widgets.yml
 Notes:
   name: 笔记
   title: 笔记
@@ -270,7 +270,7 @@ Notes:
 
 然后笔记页面的 `front-matter` 中指定要高亮的 `menu_id`：
 
-```yaml
+```yaml blog/source/notes/index.md
 ---
 layout: wiki
 wiki: Notes
