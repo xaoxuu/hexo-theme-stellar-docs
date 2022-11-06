@@ -720,7 +720,7 @@ issues:
 支持把数据托管到任何其他地方来使用，例如：
 
 ```
-{% friends api:https://data.json.vlts.cc/v2/xaoxuu/friends %}
+{% friends api:https://api.vlts.cc/output_data/v2/xaoxuu/friends %}
 ```
 
 {% border Stellar 1.13.0 color:warning %}

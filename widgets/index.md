@@ -186,7 +186,7 @@ timeline:
 '朋友圈':
   layout: timeline
   title: 近期动态
-  api: https://data.json.vlts.cc/v1/xaoxuu/friends-rss-generator # 你的朋友圈数据文件地址
+  api: https://api.vlts.cc/output_data/v1/xaoxuu/friends-rss-generator # 你的朋友圈数据文件地址
   type: fcircle
   limit: # 可通过这个限制最大数量
 ```
