@@ -322,5 +322,5 @@ post-index:
 如果像我一样把 `data.json` 输出到 [output](https://github.com/xaoxuu/friends-rss-generator/blob/a97f385398928d2c0b5c7988cff34505eb3ae8fd/.github/workflows/main.yml#L115) 分支，可以直接使用下面的 API 来访问文件：
 
 ```
-https://data.json.vlts.cc/v1/xaoxuu/friends-rss-generator
+https://api.vlts.cc/output_data/v1/xaoxuu/friends-rss-generator
 ```
