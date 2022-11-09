@@ -73,14 +73,50 @@ comments:
 comments:
   service: waline
     waline:
-    js: https://unpkg.com/@waline/client@v2/dist/waline.js
-    css: https://unpkg.com/@waline/client@v2/dist/waline.css
-    # Waline server address url, you should set this to your own link
-    serverURL:
-    # If false, comment count will only be displayed in post page, not in home page
-    commentCount: true
-    # Pageviews count, Note: You should not enable both `waline.pageview` and `leancloud_visitors`.
-    pageview: false
+      js: https://unpkg.com/@waline/client@v2/dist/waline.js
+      css: https://unpkg.com/@waline/client@v2/dist/waline.css
+      # Waline server address url, you should set this to your own link
+      serverURL: https://xxx # waline 地址
+      # If false, comment count will only be displayed in post page, not in home page
+      commentCount: true
+      # Pageviews count, Note: You should not enable both `waline.pageview` and `leancloud_visitors`.
+      pageview: false
+
+      # Custom locales
+      locale:
+        placeholder: # 输入框内提示文字
+
+      # Custom emoji
+      emoji: 
+          - https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs
+      #   - https://unpkg.com/@waline/emojis@1.1.0/weibo
+      #   - https://unpkg.com/@waline/emojis@1.1.0/alus
+      #   - https://unpkg.com/@waline/emojis@1.1.0/bilibili
+      #   - https://unpkg.com/@waline/emojis@1.1.0/qq
+      #   - https://unpkg.com/@waline/emojis@1.1.0/tieba
+      #   - https://unpkg.com/@waline/emojis@1.1.0/tw-emoji
+      #   - https://unpkg.com/@waline/emojis@1.1.0/bmoji
+
+      # Comment infomation, valid meta are nick, mail and link
+      # meta:
+      #   - 昵称
+      #   - 邮箱
+      #   - 链接
+
+      # Set required meta field, e.g.: [nick] | [nick, mail]
+      # requiredMeta:
+      #   - nick
+
+      # Language, available values: en-US, zh-CN, zh-TW, pt-BR, ru-RU, jp-JP
+      lang: zh-CN
+
+      wordLimit: 0 # 字数限制，0为不限制字数
+
+      # Whether enable login, can choose from 'enable', 'disable' and 'force'
+      # login: enable
+
+      # comment per page
+      pageSize: 5 # 每页显示评论数
 ```
 
 ## valine
