@@ -494,31 +494,28 @@ func test() {
 外链卡片标签的语法格式为：
 
 ```
-{% link href [title] [desc:true/false] [icon:src] %}
+{% link href [title] [icon:src] [desc:true/false] %}
 ```
 
 ```yaml 参数说明
 href: 链接
-title: 可选，默认标题（读取到标题后会被替换）
-desc: 可选，副标题，为true时将会显示页面描述
-icon: 可选，默认缩略图链接（读取到图标后会被替换）
+title: 可选，手动设置标题（为空时会自动抓取页面标题）
+icon: 可选，手动设置图标（为空时会自动抓取页面图标）
+desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 ```
 
-{% tabs align:center active:1 %}
+不带摘要的样式：
+{% link https://xaoxuu.com/blog/20221029/ %}
 
-<!-- tab 样式1 -->
+带摘要的样式：
+{% link https://xaoxuu.com/blog/20221029/ desc:true %}
 
-{% link https://github.com/xaoxuu/hexo-theme-stellar %}
 
-<!-- tab 样式2 -->
-
-{% link https://github.com/xaoxuu/hexo-theme-stellar desc:true %}
-
-{% endtabs %}
-
-```
-{% link https://github.com/xaoxuu/hexo-theme-stellar %}
-{% link https://github.com/xaoxuu/hexo-theme-stellar desc:true %}
+```md 写法如下
+不带摘要的样式：
+{% link https://xaoxuu.com/blog/20221029/ %}
+带摘要的样式：
+{% link https://xaoxuu.com/blog/20221029/ desc:true %}
 ```
 
 ## Copy（复制标签）
