@@ -104,12 +104,12 @@ Stellar:
 ```yaml blog/source/_data/projects.yml
 Stellar:
   comment_title: '评论区仅供交流，有问题请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues) 反馈。'
-  beaudar:
-    repo: xaoxuu/hexo-theme-stellar
-    'issue-term': 'Q & A'
+  comments:
+    service: beaudar
+    beaudar:
+      repo: xaoxuu/hexo-theme-stellar
+      'issue-term': 'Q & A'
 ```
-
-> 目前支持覆盖 beaudar/utterances，其它评论系统可以通过设置 `comment_id` 来实现。
 
 ### 是否索引
 

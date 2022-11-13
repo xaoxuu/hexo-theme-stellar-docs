@@ -148,16 +148,18 @@ loading:
 
 ### 共用评论数据
 
-如果您有多个页面需要共用评论数据，可以把它们的 `comment_id` 设为相同的值，例如：
+如果您有多个页面需要共用评论数据，可以在 `front-matter` 中覆盖评论参数，例如：
 
 ```yaml blog/source/about/index.md
 title: 关于
-comment_id: '留言板'
+beaudar:
+  'issue-term': '留言板'
 ```
 
 ```yaml blog/source/friends/index.md
 title: 友链
-comment_id: '留言板'
+beaudar:
+  'issue-term': '留言板'
 ```
 
 ### 使用其它评论数据
