@@ -69,6 +69,8 @@ style:
 
 ## 字体
 
+### 系统字体
+
 ```yaml blog/_config.stellar.yml
 style:
   font-size: 16px
@@ -77,6 +79,8 @@ style:
     body: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
     code: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
 ```
+
+### 外部字体
 
 要想引用外部字体，你需要先在 `_config.yml` 中 `inject` 引入
 
@@ -100,6 +104,30 @@ style:
 选择在线字体：
 
 {% link https://www.googlefonts.cn/ %}
+
+### 本地字体
+
+若您想引用本地字体，举例，引用得意黑（`SmileySans-Oblique.ttf`）这个字体，先将字体放置于 `blog/source/font/` 目录下，然后改动一下主题文件
+
+```styl Blog/themes/stellar/source/css/_custom.styl
+@font-face
+   font-family: 'Smiley Sans'
+   src: url('/font/SmileySans-Oblique.ttf')
+   font-weight: normal
+   font-style: normal
+```
+
+`font-family` 是你引入的字体家族名，`src` 中填写字体文件相对于 `source` 文件夹的路径
+
+同样，你需要在 `_config.stellar.yml` 中填写你引入的字体名称（`font-family`）
+
+```yaml blog/_config.stellar.yml
+style:
+  font-family:
+    body: '"Smiley Sans", "Microsoft Yahei",..., sans-serif'
+```
+
+但是我个人并不推荐引用本地字体，相比于英文字体，中文字体囊括了众多的字符，这也无法避免地导致字体文件体积的增加，拿 `Noto Serif SC` 来说，单个ttf文件就有9mb之大，这对于您的站点而言加载速度可想而知。
 
 ## 文本对齐方向
 
