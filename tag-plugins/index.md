@@ -522,15 +522,15 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 
 对于单行内容，可以使用 `copy` 标签来实现复制功能：
 
-{% copy curl -s https://xaoxuu.com/install | sh %}
+{% copy curl -s https://sh.xaox.cc/install | sh %}
 
 您可以设置 `git:https` 或者 `git:ssh` 或者 `git:gh` 来快速放置一个 git 仓库链接：
 {% copy git:https xaoxuu.com/hexo-theme-stellar %}
 
 
 ```md 写法如下
-{% copy curl -s https://xaoxuu.com/install | sh %}
-{% copy width:max curl -s https://xaoxuu.com/install | sh %}
+{% copy curl -s https://sh.xaox.cc/install | sh %}
+{% copy width:max curl -s https://sh.xaox.cc/install | sh %}
 {% copy git:https xaoxuu.com/hexo-theme-stellar %}
 {% copy git:ssh xaoxuu.com/hexo-theme-stellar %}
 {% copy git:gh xaoxuu.com/hexo-theme-stellar %}
