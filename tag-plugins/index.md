@@ -566,20 +566,18 @@ symbol: plus/minus/times
 
 例如：
 ```
-{% timeline api:https://api.github.com/repos/xaoxuu/blog-timeline-schedule/issues?direction=asc %}
-{% endtimeline %}
+{% timeline api:https://api.github.com/repos/xaoxuu/blog-timeline/issues?direction=asc&per_page=3 %}{% endtimeline %}
 ```
 
 效果如下：
-{% timeline api:https://api.github.com/repos/xaoxuu/blog-timeline-schedule/issues?direction=asc %}
-{% endtimeline %}
+{% timeline api:https://api.github.com/repos/xaoxuu/blog-timeline/issues?direction=asc&per_page=3 %}{% endtimeline %}
 
 ### 静态 + 动态
 
 用法同静态和动态单独使用时一样，例如：
 
 ```
-{% timeline reversed:true api:https://api.github.com/repos/xaoxuu/blog-timeline-schedule/issues %}
+{% timeline reversed:true api:https://api.github.com/repos/xaoxuu/blog-timeline/issues?per_page=2 %}
 <!-- node 这条内容为静态数据 -->
 这条内容为静态数据，静态数据在 `deploy` 时就已经确定了。
 {% endtimeline %}
@@ -589,14 +587,11 @@ symbol: plus/minus/times
 
 {% folders %}
 <!-- folder 只显示某个人的数据 -->
-{% timeline user:xaoxuu api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues %}
-{% endtimeline %}
+{% timeline user:xaoxuu api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues %}{% endtimeline %}
 <!-- folder 筛选最近3条todo -->
-{% timeline api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=3 %}
-{% endtimeline %}
+{% timeline api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=3 %}{% endtimeline %}
 <!-- folder 筛选评论最多的3条建议 -->
-{% timeline api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues?labels=feature-request&per_page=3&sort=comments %}
-{% endtimeline %}
+{% timeline api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues?labels=feature-request&per_page=3&sort=comments %}{% endtimeline %}
 {% endfolders %}
 
 上述示例代码如下：
@@ -604,14 +599,11 @@ symbol: plus/minus/times
 ```
 {% folders %}
 <!-- 只显示某个人的数据 -->
-{% timeline user:xaoxuu api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues %}
-{% endtimeline %}
+{% timeline user:xaoxuu api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues %}{% endtimeline %}
 <!-- 筛选最近3条todo -->
-{% timeline api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=3 %}
-{% endtimeline %}
+{% timeline api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=3 %}{% endtimeline %}
 <!-- 筛选评论最多的3条建议 -->
-{% timeline api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues?labels=feature-request&per_page=3&sort=comments %}
-{% endtimeline %}
+{% timeline api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues?labels=feature-request&per_page=3&sort=comments %}{% endtimeline %}
 {% endfolders %}
 ```
 
