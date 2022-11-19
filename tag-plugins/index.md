@@ -129,9 +129,9 @@ bg: '#ffffff' # 图片区域背景颜色，16进制
 
 {% image /assets/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white %}
 
-{% codeblock %}
-{% raw %}{% image /assets/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white %}{% endraw %}
-{% endcodeblock %}
+```
+{% image /assets/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white %}
+```
 
 {% note 提示 鼠标拖拽一下图片可以看看原图 %}
 
@@ -145,9 +145,9 @@ bg: '#ffffff' # 图片区域背景颜色，16进制
 
 {% image /assets/wiki/stellar/icon.svg bg:var(--card) padding:16px width:100px %}
 
-{% codeblock %}
-{% raw %}{% image /assets/wiki/stellar/icon.svg bg:var(--card) padding:16px %}{% endraw %}
-{% endcodeblock %}
+```
+{% image /assets/wiki/stellar/icon.svg bg:var(--card) padding:16px %}
+```
 
 {% endtabs %}
 
@@ -277,24 +277,20 @@ noteblock -> grid -> border
 
 设置 `child:codeblock` 并设置 `color:颜色枚举` 可以实现 10 种不同颜色的代码块，彩色代码块一般可以用在代码正确与错误的示范对比场景。
 
-{% tabs %}
-
-<!-- tab 效果 -->
-
 推荐的写法：
 
 {% border child:codeblock color:green %}
-{% codeblock lang:swift %}
+```swift
 func test() {
     // ...
 }
-{% endcodeblock %}
+```
 {% endborder %}
 
 不推荐的写法：
 
 {% border child:codeblock color:red %}
-{% codeblock lang:swift %}
+```swift
 func test() -> Void {
     // ...
 }
@@ -302,38 +298,8 @@ func test() -> Void {
 func test() -> () {
     // ...
 }
-{% endcodeblock %}
+```
 {% endborder %}
-
-<!-- tab 写法 -->
-
-{% codeblock %}{% raw %}
-推荐的写法：
-
-{% border child:codeblock color:green %}
-{% codeblock lang:swift %}
-func test() {
-    // ...
-}
-{% endcodeblock %}
-{% endborder %}
-
-不推荐的写法：
-
-{% border child:codeblock color:red %}
-{% codeblock lang:swift %}
-func test() -> Void {
-    // ...
-}
-// 或者
-func test() -> () {
-    // ...
-}
-{% endcodeblock %}
-{% endborder %}
-{% endraw %}{% endcodeblock %}
-
-{% endtabs %}
 
 ### 嵌套其它标签
 
@@ -345,40 +311,23 @@ func test() -> () {
 公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
 
 <!-- tab 代码示例 -->
-{% codeblock 建议的版本 lang:yaml %}
+```yaml 建议的版本
 Hexo: 5.4.0
 hexo-cli: 4.2.0
 node.js: 14.15.4 LTS # 建议使用LTS版本
 npm: 6.14.10 LTS
-{% endcodeblock %}
-{% endtabs %}
-{% endborder %}
-
-```md 写法如下
-{% border %}
-{% tabs %}
-<!-- tab 图文示例 -->
-{% image /assets/xaoxuu/blog/2020-0627a@2x.jpg 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
-公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
-<!-- tab 代码示例 -->
-{% codeblock 建议的版本 lang:yaml %}
-Hexo: 5.4.0
-hexo-cli: 4.2.0
-node.js: 14.15.4 LTS # 建议使用LTS版本
-npm: 6.14.10 LTS
-{% endcodeblock %}
-{% endtabs %}
-{% endborder %}
 ```
+{% endtabs %}
+{% endborder %}
 
 ## Split（两列分区标签）
 
 这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，只支持显示两列，且手机端会恢复为单列显示。
 
 {% split %}
-<!-- cell -->
+<!-- cell left -->
 {% image https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 download:https://unsplash.com/photos/bcql6CtuNv0/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2Njg4NDAxMDI&force=true %}
-<!-- cell -->
+<!-- cell right -->
 **[Unsplash Photo](https://unsplash.com/photos/bcql6CtuNv0)**
 
 The Galactic Center is the rotational center of the Milky Way galaxy. Its central massive object is a supermassive black hole of about 4 million solar masses, which is called Sagittarius A*. Its mass is equal to four million suns. The center is located 25,800 light years away from Earth.
@@ -393,18 +342,18 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 块样式：
 
 {% split bg:block %}
-<!-- cell -->
+<!-- cell left -->
 <center>左侧内容</center>
-<!-- cell -->
+<!-- cell right -->
 <center>右侧内容</center>
 {% endsplit %}
 
 卡片样式：
 
 {% split bg:card %}
-<!-- cell -->
+<!-- cell left -->
 <center>左侧内容</center>
-<!-- cell -->
+<!-- cell right -->
 <center>右侧内容</center>
 {% endsplit %}
 
@@ -412,9 +361,9 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 
 ```
 {% split bg:block %}
-<!-- cell -->
+<!-- cell left -->
 <center>左侧内容</center>
-<!-- cell -->
+<!-- cell right -->
 <center>右侧内容</center>
 {% endsplit %}
 ```
@@ -819,7 +768,6 @@ XAOXUU 目前是一个 iOS 开发者，代表作品有：ProHUD、ValueX 等。�
 - 不需要 `<!-- endtab -->` 来作为结束标识（因为 Stellar 会自动判断）
 - 不需要 `tabs id` 来保证唯一性（因为 Stellar 会设置唯一标识）
 - 不支持 `@icon` 方式设置图标（因为 Stellar 不再内置 `fontawesome` 图标库）
-- 暂时不支持 `md` 格式的代码块，这是技术问题，有待解决。
 
 {% tabs active:2 align:center %}
 
@@ -827,39 +775,19 @@ XAOXUU 目前是一个 iOS 开发者，代表作品有：ProHUD、ValueX 等。�
 {% image /assets/wiki/stellar/photos/hello@1x.png width:300px %}
 
 <!-- tab 代码块 -->
-{% codeblock lang:swift %}
+```swift
 let x = 123
 print("hello world")
-{% endcodeblock %}
-
-<!-- tab 表格 -->
-| a | b | c |
-| --- | --- | --- |
-| a1 | b1 | c1 |
-| a2 | b2 | c2 |
-
-{% endtabs %}
-
-```md 写法如下
-{% tabs active:2 align:center %}
-
-<!-- tab 图片 -->
-{% image /assets/wiki/stellar/photos/hello@1x.png width:300px %}
-
-<!-- tab 代码块 -->
-{% codeblock lang:swift %}
-let x = 123
-print("hello world")
-{% endcodeblock %}
-
-<!-- tab 表格 -->
-| a | b | c |
-| --- | --- | --- |
-| a1 | b1 | c1 |
-| a2 | b2 | c2 |
-
-{% endtabs %}
 ```
+
+<!-- tab 表格 -->
+| a | b | c |
+| --- | --- | --- |
+| a1 | b1 | c1 |
+| a2 | b2 | c2 |
+
+{% endtabs %}
+
 
 ## Swiper（轮播标签）
 

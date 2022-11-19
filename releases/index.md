@@ -13,10 +13,10 @@ title: 更新日志和近期计划
 
 {% border 如何关注主题更新 color:green %}
 例如，您可以在自己博客任意位置用时间线标签显示主题最近一个版本更新内容：
-{% codeblock %}{% raw %}
+```
 {% timeline api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1 %}
 {% endtimeline %}
-{% endraw %}{% endcodeblock %}
+```
 
 {% endborder %}
 
