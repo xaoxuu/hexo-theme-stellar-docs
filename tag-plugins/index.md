@@ -375,13 +375,19 @@ npm: 6.14.10 LTS
 
 这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，只支持显示两列，且手机端会恢复为单列显示。
 
-无修饰样式：
-
 {% split %}
 <!-- cell -->
-{% emoji aru 5150 height:3em %}
+{% image https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 download:https://unsplash.com/photos/bcql6CtuNv0/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2Njg4NDAxMDI&force=true %}
 <!-- cell -->
-{% emoji aru 5150 height:3em %}
+**[Unsplash Photo](https://unsplash.com/photos/bcql6CtuNv0)**
+
+The Galactic Center is the rotational center of the Milky Way galaxy. Its central massive object is a supermassive black hole of about 4 million solar masses, which is called Sagittarius A*. Its mass is equal to four million suns. The center is located 25,800 light years away from Earth.
+
+> Ōwhiro Bay, Wellington, New Zealand
+> Published on May 31, 2022
+> SONY, ILCE-6000
+> Free to use under the Unsplash License
+
 {% endsplit %}
 
 块样式：
