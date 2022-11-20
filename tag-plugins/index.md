@@ -305,18 +305,11 @@ func test() -> () {
 
 {% border child:tabs %}
 {% tabs %}
-<!-- tab 图文示例 -->
+<!-- tab 图文混排 -->
 {% image /assets/xaoxuu/blog/2020-0627a@2x.webp 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
-
 公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
-
-<!-- tab 代码示例 -->
-```yaml 建议的版本
-Hexo: 5.4.0
-hexo-cli: 4.2.0
-node.js: 14.15.4 LTS # 建议使用LTS版本
-npm: 6.14.10 LTS
-```
+<!-- tab 示例代码 -->
+<script src="https://gist.github.xaox.cc/xaoxuu/c983c958ef0deab819376c231e977ba7.js"></script>
 {% endtabs %}
 {% endborder %}
 
@@ -760,6 +753,11 @@ XAOXUU 目前是一个 iOS 开发者，代表作品有：ProHUD、ValueX 等。�
 - 不需要 `<!-- endtab -->` 来作为结束标识（因为 Stellar 会自动判断）
 - 不需要 `tabs id` 来保证唯一性（因为 Stellar 会设置唯一标识）
 - 不支持 `@icon` 方式设置图标（因为 Stellar 不再内置 `fontawesome` 图标库）
+- 轮廓样式简化，可以搭配其它容器类标签嵌套使用。
+
+{% tabs active:1 align:center %}
+
+<!-- tab 演示效果 -->
 
 {% tabs active:2 align:center %}
 
@@ -780,6 +778,10 @@ print("hello world")
 
 {% endtabs %}
 
+<!-- tab 示例代码 -->
+<script src="https://gist.github.xaox.cc/xaoxuu/cfd4e9645047115c6aa9b19cd9b28e97.js"></script>
+
+{% endtabs %}
 
 ## Swiper（轮播标签）
 
