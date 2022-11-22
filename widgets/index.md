@@ -207,3 +207,45 @@ sidebar:
 sidebar: [ghuser, 朋友圈]
 ---
 ```
+
+## 专用组件
+
+需要在多个地方使用的组件配置在数据文件 `_data/widgets.yml` 中，只在某一篇文章中使用的组件可以配置在 `front-matter` 中，例如：
+
+```yaml blog/source/_posts/xxx.md
+---
+title: 某一篇文章
+sidebar:
+  - toc # 只写一个字符串代表引用对应的通用组件
+  - layout: markdown
+    title: '重要通知 [NOTE.2022-09]'
+    content: |
+      请不要原封不动的把本站内容复制到贵站中使用，这样一方面不尊重原作者，另一方面也会因为存在大量重复内容影响贵站收录甚至降权。
+
+      从2022年9月起本站已不再开源，已经持有源码副本或`fork`的朋友请及时删除以防止被他人恶意搬运的情况继续发生。
+      
+      [> 了解详情](https://github.com/xaoxuu/xaoxuu.github.io#readme)
+---
+```
+
+在 `front-matter` 中创建的专用组件应至少包含 `layout` 或者 `override` 属性，如果需要继承自某个通用组件，可以在 `override` 属性写上对应通用组件的名字（对应的通用组件必须要有 `layout` 属性）。
+
+```yaml blog/source/_posts/xxx.md
+---
+title: 某一篇文章
+sidebar:
+  - toc # 只写一个字符串代表引用对应的通用组件
+  - override: my_timeline_lite
+    api: https://xxx
+---
+```
+
+对应的通用组件是：
+
+```yaml blog/source/_data/widgets.yml
+my_timeline_lite:
+  layout: timeline
+  title: 近期动态
+  user: xaoxuu
+  hide: title,footer
+```
