@@ -4,7 +4,7 @@ wiki: Stellar
 seo_title: Stellar：每个人的独立博客 - XAOXUU
 title: 安装与更新
 h1: 快速开始您的博客之旅
-sidebar: [ghrepo, toc, timeline_stellar_releases, ghissues, related]
+sidebar: [search, ghrepo, toc, timeline_stellar_releases, ghissues, related]
 ---
 
 Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件，帮助您简单从容地应对各种表达需求，十分推荐内容创作者使用 Stellar 开始您全新的博客之旅。
