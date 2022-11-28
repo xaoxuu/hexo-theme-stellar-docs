@@ -5,10 +5,6 @@ order: 103
 title: 侧边栏配置
 ---
 
-{% border Stellar 1.11.0 color:red %}
-侧边栏组件配置从` _config.yml` 中转移到数据文件 `_data/widgets.yml` 中，且仅支持在数据文件中配置。同时布局由 `sidebar.widgets_layout` 改名为 `sidebar.widgets`
-{% endborder %}
-
 ## Logo
 
 左上角的 logo 和标题取自站点根目录的配置文件：
@@ -47,11 +43,20 @@ sidebar:
 
 ## Search（搜索）
 
-首先请将您的 Stellar 更新到最新版本。
+{% tabs align:left %}
 
-目前仅支持用 `hexo-generator-search` 插件实现本地搜索，后续会添加更多搜索方式。
+<!-- tab local search -->
 
+{% border %}
+在 {% mark 1.17.0 color:dark %} 版本后开始支持，官方文档：[hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 {% copy npm i hexo-generator-search %}
+{% endborder %}
+
+<!-- tab others -->
+
+请提交PR...
+
+{% endtabs %}
 
 在 `_config.stellar.yml` 中设置搜索选项并配置你想在侧边栏中显示的位置。
 
@@ -62,12 +67,11 @@ widgets:
   page: welcome, toc 
   post: toc, ghrepo, search, ghissues 
   wiki: search, ghrepo, toc, ghissues, related 
-
 ...
 
 # 文章搜索
 search:
-  service: local_search # hexo, todo...
+  service: local_search # local_search, todo...
   local_search: # npm i hexo-generator-search
 ```
 
@@ -76,10 +80,25 @@ search:
 ```yaml blog/source/_data/widgets.yml
 search:
   layout: search
-  filter: auto # auto or 'path'
+  filter: auto # auto or '/path'
 ```
 
-您可以设置 `filter` 过滤搜索，默认 `auto` 是全站搜索。那我不想全站搜索，只想搜索 `wiki` 或者某个项目中的内容，就在 `filter` 处设置为 `wiki` 则表示只搜索路径为 `/wiki` 下的内容，同理设置为项目路径即可仅搜索该项目下的内容。
+您可以设置 `filter` 按地址过滤搜索结果，默认 `auto` 是智能选择，规则如下：
+- `layout: wiki`：只在 `/wiki/当前项目` 中搜索
+- 其它：站内搜索
+
+你可以在某些页面中通过覆盖 search 组件的 filter 参数来定制化搜索范围，例如:
+
+```yaml
+sidebar:
+  - toc
+  - layout: search
+    override: search
+    filter: /path/to/some
+```
+
+如果想始终进行不加过滤的站内搜索，那么设置为 `filter: ''` 即可。
+
 
 ## Footer（页脚）
 
@@ -100,6 +119,8 @@ footer:
       url: https://
 ```
 
-## 个性化组件
+## 自定义组件
 
-{% link https://xaoxuu.com/wiki/stellar/widgets/ %}
+Stellar 支持丰富的自定义小组件，详见这篇文档：
+
+{% link https://xaoxuu.com/wiki/stellar/widgets/ desc:true %}
