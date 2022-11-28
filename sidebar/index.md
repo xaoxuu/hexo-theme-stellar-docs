@@ -45,12 +45,20 @@ sidebar:
 
 {% tabs align:left %}
 
-<!-- tab local search -->
+<!-- tab local_search -->
 
 {% border %}
-在 {% mark 1.17.0 color:dark %} 版本后开始支持，官方文档：[hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
-{% copy npm i hexo-generator-search %}
+在 {% mark 1.17.1 color:dark %} 版本后开始支持，无需安装插件，可直接开启。
 {% endborder %}
+
+```yaml
+search:
+  service: local_search # local_search, todo...
+  local_search:
+    field: all # post, page, all
+    path: /search.json
+    content: true
+```
 
 <!-- tab others -->
 
@@ -67,12 +75,6 @@ widgets:
   page: welcome, toc 
   post: toc, ghrepo, search, ghissues 
   wiki: search, ghrepo, toc, ghissues, related 
-...
-
-# 文章搜索
-search:
-  service: local_search # local_search, todo...
-  local_search: # npm i hexo-generator-search
 ```
 
 然后在 `widgets.yml` 文件中配置侧边栏搜索组件
