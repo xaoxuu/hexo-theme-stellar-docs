@@ -51,13 +51,15 @@ sidebar:
 在 {% mark 1.17.1 color:dark %} 版本后开始支持，无需安装插件，可直接开启。
 {% endborder %}
 
-```yaml
+```yaml blog/_config.stellar.yml
+# 文章搜索
 search:
   service: local_search # local_search, todo...
-  local_search:
+  local_search: # 在 front-matter 中设置 indexing:false 来避免被搜索索引
     field: all # post, page, all
-    path: /search.json
-    content: true
+    path: /search.json # 搜索文件存放位置
+    content: true # 是否搜索内容
+    codeblock: true # 是否搜索代码块（需要content: true)
 ```
 
 <!-- tab others -->
@@ -66,16 +68,7 @@ search:
 
 {% endtabs %}
 
-在 `_config.stellar.yml` 中设置搜索选项并配置你想在侧边栏中显示的位置。
-
-```yaml blog/_config.stellar.yml
-# Sidebar widgets
-widgets:
-  index: welcome, search, recent, timeline 
-  page: welcome, toc 
-  post: toc, ghrepo, search, ghissues 
-  wiki: search, ghrepo, toc, ghissues, related 
-```
+在 `_config.stellar.yml` 中设置搜索选项并配置你想在侧边栏中[显示的位置](https://xaoxuu.com/wiki/stellar/widgets/)。
 
 然后在 `widgets.yml` 文件中配置侧边栏搜索组件
 
@@ -83,6 +76,17 @@ widgets:
 search:
   layout: search
   filter: auto # auto or '/path'
+  placeholder: 文章搜索 # 搜索框处显示的文字
+
+search_blog:
+  layout: search
+  filter: /blog/ # or /posts/ ...
+  placeholder: 文章搜索
+
+search_docs:
+  layout: search
+  filter: /wiki/
+  placeholder: 文档搜索
 ```
 
 您可以设置 `filter` 按地址过滤搜索结果，默认 `auto` 是智能选择，规则如下：

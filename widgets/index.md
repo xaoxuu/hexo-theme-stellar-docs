@@ -15,18 +15,29 @@ sidebar: ['我的小组件1', '我的小组件2']
 
 也可以在配置文件中指定各个页面默认使用哪些组件：
 
+Stellar {% mark 1.17.2 %} widgets 默认页面名称有变动，注意更改。
+
 ```yaml blog/_config.stellar.yml
 sidebar:
+  ...
   widgets:
-    index: [welcome, recent, timeline] # for home/wiki/categories/tags/archives/404 pages
-    page: [welcome, toc] # for pages using 'layout:page'
-    post: [toc, ghrepo, ghissues] # for pages using 'layout:post'
-    wiki: [toc, ghrepo, ghissues, related] # for pages using 'layout:wiki'
+    #### 自动生成的页面 ####
+    # 主页
+    home: search, welcome, recent, timeline # for home
+    # 博客索引页
+    blog_index: search_blog, recent, timeline # for categories/tags/archives
+    # 文档索引页
+    wiki_index: search_docs, recent, timeline # for wiki
+    # 其它（404）
+    others: search, welcome, recent, timeline # for 404 and ...
+    #### 手动创建的页面 ####
+    # 文章内页
+    post: toc, ghrepo, search, ghissues # for pages using 'layout:post'
+    # 文档内页
+    wiki: search, ghrepo, toc, ghissues, related # for pages using 'layout:wiki'
+    # 其它 layout:page 的页面
+    page: welcome, toc, search # for custom pages using 'layout:page'
 ```
-
-{% border Stellar 1.11.0 color:red %}
-侧边栏组件配置从` _config.yml` 中转移到数据文件 `_data/widgets.yml` 中，且仅支持在数据文件中配置。同时布局由 `sidebar.widgets_layout` 改名为 `sidebar.widgets`
-{% endborder %}
 
 各种组件配置方法如下：
 
