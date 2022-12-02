@@ -17,6 +17,8 @@ title: 开发者和社区支持
 {% users api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=2 %}
 {% quot icon:hashtag 201-300 %}
 {% users api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=3 %}
+{% quot icon:hashtag 301-400 %}
+{% users api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=4 %}
 
 {% endtabs %}
 
