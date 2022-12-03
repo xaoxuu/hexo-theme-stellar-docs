@@ -313,6 +313,8 @@ func test() -> () {
 {% endtabs %}
 {% endborder %}
 
+{% note color:yellow 这个标签正在考虑重命名 请发表您的建议 [#198](https://github.com/xaoxuu/hexo-theme-stellar/discussions/198) %}
+
 ## Split（两列分区标签）
 
 这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，只支持显示两列，且手机端会恢复为单列显示。
@@ -362,6 +364,8 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 ```
 
 > `bg` 为可选参数，默认没有背景，可设置为 `block/card` 两种样式
+
+{% note color:yellow 这个标签正在考虑重命名 请发表您的建议 [#198](https://github.com/xaoxuu/hexo-theme-stellar/discussions/198) %}
 
 ## Folding（折叠块标签）
 
@@ -757,6 +761,8 @@ XAOXUU 目前是一个 iOS 开发者，代表作品有：ProHUD、ValueX 等。�
 
 {% endabout %}
 ```
+
+{% note color:yellow 这个标签正在考虑重命名 请发表您的建议 [#198](https://github.com/xaoxuu/hexo-theme-stellar/discussions/198) %}
 
 ## Frame（设备框架标签）
 
