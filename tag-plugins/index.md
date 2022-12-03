@@ -551,6 +551,10 @@ symbol: plus/minus/times
 
 ### 纯动态时间线
 
+{% tabs active:1 align:center %}
+
+<!-- tab 动态说说 -->
+
 动态数据是从 GitHub Issues 中拉取的，使用方法为：
 
 1. 建一个仓库
@@ -558,12 +562,32 @@ symbol: plus/minus/times
 3. 写 `timeline` 标签时加上 `api:https://api.github.com/repos/your-name/your-repo/issues`
 
 例如：
-```
+```md _posts/xxx.md
 {% timeline api:https://api.github.com/repos/xaoxuu/blog-timeline/issues?direction=asc&per_page=3 %}{% endtimeline %}
 ```
 
 效果如下：
 {% timeline api:https://api.github.com/repos/xaoxuu/blog-timeline/issues?direction=asc&per_page=3 %}{% endtimeline %}
+
+<!-- tab 朋友圈 -->
+
+{% link https://xaoxuu.com/wiki/stellar/fcircle/ %}
+
+```md _posts/xxx.md
+{% timeline type:fcircle api:https://raw.githubusercontent.com/xaoxuu/friends-rss-generator/output/data.json %}
+{% endtimeline %}
+```
+
+<!-- tab 微博动态 -->
+
+1. fork 爬虫 [仓库](ttps://github.com/shaoyaoqian/WeiboSpider) ，修改自己的仓库名
+2. 修改 `.github/workflows/main.yml` 中的微博ID为你想爬取的ID，修改完后每天会自动爬取你的微博，存储为json文件，输出文件在 **`output` 分支**
+
+```md _posts/xxx.md
+{% timeline limit:20 type:weibo api:你的json文件地址 %}{% endtimeline %}
+```
+
+{% endtabs %}
 
 ### 静态 + 动态
 

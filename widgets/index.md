@@ -179,7 +179,15 @@ Stellar:
 
 {% quot el:h2 timeline %}
 
+{% tabs active:1 align:center %}
+
+<!-- tab 动态说说 -->
+
 时间线组件，这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持：
+
+动态数据是从 GitHub Issues 中拉取的，使用方法为：
+
+在 `widgets.yml` 中新建配置
 
 ```yaml blog/source/_data/widgets.yml
 timeline:
@@ -190,7 +198,11 @@ timeline:
   hide: # title,footer # 隐藏标题或底部 # 此功能需要 Stellar v1.13.0
 ```
 
-现在侧边栏不仅能放置近期动态，还可以放置朋友圈文章，这个功能在 {% mark 1.13.0 color:dark %} 版本后开始支持。
+<!-- tab 朋友圈 -->
+
+这个功能在 {% mark 1.13.0 color:dark %} 版本后开始支持。
+
+{% link https://xaoxuu.com/wiki/stellar/fcircle/ %}
 
 ```yaml blog/source/_data/widgets.yml
 # 愣着干啥，新建啊
@@ -202,13 +214,28 @@ timeline:
   limit: # 可通过这个限制最大数量
 ```
 
-然后你可以在 `_config.stellar.yml` 中设置引用
+<!-- tab 微博动态 -->
+
+这个功能在 {% mark 1.17.3 color:dark %} 版本后开始支持：
+
+```yaml blog/source/_data/widgets.yml
+weibo:
+  layout: timeline
+  title: 微博动态
+  api: https://raw.githubusercontent.com/GitHub用户名/仓库名/output/output/tweets.json # 你的微博爬取数据文件地址
+  type: weibo
+  limit: 20
+```
+
+{% endtabs %}
+
+无论是哪种动态数据，你都可以在 `_config.stellar.yml` 中设置引用
 
 ```yaml blog/_config.stellar.yml
 sidebar:
   ...
   widgets:
-    index: [welcome, 朋友圈]
+    home: welcome, recent, 朋友圈, weibo
 ```
 
 或者在你需要显示的页面引入，页面内引入优先于配置文件引入：
@@ -219,7 +246,7 @@ sidebar: [ghuser, search, 朋友圈]
 ---
 ```
 
-## 专用组件
+{% quot el:h2 专用组件 %}
 
 需要在多个地方使用的组件配置在数据文件 `_data/widgets.yml` 中，只在某一篇文章中使用的组件可以配置在 `front-matter` 中，例如：
 
