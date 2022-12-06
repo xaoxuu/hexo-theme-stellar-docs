@@ -14,7 +14,7 @@ title: 更新日志和近期计划
 {% border 如何关注主题更新 color:green %}
 例如，您可以在自己博客任意位置用时间线标签显示主题最近一个版本更新内容：
 ```
-{% timeline api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1 %}
+{% timeline api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1 %}
 {% endtimeline %}
 ```
 
@@ -23,11 +23,11 @@ title: 更新日志和近期计划
 {% tabs align:left %}
 
 <!-- tab 更新日志 -->
-{% timeline api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/releases?per_page=10 %}
+{% timeline api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=10 %}
 {% endtimeline %}
 
 <!-- tab Todo -->
-{% timeline api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=20 %}
+{% timeline api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=20 %}
 {% endtimeline %}
 
 {% endtabs %}
