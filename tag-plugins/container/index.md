@@ -233,8 +233,6 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 
 > `bg` 为可选参数，默认没有背景，可设置为 `block/card` 两种样式
 
-{% note color:yellow 这个标签正在考虑重命名 请发表您的建议 [#198](https://github.com/xaoxuu/hexo-theme-stellar/discussions/198) %}
-
 ## about 关于块容器
 
 方便在关于页面显示一段图文信息，比普通块容器稍微有一点点不一样：
