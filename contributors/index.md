@@ -36,7 +36,7 @@ title: 开发者和社区支持
 
 > 无论在什么渠道，学习并掌握 [提问的智慧(23k Stars)](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md) 可以方便大家更高效地帮你解决问题。
 
-{% split %}
+{% grid %}
 <!-- cell left -->
 {% ablock color:red %}
 **错误的提问**
@@ -60,4 +60,4 @@ title: 开发者和社区支持
 - 我查看了文档的【某处】，并尝试【做法】，但是没有得到【预想效果】，正确的做法应该是什么？
 
 {% endablock %}
-{% endsplit %}
+{% endgrid %}

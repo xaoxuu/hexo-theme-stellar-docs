@@ -34,7 +34,7 @@ noteblock -> grid -> border
 
 设置 `child:codeblock` 并设置 `color:颜色枚举` 可以实现 10 种不同颜色的代码块，彩色代码块一般可以用在代码正确与错误的示范对比场景。
 
-{% split %}
+{% grid %}
 <!-- cell left -->
 **推荐的写法**
 {% ablock child:codeblock color:green %}
@@ -54,7 +54,7 @@ func test() -> () {
 ```
 {% endablock %}
 
-{% endsplit %}
+{% endgrid %}
 
 ### 嵌套其它标签
 
@@ -187,7 +187,7 @@ print("hello world")
 
 这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，目前只支持显示一行两列，且手机端因宽度较窄会恢复为单列显示。
 
-{% split %}
+{% grid %}
 <!-- cell left -->
 {% image https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 download:https://unsplash.com/photos/bcql6CtuNv0/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2Njg4NDAxMDI&force=true %}
 <!-- cell right -->
@@ -200,35 +200,35 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 > SONY, ILCE-6000
 > Free to use under the Unsplash License
 
-{% endsplit %}
+{% endgrid %}
 
 普通块样式：
 
-{% split bg:block %}
+{% grid bg:block %}
 <!-- cell left -->
 <center>左侧内容</center>
 <!-- cell right -->
 <center>右侧内容</center>
-{% endsplit %}
+{% endgrid %}
 
 卡片样式：
 
-{% split bg:card %}
+{% grid bg:card %}
 <!-- cell left -->
 <center>左侧内容</center>
 <!-- cell right -->
 <center>右侧内容</center>
-{% endsplit %}
+{% endgrid %}
 
 示例代码：
 
 ```
-{% split bg:block %}
+{% grid bg:block %}
 <!-- cell left -->
 <center>左侧内容</center>
 <!-- cell right -->
 <center>右侧内容</center>
-{% endsplit %}
+{% endgrid %}
 ```
 
 > `bg` 为可选参数，默认没有背景，可设置为 `block/card` 两种样式
