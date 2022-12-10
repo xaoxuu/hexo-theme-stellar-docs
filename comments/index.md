@@ -2,7 +2,7 @@
 layout: wiki
 wiki: Stellar
 order: 180
-title: 评论插件配置
+title: 评论插件配置（6个）
 ---
 
 ## Beaudar

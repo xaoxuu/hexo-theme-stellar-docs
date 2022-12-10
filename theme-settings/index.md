@@ -2,7 +2,7 @@
 layout: wiki
 wiki: Stellar
 order: 100
-title: 基本信息配置
+title: 网站和主题基本信息配置
 ---
 
 ## 站点信息

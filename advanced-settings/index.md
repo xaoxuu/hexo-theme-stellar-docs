@@ -2,7 +2,7 @@
 layout: wiki
 wiki: Stellar
 order: 950
-title: 探索个性化选项
+title: 探索个性化配置
 ---
 
 ## 自定义主页文章检索栏

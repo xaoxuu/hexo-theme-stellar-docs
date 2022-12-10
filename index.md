@@ -2,8 +2,7 @@
 layout: wiki
 wiki: Stellar
 seo_title: Stellar：每个人的独立博客 - XAOXUU
-title: 安装与更新
-h1: 快速开始您的博客之旅
+title: 开始您全新的博客之旅
 sidebar: [search, ghrepo, toc, timeline_stellar_releases, ghissues, related]
 ---
 
@@ -119,27 +118,24 @@ npm: 6.14.13 ~ 8.19.2
 
 {% note color:yellow 适用范围 自定义版适用于对主题有自定义需求，且掌握了一定的前端知识和动手能力的用户。 %}
 
-**自动更新💡**
-
-安装并授权 [pull](https://github.com/apps/pull) 这个机器人，当源仓库发生更新时，机器人会自动提 `PR` 到自己 `fork` 的仓库中。
-
 <!-- tab 引用源码 -->
 
 **安装方法**
 
 下载源码放到 `themes/` 文件夹下面试用。
 
-{% note color:red 适用范围 仅试用，无法获得更新。 %}
+{% note color:error 适用范围 仅适合测试，无法获得更新。 %}
 
 {% endtabs %}
 {% endablock %}
 
+{% toc wiki:Stellar 文档目录 display:mobile %}
 
 ## 开源许可协议
 
 {% quot 项目中的许可声明文件应包含在所有副本中 %}
 
-本主题是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，使用 [MIT License](https://fastly.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
+本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](/wiki/stellar/contributors/) 提交的代码，使用 [MIT License](https://fastly.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
 
 ```license
 MIT License

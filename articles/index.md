@@ -2,7 +2,7 @@
 layout: wiki
 wiki: Stellar
 order: 1020
-title: Stellar 探索号（教程分享）
+title: 探索号专题教程分享
 ---
 
 {% timeline hide:title,footer api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?state=all&labels=分享 %}

@@ -10,7 +10,7 @@ title: 开发者和社区支持
 <!-- tab 开发者 -->
 {% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/contributors?per_page=100&direction=asc %}
 
-<!-- tab 点赞的用户 -->
+<!-- tab 点赞支持者 -->
 {% quot icon:hashtag 1-100 %}
 {% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=1 %}
 {% quot icon:hashtag 101-200 %}

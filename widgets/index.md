@@ -2,10 +2,23 @@
 layout: wiki
 wiki: Stellar
 order: 920
-title: 自定义小组件的配置与使用
+title: 自定义小组件的配置与使用（8个）
 ---
 
-侧边栏组件库在 `_data/widgets.yml` 文件中，配置和使用是两个部分，使用较为简单，即在需要的地方指定组件名：
+实现并显示一个小组件需要两个步骤：
+
+1. 【配置】在组件库中声明组件
+2. 【使用】在需要的位置调用
+
+组件库在 `_data/widgets.yml` 文件中，需要自己创建，内容形如：
+
+```yaml 
+'我的小组件1':
+  layout: 小组件布局模板
+  ...(其它属性)
+```
+
+使用的地方有：【主题配置】、【项目配置】、【页面】，后者可以覆盖前者，例如：
 
 ```yaml blog/source/_posts/xxx.md
 ---
@@ -13,35 +26,11 @@ sidebar: ['我的小组件1', '我的小组件2']
 ---
 ```
 
-也可以在配置文件中指定各个页面默认使用哪些组件：
+## 组件库
 
-Stellar {% mark 1.17.2 %} widgets 默认页面名称有变动，注意更改。
+在创建组件时，您可以使用以下这些 `layout` 布局：
 
-```yaml blog/_config.stellar.yml
-sidebar:
-  ...
-  widgets:
-    #### 自动生成的页面 ####
-    # 主页
-    home: search, welcome, recent, timeline # for home
-    # 博客索引页
-    blog_index: search_blog, recent, timeline # for categories/tags/archives
-    # 文档索引页
-    wiki_index: search_docs, recent, timeline # for wiki
-    # 其它（404）
-    others: search, welcome, recent, timeline # for 404 and ...
-    #### 手动创建的页面 ####
-    # 文章内页
-    post: toc, ghrepo, search, ghissues # for pages using 'layout:post'
-    # 文档内页
-    wiki: search, ghrepo, toc, ghissues, related # for pages using 'layout:wiki'
-    # 其它 layout:page 的页面
-    page: welcome, toc, search # for custom pages using 'layout:page'
-```
-
-各种组件配置方法如下：
-
-{% quot el:h2 toc %}
+{% quot el:h3 toc %}
 
 这是文章/文档的目录树组件，显示文章和文档的目录结构：
 
@@ -56,7 +45,7 @@ toc:
 
 `toc` 的 `fallback` 默认是 `recent`，即一篇文章没有 `TOC` 的时候会显示一个 `recent`
 
-{% quot el:h2 recent %}
+{% quot el:h3 recent %}
 
 ```yaml blog/source/_data/widgets.yml
 recent:
@@ -84,7 +73,7 @@ my_recent:
   ...
 ```
 
-{% quot el:h2 related %}
+{% quot el:h3 related %}
 
 相关文档组件，用于显示具有相同 `tags` 的其它项目列表，暂不支持自定义内容：
 
@@ -97,7 +86,7 @@ related:
   layout: related
 ```
 
-{% quot el:h2 markdown %}
+{% quot el:h3 markdown %}
 
 这是一个自由度很高的标签，可以显示 [markdown](https://docs.github.com/cn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 文本内容：
 
@@ -117,7 +106,7 @@ welcome:
     如果有任何疑问，请先查阅 [文档](https://xaoxuu.com/wiki/stellar/)，如果文档中没有提供，请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues/) 向开发者询问。
 ```
 
-{% quot el:h2 tagcloud %}
+{% quot el:h3 tagcloud %}
 
 标签云组件：
 
@@ -137,9 +126,9 @@ tagcloud:
   show_count: false # 显示每个标签的文章总数
 ```
 
-{% quot el:h2 ghuser %}
+{% quot el:h3 ghuser %}
 
-显示 GitHub 用户基础信息：
+显示 GitHub 用户基础信息卡片：
 
 ```yaml blog/source/_data/widgets.yml
 ghuser:
@@ -149,7 +138,18 @@ ghuser:
   menu: true # show menu or not
 ```
 
-{% quot el:h2 ghrepo %}
+因为它和侧边栏左上角默认的 `header` 功能存在重复，所以建议隐藏默认的 `header` 组件：
+
+
+```yaml blog/source/_posts/xxx.md
+---
+title: 某一篇文章
+sidebar: [ghuser, ...]
+header: false # 不显示左上角的 logo 和 menu
+---
+```
+
+{% quot el:h3 ghrepo %}
 
 显示 GitHub 仓库基础信息，需要搭配 `repo` 一起使用：
 
@@ -176,7 +176,7 @@ Stellar:
   ...
 ```
 
-{% quot el:h2 timeline %}
+{% quot el:h3 timeline %}
 
 {% tabs active:1 align:center %}
 
@@ -245,9 +245,63 @@ sidebar: [ghuser, search, 朋友圈]
 ---
 ```
 
-{% quot el:h2 专用组件 %}
+## 配置默认布局
 
-需要在多个地方使用的组件配置在数据文件 `_data/widgets.yml` 中，只在某一篇文章中使用的组件可以配置在 `front-matter` 中，例如：
+主题配置中可以配置默认布局顺序，在这些页面中，侧边栏会按照指定的顺序从组件库中读取组件并显示：
+
+```yaml blog/_config.stellar.yml
+sidebar:
+  ...
+  widgets:
+    #### 自动生成的页面 ####
+    # 主页
+    home: search, welcome, recent, timeline # for home
+    # 博客索引页
+    blog_index: search_blog, recent, timeline # for categories/tags/archives
+    # 文档索引页
+    wiki_index: search_docs, recent, timeline # for wiki
+    # 其它（404）
+    others: search, welcome, recent, timeline # for 404 and ...
+    #### 手动创建的页面 ####
+    # 文章内页
+    post: toc, ghrepo, search, ghissues # for pages using 'layout:post'
+    # 文档内页
+    wiki: search, ghrepo, toc, ghissues, related # for pages using 'layout:wiki'
+    # 其它 layout:page 的页面
+    page: welcome, toc, search # for custom pages using 'layout:page'
+```
+
+
+## 灵活用法
+
+### 继承（覆盖）组件
+
+适合有多个相似组件的情况，例如有多个时间线组件，显示规则相同，仅 `api` 地址不同：
+
+```yaml blog/source/_data/widgets.yml
+my_timeline_lite:
+  layout: timeline
+  title: 近期动态
+  user: xaoxuu
+  hide: title,footer
+  api:
+```
+
+在不同的页面设置不同的 `api` 地址：
+
+```yaml blog/source/_posts/xxx.md
+---
+title: 某一篇文章
+sidebar:
+  - toc # 只写一个字符串代表引用对应的通用组件
+  - override: my_timeline_lite
+    api: https://xxx
+---
+```
+
+### 匿名组件：仅在使用时创建
+
+适合仅在一个页面或项目中才需要用到的组件，例如在某个页面的侧边栏放一个公告：
 
 ```yaml blog/source/_posts/xxx.md
 ---
@@ -265,24 +319,20 @@ sidebar:
 ---
 ```
 
-在 `front-matter` 中创建的专用组件应至少包含 `layout` 或者 `override` 属性，如果需要继承自某个通用组件，可以在 `override` 属性写上对应通用组件的名字（对应的通用组件必须要有 `layout` 属性）。
+又或者在项目的配置文件中创建专属于这个项目的组件：
 
-```yaml blog/source/_posts/xxx.md
----
-title: 某一篇文章
-sidebar:
-  - toc # 只写一个字符串代表引用对应的通用组件
-  - override: my_timeline_lite
-    api: https://xxx
----
-```
-
-对应的通用组件是：
-
-```yaml blog/source/_data/widgets.yml
-my_timeline_lite:
-  layout: timeline
-  title: 近期动态
-  user: xaoxuu
-  hide: title,footer
+```yaml blog/_data/projects.yml
+Stellar:
+  name: Stellar
+  title: Stellar - 每个人的独立博客
+  subtitle: '每个人的独立博客 | Designed by xaoxuu'
+  sidebar: 
+    - search
+    - toc
+    - ghrepo
+    - layout: timeline
+      title: 最近更新
+      api: https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1
+      hide: footer
+  ...
 ```

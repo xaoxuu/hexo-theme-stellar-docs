@@ -2,7 +2,7 @@
 layout: wiki
 wiki: Stellar
 order: 112
-title: 数据集合类标签
+title: 数据集合类标签（5个）
 ---
 
 ## timeline 时间线
@@ -212,3 +212,9 @@ v1 版本已经停止维护。
 ```
 
 {% link https://github.com/anuraghazra/github-readme-stats GitHub&nbsp;Card&nbsp;API %}
+
+## toc 文档目录树
+
+```
+{% toc wiki:xxx [open:true] [display:mobile] title %}
+```
