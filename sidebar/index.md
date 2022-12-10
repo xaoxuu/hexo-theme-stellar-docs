@@ -48,7 +48,7 @@ sidebar:
 <!-- tab local_search -->
 
 {% border %}
-在 {% mark 1.17.1 color:dark %} 版本后开始支持，无需安装插件，可直接开启。
+在 {% mark 1.17.1 color:dark %} 版本后开始支持，无需安装插件，默认开启。
 {% endborder %}
 
 ```yaml blog/_config.stellar.yml

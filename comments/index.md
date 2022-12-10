@@ -1,7 +1,7 @@
 ---
 layout: wiki
 wiki: Stellar
-order: 106
+order: 180
 title: 评论插件配置
 ---
 
