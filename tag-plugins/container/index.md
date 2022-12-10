@@ -6,61 +6,61 @@ title: 容器类标签
 ---
 
 
-## Border 边框
+## ablock 普通块容器
 
-border 标签和 note 标签样式相同：
+note 标签就是使用 ablock 容器实现的，它们样式是相同的：
 
-{% border Stellar v1.12.0 color:warning %}
+{% folding 更名记录（Stellar 1.18.0） color:warning %}
 因为原 noteblock 标签在升级到 hexo 6.0 之后跟官方库冲突了，官方一直没有解释原因，后不得不改名：
-noteblock -> grid -> border
+noteblock -> grid -> border -> ablock
 详情见：[#172](https://github.com/volantis-x/hexo-theme-volantis/issues/712)
-{% endborder %}
+{% endfolding %}
 
 ```md 语法格式
-{% border [title] [color:color] [child:codeblock/tabs] %}
+{% ablock [title] [color:color] [child:codeblock/tabs] %}
 ...
-{% endborder %}
+{% endablock %}
 ```
 
 ```md 写法如下
-{% border Stellar v1.12.0 color:warning %}
+{% ablock Stellar v1.12.0 color:warning %}
 因为原 noteblock 标签在升级到 hexo 6.0 之后跟官方库冲突了，官方一直没有解释原因，后不得不改名：
 noteblock -> grid -> border
 详情见：[#172](https://github.com/volantis-x/hexo-theme-volantis/issues/712)
-{% endborder %}
+{% endablock %}
 ```
 
 ### 彩色代码块
 
 设置 `child:codeblock` 并设置 `color:颜色枚举` 可以实现 10 种不同颜色的代码块，彩色代码块一般可以用在代码正确与错误的示范对比场景。
 
-推荐的写法：
-
-{% border child:codeblock color:green %}
+{% split %}
+<!-- cell left -->
+**推荐的写法**
+{% ablock child:codeblock color:green %}
 ```swift
 func test() {
     // ...
 }
 ```
-{% endborder %}
-
-不推荐的写法：
-
-{% border child:codeblock color:red %}
+{% endablock %}
+<!-- cell right -->
+**不推荐的写法**
+{% ablock child:codeblock color:red %}
 ```swift
-func test() -> Void {
-    // ...
-}
-// 或者
 func test() -> () {
     // ...
 }
 ```
-{% endborder %}
+{% endablock %}
+
+{% endsplit %}
 
 ### 嵌套其它标签
 
-{% border child:tabs %}
+例如嵌套一个 `tabs` 标签：
+
+{% ablock child:tabs %}
 {% tabs %}
 <!-- tab 图文混排 -->
 {% image /assets/xaoxuu/blog/2020-0627a@2x.webp 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
@@ -68,64 +68,10 @@ func test() -> () {
 <!-- tab 示例代码 -->
 <script src="https://gist.github.xaox.cc/xaoxuu/c983c958ef0deab819376c231e977ba7.js"></script>
 {% endtabs %}
-{% endborder %}
-
-{% note color:yellow 这个标签正在考虑重命名 请发表您的建议 [#198](https://github.com/xaoxuu/hexo-theme-stellar/discussions/198) %}
+{% endablock %}
 
 
-## Split 两列分区
-
-这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，只支持显示两列，且手机端会恢复为单列显示。
-
-{% split %}
-<!-- cell left -->
-{% image https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 download:https://unsplash.com/photos/bcql6CtuNv0/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2Njg4NDAxMDI&force=true %}
-<!-- cell right -->
-**[Unsplash Photo](https://unsplash.com/photos/bcql6CtuNv0)**
-
-The Galactic Center is the rotational center of the Milky Way galaxy. Its central massive object is a supermassive black hole of about 4 million solar masses, which is called Sagittarius A*. Its mass is equal to four million suns. The center is located 25,800 light years away from Earth.
-
-> Ōwhiro Bay, Wellington, New Zealand
-> Published on May 31, 2022
-> SONY, ILCE-6000
-> Free to use under the Unsplash License
-
-{% endsplit %}
-
-块样式：
-
-{% split bg:block %}
-<!-- cell left -->
-<center>左侧内容</center>
-<!-- cell right -->
-<center>右侧内容</center>
-{% endsplit %}
-
-卡片样式：
-
-{% split bg:card %}
-<!-- cell left -->
-<center>左侧内容</center>
-<!-- cell right -->
-<center>右侧内容</center>
-{% endsplit %}
-
-示例代码：
-
-```
-{% split bg:block %}
-<!-- cell left -->
-<center>左侧内容</center>
-<!-- cell right -->
-<center>右侧内容</center>
-{% endsplit %}
-```
-
-> `bg` 为可选参数，默认没有背景，可设置为 `block/card` 两种样式
-
-{% note color:yellow 这个标签正在考虑重命名 请发表您的建议 [#198](https://github.com/xaoxuu/hexo-theme-stellar/discussions/198) %}
-
-## Folding 折叠块
+## folding 折叠容器
 
 折叠块标签的语法格式为：
 
@@ -171,7 +117,7 @@ func test() {
 {% endfolding %}
 {% endfolding %}
 
-## Folders 一组折叠块
+## folders 多个折叠容器聚合
 
 样式相比 `folding` 简单一些，适用于多个折叠标签平铺显示的场景，例如题目列表：
 
@@ -197,29 +143,7 @@ func test() {
 {% endfolders %}
 ```
 
-
-## About 关于块
-
-方便在关于页面显示一段图文信息：
-
-```
-{% about avatar:/assets/xaoxuu/avatar/rect-256@2x.png height:80px %}
-
-<img height="32px" alt="XAOXUU" src="/assets/xaoxuu/logo/180x30@2x.png">
-
-**如果宇宙中真有什么终极的逻辑，那就是我们终有一天会在舰桥上重逢，直到生命终结。**
-
-XAOXUU 目前是一个 iOS 开发者，代表作品有：ProHUD、ValueX 等。在业余时间也开发了 Stellar 博客主题，更多的作品可以去项目主页查看，希望大家喜欢～
-
-{% navbar [文章](/) [项目](/wiki/) [留言](#comments) [GitHub](https://github.com/xaoxuu/) %}
-
-{% endabout %}
-```
-
-{% note color:yellow 这个标签正在考虑重命名 请发表您的建议 [#198](https://github.com/xaoxuu/hexo-theme-stellar/discussions/198) %}
-
-
-## Tabs 分栏
+## tabs 分栏容器
 
 这个标签移植自 [NexT](https://theme-next.js.org/docs/tag-plugins/tabs.html) 主题，但做了以下修改：
 
@@ -258,7 +182,81 @@ print("hello world")
 
 {% endtabs %}
 
-## Swiper 轮播容器
+
+## grid 网格分区容器
+
+这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，目前只支持显示一行两列，且手机端因宽度较窄会恢复为单列显示。
+
+{% split %}
+<!-- cell left -->
+{% image https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 download:https://unsplash.com/photos/bcql6CtuNv0/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2Njg4NDAxMDI&force=true %}
+<!-- cell right -->
+**[Unsplash Photo](https://unsplash.com/photos/bcql6CtuNv0)**
+
+The Galactic Center is the rotational center of the Milky Way galaxy. Its central massive object is a supermassive black hole of about 4 million solar masses, which is called Sagittarius A*. Its mass is equal to four million suns. The center is located 25,800 light years away from Earth.
+
+> Ōwhiro Bay, Wellington, New Zealand
+> Published on May 31, 2022
+> SONY, ILCE-6000
+> Free to use under the Unsplash License
+
+{% endsplit %}
+
+普通块样式：
+
+{% split bg:block %}
+<!-- cell left -->
+<center>左侧内容</center>
+<!-- cell right -->
+<center>右侧内容</center>
+{% endsplit %}
+
+卡片样式：
+
+{% split bg:card %}
+<!-- cell left -->
+<center>左侧内容</center>
+<!-- cell right -->
+<center>右侧内容</center>
+{% endsplit %}
+
+示例代码：
+
+```
+{% split bg:block %}
+<!-- cell left -->
+<center>左侧内容</center>
+<!-- cell right -->
+<center>右侧内容</center>
+{% endsplit %}
+```
+
+> `bg` 为可选参数，默认没有背景，可设置为 `block/card` 两种样式
+
+{% note color:yellow 这个标签正在考虑重命名 请发表您的建议 [#198](https://github.com/xaoxuu/hexo-theme-stellar/discussions/198) %}
+
+## about 关于块容器
+
+方便在关于页面显示一段图文信息，比普通块容器稍微有一点点不一样：
+
+```
+{% about avatar:/assets/xaoxuu/avatar/rect-256@2x.png height:80px %}
+
+<img height="32px" alt="XAOXUU" src="/assets/xaoxuu/logo/180x30@2x.png">
+
+**如果宇宙中真有什么终极的逻辑，那就是我们终有一天会在舰桥上重逢，直到生命终结。**
+
+XAOXUU 目前是一个 iOS 开发者，代表作品有：ProHUD、ValueX 等。在业余时间也开发了 Stellar 博客主题，更多的作品可以去项目主页查看，希望大家喜欢～
+
+{% navbar [文章](/) [项目](/wiki/) [留言](#comments) [GitHub](https://github.com/xaoxuu/) %}
+
+{% endabout %}
+```
+
+{% note color:yellow 这个标签正在考虑重命名 请发表您的建议 [#198](https://github.com/xaoxuu/hexo-theme-stellar/discussions/198) %}
+
+
+## swiper 轮播容器
 
 默认一张图片是 50% 宽度，通过设置 `width:min` 设置为 25% 宽度，`width:max` 设置为 100% 宽度。
 

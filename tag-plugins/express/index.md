@@ -6,7 +6,7 @@ title: 表达类标签
 ---
 
 
-## Emoji 表情
+## emoji 表情
 
 {% tabs %}
 <!-- tab 效果演示 -->
@@ -25,7 +25,19 @@ title: 表达类标签
 {% emoji [source] name [height:1.75em] %}
 ```
 
-其中 `source` 可省略，默认为配置中的第一个 `source`：
+其中 `source` 可省略，默认为配置中的第一个 `source`（详见「引入表情包」部分）
+
+{% ablock %}
+如果对高度有特别要求，可以指定高度，例如：{% emoji blobcat ablobcatrainbow height:4em %}
+```
+{% emoji blobcat ablobcatrainbow height:4em %}
+```
+{% endablock %}
+
+> 表情速查表1：[stellar表情标签索引](https://www.hermitlsr.top/2021-08-02/stellar%E8%A1%A8%E6%83%85%E6%8F%92%E4%BB%B6%E7%B4%A2%E5%BC%95/)
+> 表情速查表2：[Stellar内嵌blobcat小表情](https://weekdaycare.cn/posts/emoji-blob/)
+
+<!-- tab 引入表情包 -->
 
 ```yaml blog/_config.stellar.yml
 tag_plugins:
@@ -38,31 +50,23 @@ tag_plugins:
     tieba: https://fastly.jsdelivr.net/gh/cdn-x/emoji/tieba/%s.png
 ```
 
-{% border %}
-在配置文件中，文件名用 `%s` 代替，如果对高度有特别要求，可以指定高度，例如：{% emoji blobcat ablobcatrainbow height:4em %}
-```
-{% emoji blobcat ablobcatrainbow height:4em %}
-```
-{% endborder %}
-
-> 表情速查表1：[stellar表情标签索引](https://www.hermitlsr.top/2021-08-02/stellar%E8%A1%A8%E6%83%85%E6%8F%92%E4%BB%B6%E7%B4%A2%E5%BC%95/)
-> 表情速查表2：[Stellar内嵌blobcat小表情](https://weekdaycare.cn/posts/emoji-blob/)
+> 在配置文件中，文件名用 `%s` 代替。
 
 {% endtabs %}
 
 
-## Mark 行内文本标记
+## mark 行内文本标记
 
-支持多彩标记标签，包括：{% mark 默认 %} {% mark 红 color:red %} {% mark 橙 color:orange %} {% mark 黄 color:yellow %} {% mark 绿 color:green %} {% mark 青 color:cyan %} {% mark 蓝 color:blue %} {% mark 紫 color:purple %} {% mark 浅 color:light %} {% mark 深 color:dark %} {% mark 警告 color:warning %} {% mark 错误 color:error %} 一共 12 种颜色。
+支持多彩标记，包括：{% mark 默认 %} {% mark 红 color:red %} {% mark 橙 color:orange %} {% mark 黄 color:yellow %} {% mark 绿 color:green %} {% mark 青 color:cyan %} {% mark 蓝 color:blue %} {% mark 紫 color:purple %} {% mark 浅 color:light %} {% mark 深 color:dark %} {% mark 警告 color:warning %} {% mark 错误 color:error %} 一共 12 种颜色。
 
 ```
-支持多彩标记标签，包括：{% mark 默认 %} {% mark 红 color:red %} {% mark 橙 color:orange %} {% mark 黄 color:yellow %} {% mark 绿 color:green %} {% mark 青 color:cyan %} {% mark 蓝 color:blue %} {% mark 紫 color:purple %} {% mark 浅 color:light %} {% mark 深 color:dark %} {% mark 警告 color:warning %} {% mark 错误 color:error %} 一共 12 种颜色。
+支持多彩标记，包括：{% mark 默认 %} {% mark 红 color:red %} {% mark 橙 color:orange %} {% mark 黄 color:yellow %} {% mark 绿 color:green %} {% mark 青 color:cyan %} {% mark 蓝 color:blue %} {% mark 紫 color:purple %} {% mark 浅 color:light %} {% mark 深 color:dark %} {% mark 警告 color:warning %} {% mark 错误 color:error %} 一共 12 种颜色。
 ```
 
 
-## Tag 标签
+## tag 标签
 
-这个类似于 `mark` 标签，但是适合一批标签独占一行使用，支持链接：
+这个效果类似于 `mark` 标签，但是更适合一批标签独占一行来使用，支持链接：
 
 {% tag Stellar https://xaoxuu.com/wiki/stellar/ %}
 {% tag Hexo https://hexo.io/ %}
@@ -78,7 +82,7 @@ tag_plugins:
 {% tag Gitea https://gitea.xaox.cc/ color:green %}
 ```
 
-## Image 图片标签
+## image 图片标签
 
 图片标签是一个精心设计的应对各种尺寸插图的标签，对于大图，可以放置一个「下载」按钮，语法格式如下：
 
@@ -157,7 +161,7 @@ tag_plugins:
     fancybox: true
 ```
 
-## Quot 引用
+## quot 引用
 
 适合居中且醒目的引用：{% quot Stellar 是最好用的主题 %}
 
@@ -188,7 +192,7 @@ tag_plugins:
 
 > 此外，加上 `el:h2/h3/h4/h5/h6` 可以作为标题使用
 
-## Poetry 诗词
+## poetry 诗词
 
 {% tabs %}
 
@@ -212,7 +216,7 @@ tag_plugins:
 ```
 {% endtabs %}
 
-## Note 备注块
+## note 备注块
 
 {% tabs %}
 
@@ -271,7 +275,7 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark/warning/error
 
 
 
-## Link 链接卡片
+## link 链接卡片
 
 
 {% tabs %}
@@ -302,7 +306,7 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 
 
 
-## Copy 复制行
+## copy 复制行
 
 
 {% tabs %}
@@ -325,7 +329,7 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 {% endtabs %}
 
 
-## Radio 单选
+## radio 单选
 
 
 {% tabs %}
@@ -345,7 +349,7 @@ color: red/orange/yellow/green/cyan/blue/purple
 {% endtabs %}
 
 
-## Checkbox 复选
+## checkbox 复选
 
 
 {% tabs %}
@@ -374,7 +378,7 @@ symbol: plus/minus/times
 {% endtabs %}
 
 
-## Navbar 导航栏
+## navbar 导航栏
 
 文章内也可以插入一个导航栏：
 
@@ -385,7 +389,7 @@ symbol: plus/minus/times
 {% navbar active:1 [文章](/) [项目](/wiki/) [留言](#comments) [GitHub](https://github.com/xaoxuu/) %}
 
 
-## Frame 设备框架
+## frame 设备框架
 
 
 {% tabs %}

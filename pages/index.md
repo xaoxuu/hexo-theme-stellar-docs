@@ -38,9 +38,9 @@ poster: # 海报（可选，全图封面卡片）
 ---
 ```
 
-{% border Stellar color:red %}
+{% ablock Stellar color:red %}
 v1.14.0 更换 `cover-title` `cover-cat` `cover-subtitle` `cover-text-color` 为 `poster`
-{% endborder %}
+{% endablock %}
 
 > 为了显示美观，建议 `topic` 和 `caption` 选择其一与 `headline` 搭配使用。
 

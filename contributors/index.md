@@ -38,7 +38,7 @@ title: 开发者和社区支持
 
 {% split %}
 <!-- cell left -->
-{% border color:red %}
+{% ablock color:red %}
 **错误的提问**
 <hr>
 
@@ -49,9 +49,9 @@ title: 开发者和社区支持
 - 这个代码怎么改（扔过来一大段代码）
 - XXX 什么意思？（没有经过任何搜索）
 
-{% endborder %}
+{% endablock %}
 <!-- cell right -->
-{% border color:green %}
+{% ablock color:green %}
 **正确的提问**
 <hr>
 
@@ -59,5 +59,5 @@ title: 开发者和社区支持
 - 我不太理解【某处】里的【某处】，我的理解是这样的：【思路细节】，对吗？
 - 我查看了文档的【某处】，并尝试【做法】，但是没有得到【预想效果】，正确的做法应该是什么？
 
-{% endborder %}
+{% endablock %}
 {% endsplit %}

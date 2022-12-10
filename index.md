@@ -57,7 +57,7 @@ npm: 6.14.13 ~ 8.19.2
 
 ## 安装与更新
 
-{% border %}
+{% ablock %}
 {% tabs %}
 
 <!-- tab 稳定版 -->
@@ -132,7 +132,7 @@ npm: 6.14.13 ~ 8.19.2
 {% note color:red 适用范围 仅试用，无法获得更新。 %}
 
 {% endtabs %}
-{% endborder %}
+{% endablock %}
 
 
 ## 开源许可协议

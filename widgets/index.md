@@ -88,9 +88,9 @@ my_recent:
 
 相关文档组件，用于显示具有相同 `tags` 的其它项目列表，暂不支持自定义内容：
 
-{% border Stellar 1.12.0 color:red %}
+{% ablock Stellar 1.12.0 color:red %}
 1.12.0 已将 `wiki_more`，更名为 `related`
-{% endborder %}
+{% endablock %}
 
 ```yaml blog/source/_data/widgets.yml
 related:

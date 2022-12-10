@@ -5,8 +5,7 @@ order: 112
 title: 数据集合类标签
 ---
 
-
-## Timeline 时间线
+## timeline 时间线
 
 支持静态和动态时间线数据源，用法非常多，详见这篇文章：
 
@@ -114,7 +113,7 @@ title: 数据集合类标签
 {% link https://docs.github.com/en/rest/issues/issues#list-issues-assigned-to-the-authenticated-user GitHub&nbsp;REST&nbsp;API %}
 
 
-## Friends 友链
+## friends 友链
 
 {% friends 开源大佬 %}
 
@@ -159,9 +158,9 @@ issues:
 
 ### 数据托管与加速
 
-{% border 特别感谢 color:green %}
+{% ablock 特别感谢 color:green %}
 特别感谢小冰博客的加速访问方案，解决了直接请求 GitHub API 速度过慢的问题，详见 [小冰博客](https://zfe.space/post/python-issues-api.html) 的教程。
-{% endborder %}
+{% endablock %}
 
 支持把数据托管到任何其他地方来使用，例如：
 
@@ -169,14 +168,14 @@ issues:
 {% friends api:https://api.vlts.cc/output_data/v2/xaoxuu/friends %}
 ```
 
-{% border Stellar 1.13.0 color:warning %}
+{% ablock Stellar 1.13.0 color:warning %}
 动态数据 API 升级至 v2 版本，原使用 issue-api 仓库的需要将友链仓库同步更新。
 v1 版本已经停止维护。
-{% endborder %}
+{% endablock %}
 
 > 你可以有 N 种办法加速访问 GitHub 仓库里的文件。
 
-## Sites 网站卡片
+## sites 网站卡片
 
 {% sites mac_app_download %}
 
@@ -197,11 +196,11 @@ v1 版本已经停止维护。
 {% sites 分组名 %}
 ```
 
-{% border Stellar v1.13.0 color:warning %}
+{% ablock Stellar v1.13.0 color:warning %}
 原 friends 和 sites 标签数据合并至 `links.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
-{% endborder %}
+{% endablock %}
 
-## GitHub Card
+## ghcard 卡片
 
 {% ghcard xaoxuu %}
 
