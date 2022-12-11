@@ -67,7 +67,9 @@ comments:
     envId: https://xxx # vercel函数
 ```
 
-## waline
+{% link https://twikoo.js.org %}
+
+## Waline
 
 ```yaml blog/_config.stellar.yml
 comments:
@@ -88,7 +90,7 @@ comments:
 
     # Custom emoji
     emoji: 
-        - https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs
+      - https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs
     #   - https://unpkg.com/@waline/emojis@1.1.0/weibo
     #   - https://unpkg.com/@waline/emojis@1.1.0/alus
     #   - https://unpkg.com/@waline/emojis@1.1.0/bilibili
@@ -96,29 +98,24 @@ comments:
     #   - https://unpkg.com/@waline/emojis@1.1.0/tieba
     #   - https://unpkg.com/@waline/emojis@1.1.0/tw-emoji
     #   - https://unpkg.com/@waline/emojis@1.1.0/bmoji
-
-    # Comment infomation, valid meta are nick, mail and link
-    # meta:
-    #   - 昵称
-    #   - 邮箱
-    #   - 链接
-
-    # Set required meta field, e.g.: [nick] | [nick, mail]
-    # requiredMeta:
-    #   - nick
-
-    # Language, available values: en-US, zh-CN, zh-TW, pt-BR, ru-RU, jp-JP
-    lang: zh-CN
-
-    wordLimit: 0 # 字数限制，0为不限制字数
-
-    # Whether enable login, can choose from 'enable', 'disable' and 'force'
-    # login: enable
-
-    # comment per page
-    pageSize: 5 # 每页显示评论数
 ```
 
-## valine
+{% link https://waline.js.org %}
 
-Stellar 1.13.0 已移除对 Valine 评论的支持。
+## Artalk
+
+```yaml blog/_config.stellar.yml
+comments:
+  service: artalk
+  # Artalk
+  # https://artalk.js.org/
+  artalk:
+    css: https://unpkg.com/artalk@2.4.3/dist/Artalk.css
+    js: https://unpkg.com/artalk@2.4.3/dist/Artalk.js 
+    server: # 后端服务地址
+    placeholder: ''
+    darkMode: auto
+```
+
+{% link https://artalk.js.org %}
+
