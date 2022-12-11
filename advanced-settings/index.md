@@ -44,27 +44,17 @@ poster: # 海报（可选，全图封面卡片）
 style:
   ...
   color:
-    common:
-      theme: '#1BCDFC' # 主题色
-      accent: '#ff5722' # 强调色
-      link: '#2196f3' # 超链接颜色
-      button: '#1BCDFC' # 按钮颜色
-      hover: '#ff5722' # 按钮高亮颜色
-    light:
-      background: '#f8f8f8' # 浅色背景颜色
-      block: '#f2f2f2' # 块背景颜色
-      card: white # 卡片背景颜色
-      title: '#000' # 标题文本颜色
-      text: '#333' # 正文文本颜色
-      code: '#111' # 行内代码颜色
-    dark:
-      background: '#313438' # 深色背景颜色
-      background-mobile: black # 移动端深色背景（OLED调成纯黑可以省电）
-      block: '#2B2F33' # 块背景颜色
-      card: '#464D57' # 卡片背景颜色
-      title: '#fff' # 标题文本颜色
-      text: '#eee' # 正文文本颜色
-      code: '#ff7043' # 行内代码颜色
+    # 动态颜色（会根据明暗主题重设明度值，只用关心色相和饱和度即可）
+    background: 'hsl(212 16% 98%)' # 浅色背景颜色
+    block: 'hsl(212 8% 95%)' # 块背景颜色
+    code: 'hsl(14 100% 48%)' # 行内代码颜色
+    text: 'hsl(0 0% 20%)' # 文本颜色
+    # 主题色配置（不会根据明暗动态调整，请设置为通用的颜色）
+    theme: 'hsl(192 98% 55%)' # 主题色
+    accent: 'hsl(14 100% 57%)' # 强调色
+    link: 'hsl(207 90% 54%)' # 超链接颜色
+    button: 'hsl(192 98% 55%)' # 按钮颜色
+    hover: 'hsl(14 100% 57%)' # 按钮高亮颜色
 ```
 
 ## 字体
