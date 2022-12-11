@@ -22,7 +22,7 @@ title: 开发者和社区支持
 
 {% endtabs %}
 
-{% image https://api.star-history.com/svg?repos=xaoxuu/hexo-theme-stellar&type=Date %}
+{% image https://starchart.cc/xaoxuu/hexo-theme-stellar.svg %}
 
 {% quot icon:hashtag 如何加入社区 %}
 
