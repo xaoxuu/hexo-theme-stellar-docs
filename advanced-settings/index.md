@@ -40,6 +40,8 @@ poster: # 海报（可选，全图封面卡片）
 
 ## 主题色
 
+支持 `HEX` & `HSL` 表示颜色
+
 ```yaml blog/_config.stellar.yml
 style:
   ...
@@ -128,13 +130,28 @@ style:
 
 ```yaml blog/_config.stellar.yml
 style:
+  ...
   text-align: left # justify/left/center/right
+```
+
+## 圆角大小
+
+这个功能在 {% mark 1.18.1 color:dark %} 版本后开始支持。
+
+```yaml blog/_config.stellar.yml
+style:
+  ...
+  border-radius:
+    card: 12px # 卡片圆角
+    block: 12px # 块圆角
+    bar: 6px # 导航栏圆角
+    image: 6px # 图片圆角
 ```
 
 ## 页面缓入效果
 
 ```yaml blog/_config.stellar.yml
-# 默认关闭，目前已知scrollreveal与lazyload同时打开时会有footer不显示的bug
+# 默认关闭
 scrollreveal:
   enable: false
   js: https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js
@@ -166,6 +183,26 @@ loading:
   loading: 正在加载
   error: 加载失败，请稍后重试。
 ```
+
+## 渐变色
+
+这个功能在 {% mark 1.18.2 color:dark %} 版本后开始支持。
+
+您可以在搜索框与 `wiki` 项目的封面开始按钮处设置渐变色 CSS 代码
+
+```yaml blog/_config.stellar.yml
+style:
+  ...
+  gradient: # https://webgradients.com/
+    start: 'linear-gradient(to right, #92fe9d 0%, #00c9ff 50%, #92fe9d 100%)'
+    search: 'linear-gradient(to right, #04F3FF, #08FFC6, #DDF730, #FFBD19, #FF1FE0, #C418FF, #04F3FF)'
+```
+
+您可以在下面网站中寻找中意的渐变色
+
+{% link https://webgradients.com/ %}
+
+当然，如果只想设置纯色的话可以直接设置单色，支持 HEX 和 HSL，例如 `search: 'hsl(212 16% 98%)'`
 
 ## 评论的灵活用法
 

@@ -215,7 +215,7 @@ timeline:
 
 <!-- tab 微博动态 -->
 
-这个功能在 {% mark 1.17.3 color:dark %} 版本后开始支持：
+这个功能在 {% mark 1.18.0 color:dark %} 版本后开始支持：
 
 ```yaml blog/source/_data/widgets.yml
 weibo:
