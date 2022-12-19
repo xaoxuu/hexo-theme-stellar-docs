@@ -135,7 +135,7 @@ npm: 6.14.13 ~ 8.19.2
 
 {% quot 项目中的许可声明文件应包含在所有副本中 %}
 
-本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](/wiki/stellar/contributors/) 提交的代码，使用 [MIT License](https://fastly.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
+本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](/wiki/stellar/contributors/) 提交的代码，使用 [MIT License](https://gcore.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
 
 ```license
 MIT License

@@ -154,7 +154,7 @@ style:
 # 默认关闭
 scrollreveal:
   enable: false
-  js: https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js
+  js: https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js
   distance: 4px # 执行距离
   duration: 400 # ms # 执行时长
   interval: 100 # ms # 执行间隔（时间）
@@ -169,7 +169,7 @@ scrollreveal:
 # 默认打开
 lazyload:
   enable: true # [hexo clean && hexo s] is required after changing this value.
-  js: https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js
+  js: https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js
   transition: blur # blur, fade
 ```
 
@@ -294,7 +294,7 @@ highlight:
 ```yaml
 inject:
   head:
-    - <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/atom-one-dark.min.css">
+    - <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/atom-one-dark.min.css">
 ```
 
 ## 外部文件注入
@@ -308,7 +308,7 @@ inject:
     - <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
     - <meta name="theme-color" content="#ffffff">
   script:
-    - https://fastly.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js
+    - https://gcore.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js
 ```
 
 ## 实现「笔记」页面

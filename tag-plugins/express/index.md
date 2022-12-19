@@ -43,14 +43,14 @@ title: 表达类标签（14+个）
 tag_plugins:
   ...
   emoji:
-    default: https://fastly.jsdelivr.net/gh/cdn-x/emoji/qq/%s.gif
-    twemoji: https://fastly.jsdelivr.net/gh/twitter/twemoji/assets/svg/%s.svg
-    qq: https://fastly.jsdelivr.net/gh/cdn-x/emoji/qq/%s.gif
-    aru: https://fastly.jsdelivr.net/gh/cdn-x/emoji/aru-l/%s.gif
-    tieba: https://fastly.jsdelivr.net/gh/cdn-x/emoji/tieba/%s.png
+    default: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/${name}.gif
+    twemoji: https://gcore.jsdelivr.net/gh/twitter/twemoji/assets/svg/${name}.svg
+    qq: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/${name}.gif
+    aru: https://gcore.jsdelivr.net/gh/cdn-x/emoji/aru-l/${name}.gif
+    tieba: https://gcore.jsdelivr.net/gh/cdn-x/emoji/tieba/${name}.png
 ```
 
-> 在配置文件中，文件名用 `%s` 代替。
+> 在配置文件中，文件名用 `${name}` 代替。
 
 {% endtabs %}
 
