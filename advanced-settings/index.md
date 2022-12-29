@@ -228,9 +228,10 @@ beaudar:
 
 ```yaml blog/source/wiki/stellar/index.md
 title: 快速开始您的博客之旅
-beaudar:
-  repo: xaoxuu/hexo-theme-stellar
-  'issue-term': 'Q & A'
+giscus:
+  data-repo: xaoxuu/hexo-theme-stellar
+  data-mapping: number
+  data-term: 226
 ```
 
 
