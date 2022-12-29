@@ -71,7 +71,7 @@ tag_plugins:
 {% tag Stellar https://xaoxuu.com/wiki/stellar/ %}
 {% tag Hexo https://hexo.io/ %}
 {% tag GitHub https://github.com/xaoxuu/ %}
-{% tag Gitea https://gitea.xaox.cc/ color:green %}
+{% tag Gitea https://git.xaoxuu.com/ color:green %}
 
 如果没有指定颜色，且没有设置默认颜色，则随机取一个颜色，快来试试吧～
 
@@ -79,7 +79,7 @@ tag_plugins:
 {% tag Stellar https://xaoxuu.com/wiki/stellar/ %}
 {% tag Hexo https://hexo.io/ %}
 {% tag GitHub https://github.com/xaoxuu/ %}
-{% tag Gitea https://gitea.xaox.cc/ color:green %}
+{% tag Gitea https://git.xaoxuu.com/ color:green %}
 ```
 
 ## image 图片标签
