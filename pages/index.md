@@ -22,7 +22,7 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 ```
 
 {% folding 显示效果 open:false %}
-{% image https://pic1.imgdb.cn/item/6354e0a216f2c2beb100617c.jpg width:600px %}
+{% image https://pic.imgdb.cn/item/63bc16f2be43e0d30eb899d1.jpg width:600px %}
 {% endfolding %}
 
 上面这种方式会显示title与description或者摘要，若你想要图片全显示，可以加入如下参数：
@@ -38,9 +38,7 @@ poster: # 海报（可选，全图封面卡片）
 ---
 ```
 
-{% ablock Stellar color:red %}
-v1.14.0 更换 `cover-title` `cover-cat` `cover-subtitle` `cover-text-color` 为 `poster`
-{% endablock %}
+Stellar {% mark v1.14.0 %} 更换 `cover-title` `cover-cat` `cover-subtitle` `cover-text-color` 为 `poster`
 
 > 为了显示美观，建议 `topic` 和 `caption` 选择其一与 `headline` 搭配使用。
 

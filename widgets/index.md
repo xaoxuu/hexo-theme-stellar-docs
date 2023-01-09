@@ -75,11 +75,9 @@ my_recent:
 
 {% quot el:h3 related %}
 
-相关文档组件，用于显示具有相同 `tags` 的其它项目列表，暂不支持自定义内容：
+相关**文档**组件，用于显示具有相同 `tags` 的其它项目列表，暂不支持自定义内容：
 
-{% ablock Stellar 1.12.0 color:red %}
-1.12.0 已将 `wiki_more`，更名为 `related`
-{% endablock %}
+Stellar {% mark 1.12.0 %} 已将 `wiki_more`，更名为 `related`
 
 ```yaml blog/source/_data/widgets.yml
 related:

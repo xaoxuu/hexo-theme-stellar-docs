@@ -13,11 +13,16 @@ Stellar 会读取站点根目录下的 `_config.yml` 文件中的一些信息来
 title: 您的网站名称
 avatar: 您的头像链接
 favicon: 您的网站icon
+subtitle: 您的网站副标题
 # 多语言
 language:
   - zh-CN
   - en
 ```
+
+更多关于 Hexo 文件的配置请移步官方文档
+
+{% link https://hexo.io/zh-cn/docs/configuration %}
 
 ### 多语言设置
 

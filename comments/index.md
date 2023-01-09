@@ -119,3 +119,32 @@ comments:
 
 {% link https://artalk.js.org %}
 
+## 评论的灵活用法
+
+### 共用评论数据
+
+如果您有多个页面需要共用评论数据，可以在 `front-matter` 中覆盖评论参数，例如：
+
+```yaml blog/source/about/index.md
+title: 关于
+beaudar:
+  'issue-term': '留言板'
+```
+
+```yaml blog/source/friends/index.md
+title: 友链
+beaudar:
+  'issue-term': '留言板'
+```
+
+### 使用其它评论数据
+
+如果您有多个页面需要另外一个数据库的评论数据，以 Beaudar 为例，您可以这样：
+
+```yaml blog/source/wiki/stellar/index.md
+title: 快速开始您的博客之旅
+giscus:
+  data-repo: xaoxuu/hexo-theme-stellar
+  data-mapping: number
+  data-term: 226
+```
