@@ -5,11 +5,20 @@ order: 102
 title: 编写文章以及独立页面
 ---
 
-## 文章摘要卡片
-
-### 封面图片
+## 文章封面
 
 在文章列表页面或者其他位置显示的文章摘要卡片上面的图片称之为「文章封面」
+
+### 自动生成封面
+
+根据 `tags` 作为关键词为每一篇文章在线搜索封面：
+
+```yaml blog/_config.stellar.yml
+article:
+  auto_cover: true
+```
+
+### 引用外部图片
 
 在文章的 `front-matter` 中写上 `cover: xxx` 即可。例如：
 
@@ -62,7 +71,18 @@ cover: workout,strava
 ---
 ```
 
-### 内容摘要
+## 内容摘要
+
+### 自动生成摘要
+
+建议您通过 `description` 或者 `excerpt` 方式生成摘要，但如果您希望自动从文章内容截取一定字数的文字作为摘要，可以这样设置：
+
+```yaml blog/_config.stellar.yml
+article:
+  auto_excerpt: 200
+```
+
+### 手动设置摘要
 
 一篇文章开头一段文字描述就是摘要，摘要和正文用 `<!-- more -->` 隔开，前后一定要有空行。例如：
 
@@ -78,6 +98,28 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 后面是正文部分，在主页看不到。
 ```
 
+## 文章模板
+
+使用 Hexo 自带模板实现命令行创建新文章时自动生成相关信息。
+
+根目录下 `scaffolds` 文件夹中编辑 `post.md` 的 `font-matter`：
+
+```yaml blog/scaffolds/post.md
+---
+title: {{ title }}
+date: {{ date }}
+tags: []
+categories: []
+description: 
+cover: 
+banner: 
+poster: # 海报（可选，全图封面卡片）
+  topic: 标题上方的小字 # 可选
+  headline: 大标题 # 必选
+  caption: 标题下方的小字 # 可选
+  color: 标题颜色 # 可选
+---
+```
 
 ## 文章页
 
@@ -132,6 +174,24 @@ categories: [设计开发, iOS开发]
 tags: [iOS, 心率]
 ---
 ```
+
+### 相关文章推荐
+
+要实现相关文章推荐功能，您需要安装插件：
+
+{% copy npm i hexo-related-popular-posts %}
+
+然后在主题配置文件中开启：
+
+```yaml blog/_config.stellar.yml
+article:
+  # npm i hexo-related-popular-posts
+  related_posts:
+    enable: true
+    title: 您可能感兴趣的文章
+```
+
+开启后会在每篇文章的下方推荐相同类型的文章。
 
 ## 参考资料
 

@@ -180,64 +180,30 @@ style:
 post-index: # 近期发布 分类 标签 归档 and ...
   '朋友文章': /friends/rss/ # 这里填写的链接要与对应页面一致，否则可能无法正确高亮
 ```
- 
-## 文章模板
 
-我一看这文档，每次写一篇新文章都要重新写一遍 `cover`,`desciption`,`categories` 多麻烦，直接让 hexo 替我写了它不香吗
+## 站点地图
 
-根目录下 `scaffolds` 文件夹中编辑 `post.md` 的 `font-matter`：
+页面底部的站点导航，你也可以在 `content` 中自定义一些文字信息，支持 Markdown 格式。
 
-```yaml blog/scaffolds/post.md
----
-title: {{ title }}
-date: {{ date }}
-tags: []
-categories: []
-description: 
-cover: 
-banner: 
-poster: # 海报（可选，全图封面卡片）
-  topic: 标题上方的小字 # 可选
-  headline: 大标题 # 必选
-  caption: 标题下方的小字 # 可选
-  color: 标题颜色 # 可选
----
-```
-
-## 文章自定义
-
-### 是否自动生成封面
-
-根据 `tags` 作为关键词为每一篇文章在线搜索封面：
-
-```yaml blog/_config.stellar.yml
-article:
-  auto_cover: true
-```
-
-### 是否自动生成摘要
-
-建议您通过 `description` 或者 `excerpt` 方式生成摘要，但如果您希望自动从文章内容截取一定字数的文字作为摘要，可以这样设置：
-
-```yaml blog/_config.stellar.yml
-article:
-  auto_excerpt: 200
-```
-
-### 相关文章推荐
-
-要实现相关文章推荐功能，您需要安装插件：
-
-{% copy npm i hexo-related-popular-posts %}
-
-然后在主题配置文件中开启：
-
-```yaml blog/_config.stellar.yml
-article:
-  # npm i hexo-related-popular-posts
-  related_posts:
-    enable: true
-    title: 您可能感兴趣的文章
+```yaml
+  sitemap:
+    '博客':
+      - '[近期](/)'
+      - '[分类](/categories/)'
+      - '[标签](/tags/)'
+      - '[归档](/archives/)'
+    '项目':
+  #    - '[开源库](/)'
+    '社交':
+  #    - '[友链](/)'
+  #    - '[留言板](/)'
+    '更多':
+  #    - '[关于本站](/)'
+  #    - '[GitHub](/)'
+  content: | # 支持 Markdown 格式
+    本站由 [@anonymity](/) 使用 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar) 主题创建。
+    本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
+  # 主题用户越多，开发者维护和更新的积极性就越高，如果您喜欢本主题，请在适当的位置显示主题信息和仓库链接以表支持。
 ```
 
 ## 自定义样式
@@ -251,6 +217,7 @@ Hexo 官方有文档：https://hexo.io/docs/syntax-highlight.html#hljs
 > Tip: When line_number is set to false, wrap is set to false and hljs is set to true, you can then use highlight.js theme directly in your site.
 
 以 `atom-one-dark` 主题为例，翻译过来就是 `_config.yml` 找到 `highlight` 并修改为：
+
 ```yaml
 highlight:
   enable: true
@@ -260,7 +227,9 @@ highlight:
   wrap: false
   hljs: true
 ```
+
 然后再找到 `inject` 新增一个 css 链接：
+
 ```yaml
 inject:
   head:
