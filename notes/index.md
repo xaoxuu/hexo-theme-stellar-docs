@@ -7,7 +7,7 @@ title: 实现「笔记」页面
 
 创建一个项目，设置为不索引：
 
-```yaml blog/source/_data/widgets.yml
+```yaml blog/source/_data/projects.yml
 Notes:
   name: 笔记
   title: 笔记
