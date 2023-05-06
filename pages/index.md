@@ -98,6 +98,22 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 后面是正文部分，在主页看不到。
 ```
 
+### AI摘要
+
+感谢 [@张洪Heo](https://github.com/zhheo) [@Tianli](https://github.com/Tianli0) 提供的项目 [Post-Abstract-AI](https://github.com/zhheo/Post-Abstract-AI)
+
+```yaml _config.stellar.yml
+# AI 摘要
+TianliGpt:
+  post: true  # 文章开启ai摘要
+  wiki: true  # wiki项目开启ai摘要
+  api: 5Q5mpqRK5DkwT1X9Gi5e # 填写你的tianliGPT_key
+```
+
+如何获取 tianliGPT_key：到 [爱发电](https://afdian.net/item/f18c2e08db4411eda2f25254001e7c00) 中购买，购买完成后，添加机器人客服：`2102916311`，回复 `/chat 你的key 你的博客地址注意保留最后的斜杠`
+
+> key与博客地址为绑定状态，所以本地调试时是无法接收到数据的。不绑定机器人可能会产生跨域问题，请将key绑定到机器人上。
+
 ## 文章模板
 
 使用 Hexo 自带模板实现命令行创建新文章时自动生成相关信息。

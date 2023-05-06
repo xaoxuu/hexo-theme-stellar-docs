@@ -153,13 +153,23 @@ bg: '#ffffff' # 图片区域背景颜色，16进制
 
 如果您希望全站所有的 `image` 标签都开启此功能，可在主题配置文件中修改以下参数：
 
-```yaml
+```yaml blog/_config.stellar.yml
 ######## Tag Plugins ########
 tag_plugins:
   # {% image %}
   image:
     fancybox: true
 ```
+
+{% mark 1.18.5 %} 支持解析原生 MD 语法
+
+```yaml blog/_config.stellar.yml
+tag_plugins:
+  image:
+    replace_original:  #把markdown格式的图片解析成图片标签
+      enable: true
+```
+
 
 ## quot 引用
 
