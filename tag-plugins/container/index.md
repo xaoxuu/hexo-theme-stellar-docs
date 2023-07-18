@@ -70,44 +70,6 @@ func test() -> () {
 {% endtabs %}
 {% endablock %}
 
-## Mermaid
-
-安装插件
-
-{% copy npm install --save hexo-filter-mermaid-diagrams %}
-
-
-
-```yaml blog/_config.stellar.yml
-  mermaid:
-    enable: false
-    # js: https://unpkg.com/mermaid@9.0.0/dist/mermaid.min.js
-    js: https://cdn.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js
-    # Available themes: default | dark | forest | neutral
-    # 推荐使用 dark 主题 在夜间模式下显示效果更好
-    theme: dark
-```
-
-使用前需要在 Markdown 文件开头加入
-
-```md
----
-mermaid: true
----
-```
-
-{% tabs active:1 align:center %}
-
-<!-- tab 演示效果 -->
-
-{% image /assets/wiki/stellar/photos/hello@1x.png width:300px %}
-
-<!-- tab 代码示例 -->
-
-<script src="https://gist.github.xaox.cc/weekdaycare/f7769263a4df46b2d75e32684f4ae873.js"></script>
-
-{% endtabs %}
-
 ## folding 折叠容器
 
 折叠块标签的语法格式为：
