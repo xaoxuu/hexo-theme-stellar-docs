@@ -101,6 +101,23 @@ style:
   text-align: left # justify/left/center/right
 ```
 
+## 代码块复制
+
+```yaml blog/_config.stellar.yml
+copycode:
+  enable: true
+  js: /js/plugins/copycode.js
+  default_text: 'Copy' # 按钮显示文字
+  success_text: 'Copied' # 复制成功信息
+```
+
+## 链接下划线
+
+```yaml blog/_config.stellar.yml
+link:
+  underline: true # true / false
+```
+
 ## 圆角大小
 
 这个功能在 {% mark 1.18.1 color:dark %} 版本后开始支持。

@@ -159,18 +159,9 @@ bg: '#ffffff' # 图片区域背景颜色，16进制
 tag_plugins:
   # {% image %}
   image:
-    fancybox: true
+    fancybox: false
+    parse_markdown: true # 1.19.0 支持把 markdown 格式的图片解析成图片标签 
 ```
-
-{% mark 1.18.5 %} 支持解析原生 MD 语法
-
-```yaml blog/_config.stellar.yml
-tag_plugins:
-  image:
-    replace_original:  #把markdown格式的图片解析成图片标签
-      enable: true
-```
-
 
 ## quot 引用
 
@@ -328,8 +319,7 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
     # js: https://unpkg.com/mermaid@9.0.0/dist/mermaid.min.js
     js: https://cdn.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js
     # Available themes: default | dark | forest | neutral
-    # 推荐使用 dark 主题 在夜间模式下显示效果更好
-    theme: dark
+    theme: neutral
 ```
 
 使用前需要在 Markdown 文件开头加入

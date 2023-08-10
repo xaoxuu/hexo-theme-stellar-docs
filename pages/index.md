@@ -104,15 +104,16 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 
 ```yaml _config.stellar.yml
 # AI 摘要
-TianliGpt:
-  post: true  # 文章开启ai摘要
-  wiki: true  # wiki项目开启ai摘要
+tianli_gpt:
+  enable: true
+  field: post # all, post, wiki
   api: 5Q5mpqRK5DkwT1X9Gi5e # 填写你的tianliGPT_key
+  typingAnimate: false # 打字机动画 
 ```
 
-如何获取 tianliGPT_key：到 [爱发电](https://afdian.net/item/f18c2e08db4411eda2f25254001e7c00) 中购买，购买完成后，添加机器人客服：`2102916311`，回复 `/chat 你的key 你的博客地址注意保留最后的斜杠`
+如何获取 tianliGPT_key：到 [爱发电](https://afdian.net/item/f18c2e08db4411eda2f25254001e7c00) 中购买，购买完成后，进入 [网页后台管理](https://summary.zhheo.com) 绑定key并添加自己的站点
 
-> key与博客地址为绑定状态，所以本地调试时是无法接收到数据的。不绑定机器人可能会产生跨域问题，请将key绑定到机器人上。
+> key与博客地址为绑定状态，所以本地调试时是无法接收到数据的。
 
 ## 文章模板
 
