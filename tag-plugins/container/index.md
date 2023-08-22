@@ -34,6 +34,8 @@ noteblock -> grid -> border
 
 设置 `child:codeblock` 并设置 `color:颜色枚举` 可以实现 10 种不同颜色的代码块，彩色代码块一般可以用在代码正确与错误的示范对比场景。
 
+{% tabs %}
+<!-- tab 示例 -->
 {% grid %}
 <!-- cell left -->
 **推荐的写法**
@@ -53,8 +55,10 @@ func test() -> () {
 }
 ```
 {% endablock %}
-
 {% endgrid %}
+<!-- tab 示例代码 -->
+<script src="https://gist.github.com/weekdaycare/741807d61e5796a91647510b9029a8f1.js"></script>
+{% endtabs %}
 
 ### 嵌套其它标签
 
