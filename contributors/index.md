@@ -8,17 +8,17 @@ title: 开发者和社区支持
 {% tabs align:left %}
 
 <!-- tab 开发者 -->
-{% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/contributors?per_page=100&direction=asc %}
+{% users api:https://ghapi.xaox.cc/repos/xaoxuu/hexo-theme-stellar/contributors?per_page=100&direction=asc %}
 
 <!-- tab 点赞支持者 -->
 {% quot icon:hashtag 1-100 %}
-{% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=1 %}
+{% users api:https://ghapi.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=1 %}
 {% quot icon:hashtag 101-200 %}
-{% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=2 %}
+{% users api:https://ghapi.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=2 %}
 {% quot icon:hashtag 201-300 %}
-{% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=3 %}
+{% users api:https://ghapi.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=3 %}
 {% quot icon:hashtag 301-400 %}
-{% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=4 %}
+{% users api:https://ghapi.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=4 %}
 
 {% endtabs %}
 

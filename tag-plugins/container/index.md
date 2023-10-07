@@ -70,7 +70,7 @@ func test() -> () {
 {% image /assets/xaoxuu/blog/2020-0627a@2x.webp 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
 公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
 <!-- tab 示例代码 -->
-<script src="https://gist.github.xaox.cc/xaoxuu/c983c958ef0deab819376c231e977ba7.js"></script>
+<script src="https://gist.xaox.cc/xaoxuu/c983c958ef0deab819376c231e977ba7.js"></script>
 {% endtabs %}
 {% endablock %}
 
@@ -181,7 +181,7 @@ print("hello world")
 {% endtabs %}
 
 <!-- tab 示例代码 -->
-<script src="https://gist.github.xaox.cc/xaoxuu/cfd4e9645047115c6aa9b19cd9b28e97.js"></script>
+<script src="https://gist.xaox.cc/xaoxuu/cfd4e9645047115c6aa9b19cd9b28e97.js"></script>
 
 {% endtabs %}
 

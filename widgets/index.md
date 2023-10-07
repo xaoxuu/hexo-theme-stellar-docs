@@ -330,7 +330,7 @@ Stellar:
     - ghrepo
     - layout: timeline
       title: 最近更新
-      api: https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1
+      api: https://ghapi.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1
       hide: footer
   ...
 ```

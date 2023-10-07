@@ -355,7 +355,7 @@ gitGraph
 
 <!-- tab 代码示例 -->
 
-<script src="https://gist.github.xaox.cc/weekdaycare/f7769263a4df46b2d75e32684f4ae873.js"></script>
+<script src="https://gist.xaox.cc/weekdaycare/f7769263a4df46b2d75e32684f4ae873.js"></script>
 
 {% endtabs %}
 
