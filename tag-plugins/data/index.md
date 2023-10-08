@@ -165,7 +165,7 @@ issues:
 支持把数据托管到任何其他地方来使用，例如：
 
 ```
-{% friends api:https://api.vlts.cc/output_data/v2/xaoxuu/friends %}
+{% friends api:https://ghraw.xaox.cc/xaoxuu/friends/output/v2/data.json %}
 ```
 
 {% ablock Stellar 1.13.0 color:warning %}

@@ -77,4 +77,5 @@ post-index:
 
 ```
 https://api.vlts.cc/output_data/v1/xaoxuu/friends-rss-generator
+https://ghraw.xaox.cc/xaoxuu/friends-rss-generator/output/data.json
 ```
