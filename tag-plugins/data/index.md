@@ -58,7 +58,7 @@ title: 数据集合类标签（5个）
 {% link https://xaoxuu.com/wiki/stellar/fcircle/ %}
 
 ```md _posts/xxx.md
-{% timeline type:fcircle api:https://ghraw.xaox.cc/xaoxuu/friends-rss-generator/output/data.json %}
+{% timeline type:fcircle api:https://raw.github.xaox.cc/xaoxuu/friends-rss-generator/output/data.json %}
 {% endtimeline %}
 ```
 
@@ -88,11 +88,11 @@ title: 数据集合类标签（5个）
 
 {% folders %}
 <!-- folder 只显示某个人的数据 -->
-{% timeline user:xaoxuu api:https://ghapi.xaox.cc/repos/volantis-x/hexo-theme-volantis/issues %}{% endtimeline %}
+{% timeline user:xaoxuu api:https://api.github.xaox.cc/repos/volantis-x/hexo-theme-volantis/issues %}{% endtimeline %}
 <!-- folder 筛选最近3条todo -->
-{% timeline api:https://ghapi.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=3 %}{% endtimeline %}
+{% timeline api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=3 %}{% endtimeline %}
 <!-- folder 筛选评论最多的3条建议 -->
-{% timeline api:https://ghapi.xaox.cc/repos/volantis-x/hexo-theme-volantis/issues?labels=feature-request&per_page=3&sort=comments %}{% endtimeline %}
+{% timeline api:https://api.github.xaox.cc/repos/volantis-x/hexo-theme-volantis/issues?labels=feature-request&per_page=3&sort=comments %}{% endtimeline %}
 {% endfolders %}
 
 上述示例代码如下：
@@ -153,7 +153,7 @@ issues:
 提交完 issue 一分钟左右，如果仓库中出现了 `output` 分支提交，可以点击查看一下文件内容是否已经包含了刚刚提交的 issue 中的数据，如果包含，那么前端页面就可以使用友链数据了：
 
 ```
-{% friends api:https://ghraw.xaox.cc/xaoxuu/friends/output/v2/data.json %}
+{% friends api:https://raw.github.xaox.cc/xaoxuu/friends/output/v2/data.json %}
 ```
 
 ### 数据托管与加速
@@ -165,7 +165,7 @@ issues:
 支持把数据托管到任何其他地方来使用，例如：
 
 ```
-{% friends api:https://ghraw.xaox.cc/xaoxuu/friends/output/v2/data.json %}
+{% friends api:https://raw.github.xaox.cc/xaoxuu/friends/output/v2/data.json %}
 ```
 
 {% ablock Stellar 1.13.0 color:warning %}

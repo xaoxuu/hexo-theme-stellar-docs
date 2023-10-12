@@ -54,7 +54,7 @@ comments: false
 post_list: true # 这就意味着页面会显示首页文章导航栏
 sidebar: [welcome, recent]
 ---
-{% timeline type:fcircle api:https://ghraw.xaox.cc/xaoxuu/friends-rss-generator/output/data.json %}
+{% timeline type:fcircle api:https://raw.github.xaox.cc/xaoxuu/friends-rss-generator/output/data.json %}
 {% endtimeline %}
 ```
 
@@ -77,5 +77,5 @@ post-index:
 
 ```
 https://api.vlts.cc/output_data/v1/xaoxuu/friends-rss-generator
-https://ghraw.xaox.cc/xaoxuu/friends-rss-generator/output/data.json
+https://raw.github.xaox.cc/xaoxuu/friends-rss-generator/output/data.json
 ```
