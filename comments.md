@@ -1,7 +1,6 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 180
+wiki: hexo-stellar
 title: 评论插件配置（6个）
 ---
 

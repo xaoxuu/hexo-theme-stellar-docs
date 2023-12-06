@@ -1,13 +1,12 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 111
-title: 表达类标签（14+个）
+wiki: hexo-stellar
+title: 表达类标签组件（15+个）
 mermaid: true
 ---
 
 
-## emoji 表情
+## emoji 表情包
 
 {% tabs %}
 <!-- tab 效果演示 -->
@@ -56,31 +55,29 @@ tag_plugins:
 {% endtabs %}
 
 
-## mark 行内文本标记
+## mark 标记标签
 
-支持多彩标记，包括：{% mark 默认 %} {% mark 红 color:red %} {% mark 橙 color:orange %} {% mark 黄 color:yellow %} {% mark 绿 color:green %} {% mark 青 color:cyan %} {% mark 蓝 color:blue %} {% mark 紫 color:purple %} {% mark 浅 color:light %} {% mark 深 color:dark %} {% mark 警告 color:warning %} {% mark 错误 color:error %} 一共 12 种颜色。
+支持多彩标记，包括：{% mark 默认 %} {% mark 红 color:red %} {% mark 橙 color:orange %} {% mark 黄 color:yellow %} {% mark 绿 color:green %} {% mark 青 color:cyan %} {% mark 蓝 color:blue %} {% mark 紫 color:purple %} {% mark 亮 color:light %} {% mark 暗 color:dark %} {% mark 警告 color:warning %} {% mark 错误 color:error %} 一共 12 种颜色。
 
 ```
-支持多彩标记，包括：{% mark 默认 %} {% mark 红 color:red %} {% mark 橙 color:orange %} {% mark 黄 color:yellow %} {% mark 绿 color:green %} {% mark 青 color:cyan %} {% mark 蓝 color:blue %} {% mark 紫 color:purple %} {% mark 浅 color:light %} {% mark 深 color:dark %} {% mark 警告 color:warning %} {% mark 错误 color:error %} 一共 12 种颜色。
+支持多彩标记，包括：{% mark 默认 %} {% mark 红 color:red %} {% mark 橙 color:orange %} {% mark 黄 color:yellow %} {% mark 绿 color:green %} {% mark 青 color:cyan %} {% mark 蓝 color:blue %} {% mark 紫 color:purple %} {% mark 亮 color:light %} {% mark 暗 color:dark %} {% mark 警告 color:warning %} {% mark 错误 color:error %} 一共 12 种颜色。
 ```
 
 
-## tag 标签
+## hashtag 标签
 
-这个效果类似于 `mark` 标签，但是更适合一批标签独占一行来使用，支持链接：
-
-{% tag Stellar https://xaoxuu.com/wiki/stellar/ %}
-{% tag Hexo https://hexo.io/ %}
-{% tag GitHub https://github.com/xaoxuu/ %}
-{% tag Gitea https://git.xaox.cc/ color:green %}
+{% hashtag Stellar https://xaoxuu.com/wiki/stellar/ %}
+{% hashtag Hexo https://hexo.io/ %}
+{% hashtag GitHub https://github.com/xaoxuu/ %}
+{% hashtag Gitea https://git.xaox.cc/ color:green %}
 
 如果没有指定颜色，且没有设置默认颜色，则随机取一个颜色，快来试试吧～
 
 ```
-{% tag Stellar https://xaoxuu.com/wiki/stellar/ %}
-{% tag Hexo https://hexo.io/ %}
-{% tag GitHub https://github.com/xaoxuu/ %}
-{% tag Gitea https://git.xaox.cc/ color:green %}
+{% hashtag Stellar https://xaoxuu.com/wiki/stellar/ %}
+{% hashtag Hexo https://hexo.io/ %}
+{% hashtag GitHub https://github.com/xaoxuu/ %}
+{% hashtag Gitea https://git.xaox.cc/ color:green %}
 ```
 
 ## image 图片标签
@@ -186,7 +183,7 @@ tag_plugins:
 {% folding child:codeblock 写法如下 open:true %}
 ```
 适合居中且醒目的引用：{% quot Stellar 是最好用的主题 %}
-支持自定义引号：{% quot 热门话题 icon:hashtag %}
+支持自定义引号：{% quot 热门话题 icon:hashtag %}、{% quot 特别引用 icon:default %}
 ```
 {% endfolding %}
 
@@ -275,7 +272,80 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark/warning/error
 ```
 {% endtabs %}
 
+## okr 目标管理
 
+这是一个 OKR（Objectives and Key Results）示例：
+
+{% okr o1 %}
+
+2024年的小目标：完成 Volantis 6.0 并发布上线
+来自2025年的复盘：已《基本》实现目标 {% emoji tieba 滑稽 %}
+
+<!-- okr kr1 percent:1 -->
+重构 tag-plugins 和 wiki 系统
+- 当 {% mark KR %} 进度为 100% 时，标签默认显示为 {% mark color:green 已完成 %}
+- 当 {% mark KR %} 未设置进度时，默认为 {% mark 0% %}
+- 当 {% mark O %} 未设置进度时，则显示所有 {% mark KR %} 进度平均值
+
+<!-- okr kr2 percent:0.9 status:off_track -->
+完成主要页面设计稿
+{% tabs align:left %}
+<!-- tab 小提示1 -->
+您可以在 _config.yml 文件中修改标签的颜色和文案
+<!-- tab 小提示2 -->
+您可以在 _config.yml 文件中增加任意的标签配置
+{% endtabs %}
+
+<!-- okr kr3 percent:-0.12 status:unfinished -->
+完成前置准备工作（如果你知道答案，请在留言区帮帮我！🥹）
+{% checkbox 在咸水和海滩之间找一亩地 %}
+{% checkbox 求出圆周率后15位 %}
+{% checkbox 找出宇宙的终极逻辑 %}
+{% checkbox 去地狱里走两步 %}
+
+
+<!-- okr kr-4 status:at_risk -->
+开发、测试和发布
+{% image /assets/wiki/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 %}
+
+{% endokr %}
+
+写法如下：
+
+```
+{% okr o1 %}
+
+2024年的小目标：完成 Volantis 6.0 并发布上线
+来自2025年的复盘：已《基本》实现目标 {% emoji tieba 滑稽 %}
+
+<!-- okr kr1 percent:1 -->
+重构 tag-plugins 和 wiki 系统
+- 当 {% mark KR %} 进度为 100% 时，标签默认显示为 {% mark color:green 已完成 %}
+- 当 {% mark KR %} 未设置进度时，默认为 {% mark 0% %}
+- 当 {% mark O %} 未设置进度时，则显示所有 {% mark KR %} 进度平均值
+
+<!-- okr kr2 percent:0.9 status:off_track -->
+完成主要页面设计稿
+{% tabs align:left %}
+<!-- tab 小提示1 -->
+您可以在 _config.yml 文件中修改标签的颜色和文案
+<!-- tab 小提示2 -->
+您可以在 _config.yml 文件中增加任意的标签配置
+{% endtabs %}
+
+<!-- okr kr3 percent:-0.12 status:unfinished -->
+完成前置准备工作（如果你知道答案，请在留言区帮帮我！🥹）
+{% checkbox 在咸水和海滩之间找一亩地 %}
+{% checkbox 求出圆周率后15位 %}
+{% checkbox 找出宇宙的终极逻辑 %}
+{% checkbox 去地狱里走两步 %}
+
+<!-- okr kr-4 status:at_risk -->
+开发、测试和发布
+{% image /assets/wiki/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 %}
+
+{% endokr %}
+```
 
 ## link 链接卡片
 
@@ -352,6 +422,8 @@ gitGraph
   commit
   commit
 ```
+
+{% note 👆为什么我看不到效果？ 因为 xaoxuu 的博客没有安装这个插件 😂 %}
 
 <!-- tab 代码示例 -->
 

@@ -1,8 +1,7 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 112
-title: 数据集合类标签（5个）
+wiki: hexo-stellar
+title: 数据集合类标签组件（5个）
 ---
 
 ## timeline 时间线

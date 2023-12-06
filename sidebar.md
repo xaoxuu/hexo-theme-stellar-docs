@@ -1,7 +1,6 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 103
+wiki: hexo-stellar
 title: 侧边栏配置
 ---
 

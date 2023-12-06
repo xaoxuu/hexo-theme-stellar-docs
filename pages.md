@@ -1,7 +1,6 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 102
+wiki: hexo-stellar
 title: 编写文章以及独立页面
 ---
 

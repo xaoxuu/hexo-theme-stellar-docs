@@ -1,7 +1,6 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 10
+wiki: hexo-stellar
 title: 使用 Stellar 主题的博客
 ---
 

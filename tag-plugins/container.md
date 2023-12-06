@@ -1,8 +1,7 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 113
-title: 容器类标签（7个）
+wiki: hexo-stellar
+title: 容器类标签组件（7个）
 ---
 
 
@@ -57,7 +56,7 @@ func test() -> () {
 {% endablock %}
 {% endgrid %}
 <!-- tab 示例代码 -->
-<script src="https://gist.github.com/weekdaycare/741807d61e5796a91647510b9029a8f1.js"></script>
+<script src="https://gist.github.xaox.cc/weekdaycare/741807d61e5796a91647510b9029a8f1.js"></script>
 {% endtabs %}
 
 ### 嵌套其它标签

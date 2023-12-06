@@ -1,7 +1,6 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 1050
+wiki: hexo-stellar
 title: 开发者和社区支持
 ---
 

@@ -1,7 +1,6 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 960
+wiki: hexo-stellar
 title: 使用「友链朋友圈」极简版
 ---
 

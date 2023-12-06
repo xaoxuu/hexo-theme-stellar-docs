@@ -1,7 +1,6 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 920
+wiki: hexo-stellar
 title: 自定义小组件的配置与使用（8个）
 ---
 

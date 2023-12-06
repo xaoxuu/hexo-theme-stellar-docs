@@ -1,7 +1,6 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 1020
+wiki: hexo-stellar
 title: 探索号专题教程分享
 ---
 

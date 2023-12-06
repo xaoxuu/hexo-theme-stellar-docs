@@ -1,7 +1,6 @@
 ---
 layout: wiki
-wiki: Stellar
-order: 950
+wiki: hexo-stellar
 title: 探索个性化配置
 ---
 
