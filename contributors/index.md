@@ -18,10 +18,12 @@ title: 开发者和社区支持
 {% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=3 %}
 {% quot icon:hashtag 301-400 %}
 {% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=4 %}
+{% quot icon:hashtag 401-500 %}
+{% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=5 %}
+{% quot icon:hashtag 501-600 %}
+{% users api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=6 %}
 
 {% endtabs %}
-
-{% image https://starchart.cc/xaoxuu/hexo-theme-stellar.svg %}
 
 {% quot icon:hashtag 如何加入社区 %}
 
@@ -33,7 +35,7 @@ title: 开发者和社区支持
 - [探索号](https://xaoxuu.com/wiki/stellar/articles/) 文章收录
 - QQ群：1146399464，验证码：{% psw vlts-2021 %}（以聊天为主，技术问题未必跟进。）
 
-> 无论在什么渠道，学习并掌握 [提问的智慧(24k Stars)](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md) 可以方便大家更高效地帮你解决问题。
+> 无论在什么渠道，学习并掌握 [提问的智慧(28k Stars)](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md) 可以方便大家更高效地帮你解决问题。
 
 {% grid %}
 <!-- cell left -->

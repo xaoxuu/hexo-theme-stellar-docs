@@ -139,11 +139,17 @@ npm: 6.14.13 ~ 8.19.2
 
 {% toc wiki:Stellar 文档目录 display:mobile %}
 
+## Star History
+
+本项目永久开源免费，如果您喜欢本项目，请[点个赞](https://github.com/xaoxuu/hexo-theme-stellar/)支持一下吧～
+
+{% image https://starchart.cc/xaoxuu/hexo-theme-stellar.svg %}
+
 ## 开源许可协议
 
 {% quot 项目中的许可声明文件应包含在所有副本中 %}
 
-本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](/wiki/stellar/contributors/) 提交的代码，使用 [MIT License](https://gcore.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
+本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](/wiki/stellar/contributors/) 提交的代码，使用 [MIT License](https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
 
 ```license
 MIT License

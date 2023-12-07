@@ -4,7 +4,7 @@ wiki: hexo-stellar
 title: 实现「笔记」页面
 ---
 
-## 创建 wiki
+## 创建描述文件
 
 ```yaml blog/source/_data/wiki/notes.yml
 name: 探索者手记
@@ -13,7 +13,6 @@ logo:
   src: /assets/wiki/stellar/icon.svg
   small: 112px
   large: 240px
-description: 一个便笺
 sidebar: 
   - layout: search
     override: search
