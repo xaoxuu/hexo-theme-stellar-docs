@@ -34,8 +34,8 @@ mermaid: true
 ```
 {% endablock %}
 
-> 表情速查表1：[stellar表情标签索引](https://www.hermitlsr.top/2021-08-02/stellar%E8%A1%A8%E6%83%85%E6%8F%92%E4%BB%B6%E7%B4%A2%E5%BC%95/)
-> 表情速查表2：[Stellar内嵌blobcat小表情](https://weekdaycare.cn/posts/emoji-blob/)
+
+> 表情速查表：[Stellar内嵌blobcat小表情](https://weekdaycare.cn/posts/emoji-blob/)
 
 <!-- tab 引入表情包 -->
 

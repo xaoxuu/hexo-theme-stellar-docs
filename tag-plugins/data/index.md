@@ -54,7 +54,7 @@ title: 数据集合类标签组件（5个）
 
 <!-- tab 朋友圈 -->
 
-{% link https://xaoxuu.com/wiki/stellar/fcircle/ %}
+{% link https://xaoxuu.com/wiki/stellar/third-party/fcircle/ %}
 
 ```md _posts/xxx.md
 {% timeline type:fcircle api:https://raw.github.xaox.cc/xaoxuu/friends-rss-generator/output/data.json %}
@@ -63,7 +63,7 @@ title: 数据集合类标签组件（5个）
 
 <!-- tab 微博动态 -->
 
-1. fork 爬虫 [仓库](ttps://github.com/shaoyaoqian/WeiboSpider) ，修改自己的仓库名
+1. fork 爬虫 [仓库](https://github.com/shaoyaoqian/WeiboSpider) ，修改自己的仓库名
 2. 修改 `.github/workflows/main.yml` 中的微博ID为你想爬取的ID，修改完后每天会自动爬取你的微博，存储为 json 文件，输出文件在 {% mark output %} 分支
 
 ```md _posts/xxx.md
