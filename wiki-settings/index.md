@@ -202,6 +202,14 @@ sidebar:
   - related
 ```
 
+## 在目录树中隐藏某篇文章
+
+可以在 `front-matter` 中不设置 `title` 标题，或者将 `title` 改为 `seo_title`：
+
+```yaml blog/source/xxx/xxx.md
+seo_title: 原本的标题
+```
+
 ## 显示许可协议
 
 沿用主题配置文件中设置的：
