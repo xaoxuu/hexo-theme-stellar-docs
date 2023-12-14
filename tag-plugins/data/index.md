@@ -6,9 +6,19 @@ title: 数据集合类标签组件（5个）
 
 ## timeline 时间线
 
-支持静态和动态时间线数据源，用法非常多，详见这篇文章：
+支持静态和动态时间线数据源：
+- 静态数据
+- github issues 支持多种筛选参数，详见 [API](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#list-issues-assigned-to-the-authenticated-user)
+- github releases 支持多种筛选参数，详见 [API](https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#list-releases)
+- gitea issues 支持多种筛选参数，详见 [API](https://docs.gitea.com/zh-cn/api/1.20/#tag/issue/operation/issueListIssues)
+- gitea releases 支持多种筛选参数，详见 [API](https://docs.gitea.com/zh-cn/api/1.20/#tag/repository/operation/repoListReleases)
+- memos
+- ...
+
+常见的使用场景请看这篇文章：
 
 {% link https://xaoxuu.com/blog/20221029/ desc:true %}
+
 
 ### 静态时间线
 
