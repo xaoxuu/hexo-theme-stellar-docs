@@ -1,7 +1,7 @@
 ---
 layout: wiki
 wiki: hexo-stellar
-title: 容器类标签组件（7个）
+title: 容器类标签组件（8个）
 ---
 
 
@@ -187,7 +187,7 @@ print("hello world")
 
 ## grid 网格分区容器
 
-这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，目前只支持显示一行两列，且手机端因宽度较窄会恢复为单列显示。
+这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，目前只支持显示一行两列。
 
 {% grid %}
 <!-- cell left -->
@@ -234,6 +234,26 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 ```
 
 > `bg` 为可选参数，默认没有背景，可设置为 `block/card` 两种样式
+
+## gallery 图库容器
+
+这个功能在 {% mark 1.21.0 color:dark %} 版本后开始支持，其内部只能填写 md 格式的图片，固定显示为 4 列。
+
+{% gallery %}
+![eberhard in unsplash](https://images.unsplash.com/photo-1533274221104-015a584a1005?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D)
+![eberhard in unsplash](https://images.unsplash.com/photo-1539604214100-ab860d9082e0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D)
+![eberhard in unsplash](https://images.unsplash.com/photo-1700994630045-f7a20df6d92e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MjN8fHxlbnwwfHx8fHw%3D)
+![eberhard in unsplash](https://images.unsplash.com/photo-1698843848092-588f9c1bb0bd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mzh8fHxlbnwwfHx8fHw%3D)
+{% endgallery %}
+
+```md 写法如下
+{% gallery %}
+![eberhard in unsplash](https://images.unsplash.com/photo-1533274221104-015a584a1005?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D)
+![eberhard in unsplash](https://images.unsplash.com/photo-1539604214100-ab860d9082e0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D)
+![eberhard in unsplash](https://images.unsplash.com/photo-1700994630045-f7a20df6d92e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MjN8fHxlbnwwfHx8fHw%3D)
+![eberhard in unsplash](https://images.unsplash.com/photo-1698843848092-588f9c1bb0bd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mzh8fHxlbnwwfHx8fHw%3D)
+{% endgallery %}
+```
 
 ## about 关于块容器
 

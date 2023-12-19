@@ -274,7 +274,7 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark/warning/error
 
 ## okr 目标管理
 
-这是一个 OKR（Objectives and Key Results）示例：
+这个功能在 {% mark 1.20.0 color:dark %} 版本后开始支持，这是一个 OKR（Objectives and Key Results）示例：
 
 {% okr o1 %}
 
