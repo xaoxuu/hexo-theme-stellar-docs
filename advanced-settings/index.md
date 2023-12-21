@@ -181,10 +181,6 @@ style:
     search: 'linear-gradient(to right, #04F3FF, #08FFC6, #DDF730, #FFBD19, #FF1FE0, #C418FF, #04F3FF)'
 ```
 
-您可以在下面网站中寻找中意的渐变色
-
-{% link https://webgradients.com/ %}
-
 当然，如果只想设置纯色的话可以直接设置单色，支持 HEX 和 HSL，例如 `search: 'hsl(212 16% 98%)'`
 
 ## 顶部检索栏

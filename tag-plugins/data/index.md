@@ -73,7 +73,7 @@ title: 数据集合类标签组件（5个）
 
 <!-- tab 微博动态 -->
 
-1. fork 爬虫 [仓库](https://github.com/shaoyaoqian/WeiboSpider) ，修改自己的仓库名
+1. fork shaoyaoqian/WeiboSpider 的爬虫，修改自己的仓库名
 2. 修改 `.github/workflows/main.yml` 中的微博ID为你想爬取的ID，修改完后每天会自动爬取你的微博，存储为 json 文件，输出文件在 {% mark output %} 分支
 
 ```md _posts/xxx.md
