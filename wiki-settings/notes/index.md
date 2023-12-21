@@ -7,12 +7,12 @@ title: 实现「笔记」页面
 ## 创建描述文件
 
 ```yaml blog/source/_data/wiki/notes.yml
-name: 探索者手记
-title: 探索者手记
-logo:
-  src: /assets/wiki/stellar/icon.svg
-  small: 112px
-  large: 240px
+name: 备忘录
+title: 备忘录
+icon: # 列表页图标
+cover: # 封面页大图
+coverpage: [cover, title, description] # 封面页显示的内容
+
 sidebar: 
   - layout: search
     override: search
