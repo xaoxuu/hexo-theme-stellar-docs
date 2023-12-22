@@ -511,10 +511,12 @@ symbol: plus/minus/times
 文章内也可以插入一个导航栏：
 
 ```md
-{% navbar active:1 [文章](/) [项目](/wiki/) [留言](#comments) [GitHub](https://github.com/xaoxuu/) %}
+{% navbar active:/wiki/ [文章](/) [项目](/wiki/) [留言](#comments) [GitHub](https://github.com/xaoxuu/) %}
 ```
 
-{% navbar active:1 [文章](/) [项目](/wiki/) [留言](#comments) [GitHub](https://github.com/xaoxuu/) %}
+> active 传入要高亮的那个按钮的 url
+
+{% navbar active:/wiki/ [文章](/) [项目](/wiki/) [留言](#comments) [GitHub](https://github.com/xaoxuu/) %}
 
 
 ## frame 设备框架
