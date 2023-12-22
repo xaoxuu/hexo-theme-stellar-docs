@@ -64,7 +64,7 @@ npm: 6.14.13 ~ 10.2.3
 
 ## 安装与更新
 
-{% ablock %}
+{% box %}
 {% tabs %}
 
 <!-- tab 稳定版 -->
@@ -135,7 +135,7 @@ npm: 6.14.13 ~ 10.2.3
 {% note color:error 适用范围 仅适合测试，无法获得更新。 %}
 
 {% endtabs %}
-{% endablock %}
+{% endbox %}
 
 {% toc wiki:Stellar 文档目录 display:mobile %}
 

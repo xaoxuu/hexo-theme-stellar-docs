@@ -46,9 +46,9 @@ sidebar:
 
 <!-- tab local_search -->
 
-{% ablock %}
+{% box %}
 在 {% mark 1.17.1 color:dark %} 版本后开始支持，无需安装插件，默认开启。
-{% endablock %}
+{% endbox %}
 
 ```yaml blog/_config.stellar.yml
 # 文章搜索

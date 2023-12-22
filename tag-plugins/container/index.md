@@ -5,28 +5,28 @@ title: 容器类标签组件（8个）
 ---
 
 
-## ablock 普通块容器
+## box 盒子容器
 
-note 标签就是使用 ablock 容器实现的，它们样式是相同的：
+note 标签就是使用 box 容器实现的，它们样式是相同的：
 
 {% folding 更名记录（Stellar 1.18.0） color:warning %}
 因为原 noteblock 标签在升级到 hexo 6.0 之后跟官方库冲突了，官方一直没有解释原因，后不得不改名：
-noteblock -> grid -> border -> ablock
+noteblock -> grid -> border -> ablock -> box
 详情见：[#172](https://github.com/volantis-x/hexo-theme-volantis/issues/712)
 {% endfolding %}
 
 ```md 语法格式
-{% ablock [title] [color:color] [child:codeblock/tabs] %}
+{% box [title] [color:color] [child:codeblock/tabs] %}
 ...
-{% endablock %}
+{% endbox %}
 ```
 
 ```md 写法如下
-{% ablock Stellar v1.12.0 color:warning %}
+{% box Stellar v1.12.0 color:warning %}
 因为原 noteblock 标签在升级到 hexo 6.0 之后跟官方库冲突了，官方一直没有解释原因，后不得不改名：
-noteblock -> grid -> border
+noteblock -> grid -> border -> ablock -> box
 详情见：[#172](https://github.com/volantis-x/hexo-theme-volantis/issues/712)
-{% endablock %}
+{% endbox %}
 ```
 
 ### 彩色代码块
@@ -38,22 +38,22 @@ noteblock -> grid -> border
 {% grid %}
 <!-- cell left -->
 **推荐的写法**
-{% ablock child:codeblock color:green %}
+{% box child:codeblock color:green %}
 ```swift
 func test() {
     // ...
 }
 ```
-{% endablock %}
+{% endbox %}
 <!-- cell right -->
 **不推荐的写法**
-{% ablock child:codeblock color:red %}
+{% box child:codeblock color:red %}
 ```swift
 func test() -> () {
     // ...
 }
 ```
-{% endablock %}
+{% endbox %}
 {% endgrid %}
 <!-- tab 示例代码 -->
 <script src="https://gist.github.xaox.cc/weekdaycare/741807d61e5796a91647510b9029a8f1.js"></script>
@@ -63,7 +63,7 @@ func test() -> () {
 
 例如嵌套一个 `tabs` 标签：
 
-{% ablock child:tabs %}
+{% box child:tabs %}
 {% tabs %}
 <!-- tab 图文混排 -->
 {% image /assets/xaoxuu/blog/2020-0627a@2x.webp 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
@@ -71,7 +71,7 @@ func test() -> () {
 <!-- tab 示例代码 -->
 <script src="https://gist.github.xaox.cc/xaoxuu/c983c958ef0deab819376c231e977ba7.js"></script>
 {% endtabs %}
-{% endablock %}
+{% endbox %}
 
 ## folding 折叠容器
 

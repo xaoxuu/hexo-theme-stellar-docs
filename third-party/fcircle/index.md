@@ -4,10 +4,10 @@ wiki: hexo-stellar
 title: 使用「友链朋友圈」极简版
 ---
 
-{% ablock 特别感谢 color:green %}
+{% box 特别感谢 color:green %}
 主题内置版本数据服务由 [友链朋友圈](https://github.com/Rock-Candy-Tea/hexo-circle-of-friends) 极简版提供。
 这个功能在 1.13.0 版本后开始支持。
-{% endablock %}
+{% endbox %}
 
 {% timeline %}
 

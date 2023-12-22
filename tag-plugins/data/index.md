@@ -167,9 +167,9 @@ issues:
 
 ### 数据托管与加速
 
-{% ablock 特别感谢 color:green %}
+{% box 特别感谢 color:green %}
 特别感谢小冰博客的加速访问方案，解决了直接请求 GitHub API 速度过慢的问题，详见 [小冰博客](https://zfe.space/post/python-issues-api.html) 的教程。
-{% endablock %}
+{% endbox %}
 
 支持把数据托管到任何其他地方来使用，例如：
 
@@ -177,10 +177,10 @@ issues:
 {% friends api:https://raw.github.xaox.cc/xaoxuu/friends/output/v2/data.json %}
 ```
 
-{% ablock Stellar 1.13.0 color:warning %}
+{% box Stellar 1.13.0 color:warning %}
 动态数据 API 升级至 v2 版本，原使用 issue-api 仓库的需要将友链仓库同步更新。
 v1 版本已经停止维护。
-{% endablock %}
+{% endbox %}
 
 > 你可以有 N 种办法加速访问 GitHub 仓库里的文件。
 
@@ -205,9 +205,9 @@ v1 版本已经停止维护。
 {% sites 分组名 %}
 ```
 
-{% ablock Stellar v1.13.0 color:warning %}
+{% box Stellar v1.13.0 color:warning %}
 原 friends 和 sites 标签数据合并至 `links.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
-{% endablock %}
+{% endbox %}
 
 ## ghcard 卡片
 

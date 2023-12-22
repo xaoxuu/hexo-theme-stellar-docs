@@ -27,12 +27,12 @@ mermaid: true
 
 其中 `source` 可省略，默认为配置中的第一个 `source`（详见「引入表情包」部分）
 
-{% ablock %}
+{% box %}
 如果对高度有特别要求，可以指定高度，例如：{% emoji blobcat ablobcatrainbow height:4em %}
 ```
 {% emoji blobcat ablobcatrainbow height:4em %}
 ```
-{% endablock %}
+{% endbox %}
 
 
 > 表情速查表：[Stellar内嵌blobcat小表情](https://weekdaycare.cn/posts/emoji-blob/)
