@@ -213,7 +213,7 @@ article:
 
 用 markdown 格式填写引用的文章，注意要写在引号中：
 
-```yaml
+```yaml blog/source/_posts/xxx.md
 ---
 references:
   - '[心跳之旅—💗—iOS用手机摄像头检测心率(PPG)](https://punmy.cn/2016/07/28/15231176397746.html)'
@@ -225,6 +225,15 @@ references:
 效果见这篇文章：
 
 {% link https://xaoxuu.com/blog/20200927/#references %}
+
+## 覆盖 OpenGraph
+
+如果分享到社交平台的缩略图不理想，可以通过这个特性覆盖为自己想要的：
+
+```yaml blog/source/_posts/xxx.md
+open_graph:
+  image: /assets/xaoxuu/blog/2022-1029a@2x.webp
+```
 
 ## 更多的独立页面
 
