@@ -157,7 +157,6 @@ tag_plugins:
   # {% image %}
   image:
     fancybox: false
-    parse_markdown: true # 1.19.0 支持把 markdown 格式的图片解析成图片标签 
 ```
 
 ## quot 引用
