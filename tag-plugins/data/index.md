@@ -124,23 +124,22 @@ title: 数据集合类标签组件（5个）
 
 ## friends 友链
 
-{% friends 开源大佬 %}
+{% friends ios_developer %}
 
 您可以在任何位置插入友链组，支持静态数据和动态数据，静态数据需要写在数据文件中：
 
-```yaml blog/source/_data/links.yml
-'开源大佬':
-    - title: 某某某
-      url: https://
-      screenshot:
-      avatar:
-      description:
+```yaml blog/source/_data/links/ios_developer.yml
+- title: 某某某
+  url: https://
+  cover:
+  icon:
+  description:
 ```
 
 在需要的位置这样写：
 
 ```md
-{% friends 开源大佬 %}
+{% friends ios_developer %}
 ```
 
 ### 实现动态友链
@@ -186,17 +185,16 @@ v1 版本已经停止维护。
 
 ## sites 网站卡片
 
-{% sites mac_app_download %}
+{% sites sites_design %}
 
 您可以在任何位置插入网站卡片组，支持静态数据和动态数据，静态数据需要写在数据文件中：
 
-```yaml blog/source/_data/links.yml
-'分组名':
-  - title: 某某某
-    url: https://
-    screenshot:
-    avatar:
-    description:
+```yaml blog/source/_data/links/sites_design.yml
+- title: 标题
+  url: https://
+  cover:
+  icon:
+  description:
 ```
 
 在需要的位置这样写：
@@ -206,7 +204,7 @@ v1 版本已经停止维护。
 ```
 
 {% box Stellar v1.13.0 color:warning %}
-原 friends 和 sites 标签数据合并至 `links.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
+原 friends 和 sites 标签数据合并至 `links/xxx.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
 {% endbox %}
 
 ## ghcard 卡片
