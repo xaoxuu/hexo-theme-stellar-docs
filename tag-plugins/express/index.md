@@ -10,13 +10,19 @@ mermaid: true
 
 {% tabs %}
 <!-- tab 效果演示 -->
-内置了可配置的表情标签 {% emoji 爱你 %} {% emoji blobcat ablobcatrainbow %} {% emoji blobcat ablobcatattentionreverse %} {% emoji tieba 滑稽 %} 使用方法如下：
+内置了可配置的表情标签 {% emoji 爱你 %} {% emoji blobcat ablobcatattentionreverse %} {% emoji tieba 滑稽 %} 使用方法如下：
 
 ```
 {% emoji 爱你 %}
-{% emoji blobcat ablobcatrainbow %}
 {% emoji blobcat ablobcatattentionreverse %}
 {% emoji tieba 滑稽 %}
+```
+
+如果对高度有特别要求，可以指定高度，例如：
+<center>{% emoji blobcat ablobcatrainbow height:1em %}{% emoji blobcat ablobcatrainbow height:2em %}{% emoji blobcat ablobcatrainbow height:3em %}{% emoji blobcat ablobcatrainbow height:2em %}{% emoji blobcat ablobcatrainbow height:1em %}</center>
+
+```
+<center>{% emoji blobcat ablobcatrainbow height:1em %}{% emoji blobcat ablobcatrainbow height:2em %}{% emoji blobcat ablobcatrainbow height:3em %}{% emoji blobcat ablobcatrainbow height:2em %}{% emoji blobcat ablobcatrainbow height:1em %}</center>
 ```
 
 <!-- tab 语法格式 -->
@@ -26,14 +32,6 @@ mermaid: true
 ```
 
 其中 `source` 可省略，默认为配置中的第一个 `source`（详见「引入表情包」部分）
-
-{% box %}
-如果对高度有特别要求，可以指定高度，例如：{% emoji blobcat ablobcatrainbow height:4em %}
-```
-{% emoji blobcat ablobcatrainbow height:4em %}
-```
-{% endbox %}
-
 
 > 表情速查表：[Stellar内嵌blobcat小表情](https://weekdaycare.cn/posts/emoji-blob/)
 
