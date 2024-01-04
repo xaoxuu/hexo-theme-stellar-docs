@@ -1,8 +1,13 @@
 ---
+robots: noindex,nofollow
+sitemap: false
 layout: wiki
 wiki: hexo-stellar
-title: 项目进度和近期计划
+h1: 本文地址已改变
+inject:
+  head:
+    - '<meta http-equiv="refresh" content="0;url=../todo.html" />'
+    - '<meta http-equiv="Cache-Control" content="no-transform" />'
 ---
 
-{% timeline api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=20 %}
-{% endtimeline %}
+即将跳转到 [新地址](../todo.html) ...

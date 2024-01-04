@@ -1,17 +1,15 @@
 ---
 layout: wiki
 wiki: hexo-stellar
-title: 使用第三方数学类插件
-mathjax: true
+title: 使用「katex」插件
+katex: true
 ---
-
-## mathjax
 
 使用前需要在 Markdown 文件开头加入
 
 ```md _posts/xxx.md
 ---
-mathjax: true
+katex: true
 ---
 ```
 
@@ -24,9 +22,8 @@ $$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
 
 <!-- tab 代码示例 -->
 
-```md _posts/xxx.md
+```math _posts/xxx.md
 $$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
 ```
 
 {% endtabs %}
-

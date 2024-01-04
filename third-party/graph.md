@@ -1,7 +1,7 @@
 ---
 layout: wiki
 wiki: hexo-stellar
-title: 使用第三方图表类插件
+title: 使用图表类插件
 mermaid: true
 ---
 

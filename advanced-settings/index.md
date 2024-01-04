@@ -47,9 +47,9 @@ style:
 
 要想引用外部字体，你需要先在 `_config.yml` 中 `inject` 引入
 
-举例，引用 [Noto Serif SC](https://fonts.google.com/noto/specimen/Noto+Serif+SC?query=noto+&subset=chinese-simplified) 在 `_config.yml` 中写入
+举例，引用 [Noto Serif SC](https://fonts.google.com/noto/specimen/Noto+Serif+SC?query=noto+&subset=chinese-simplified) 在 `_config.stellar.yml` 中写入
 
-```yaml blog/_config.yml
+```yaml blog/_config.stellar.yml
 inject:
   head:
     - <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
@@ -242,7 +242,7 @@ highlight:
 
 然后再找到 `inject` 新增一个 css 链接：
 
-```yaml
+```yaml blog/_config.stellar.yml
 inject:
   head:
     - <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/atom-one-dark.min.css">
@@ -250,9 +250,9 @@ inject:
 
 ## 外部文件注入
 
-在站点根目录下的配置文件中进行修改 `inject.head` 以在 `<head>` 标签末尾处注入代码，修改 `inject.script` 以在 `<body>` 标签末尾处注入代码。
+在主题配置文件中进行修改 `inject.head` 以在 `<head>` 标签末尾处注入代码，修改 `inject.script` 以在 `<body>` 标签末尾处注入代码。
 
-```yaml blog/_config.yml
+```yaml blog/_config.stellar.yml
 inject:
   head:
     - <meta name="msapplication-TileColor" content="#2d89ef">
