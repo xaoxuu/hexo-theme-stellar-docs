@@ -2,9 +2,7 @@
 layout: wiki
 wiki: hexo-stellar
 title: 表达类标签组件（15+个）
-mermaid: true
 ---
-
 
 ## emoji 表情包
 
@@ -372,63 +370,6 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 {% link https://xaoxuu.com/blog/20221029/ desc:true %}
 ```
 {% endtabs %}
-
-
-## mermaid 图表
-
-安装插件
-
-{% copy npm install --save hexo-filter-mermaid-diagrams %}
-
-```yaml blog/_config.stellar.yml
-  mermaid:
-    enable: false
-    # js: https://unpkg.com/mermaid@9.0.0/dist/mermaid.min.js
-    js: https://cdn.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js
-    # Available themes: default | dark | forest | neutral
-    theme: neutral
-```
-
-使用前需要在 Markdown 文件开头加入
-
-```md
----
-mermaid: true
----
-```
-
-{% tabs active:1 align:center %}
-
-<!-- tab 演示效果 -->
-
-```mermaid
-graph LR
-A(Section A) -->|option 1| B(Section A)
-B -->|option 2| C(Section C)
-```
-
-```mermaid
-gitGraph
-  commit
-  commit
-  branch develop
-  commit
-  commit
-  commit
-  checkout main
-  commit
-  commit
-```
-
-{% note 👆为什么我看不到效果？ 因为 xaoxuu 的博客没有安装这个插件 😂 %}
-
-<!-- tab 代码示例 -->
-
-<script src="https://gist.github.xaox.cc/weekdaycare/f7769263a4df46b2d75e32684f4ae873.js"></script>
-
-{% endtabs %}
-
-{% link https://mermaid.js.org/intro/ %}
 
 
 ## copy 复制行
