@@ -380,14 +380,14 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 <!-- tab 示例 -->
 对于单行内容，可以使用 `copy` 标签来实现复制功能：
 
-{% copy curl -s https://sh.xaox.cc/install | sh %}
+{% copy curl -s https://sh.xaox.cc/install | sh prefix:$ %}
 
 您可以设置 `git:https` 或者 `git:ssh` 或者 `git:gh` 来快速放置一个 git 仓库链接：
-{% copy git:https xaoxuu.com/hexo-theme-stellar %}
+{% copy git:https xaoxuu.com/hexo-theme-stellar prefix:HTTPS %}
 <!-- tab 写法 -->
 ```md
 {% copy curl -s https://sh.xaox.cc/install | sh %}
-{% copy width:max curl -s https://sh.xaox.cc/install | sh %}
+{% copy curl -s https://sh.xaox.cc/install | sh prefix:$ %}
 {% copy git:https xaoxuu.com/hexo-theme-stellar %}
 {% copy git:ssh xaoxuu.com/hexo-theme-stellar %}
 {% copy git:gh xaoxuu.com/hexo-theme-stellar %}

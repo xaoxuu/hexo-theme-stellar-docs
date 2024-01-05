@@ -1,7 +1,7 @@
 ---
 layout: wiki
 wiki: hexo-stellar
-title: 容器类标签组件（9个）
+title: 容器类标签组件（11个）
 ---
 
 
@@ -262,6 +262,26 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 详细用法请看这篇文章：
 
 {% link /blog/20231223 %}
+
+## albums 专辑容器
+
+类似于 gallery 但是支持点击跳转，数据来源于 `blog/source/_data/links/group_id.yml`
+
+```blog/source/_posts/xxx.md
+{% albums group_id %}
+```
+
+{% albums music %}
+
+## posters 海报容器
+
+类似于 gallery 但是支持点击跳转，数据来源于 `blog/source/_data/links/group_id.yml`
+
+```blog/source/_posts/xxx.md
+{% posters group_id %}
+```
+
+{% posters games %}
 
 ## banner 横幅容器
 
