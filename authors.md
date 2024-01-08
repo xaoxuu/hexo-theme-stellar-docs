@@ -26,3 +26,13 @@ author2:
 author: author2
 ---
 ```
+
+{% quot 作者资料页 %}
+
+文章面包屑导航处点击作者链接会进入自动生成的作者个人资料页，目前内容是一个横幅加作者的文章列表。如果你有什么好的布局想法，请留言讨论～
+
+默认的个人资料页是： `/author/id/index.html`，可以在站点配置文件中新增或修改：
+
+```yaml blog/_config.yml
+author_dir: author
+```
