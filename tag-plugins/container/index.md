@@ -267,7 +267,7 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 
 类似于 gallery 但是支持点击跳转，数据来源于 `blog/source/_data/links/group_id.yml`
 
-```blog/source/_posts/xxx.md
+```md blog/source/_posts/xxx.md
 {% albums group_id %}
 ```
 
@@ -277,7 +277,7 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 
 类似于 gallery 但是支持点击跳转，数据来源于 `blog/source/_data/links/group_id.yml`
 
-```blog/source/_posts/xxx.md
+```md blog/source/_posts/xxx.md
 {% posters group_id %}
 ```
 

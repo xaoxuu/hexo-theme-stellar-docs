@@ -40,6 +40,7 @@ toc:
   min_depth: 2 # 建议不要低于 2 即从 H2 标签开始解析（H1标签用于文章大标题）
   max_depth: 5 # 5 代表最多解析到 H5 标签
   fallback: recent # Use a backup widget when toc does not exist.
+  collapse: false # true / false / auto (始终折叠/不折叠/自动折叠)
 ```
 
 `toc` 的 `fallback` 默认是 `recent`，即一篇文章没有 `TOC` 的时候会显示一个 `recent`
