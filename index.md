@@ -11,6 +11,7 @@ sidebar:
   - toc
   - timeline_stellar_releases
   - ghissues
+  - timeline_stellar_more
   - related
 ---
 
