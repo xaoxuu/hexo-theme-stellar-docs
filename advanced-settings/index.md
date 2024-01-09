@@ -259,5 +259,16 @@ inject:
     - <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
     - <meta name="theme-color" content="#ffffff">
   script:
-    - https://gcore.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js
+    - <script async src="https://gcore.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+```
+
+### 不蒜子统计插件
+
+直接贴到要显示的地方（支持 `markdown` 的组件）就行：
+
+```yaml blog/_config.stellar.yml
+footer:
+  content: |
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 ```
