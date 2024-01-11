@@ -102,6 +102,7 @@ welcome:
     创建 `blog/source/_data/widgets.yml` 文件，此文件中填写需要自定义的侧边栏组件，例如 `welcome` 组件。
     <br>
     如果有任何疑问，请先查阅 [文档](https://xaoxuu.com/wiki/stellar/)，如果文档中没有提供，请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues/) 向开发者询问。
+  src: # 可以设置外部 md 文件链接
 ```
 
 {% quot el:h3 tagcloud %}
@@ -314,6 +315,7 @@ sidebar:
       从2022年9月起本站已不再开源，已经持有源码副本或`fork`的朋友请及时删除以防止被他人恶意搬运的情况继续发生。
       
       [> 了解详情](https://github.com/xaoxuu/xaoxuu.github.io#readme)
+    src: # 可以设置外部 md 文件链接
 ---
 ```
 

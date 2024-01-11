@@ -207,6 +207,18 @@ v1 版本已经停止维护。
 原 friends 和 sites 标签数据合并至 `links/xxx.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
 {% endbox %}
 
+## md 渲染外部 markdown 文件
+
+```md
+{% folding %}
+{% md https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/README.md %}
+{% endfolding %}
+```
+
+{% folding 效果如下 %}
+{% md https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/README.md %}
+{% endfolding %}
+
 ## ghcard 卡片
 
 {% ghcard xaoxuu %}
