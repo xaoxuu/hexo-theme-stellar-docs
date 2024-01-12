@@ -36,7 +36,7 @@ noteblock -> grid -> border -> ablock -> box
 {% tabs %}
 <!-- tab 示例 -->
 {% grid %}
-<!-- cell left -->
+<!-- cell -->
 **推荐的写法**
 {% box child:codeblock color:green %}
 ```swift
@@ -45,7 +45,7 @@ func test() {
 }
 ```
 {% endbox %}
-<!-- cell right -->
+<!-- cell -->
 **不推荐的写法**
 {% box child:codeblock color:red %}
 ```swift
@@ -187,12 +187,16 @@ print("hello world")
 
 ## grid 网格分区容器
 
-这个功能在 {% mark 1.12.0 color:dark %} 版本后开始支持，目前只支持显示一行两列。
+这个功能在 {% mark 1.24.0 %} 版本后获得重构，支持固定列数、动态列数、设置间距和圆角。
+
+{% quot el:h3 动态列数 %}
+
+默认的布局为【最小宽度为240px】即如果页面宽度大于 480px 则会显示为 2 列，大于 720px 则会显示为 3 列，以此类推，下面是效果：
 
 {% grid %}
-<!-- cell left -->
+<!-- cell -->
 {% image https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 download:https://unsplash.com/photos/bcql6CtuNv0/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2Njg4NDAxMDI&force=true %}
-<!-- cell right -->
+<!-- cell -->
 **[Unsplash Photo](https://unsplash.com/photos/bcql6CtuNv0)**
 
 The Galactic Center is the rotational center of the Milky Way galaxy. Its central massive object is a supermassive black hole of about 4 million solar masses, which is called Sagittarius A*. Its mass is equal to four million suns. The center is located 25,800 light years away from Earth.
@@ -204,36 +208,155 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 
 {% endgrid %}
 
-普通块样式：
+```md 示例写法如下：
+{% grid %}
+<!-- cell -->
+{% image https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 download:https://unsplash.com/photos/bcql6CtuNv0/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2Njg4NDAxMDI&force=true %}
+<!-- cell -->
+**[Unsplash Photo](https://unsplash.com/photos/bcql6CtuNv0)**
 
-{% grid bg:block %}
-<!-- cell left -->
-<center>左侧内容</center>
-<!-- cell right -->
-<center>右侧内容</center>
-{% endgrid %}
+The Galactic Center is the rotational center of the Milky Way galaxy. Its central massive object is a supermassive black hole of about 4 million solar masses, which is called Sagittarius A*. Its mass is equal to four million suns. The center is located 25,800 light years away from Earth.
 
-卡片样式：
+> Ōwhiro Bay, Wellington, New Zealand
+> Published on May 31, 2022
+> SONY, ILCE-6000
+> Free to use under the Unsplash License
 
-{% grid bg:card %}
-<!-- cell left -->
-<center>左侧内容</center>
-<!-- cell right -->
-<center>右侧内容</center>
-{% endgrid %}
-
-示例代码：
-
-```
-{% grid bg:block %}
-<!-- cell left -->
-<center>左侧内容</center>
-<!-- cell right -->
-<center>右侧内容</center>
 {% endgrid %}
 ```
 
-> `bg` 为可选参数，默认没有背景，可设置为 `block/card` 两种样式
+如果要修改最小宽度，可以这样写：
+
+```md
+{% grid w:350px %}
+...
+{% endgrid %}
+```
+
+{% quot el:h3 固定列数 %}
+
+如果要固定为 2 列，可以这样写：
+
+```md
+{% grid c:2 %}
+...
+{% endgrid %}
+```
+
+{% quot el:h3 背景样式 %}
+
+普通 Box 样式：
+
+{% grid bg:box w:150px %}
+<!-- cell -->
+cell 1
+<!-- cell -->
+cell 2
+<!-- cell -->
+cell 3
+<!-- cell -->
+cell 4
+{% endgrid %}
+
+可浮起的卡片样式：
+
+{% grid bg:card w:150px %}
+<!-- cell -->
+cell 1
+<!-- cell -->
+cell 2
+<!-- cell -->
+cell 3
+<!-- cell -->
+cell 4
+{% endgrid %}
+
+```md 示例写法如下：
+普通 Box 样式：
+
+{% grid bg:box w:150px %}
+<!-- cell -->
+cell 1
+<!-- cell -->
+cell 2
+<!-- cell -->
+cell 3
+<!-- cell -->
+cell 4
+{% endgrid %}
+
+可浮起的卡片样式：
+
+{% grid bg:card w:150px %}
+<!-- cell -->
+cell 1
+<!-- cell -->
+cell 2
+<!-- cell -->
+cell 3
+<!-- cell -->
+cell 4
+{% endgrid %}
+```
+
+
+{% quot el:h3 设置间距 %}
+
+默认间距为 `16px`，如果需要修改，可以这样写：
+
+```md
+{% grid bg:card gap:32px w:120px %}
+<!-- cell -->
+cell 1
+<!-- cell -->
+cell 2
+<!-- cell -->
+cell 3
+<!-- cell -->
+cell 4
+{% endgrid %}
+```
+
+{% grid bg:card gap:32px w:120px %}
+<!-- cell -->
+cell 1
+<!-- cell -->
+cell 2
+<!-- cell -->
+cell 3
+<!-- cell -->
+cell 4
+{% endgrid %}
+
+{% quot el:h3 设置圆角半径 %}
+
+默认圆角半径等同于卡片的圆角半径，如果需要修改，可以这样写：
+
+```md
+{% grid bg:card br:4px w:150px %}
+<!-- cell -->
+cell 1
+<!-- cell -->
+cell 2
+<!-- cell -->
+cell 3
+<!-- cell -->
+cell 4
+{% endgrid %}
+```
+
+{% grid bg:card br:4px w:150px %}
+<!-- cell -->
+cell 1
+<!-- cell -->
+cell 2
+<!-- cell -->
+cell 3
+<!-- cell -->
+cell 4
+{% endgrid %}
+
+> 这里的 br 是 border-radius 的缩写，虽然和 `<br>` 易混淆，但是我不知道是否有其他更好的命名，全称太长了。
 
 ## gallery 图库容器
 

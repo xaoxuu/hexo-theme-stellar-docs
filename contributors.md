@@ -22,7 +22,7 @@ title: 开发者和社区支持
 > 无论在什么渠道，学习并掌握 [提问的智慧(28k Stars)](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md) 可以方便大家更高效地帮你解决问题。
 
 {% grid %}
-<!-- cell left -->
+<!-- cell -->
 {% box color:red %}
 **错误的提问**
 <hr>
@@ -35,7 +35,7 @@ title: 开发者和社区支持
 - XXX 什么意思？（没有经过任何搜索）
 
 {% endbox %}
-<!-- cell right -->
+<!-- cell -->
 {% box color:green %}
 **正确的提问**
 <hr>
