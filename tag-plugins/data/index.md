@@ -1,7 +1,7 @@
 ---
 layout: wiki
 wiki: hexo-stellar
-title: 数据集合类标签组件（5个）
+title: 数据类标签组件（6个）
 ---
 
 ## timeline 时间线

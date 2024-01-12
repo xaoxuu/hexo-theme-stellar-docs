@@ -1,7 +1,7 @@
 ---
 layout: wiki
 wiki: hexo-stellar
-title: 表达类标签组件（15+个）
+title: 表达类标签组件（17+个）
 ---
 
 ## emoji 表情包
@@ -442,6 +442,22 @@ symbol: plus/minus/times
 ```
 
 {% endtabs %}
+
+## audio 音频标签
+
+{% audio https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3 %}
+
+```md 写法如下
+{% audio https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3 %}
+```
+
+## video 视频标签
+
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+
+```md 写法如下
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+```
 
 
 ## navbar 导航栏
