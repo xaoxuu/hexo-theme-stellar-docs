@@ -93,43 +93,39 @@ padding: 16px # 图片四周填充宽度
 bg: '#ffffff' # 图片区域背景颜色，16进制
 ```
 
-### 大尺寸图片
+### 横向铺满的图片
 
 无论在什么宽度的设备上都希望横向铺满的图片，一般不需要额外操作。可以在链接后面写上图片描述，如有必要，可以通过设置 `download:true` 使其显示一个「下载」按钮链接指向图片地址，如果下载链接与显示的图片地址不同，可以 `download:下载链接` 来使其能够下载原图。
 
-{% image /assets/wiki/stellar/photos/183e71e0ad995.jpg 来自印度的 Rohit Vohra 使用 iPhone 12 Pro Max 拍摄。 download:https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/Apple_ShotoniPhone-rohit_vohra_12172020.zip %}
-{% image /assets/wiki/stellar/photos/bc7bda18328da.jpg 来自澳大利亚的 Pieter de Vries 使用 iPhone 12 Pro Max 拍摄。 download:https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/Apple_ShotoniPhone_pieter_de_vries_011221.zip %}
+{% image https://s.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://s.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd %}
 
 ```md 写法如下
-{% image /assets/wiki/stellar/photos/183e71e0ad995.jpg 来自印度的 Rohit Vohra 使用 iPhone 12 Pro Max 拍摄。 download:https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/Apple_ShotoniPhone-rohit_vohra_12172020.zip %}
-{% image /assets/wiki/stellar/photos/bc7bda18328da.jpg 来自澳大利亚的 Pieter de Vries 使用 iPhone 12 Pro Max 拍摄。 download:https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/Apple_ShotoniPhone_pieter_de_vries_011221.zip %}
+{% image https://s.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://s.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd %}
 ```
 
-### 小尺寸图片优化
+### 竖图（小图）优化
 
 宽度较小而高度较大的图片，可以设置宽、高、填充间距、背景色等对其布局进行优化，使得它在不同宽度的屏幕下都能获得不错的视觉体验：
 
 {% tabs %}
 
-<!-- tab 有底色的图片 -->
+<!-- tab 限制宽度 -->
 
 有底色的图片，可以填充图片底色：
 
-{% image /assets/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white %}
+{% image https://s.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 %}
 
 ```
 {% image /assets/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white %}
 ```
 
-{% note 提示 鼠标拖拽一下图片可以看看原图 %}
-
-{% folding 如果不进行约束，在宽屏设备上阅读体验很糟糕 %}
-{% image /assets/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png %}
+{% folding 如果不进行约束，在宽屏设备上会占用很大篇幅 %}
+{% image https://s.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd %}
 {% endfolding %}
 
-<!-- tab 没有底色的图片 -->
+<!-- tab 设置填充区域 -->
 
-没有底色的图片，可以填充 `bg:var(--card)` 动态颜色，能够适配暗黑模式：
+可以设置填充宽度和颜色，支持 `bg:var(--card)` 动态颜色，能够适配暗黑模式：
 
 {% image /assets/wiki/stellar/icon.svg bg:var(--card) padding:16px width:100px %}
 
@@ -157,7 +153,7 @@ tag_plugins:
 
 ## quot 引用
 
-适合居中且醒目的引用：{% quot Stellar 是最好用的主题 %}
+适合居中且醒目的引用：{% quot Stellar 是迄今为止最好用的主题 %}
 
 支持自定义引号：{% quot 热门话题 icon:hashtag %}
 
@@ -177,7 +173,7 @@ tag_plugins:
 
 {% folding child:codeblock 写法如下 open:true %}
 ```
-适合居中且醒目的引用：{% quot Stellar 是最好用的主题 %}
+适合居中且醒目的引用：{% quot Stellar 是迄今为止最好用的主题 %}
 支持自定义引号：{% quot 热门话题 icon:hashtag %}、{% quot 特别引用 icon:default %}
 ```
 {% endfolding %}
