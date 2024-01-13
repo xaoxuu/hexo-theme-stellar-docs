@@ -111,8 +111,6 @@ bg: '#ffffff' # 图片区域背景颜色，16进制
 
 <!-- tab 限制宽度 -->
 
-有底色的图片，可以填充图片底色：
-
 {% image https://s.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 %}
 
 ```
