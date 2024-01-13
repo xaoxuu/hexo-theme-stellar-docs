@@ -453,11 +453,27 @@ symbol: plus/minus/times
 
 ## video 视频标签
 
+{% video bilibili:BV1GP4y1d729 %}
+
+{% grid c:2 %}
+<!-- cell -->
 {% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+<!-- cell -->
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% endgrid %}
 
 ```md 写法如下
+{% video bilibili:BV1GP4y1d729 %}
+
+{% grid c:2 %}
+<!-- cell -->
 {% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+<!-- cell -->
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% endgrid %}
 ```
+
+> 目前 bilibili 的 iframe 标签不能放进 grid 容器里，原因未知。
 
 
 ## navbar 导航栏
