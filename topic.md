@@ -25,7 +25,7 @@ order_by: -date # 默认是按发布日期倒序排序
 ```
 
 <!-- node 2/2 设置布局模板和专栏ID -->
-在此文档项目的 `md` 文件的 `front-matter` 部分设置布局模板为 `wiki` 并且指定所属的项目 `id` （即上一步创建的文件名 `id.yml`）
+在此专栏文章的 `md` 文件的 `front-matter` 部分设置布局模板为 `topic` 并且指定所属的专栏 `id` （即上一步创建的文件名 `id.yml`）
 ```yaml blog/source/_posts/20240114.md
 ---
 layout: topic  # 使用topic布局模板
