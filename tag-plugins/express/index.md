@@ -445,14 +445,30 @@ symbol: plus/minus/times
 
 ## audio 音频标签
 
+支持音乐外链以及网易云音乐，网易云支持设置 `type` 以及 `autoplay` 参数。
+
 {% audio https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3 %}
+
+{% audio type:2 netease:1856385686 autoplay:0 %}
 
 ```md 写法如下
 {% audio https://github.com/volantis-x/volantis-docs/releases/download/assets/Lumia1020.mp3 %}
+
+{% audio netease:1856385686 %}
+
+{% audio type:2 netease:1856385686 autoplay:0 %}
+```
+
+```yaml 支持的参数
+type: 2/0 # 歌曲/歌单 # 不设置默认为2歌曲模式
+netease: xxx # 歌曲/歌单 id ，具体 id 在网易云网页版的网址链接中寻找 
+autoplay: 1/0 # 自动播放/手动播放 # 不设置默认0手动播放
 ```
 
 ## video 视频标签
 
+支持 bilibili 和视频外链，可设置最大宽度， bili 可设置自动播放
+
 {% video bilibili:BV1GP4y1d729 %}
 
 {% grid c:2 %}
@@ -465,12 +481,19 @@ symbol: plus/minus/times
 ```md 写法如下
 {% video bilibili:BV1GP4y1d729 %}
 
+{% video bilibili:BV1GP4y1d729 width:100% autoplay:0 %}
+
 {% grid c:2 %}
 <!-- cell -->
 {% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
 <!-- cell -->
-{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov width:100% %}
 {% endgrid %}
+```
+
+```yaml 支持的参数
+width: 500px # 须带单位 80% 20em 100mm...
+autoplay: 1/0 # 自动播放/手动播放 # 不设置默认为0手动播放
 ```
 
 > 目前 bilibili 的 iframe 标签不能放进 grid 容器里，原因未知。
