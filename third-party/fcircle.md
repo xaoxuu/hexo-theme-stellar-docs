@@ -50,7 +50,7 @@ seo_title: 朋友文章
 robots: noindex,nofollow
 menu_id: post
 comments: false
-post_list: true # 这就意味着页面会显示首页文章导航栏
+nav_tabs: true # 这就意味着页面会显示首页文章导航栏
 sidebar: [welcome, recent]
 ---
 {% timeline type:fcircle api:https://raw.github.xaox.cc/xaoxuu/friends-rss-generator/output/data.json %}
@@ -59,10 +59,12 @@ sidebar: [welcome, recent]
 
 其中，`api` 部分替换为自己仓库地址及其对应的 `data.json` 文件真实路径。
 
-其中，`post_list: true` 意味着页面会显示首页文章导航栏，搭配主题配置文件中的：
+其中，`nav_tabs: true` 意味着页面会显示首页文章导航栏，搭配主题配置文件中的：
 ```yaml
-post-index:
-  '朋友文章': /friends/rss/
+site_tree:
+  blog:
+    nav_tabs:
+      '朋友文章': /friends/rss/
 ```
 
 即可实现在首页增加一个「朋友文章」栏目的效果。

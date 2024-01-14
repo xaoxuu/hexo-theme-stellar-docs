@@ -183,14 +183,15 @@ style:
 
 当然，如果只想设置纯色的话可以直接设置单色，支持 HEX 和 HSL，例如 `search: 'hsl(212 16% 98%)'`
 
-## 顶部检索栏
+## 顶部 tab 栏
 
-这个功能在 {% mark 1.13.0 color:dark %} 版本后开始支持。
+这个功能在 {% mark 1.25.0 color:dark %} 版本重构。
 
 ```yaml blog/_config.stellar.yml
-######## Index ########
-post-index: # 近期发布 分类 标签 归档 and ...
-  '朋友文章': /friends/rss/ # 这里填写的链接要与对应页面一致，否则可能无法正确高亮
+site_tree:
+  blog:
+    nav_tabs: # 近期发布 分类 标签 归档 and ...
+      '朋友文章': /friends/rss/ # 这里填写的链接要与对应页面一致，否则可能无法正确高亮
 ```
 
 ## 站点地图

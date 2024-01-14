@@ -15,16 +15,16 @@ avatar: 头像
 
 设置鼠标指上 `subtitle` 后翻转另一行字（您可以将鼠标移至左上角的Stellar查看效果）
 
-```yaml blog/_config.yml
-subtitle:  标题1 | 标题2
+```yaml blog/_config.stellar.yml
+logo:
+  subtitle:  标题1 | 标题2
 ```
 
-如果您想用一个图片作为 logo，可以直接在主题配置文件 sidebar.logo.title 中设置：
+如果您想用一个图片作为 logo，可以直接在主题配置文件 logo.title 中设置：
 
 ```yaml blog/_config.stellar.yml
-sidebar:
-  logo:
-    title: '[<img no-lazy height="32px" src="xxx"/>](/)'
+logo:
+  title: '[<img no-lazy height="32px" src="xxx"/>](/)'
 ```
 
 ## Navbar（主导航栏）
