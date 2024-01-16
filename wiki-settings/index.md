@@ -225,20 +225,10 @@ share: true
 
 ## 修改 wiki 路径
 
-在根目录中添加 `wiki_dir` 指定 Wiki 主页的路径，若不指定路径，您在点击返回所有项目时会回到主页而非回到所有项目。
+修改如下配置：
 
-```yaml blog/_config.yml
-wiki_dir: wiki
-```
-
-例如书籍类的“项目”可以改为：
-
-```yaml blog/_config.yml
-wiki_dir: books
-```
-
-例如商品/产品类的“项目”可以改为：
-
-```yaml blog/_config.yml
-wiki_dir: products
+```yaml blog/_config.stellar.yml
+site_tree:
+  wiki:
+    base_dir: wiki # books / products ...
 ```
