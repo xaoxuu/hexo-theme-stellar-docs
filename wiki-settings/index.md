@@ -20,11 +20,10 @@ icon: /assets/wiki/stellar/icon.svg
 cover: /assets/wiki/stellar/icon.svg
 description: Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件。
 repo: xaoxuu/hexo-theme-stellar
+search:
+  filter: /wiki/stellar/
+  placeholder: 在 Stellar 中搜索...
 sidebar: 
-  - search:
-    override: search
-    filter: /wiki/stellar/
-    placeholder: 在 Stellar 中搜索...
   - toc
   - timeline_stellar_releases
   - related
@@ -186,15 +185,13 @@ comments:
 
 可以覆盖组件：
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
-sidebar: 
-  - search:
-    override: search
-    filter: /wiki/stellar/
-    placeholder: 在 Stellar 中搜索...
+sidebar:
   - toc
   - timeline_stellar_releases
   - related
 ```
+
+> todo
 
 ## 在目录树中隐藏某篇文章
 

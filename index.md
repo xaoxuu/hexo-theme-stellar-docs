@@ -4,10 +4,6 @@ wiki: hexo-stellar
 seo_title: Stellar：每个人的独立博客 - XAOXUU
 title: 开始您全新的博客之旅
 sidebar: 
-  - search:
-    override: search
-    filter: /wiki/stellar/
-    placeholder: 在 Stellar 中搜索...
   - toc
   - timeline_stellar_releases
   - ghissues
