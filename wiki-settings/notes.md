@@ -21,7 +21,8 @@ sidebar:
   - toc
 
 comments:
-  giscus:
+  service: giscus # 若你不适用默认的评论方式，需要添加此项
+  giscus: # 需要你在主题配置文件_config.stellar.yml中设置好giscus的其他参数，其他评论方式同理
     'data-term': '23'
     'data-mapping': number
 
