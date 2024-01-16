@@ -282,10 +282,9 @@ title: 友链
 在主题配置文件中设置导航栏：
 
 ```yaml blog/_config.stellar.yml
-sidebar:
-  menu:
-    ...
-    more: '[更多](/more/)'
+menu:
+  ...
+  more: '[更多](/more/)'
 ```
 
 ## 友链页面
