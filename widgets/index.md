@@ -137,17 +137,6 @@ ghuser:
   menu: true # show menu or not
 ```
 
-因为它和侧边栏左上角默认的 `header` 功能存在重复，所以建议隐藏默认的 `header` 组件：
-
-
-```yaml blog/source/_posts/xxx.md
----
-title: 某一篇文章
-sidebar: [ghuser, ...]
-header: false # 不显示左上角的 logo 和 menu
----
-```
-
 {% quot el:h3 ghrepo %}
 
 显示 GitHub 仓库基础信息，需要搭配 `repo` 一起使用：
