@@ -33,11 +33,30 @@ logo:
 自己可以增加任意的键值对，键：就是 menu_id，后面需要用到，值：就是显示的 md 链接，方括号内支持文字和图片标签
 
 ```yaml blog/_config.stellar.yml
-menu:
-  # post: '[btn.blog](/)'
-  # wiki: '[btn.wiki](/wiki/)'
-  # friends: '[友链](/friends/)'
-  # about: '[关于](/about/)'
+# 侧边栏主功能导航菜单
+menubar:
+  columns: 4 # 一行多少个
+  items: # 可按照自己需求增加，符合以下格式即可
+    - id: post
+      theme: '#1BCDFC' # 高亮时 icon 显示的颜色
+      icon: '<svg...></svg>' # svg 文本
+      title: 博客
+      url: /
+    - id: wiki
+      theme: ''
+      icon: ''
+      title: 项目
+      url: /wiki/
+    - id: notes
+      theme: ''
+      icon: ''
+      title: 探索
+      url: /notes/
+    - id: social
+      theme: ''
+      icon: ''
+      title: 社交
+      url: /friends/
 ```
 
 侧边栏宽度有限，如何在不影响观感的情况下设置更多的主导航栏按钮呢？建议设置一个「更多」按钮，然后在「更多」页面的侧边栏放上列表组件。
