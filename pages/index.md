@@ -282,9 +282,15 @@ title: 友链
 在主题配置文件中设置导航栏：
 
 ```yaml blog/_config.stellar.yml
-menu:
-  ...
-  more: '[更多](/more/)'
+menubar:
+  columns: 4 # 一行多少个
+  items: # 可按照自己需求增加，符合以下格式即可
+    ...
+    - id: more
+      theme: ''
+      title: 更多
+      icon: ''
+      url: /more/
 ```
 
 ## 友链页面

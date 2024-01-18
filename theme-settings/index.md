@@ -12,7 +12,7 @@ Stellar 会读取站点根目录下的 `_config.yml` 文件中的一些信息来
 title: 您的网站名称
 avatar: 您的头像链接
 favicon: 您的网站icon
-subtitle: 您的网站副标题
+# subtitle: # subtitle 已移至主题配置中
 # 多语言
 language:
   - zh-CN
