@@ -46,7 +46,7 @@ GITHUB_FRIENDS_LINKS: {
 支持首页文章导航栏、文章任意位置，创建一个文件，以本站 `friends/rss/index.md` 为例：
 ```yaml
 ---
-seo_title: 朋友文章
+title: 朋友文章
 robots: noindex,nofollow
 menu_id: post
 comments: false

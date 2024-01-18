@@ -1,7 +1,6 @@
 ---
 layout: wiki
 wiki: hexo-stellar
-seo_title: Stellar：每个人的独立博客 - XAOXUU
 title: 开始您全新的博客之旅
 sidebar: 
   - toc

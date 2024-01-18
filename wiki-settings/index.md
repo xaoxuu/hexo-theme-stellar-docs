@@ -198,8 +198,10 @@ sidebar:
 可以在 `front-matter` 中不设置 `title` 标题，或者将 `title` 改为 `seo_title`：
 
 ```yaml blog/source/xxx/xxx.md
-seo_title: 原本的标题
+title: 原本的标题
 ```
+
+> todo
 
 ## 显示许可协议
 
