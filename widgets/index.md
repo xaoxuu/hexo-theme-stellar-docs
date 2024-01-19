@@ -229,7 +229,7 @@ sidebar:
 
 ```yaml blog/source/_posts/xxx.md
 ---
-sidebar: [ghuser, search, 朋友圈]
+sidebar: [ghuser, 朋友圈]
 ---
 ```
 
