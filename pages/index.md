@@ -107,10 +107,11 @@ tianli_gpt:
   enable: true
   field: post # all, post, wiki
   api: 5Q5mpqRK5DkwT1X9Gi5e # 填写你的tianliGPT_key
-  typingAnimate: false # 打字机动画 
+  limit: 1000 # 设置提交的字数限制，默认为1000字，上限为5000，超过5000字符将被截断。
+  typingAnimate: true # 打字机动画 
 ```
 
-如何获取 tianliGPT_key：到 [爱发电](https://afdian.net/item/f18c2e08db4411eda2f25254001e7c00) 中购买，购买完成后，进入 [网页后台管理](https://summary.zhheo.com) 绑定key并添加自己的站点
+如何获取 `tianliGPT_key`：到 [爱发电](https://afdian.net/item/f18c2e08db4411eda2f25254001e7c00) 中购买，购买完成后，进入 [网页后台管理](https://summary.zhheo.com) 绑定key并添加自己的站点
 
 > key与博客地址为绑定状态，所以本地调试时是无法接收到数据的。
 
