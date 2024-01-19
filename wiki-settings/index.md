@@ -34,7 +34,7 @@ comments:
     data-repo: xaoxuu/hexo-theme-stellar
     data-mapping: number
     data-term: 226
-path: /wiki/stellar/
+base_dir: /wiki/stellar/
 toc:
   '快速开始':
     - index
@@ -89,7 +89,7 @@ title: 这是分页标题
 指定项目所在文件夹和目录树：
 
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
-path: /wiki/stellar/
+base_dir: /wiki/stellar/
 toc:
   '快速开始':
     - index # 会被关联到 /wiki/stellar/index.md
@@ -120,7 +120,7 @@ toc:
 如果目录树不需要分组，可以这样写：
 
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
-path: /wiki/stellar/
+base_dir: /wiki/stellar/
 toc:
   - index # 会被关联到 /wiki/stellar/index.md
   - examples # 会被关联到 /wiki/stellar/examples.md

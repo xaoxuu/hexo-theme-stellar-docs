@@ -154,14 +154,14 @@ repo: xaoxuu/hexo-theme-stellar
 ---
 ```
 
-如果需要显示在 `wiki` 项目中，则在 `_data/projects.yml` 中填写到对应项目的信息中：
+如果需要显示在 `wiki` 项目中，则在 `_data/wiki/projects.yml` 中填写到对应项目的信息中：
 
-```yaml blog/source/_data/projects.yml
-Stellar:
-  title: Stellar
-  subtitle: '每个人的独立博客 | Designed by xaoxuu'
-  repo: xaoxuu/hexo-theme-stellar
-  ...
+```yaml blog/source/_data/wiki/projects.yml
+name: Stellar
+title: Stellar
+subtitle: '每个人的独立博客 | Designed by xaoxuu'
+repo: xaoxuu/hexo-theme-stellar
+...
 ```
 
 {% quot el:h3 timeline %}
@@ -216,13 +216,12 @@ weibo:
 
 {% endtabs %}
 
-无论是哪种动态数据，你都可以在 `_config.stellar.yml` 中设置引用
+无论是哪种动态数据，你都可以在 `_config.stellar.yml` 中的 `site_tree` 中设置引用
 
 ```yaml blog/_config.stellar.yml
-sidebar:
-  ...
-  widgets:
-    home: welcome, recent, 朋友圈, weibo
+site_tree:
+  ...:
+    sidebar: welcome, recent, 朋友圈, weibo
 ```
 
 或者在你需要显示的页面引入，页面内引入优先于配置文件引入：
@@ -235,28 +234,68 @@ sidebar: [ghuser, 朋友圈]
 
 ## 配置默认布局
 
-主题配置中可以配置默认布局顺序，在这些页面中，侧边栏会按照指定的顺序从组件库中读取组件并显示：
+在 {% mark 1.26.0 color:dark %} 版本中，站点主结构树有较大的变化，支持自定义每种页面的组件显示情况，侧边栏会按照指定的顺序从组件库中读取组件并显示：
+
+### 列表类页面
+
+列表类页面是指博客文章列表、专栏列表、wiki 项目列表等页面的配置。
+
+这里解释一下 `base_dir` 是什么意思，比如说当我创建一个 wiki 项目或者笔记页面时，会自动生成一个总项目列表，该页面的默认路径是 `/wiki` ，你可以 [点此查看](https://xaoxuu.com/wiki/) 该页面，改变 `base_dir` 即改变该路径。
 
 ```yaml blog/_config.stellar.yml
-sidebar:
-  ...
-  widgets:
-    #### 自动生成的页面 ####
-    # 主页
-    home: search, welcome, recent, timeline # for home
-    # 博客索引页
-    blog_index: search_blog, recent, timeline # for categories/tags/archives
-    # 文档索引页
-    wiki_index: search_docs, recent, timeline # for wiki
-    # 其它（404）
-    others: search, welcome, recent, timeline # for 404 and ...
-    #### 手动创建的页面 ####
-    # 文章内页
-    post: toc, ghrepo, search, ghissues # for pages using 'layout:post'
-    # 文档内页
-    wiki: search, ghrepo, toc, ghissues, related # for pages using 'layout:wiki'
-    # 其它 layout:page 的页面
-    page: welcome, toc, search # for custom pages using 'layout:page'
+site_tree:
+  # 主页配置
+  home:
+    sidebar: welcome, recent, timeline
+  # 博客列表页配置
+  index_blog:
+    base_dir: blog # 只影响自动生成的页面路径
+    menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
+    sidebar: welcome, recent, timeline # for categories/tags/archives
+    nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
+      # '朋友文章': /friends/rss/
+  # 博客专栏列表页配置
+  index_topic:
+    base_dir: topic # 只影响自动生成的页面路径
+    menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 topic 的页面默认使用这里配置的 menu_id
+  # 文档列表页配置
+  index_wiki:
+    base_dir: wiki # 只影响自动生成的页面路径
+    menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
+    sidebar: toc, ghissues, related, recent # for wiki
+    nav_tabs:
+      # 'more': https://github.com/xaoxuu
+```
+
+### 内容类页面
+
+是指具体到文章页面，文档页面和专栏文章等的具体配置
+
+```yaml blog/_config.stellar.yml
+  # 博客文章内页配置
+  post:
+    menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
+    sidebar: toc, related, ghrepo, ghissues, recent # for pages using 'layout:post'
+  # 博客专栏文章内页配置
+  topic:
+    menu_id: post
+  # 文档内页配置
+  wiki:
+    menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
+    sidebar: toc, ghissues, related, recent # for wiki
+  # 作者信息配置
+  author: 
+    base_dir: author # 只影响自动生成的页面路径
+    menu_id: post
+    sidebar: recent, timeline
+  # 错误页配置
+  error_page:
+    menu_id: post
+    '404': '/404.html'
+    sidebar: recent, timeline
+  # 其它自定义页面配置 layout: page
+  page:
+    sidebar: toc, recent, timeline
 ```
 
 

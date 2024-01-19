@@ -26,7 +26,7 @@ comments:
     'data-term': '23'
     'data-mapping': number
 
-path: /notes/
+base_dir: /notes/
 toc:
   '日常问题解决方案':
     - mac
