@@ -242,13 +242,24 @@ references:
 你可以更改协议内容或者自定义其他选项，支持 MarkDown 语法。
 
 ```yaml blog/_config.stellar.yml
-license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。'
+article:
+  license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。'
 ```
 
 若你配置了作者数据 `_data/authors.yml` 和文章作者，可以在 license 中使用 `${author.name}` 来自动替换为当前文章作者名字。
 
 ```yaml blog/_config.stellar.yml
-license: '本文由${author.name}编写，采用...'
+article:
+  license: '本文由${author.name}编写，采用...'
+```
+
+## 分享链接
+
+分享至微信会生成对应的页面二维码，weibo 和 email 会自动跳转到对应软件或网页，link 会拷贝当前页面链接至剪切板。
+
+```yaml blog/_config.stellar.yml
+article:
+  share: # [wechat, weibo, email, link]
 ```
 
 ## 覆盖 OpenGraph
