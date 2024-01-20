@@ -1,7 +1,7 @@
 ---
 layout: wiki
 wiki: hexo-stellar
-title: 自定义小组件的配置与使用（8个）
+title: 自定义小组件的配置与使用（9个）
 ---
 
 实现并显示一个小组件需要两个步骤：
@@ -84,6 +84,20 @@ related:
   layout: related
 ```
 
+{% quot el:h3 linklist %}
+
+`columns` 为1显示为列表，2是每两个按钮放一行，`icon` 和 `title` 会同时显示，大于2则只显示 `icon`
+
+```yaml blog/source/_data/widgets.yml
+linklist:
+  layout: linklist
+  columns: 1 
+  items:
+    - icon: '<svg...></svg>' # 或者 icons.yml 中设置的 icon 名称
+      title: 关于
+      url: /about/
+```
+
 {% quot el:h3 markdown %}
 
 这是一个自由度很高的标签，可以显示 [markdown](https://docs.github.com/cn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 文本内容：
@@ -92,6 +106,12 @@ related:
 welcome:
   layout: markdown
   title: 欢迎欢迎
+  linklist: # 与 linklist 组件写法相同
+    columns: 1 
+    items:
+      - icon:
+        title: 
+        url:
   content: |
     欢迎使用 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar/) 主题，下面是您的入门指南，祝您使用愉快！
     <br>
@@ -104,6 +124,10 @@ welcome:
     如果有任何疑问，请先查阅 [文档](https://xaoxuu.com/wiki/stellar/)，如果文档中没有提供，请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues/) 向开发者询问。
   src: # 可以设置外部 md 文件链接
 ```
+
+`linklist` 显示为嵌套在 md 组件中，效果参考
+
+{% link https://xaoxuu.com %}
 
 {% quot el:h3 tagcloud %}
 

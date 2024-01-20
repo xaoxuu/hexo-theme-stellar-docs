@@ -4,6 +4,17 @@ wiki: hexo-stellar
 title: 编写文章以及独立页面
 ---
 
+## 文章类型
+
+文章类型决定布局风格，有两种风格可选，`tech`: 默认技术类文章, `story`: 图文类文章，文字和段落间增距大。
+
+```yaml blog/_config.stellar.yml
+article:
+  type: tech # tech/story
+```
+
+可以在 `front-matter/topic/wiki` 中覆盖此参数。
+
 ## 文章封面
 
 在文章列表页面或者其他位置显示的文章摘要卡片上面的图片称之为「文章封面」
