@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: hexo-stellar
 title: 如何使用文档系统
 ---
@@ -63,10 +62,9 @@ toc:
 ```
 
 <!-- node 2/3 设置布局模板和项目名称 -->
-在此文档项目的 `md` 文件的 `front-matter` 部分设置布局模板为 `wiki` 并且指定所属的项目 `id` （即上一步创建的文件名 `id.yml`）
+在此文档项目的 `md` 文件的 `front-matter` 部分指定所属的项目 `id` （即上一步创建的文件名 `id.yml`）
 ```yaml blog/source/wiki/stellar/index.md
 ---
-layout: wiki  # 使用wiki布局模板
 wiki: hexo-stellar # 这是项目id，对应 /data/wiki/hexo-stellar.yml
 title: 这是分页标题
 ---

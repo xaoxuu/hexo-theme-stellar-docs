@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: hexo-stellar
 title: 更新日志与注意事项
 ---

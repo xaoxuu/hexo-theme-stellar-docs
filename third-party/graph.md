@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: hexo-stellar
 title: 使用图表类插件
 mermaid: true

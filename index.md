@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: hexo-stellar
 title: 开始您全新的博客之旅
 sidebar: 

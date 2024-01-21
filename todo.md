@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: hexo-stellar
 title: 项目进度和近期计划
 ---

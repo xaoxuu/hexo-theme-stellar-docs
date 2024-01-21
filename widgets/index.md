@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: hexo-stellar
 title: 自定义小组件的配置与使用（9个）
 ---

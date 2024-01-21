@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: hexo-stellar
 title: 编写文章以及独立页面
 ---
@@ -284,7 +283,7 @@ open_graph:
 
 ## 更多的独立页面
 
-Stellar 同时具有博客和 Wiki 两个大模块，为了能够正确进行导航栏高亮，引入了 `menu_id` 来进行区分，通常情况下，`layout: post` 和 `layout: wiki` 两种布局模板可以自动为 `menu.post` 和 `menu.wiki` 的导航栏按钮高亮。自己创建的独立页面也可以在 `front-matter` 中指定 `menu_id` 来使某个按钮处于选中状态。
+Stellar 同时具有博客和 Wiki 两个大模块，为了能够正确进行导航栏高亮，引入了 `menu_id` 来进行区分，可以在 `front-matter` 中指定 `menu_id` 来使某个菜单按钮处于选中状态。
 
 例如您有关于、友链两个页面，都希望高亮「更多」按钮：
 

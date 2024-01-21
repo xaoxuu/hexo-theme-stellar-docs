@@ -1,7 +1,6 @@
 ---
 robots: noindex,nofollow
 sitemap: false
-layout: wiki
 wiki: hexo-stellar
 h1: 本文地址已改变
 inject:
