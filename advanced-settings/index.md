@@ -241,12 +241,12 @@ highlight:
   hljs: true
 ```
 
-然后再找到 `inject` 新增一个 css 链接：
+然后再找到 `highlightjs_theme` 修改 css 链接：
 
 ```yaml blog/_config.stellar.yml
-inject:
-  head:
-    - <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/atom-one-dark.min.css">
+style:
+  codeblock:
+    highlightjs_theme: https://gcore.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/atom-one-dark.min.css
 ```
 
 ## 外部文件注入
