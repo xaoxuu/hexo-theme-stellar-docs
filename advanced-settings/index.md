@@ -91,6 +91,19 @@ style:
 
 但是我个人并不推荐引用本地字体，相比于英文字体，中文字体囊括了众多的字符，这也无法避免地导致字体文件体积的增加，拿 `Noto Serif SC` 来说，单个ttf文件就有9mb之大，这对于您的站点而言加载速度可想而知。
 
+## 背景图片
+
+此功能在 {% mark 1.26.4 %} 中支持，可以设置：纯色/渐变色/图片作为背景。未完全适配，慎用！
+
+```yaml blog/_config.stellar.yml
+style:
+  ...
+  site:
+    background-image: #'url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)'
+    blur-px: 100px # 模糊半径
+    blur-bg: var(--alpha75) # 模糊颜色
+```
+
 ## 文本对齐方向
 
 ```yaml blog/_config.stellar.yml
@@ -107,13 +120,6 @@ copycode:
   js: /js/plugins/copycode.js
   default_text: 'Copy' # 按钮显示文字
   success_text: 'Copied' # 复制成功信息
-```
-
-## 链接下划线
-
-```yaml blog/_config.stellar.yml
-link:
-  underline: true # true / false
 ```
 
 ## 圆角大小

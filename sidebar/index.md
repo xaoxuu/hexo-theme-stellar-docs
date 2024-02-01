@@ -35,9 +35,10 @@ logo:
 style:
   ...
   sidebar:
-    # background: 'linear-gradient(to bottom, #20E2D744, #F9FEA544)'
-    background: 'url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg)'
-    blur: true # 在图片上层增加高斯模糊效果（同时附带饱和度增强效果）
+    # background-image: 'linear-gradient(to bottom, var(--sidebar-bg), var(--sidebar-bg))'
+    background-image: url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg)
+    blur-px: 100px # 模糊半径
+    blur-bg: var(--alpha60) # 模糊颜色
 ```
 
 {% folding 关于linear-gradient的用法示例 child:codeblock %}
