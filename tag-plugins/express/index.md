@@ -1,6 +1,6 @@
 ---
 wiki: hexo-stellar
-title: 表达类标签组件（17+个）
+title: 表达类标签组件（18+个）
 ---
 
 ## emoji 表情包
@@ -49,6 +49,28 @@ tag_plugins:
 
 {% endtabs %}
 
+## icon 图标标签
+
+支持在任意{% icon solar:planet-bold-duotone %}位置插入图标，支持外链{% icon https://api.iconify.design/solar:link-circle-bold.svg %}图标，也可以在 icons.yml 中提前配置好。
+
+**{% icon ph:seal-question-fill color:red %}可以指定图标的颜色吗？**
+
+当然可以，还可以在主题配置中设置默认颜色：
+
+```md 写法如下
+icons.yml 中的图标：{% icon solar:planet-bold-duotone %}
+外链图标：{% icon https://api.iconify.design/solar:link-circle-bold.svg %}
+指定颜色：{% icon ph:seal-question-fill color:red %}
+```
+
+```yaml 配置默认颜色
+tag_plugins:
+  icon:
+    # 留空时，图标和文字颜色相同
+    default_color: accent # theme, accent, red, orange, yellow, green, cyan, blue, purple
+```
+
+> 还支持 style 参数，可以直接对样式进行修改，仅支持外链图标，style 参数中间不能有空格。
 
 ## mark 标记标签
 
