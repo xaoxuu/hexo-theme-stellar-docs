@@ -1,6 +1,6 @@
 ---
 wiki: hexo-stellar
-title: 表达类标签组件（18+个）
+title: 表达类标签组件（19+个）
 ---
 
 ## emoji 表情包
@@ -282,6 +282,7 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark/warning/error
 {% tabs %}
 
 <!-- tab 示例 -->
+{% folding 一共支持12种颜色，可以满足几乎所有的需求了 %}
 {% note 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 {% note color:red 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 {% note color:orange 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
@@ -294,12 +295,41 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark/warning/error
 {% note color:dark 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 {% note color:warning 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 {% note color:error 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
+{% endfolding %}
 <!-- tab 写法 -->
 ```md
 {% note 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 {% note color:cyan 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 ```
 {% endtabs %}
+
+## button 按钮
+
+这个功能在 {% mark 1.26.6 color:dark %} 版本后开始支持。
+
+{% button color:orange 探索 /notes/ icon:solar:planet-bold-duotone size:xs %}
+
+写法如下：
+
+```md
+{% button color:orange 探索 /notes/ icon:solar:planet-bold-duotone size:xs %}
+```
+
+按钮标签的语法格式为：
+
+```md
+{% button [color:color] text url [icon:key/src] [size:xs] %}
+```
+
+参数含义：
+
+```yaml
+color:orange # 颜色(可选) # theme, accent, red, orange, yellow, green, cyan, blue, purple
+text:探索 # 显示文字
+url:/notes/ # 跳转链接
+icon:solar:planet-bold-duotone # 显示图标，支持icon.yml中的文件名和外链图标(可选)
+size:xs # 按钮大小(可选) # xs, sm, md, lg, xl # 从小到大
+```
 
 ## okr 目标管理
 
