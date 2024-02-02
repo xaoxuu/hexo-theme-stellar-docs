@@ -66,7 +66,7 @@ npm: 6.14.13 ~ 10.2.3
 
 **安装方法**
 
-1. 在终端中输入：
+1. 打开终端并进入博客文件夹，执行：
 {% copy npm i hexo-theme-stellar %}
 
 2. 在 `blog/_config.yml` 文件中找到并修改：
@@ -74,8 +74,8 @@ npm: 6.14.13 ~ 10.2.3
 
 **更新方法**
 
-1. 在 package.json 中修改 stellar 的版本号，然后执行：
-{% copy npm i %}
+1. 打开终端并进入博客文件夹，执行：
+{% copy npm i hexo-theme-stellar %}
 
 2. 阅读 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases) 进行迁移操作。
 
@@ -144,7 +144,7 @@ npm: 6.14.13 ~ 10.2.3
 
 {% quot 项目中的许可声明文件应包含在所有副本中 %}
 
-本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](/wiki/stellar/contributors/) 提交的代码，使用 [MIT License](https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
+本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](https://xaoxuu.com/wiki/stellar/contributors.html) 提交的代码，使用 [MIT License](https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
 
 ```license
 MIT License

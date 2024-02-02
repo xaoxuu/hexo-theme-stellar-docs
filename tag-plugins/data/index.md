@@ -63,7 +63,7 @@ title: 数据类标签组件（6个）
 
 <!-- tab 朋友圈 -->
 
-{% link https://xaoxuu.com/wiki/stellar/third-party/fcircle/ %}
+{% link https://xaoxuu.com/wiki/stellar/third-party/fcircle.html %}
 
 ```md _posts/xxx.md
 {% timeline type:fcircle api:https://raw.github.xaox.cc/xaoxuu/friends-rss-generator/output/data.json %}

@@ -99,7 +99,7 @@ linklist:
 
 {% quot el:h3 markdown %}
 
-这是一个自由度很高的标签，可以显示 [markdown](https://docs.github.com/cn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 文本内容：
+这是一个自由度很高的标签，可以显示 [markdown](https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 文本内容：
 
 ```yaml blog/source/_data/widgets.yml
 welcome:
@@ -212,7 +212,7 @@ timeline:
 
 这个功能在 {% mark 1.13.0 color:dark %} 版本后开始支持。
 
-{% link https://xaoxuu.com/wiki/stellar/third-party/fcircle/ %}
+{% link https://xaoxuu.com/wiki/stellar/third-party/fcircle.html %}
 
 ```yaml blog/source/_data/widgets.yml
 # 愣着干啥，新建啊

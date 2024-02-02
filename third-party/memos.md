@@ -5,7 +5,7 @@ title: 使用「memos」极简版
 
 需要有自己的 memos 账号，可以在别人部署的 memos 上注册，或者自建 memos 服务，详见官方文档：
 
-{% link https://usememos.com %}
+{% link https://www.usememos.com %}
 
 ## 作为侧边栏组件使用
 
