@@ -204,23 +204,39 @@ site_tree:
 页面底部的站点导航，你也可以在 `content` 中自定义一些文字信息，支持 Markdown 格式。
 
 ```yaml
+footer:
+  social:
+    # github:
+    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
+    #   url: /
+    # music:
+    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
+    #   url: /
+    # unsplash:
+    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
+    #   url: /
+    # comments:
+    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
+    #   url: /about/#comments
   sitemap:
-    '博客':
-      - '[近期](/)'
-      - '[分类](/categories/)'
-      - '[标签](/tags/)'
-      - '[归档](/archives/)'
-    '项目':
-  #    - '[开源库](/)'
-    '社交':
-  #    - '[友链](/)'
-  #    - '[留言板](/)'
-    '更多':
-  #    - '[关于本站](/)'
-  #    - '[GitHub](/)'
+    # '博客':
+    #   - '[近期](/)'
+    #   - '[分类](/categories/)'
+    #   - '[标签](/tags/)'
+    #   - '[归档](/archives/)'
+    # '项目':
+    #   - '[开源库](/)'
+    # '社交':
+    #   - '[友链](/)'
+    #   - '[留言板](/)'
+    # '更多':
+    #   - '[关于本站](/)'
+    #   - '[GitHub](/)'
   content: | # 支持 Markdown 格式
-    本站由 [@anonymity](/) 使用 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar) 主题创建。
+    本站由 [${author.name}](/) 使用 [${theme.name} ${theme.version}](${theme.tree}) 主题创建。
     本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
+    <span class="jinrishici-sentence"></span>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
   # 主题用户越多，开发者维护和更新的积极性就越高，如果您喜欢本主题，请在适当的位置显示主题信息和仓库链接以表支持。
 ```
 

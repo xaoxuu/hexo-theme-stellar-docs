@@ -179,6 +179,25 @@ tag_plugins:
 
 > 此外，加上 `el:h2/h3/h4/h5/h6` 可以作为标题使用
 
+### 使用任意图标
+
+从 1.26.5 版本开始，您可以通过 prefix 或 suffix 参数设置任意图标或图片，支持 URL 或 icons.yml 文件中配置，例如：
+
+{% quot prefix:solar:planet-bold-duotone 这是一个 icons.yml 配置的示例 %}
+
+{% quot prefix:https://api.iconify.design/line-md:moon-alt-to-sunny-outline-loop-transition.svg 这是一个 url 的示例 suffix:https://api.iconify.design/solar:list-heart-minimalistic-line-duotone.svg %}
+
+
+{% folding child:codeblock 写法如下 open:true %}
+```
+{% quot prefix:solar:planet-bold-duotone 这是一个 icons.yml 配置的示例 %}
+
+{% quot prefix:https://api.iconify.design/line-md:moon-alt-to-sunny-outline-loop-transition.svg 这是一个 url 的示例 suffix:https://api.iconify.design/solar:list-heart-minimalistic-line-duotone.svg %}
+```
+{% endfolding %}
+
+> 虽然丰富多彩的图标可以使其变得更醒目，但是滥用就会导致文章显得杂乱无章。
+
 ## poetry 诗词
 
 {% tabs %}
