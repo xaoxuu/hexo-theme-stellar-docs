@@ -53,7 +53,7 @@ tag_plugins:
 
 支持在任意{% icon solar:planet-bold-duotone %}位置插入图标，支持外链{% icon https://api.iconify.design/solar:link-circle-bold.svg %}图标，也可以在 icons.yml 中提前配置好。
 
-**{% icon ph:seal-question-fill color:red %}可以指定图标的颜色吗？**
+**{% icon ph:seal-question-fill color:purple %}可以指定图标的颜色吗？**
 
 当然可以，还可以在主题配置中设置默认颜色：
 
@@ -278,6 +278,7 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark/warning/error
 
 ### 彩色备注块
 
+{% note color:cyan 一共支持12种颜色，可以满足几乎所有的需求了。 color 可设置 red、orange、yellow、green、cyan、blue、purple、light、dark、warning、error 几种取值。 %}
 
 {% tabs %}
 
@@ -303,32 +304,57 @@ color: red/orange/yellow/green/cyan/blue/purple/light/dark/warning/error
 ```
 {% endtabs %}
 
+## link 链接卡片
+
+{% tabs %}
+
+<!-- tab 效果演示 -->
+{% link https://xaoxuu.com/blog/20221029/ %}
+{% link https://xaoxuu.com/blog/20221029/ desc:true %}
+<!-- tab 语法格式 -->
+外链卡片标签的语法格式为：
+```
+{% link href [title] [icon:src] [desc:true/false] %}
+```
+参数含义：
+```yaml
+href: 链接
+title: 可选，手动设置标题（为空时会自动抓取页面标题）
+icon: 可选，手动设置图标（为空时会自动抓取页面图标）
+desc: 可选，是否显示摘要描述，为true时将会显示页面描述
+```
+<!-- tab 写法示例 -->
+```md
+不带摘要的样式：
+{% link https://xaoxuu.com/blog/20221029/ %}
+带摘要的样式：
+{% link https://xaoxuu.com/blog/20221029/ desc:true %}
+```
+{% endtabs %}
+
+
 ## button 按钮
 
-这个功能在 {% mark 1.26.6 color:dark %} 版本后开始支持。
+这个功能在 {% button 1.26.6 https://github.com/xaoxuu/hexo-theme-stellar/tree/1.26.6 size:xs %} 版本后开始支持。
 
-{% button color:orange 探索 /notes/ icon:solar:planet-bold-duotone size:xs %}
+{% button 文档 https://xaoxuu.com/wiki/stellar/ icon:solar:notebook-bold %} {% button 源码 https://github.com/xaoxuu/hexo-theme-stellar/ icon:solar:code-square-bold %} {% button 示例 https://github.com/xaoxuu/hexo-stellar-starter/ icon:solar:cup-star-bold-duotone %}
 
-写法如下：
-
-```md
-{% button color:orange 探索 /notes/ icon:solar:planet-bold-duotone size:xs %}
+```md 写法如下
+{% button 探索 https://github.com/xaoxuu/hexo-theme-stellar/ icon:solar:planet-bold-duotone %}
 ```
 
-按钮标签的语法格式为：
-
-```md
-{% button [color:color] text url [icon:key/src] [size:xs] %}
+```md 语法格式
+{% button text url [icon:key/src] [color:color] [size:xs] %}
 ```
 
-参数含义：
-
-```yaml
-color:orange # 颜色(可选) # theme, accent, red, orange, yellow, green, cyan, blue, purple
-text:探索 # 显示文字
-url:/notes/ # 跳转链接
-icon:solar:planet-bold-duotone # 显示图标，支持icon.yml中的文件名和外链图标(可选)
-size:xs # 按钮大小(可选) # xs, sm, md, lg, xl # 从小到大
+```yaml 参数含义
+# 必填
+text: 探索 # 显示文字
+url: # 跳转链接
+# 可选参数
+color: orange # theme, accent, red, orange, yellow, green, cyan, blue, purple
+icon: solar:planet-bold-duotone # 显示图标，支持 icon.yml 中的文件名和外链图标
+size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs 是最小号
 ```
 
 ## okr 目标管理
@@ -405,36 +431,6 @@ size:xs # 按钮大小(可选) # xs, sm, md, lg, xl # 从小到大
 
 {% endokr %}
 ```
-
-## link 链接卡片
-
-
-{% tabs %}
-
-<!-- tab 效果演示 -->
-{% link https://xaoxuu.com/blog/20221029/ %}
-{% link https://xaoxuu.com/blog/20221029/ desc:true %}
-<!-- tab 语法格式 -->
-外链卡片标签的语法格式为：
-```
-{% link href [title] [icon:src] [desc:true/false] %}
-```
-参数含义：
-```yaml
-href: 链接
-title: 可选，手动设置标题（为空时会自动抓取页面标题）
-icon: 可选，手动设置图标（为空时会自动抓取页面图标）
-desc: 可选，是否显示摘要描述，为true时将会显示页面描述
-```
-<!-- tab 写法示例 -->
-```md
-不带摘要的样式：
-{% link https://xaoxuu.com/blog/20221029/ %}
-带摘要的样式：
-{% link https://xaoxuu.com/blog/20221029/ desc:true %}
-```
-{% endtabs %}
-
 
 ## copy 复制行
 
