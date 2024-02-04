@@ -332,6 +332,20 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 ```
 {% endtabs %}
 
+随着网站流量的增加，使用主题默认的 `api` 很可能会导致流量超限，推荐使用自部署的 `api` 抓取网站信息。参考下方仓库的 `README` 。
+
+{% link https://github.com/xaoxuu/site-info-api %}
+
+并在主题配置中填入你的 `api`
+
+```yaml blog/_config.stellar.yml
+tag_plugins:
+  # {% link %}
+  linkcard:
+    # 设置 api 可以自动提取网页标题、图标，服务部署方法：https://github.com/xaoxuu/site-info-api/
+    # 接口测试通过后，把按钮的 href 部分替换成 ${href} 之后填写到下方，例如：https://api.vlts.cc/site_info/v1?url=${href}
+    api: 
+```
 
 ## button 按钮
 
