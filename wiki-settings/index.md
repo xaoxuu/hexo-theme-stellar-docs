@@ -22,7 +22,7 @@ repo: xaoxuu/hexo-theme-stellar
 search:
   filter: /wiki/stellar/
   placeholder: 在 Stellar 中搜索...
-sidebar: 
+leftbar: 
   - toc
   - timeline_stellar_releases
   - related
@@ -183,8 +183,8 @@ comments:
 
 可以覆盖组件：
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
-sidebar:
-  - toc
+leftbar:
+  - tree
   - timeline_stellar_releases
   - related
 ```

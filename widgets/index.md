@@ -20,7 +20,7 @@ title: 自定义小组件的配置与使用（9个）
 
 ```yaml blog/source/_posts/xxx.md
 ---
-sidebar: ['我的小组件1', '我的小组件2']
+leftbar: ['我的小组件1', '我的小组件2']
 ---
 ```
 
@@ -244,14 +244,14 @@ weibo:
 ```yaml blog/_config.stellar.yml
 site_tree:
   ...:
-    sidebar: welcome, recent, 朋友圈, weibo
+    leftbar: welcome, recent, 朋友圈, weibo
 ```
 
 或者在你需要显示的页面引入，页面内引入优先于配置文件引入：
 
 ```yaml blog/source/_posts/xxx.md
 ---
-sidebar: [ghuser, 朋友圈]
+leftbar: [ghuser, 朋友圈]
 ---
 ```
 
@@ -266,15 +266,19 @@ sidebar: [ghuser, 朋友圈]
 这里解释一下 `base_dir` 是什么意思，比如说当我创建一个 wiki 项目或者笔记页面时，会自动生成一个总项目列表，该页面的默认路径是 `/wiki` ，你可以 [点此查看](https://xaoxuu.com/wiki/) 该页面，改变 `base_dir` 即改变该路径。
 
 ```yaml blog/_config.stellar.yml
+# 站点主结构树
 site_tree:
+  # -- 列表类页面 -- #
   # 主页配置
   home:
-    sidebar: welcome, recent, timeline
+    leftbar: welcome, recent
+    rightbar: timeline
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
-    sidebar: welcome, recent, timeline # for categories/tags/archives
+    leftbar: welcome, recent # for categories/tags/archives
+    rightbar: timeline
     nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
       # '朋友文章': /friends/rss/
   # 博客专栏列表页配置
@@ -285,7 +289,8 @@ site_tree:
   index_wiki:
     base_dir: wiki # 只影响自动生成的页面路径
     menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
-    sidebar: toc, ghissues, related, recent # for wiki
+    leftbar: ghissues, related, recent # for wiki
+    rightbar: timeline
     nav_tabs:
       # 'more': https://github.com/xaoxuu
 ```
@@ -295,30 +300,38 @@ site_tree:
 是指具体到文章页面，文档页面和专栏文章等的具体配置
 
 ```yaml blog/_config.stellar.yml
+# 站点主结构树
+site_tree:
+  # -- 内容类页面 -- #
   # 博客文章内页配置
   post:
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
-    sidebar: toc, related, ghrepo, ghissues, recent # for pages using 'layout:post'
+    leftbar: related, ghrepo, ghissues, recent # for pages using 'layout:post'
+    rightbar: ghrepo, toc
   # 博客专栏文章内页配置
   topic:
     menu_id: post
   # 文档内页配置
   wiki:
     menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
-    sidebar: toc, ghissues, related, recent # for wiki
+    leftbar: tree, ghissues, related, recent # for wiki
+    rightbar: ghrepo, toc
   # 作者信息配置
   author: 
     base_dir: author # 只影响自动生成的页面路径
     menu_id: post
-    sidebar: recent, timeline
+    leftbar: recent, timeline
+    rightbar: timeline
   # 错误页配置
   error_page:
     menu_id: post
     '404': '/404.html'
-    sidebar: recent, timeline
+    leftbar: recent, timeline
+    rightbar: timeline
   # 其它自定义页面配置 layout: page
   page:
-    sidebar: toc, recent, timeline
+    leftbar: recent
+    rightbar: toc, timeline
 ```
 
 
@@ -342,8 +355,8 @@ my_timeline_lite:
 ```yaml blog/source/_posts/xxx.md
 ---
 title: 某一篇文章
-sidebar:
-  - toc # 只写一个字符串代表引用对应的通用组件
+leftbar:
+  - welcome # 只写一个字符串代表引用对应的通用组件
   - override: my_timeline_lite
     api: https://xxx
 ---
@@ -356,8 +369,8 @@ sidebar:
 ```yaml blog/source/_posts/xxx.md
 ---
 title: 某一篇文章
-sidebar:
-  - toc # 只写一个字符串代表引用对应的通用组件
+leftbar:
+  - welcome # 只写一个字符串代表引用对应的通用组件
   - layout: markdown
     title: '重要通知 [NOTE.2022-09]'
     content: |
@@ -377,10 +390,7 @@ Stellar:
   name: Stellar
   title: Stellar - 每个人的独立博客
   subtitle: '每个人的独立博客 | Designed by xaoxuu'
-  sidebar: 
-    - search
-    - toc
-    - ghrepo
+  leftbar: 
     - layout: timeline
       title: 最近更新
       api: https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1

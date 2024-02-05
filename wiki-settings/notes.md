@@ -12,13 +12,6 @@ icon: # 列表页图标
 cover: # 封面页大图
 coverpage: [cover, title, description] # 封面页显示的内容
 
-sidebar: 
-  - layout: search
-    override: search
-    filter: /notes/
-    placeholder: 在此处搜索...
-  - toc
-
 comments:
   service: giscus # 若你不适用默认的评论方式，需要添加此项
   giscus: # 需要你在主题配置文件_config.stellar.yml中设置好giscus的其他参数，其他评论方式同理

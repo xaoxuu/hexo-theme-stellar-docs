@@ -1,8 +1,8 @@
 ---
 wiki: hexo-stellar
 title: 开始您全新的博客之旅
-sidebar: 
-  - toc
+leftbar: 
+  - tree
   - timeline_stellar_releases
   - ghissues
   - timeline_stellar_more

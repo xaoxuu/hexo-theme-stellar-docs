@@ -19,7 +19,7 @@ logo:
   subtitle: '' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
 ```
 
-如果您想用一个图片作为 logo，可以直接在主题配置文件 sidebar.logo 中设置：
+如果您想用一个图片作为 logo，可以直接在主题配置文件 logo 中设置：
 
 ```yaml blog/_config.stellar.yml
 logo:
@@ -34,8 +34,7 @@ logo:
 ```yaml blog/_config.stellar.yml
 style:
   ...
-  sidebar:
-    # background-image: 'linear-gradient(to bottom, var(--sidebar-bg), var(--sidebar-bg))'
+  leftbar:
     background-image: url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg)
     blur-px: 100px # 模糊半径
     blur-bg: var(--alpha60) # 模糊颜色
