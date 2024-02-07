@@ -8,23 +8,9 @@ title: 容器类标签组件（11个）
 
 note 标签就是使用 box 容器实现的，它们样式是相同的：
 
-{% folding 更名记录（Stellar 1.18.0） color:warning %}
-因为原 noteblock 标签在升级到 hexo 6.0 之后跟官方库冲突了，官方一直没有解释原因，后不得不改名：
-noteblock -> grid -> border -> ablock -> box
-详情见：[#172](https://github.com/volantis-x/hexo-theme-volantis/issues/712)
-{% endfolding %}
-
 ```md 语法格式
 {% box [title] [color:color] [child:codeblock/tabs] %}
 ...
-{% endbox %}
-```
-
-```md 写法如下
-{% box Stellar v1.12.0 color:warning %}
-因为原 noteblock 标签在升级到 hexo 6.0 之后跟官方库冲突了，官方一直没有解释原因，后不得不改名：
-noteblock -> grid -> border -> ablock -> box
-详情见：[#172](https://github.com/volantis-x/hexo-theme-volantis/issues/712)
 {% endbox %}
 ```
 
@@ -66,7 +52,9 @@ func test() -> () {
 {% tabs %}
 <!-- tab 图文混排 -->
 {% image /assets/xaoxuu/blog/2020-0627a@2x.webp 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
+
 公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
+
 <!-- tab 示例代码 -->
 <script src="https://gist.github.xaox.cc/xaoxuu/c983c958ef0deab819376c231e977ba7.js"></script>
 {% endtabs %}
