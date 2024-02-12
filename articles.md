@@ -11,5 +11,5 @@ title: 探索号 🛰️ 文章分享
 
 {% endbox %}
 
-{% timeline hide:title,footer api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?state=all&labels=分享 %}
+{% timeline hide:title,footer api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues?state=all&labels=分享 %}
 {% endtimeline %}

@@ -19,7 +19,7 @@ comments:
     'data-mapping': number
 
 base_dir: /notes/
-toc:
+tree:
   '日常问题解决方案':
     - mac
   '移动端开发笔记':
@@ -39,7 +39,7 @@ toc:
 ```yaml blog/source/notes/index.md
 ---
 wiki: notes # 这个跟上面的 /wiki/notes.yml 关联起来
-menu_id: notes # 这个跟配置文件中的 `menu.notes` 关联起来，这很重要，如果没有这个，就像普通的wiki项目一样了
+menu_id: notes # 这个跟配置文件中的 `menubar.items.notes` 关联起来，这很重要，如果没有这个，就像普通的wiki项目一样了
 ---
 ```
 

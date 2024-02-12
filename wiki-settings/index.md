@@ -23,7 +23,7 @@ search:
   filter: /wiki/stellar/
   placeholder: 在 Stellar 中搜索...
 leftbar: 
-  - toc
+  - tree
   - timeline_stellar_releases
   - related
 comment_title: '评论区仅供交流，有问题请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues) 反馈。'
@@ -88,7 +88,7 @@ title: 这是分页标题
 
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
 base_dir: /wiki/stellar/
-toc:
+tree:
   '快速开始':
     - index # 会被关联到 /wiki/stellar/index.md
     - examples # 会被关联到 /wiki/stellar/examples.md
@@ -119,7 +119,7 @@ toc:
 
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
 base_dir: /wiki/stellar/
-toc:
+tree:
   - index # 会被关联到 /wiki/stellar/index.md
   - examples # 会被关联到 /wiki/stellar/examples.md
   - ...

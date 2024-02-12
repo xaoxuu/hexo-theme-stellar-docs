@@ -6,7 +6,7 @@ title: 开发者和社区支持
 
 {% quot icon:hashtag el:h2 开发者 %}
 
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/contributors?per_page=100&direction=asc %}
+{% friends api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/contributors?per_page=100&direction=asc %}
 
 {% quot icon:hashtag el:h2 如何加入社区 %}
 
@@ -50,18 +50,18 @@ title: 开发者和社区支持
 {% folding 感谢点赞支持者 %}
 
 {% quot icon:hashtag 1-100 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=1 %}
+{% friends api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=1 %}
 {% quot icon:hashtag 101-200 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=2 %}
+{% friends api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=2 %}
 {% quot icon:hashtag 201-300 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=3 %}
+{% friends api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=3 %}
 {% quot icon:hashtag 301-400 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=4 %}
+{% friends api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=4 %}
 {% quot icon:hashtag 401-500 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=5 %}
+{% friends api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=5 %}
 {% quot icon:hashtag 501-600 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=6 %}
+{% friends api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=6 %}
 {% quot icon:hashtag 601-700 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=7 %}
+{% friends api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=7 %}
 
 {% endfolding %}

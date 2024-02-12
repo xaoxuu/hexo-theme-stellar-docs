@@ -96,11 +96,11 @@ title: 数据类标签组件（6个）
 
 {% folders %}
 <!-- folder 只显示某个人的数据 -->
-{% timeline user:xaoxuu api:https://api.github.xaox.cc/repos/volantis-x/hexo-theme-volantis/issues %}{% endtimeline %}
+{% timeline user:xaoxuu api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues %}{% endtimeline %}
 <!-- folder 筛选最近3条todo -->
-{% timeline api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=3 %}{% endtimeline %}
+{% timeline api:https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues?labels=todo&per_page=3 %}{% endtimeline %}
 <!-- folder 筛选评论最多的3条建议 -->
-{% timeline api:https://api.github.xaox.cc/repos/volantis-x/hexo-theme-volantis/issues?labels=feature-request&per_page=3&sort=comments %}{% endtimeline %}
+{% timeline api:https://api.github.com/repos/volantis-x/hexo-theme-volantis/issues?labels=feature-request&per_page=3&sort=comments %}{% endtimeline %}
 {% endfolders %}
 
 上述示例代码如下：
