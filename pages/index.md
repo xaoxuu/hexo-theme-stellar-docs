@@ -109,16 +109,27 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 
 ### AI摘要
 
-感谢 [@张洪Heo](https://github.com/zhheo) [@Tianli](https://github.com/Tianli0) 提供的项目 [Post-Abstract-AI](https://github.com/zhheo/Post-Abstract-AI)
+基于 `tianli_gpt` 前端项目 [Post-Summary-AI](https://github.com/qxchuckle/Post-Summary-AI)
 
 ```yaml _config.stellar.yml
-# AI 摘要
-tianli_gpt:
-  enable: true
-  field: post # all, post, wiki
-  api: 5Q5mpqRK5DkwT1X9Gi5e # 填写你的tianliGPT_key
-  limit: 1000 # 设置提交的字数限制，默认为1000字，上限为5000，超过5000字符将被截断。
-  typingAnimate: true # 打字机动画 
+  # AI 摘要
+  # https://github.com/qxchuckle/Post-Summary-AI
+  tianli_gpt: 
+    enable: #true
+    js: https://jsd.onmicrosoft.cn/gh/qxchuckle/Post-Summary-AI@6.0/chuckle-post-ai.min.js
+    field: post # all, post, wiki
+    key: 5Q5mpqRK5DkwT1X9Gi5e # tianli_gpt key
+    total_length: 1000 # 设置提交的字数限制，默认为1000字，上限为5000，超过5000字符将被截断
+    typewriter: true # 打字机动画 
+    summary_directly: true # 是否直接显示摘要，否则显示 AI 简介
+    rec_method: all # all, web # 文章推荐方式，all：匹配数据库内所有文章进行推荐，web：仅当前站内的文章，默认all
+    hide_shuttle: true # 是否隐藏矩阵穿梭
+    summary_toggle: false # 是否开启切换简介功能，经过一些处理后，重新生成一份简介，这将消耗key字数
+    interface: # AI 信息展示
+      name: AI摘要
+      introduce: '我是文章辅助AI: QX-AI，点击下方的按钮，让我生成本文简介、推荐相关文章等。'
+      version: TianliGPT
+      button: ["介绍自己", "推荐文章", "生成摘要", "矩阵穿梭"] # 底部按钮文字
 ```
 
 如何获取 `tianliGPT_key`：到 [爱发电](https://afdian.net/item/f18c2e08db4411eda2f25254001e7c00) 中购买，购买完成后，进入 [网页后台管理](https://summary.zhheo.com) 绑定key并添加自己的站点
