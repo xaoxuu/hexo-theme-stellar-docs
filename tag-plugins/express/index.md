@@ -38,14 +38,14 @@ title: 表达类标签组件（19+个）
 tag_plugins:
   ...
   emoji:
-    default: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/${name}.gif
-    twemoji: https://gcore.jsdelivr.net/gh/twitter/twemoji/assets/svg/${name}.svg
-    qq: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/${name}.gif
-    aru: https://gcore.jsdelivr.net/gh/cdn-x/emoji/aru-l/${name}.gif
-    tieba: https://gcore.jsdelivr.net/gh/cdn-x/emoji/tieba/${name}.png
+    default: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/{name}.gif
+    twemoji: https://gcore.jsdelivr.net/gh/twitter/twemoji/assets/svg/{name}.svg
+    qq: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/{name}.gif
+    aru: https://gcore.jsdelivr.net/gh/cdn-x/emoji/aru-l/{name}.gif
+    tieba: https://gcore.jsdelivr.net/gh/cdn-x/emoji/tieba/{name}.png
 ```
 
-> 在配置文件中，文件名用 `${name}` 代替。
+> 在配置文件中，文件名用 `{name}` 代替。
 
 {% endtabs %}
 
@@ -344,7 +344,7 @@ services:
   # {% link %}
   siteinfo:
     # 设置 api 可以自动提取网页标题、图标，服务部署方法：https://github.com/xaoxuu/site-info-api/
-    # 接口测试通过后，把按钮的 href 部分替换成 ${href} 之后填写到下方，例如：https://api.vlts.cc/site_info/v1?url=${href}
+    # 接口测试通过后，把按钮的 href 部分替换成 {href} 之后填写到下方，例如：https://api.vlts.cc/site_info/v1?url={href}
     api: 
 ```
 
