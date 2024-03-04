@@ -34,7 +34,7 @@ comments:
     data-mapping: number
     data-term: 226
 base_dir: /wiki/stellar/
-toc:
+tree:
   '快速开始':
     - index
     - examples
