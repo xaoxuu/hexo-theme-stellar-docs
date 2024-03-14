@@ -140,15 +140,17 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 
 使用 Hexo 自带模板实现命令行创建新文章时自动生成相关信息。
 
-根目录下 `scaffolds` 文件夹中编辑 `post.md` 的 `font-matter`：
+根目录下 `scaffolds` 文件夹中编辑 `post.md` 的 `font-matter` ，根据自己的需要增加你想要配置的内容
 
 ```yaml blog/scaffolds/post.md
 ---
+# 基本信息
 title: {{ title }}
 date: {{ date }}
 tags: []
 categories: []
 description: 
+# 封面
 cover: 
 banner: 
 poster: # 海报（可选，全图封面卡片）
@@ -156,6 +158,22 @@ poster: # 海报（可选，全图封面卡片）
   headline: 大标题 # 必选
   caption: 标题下方的小字 # 可选
   color: 标题颜色 # 可选
+# 插件
+sticky: # 数字越大越靠前
+mermaid:
+katex: 
+mathjax: 
+# 可选
+topic: # 专栏 id
+author: 
+references:
+comments: # 设置 false 禁止评论
+indexing: # 设置 false 避免被搜索
+breadcrumb: # 设置 false 隐藏面包屑导航
+leftbar: 
+rightbar:
+h1: # 设置为 '' 隐藏标题
+type: # tech/story
 ---
 ```
 
