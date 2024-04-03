@@ -13,6 +13,7 @@ title: front-matter 全部字段索引
 | `title`           | 标题                                                         | 文章的文件名                                                 |
 | `date`            | 建立日期                                                     | 文件建立日期                                                 |
 | `updated`         | 更新日期                                                     | 文件更新日期                                                 |
+| `sticky`          | 置顶（数字越大越靠前）                                         |                                                              |
 | `comments`        | 开启文章的评论功能                                           | `true`                                                       |
 | `tags`            | 标签（不适用于分页）                                         |                                                              |
 | `categories`      | 分类（不适用于分页）                                         |                                                              |
@@ -34,9 +35,23 @@ title: front-matter 全部字段索引
 | leftbar       | 左侧边栏配置                                                 |        | 1.27.0 ~       |
 | rightbar      | 右侧边栏配置                                                 |        | 1.27.0 ~       |
 | comment_title | 评论区标题                                                   |        |                |
+| poster        | 文章封面，包含 topic/headline/caption/color 子配置            |        |               |
 | banner        | 页面顶部横幅背景                                             |        |                |
 | banner_info   | 横幅信息，包含 avatar/title/subtitle 子配置                  |        |                |
 | logo          | 左侧边栏顶部 logo 区域信息，包含 icon/avatar/title/subtitle 子配置 |        |                |
 | indent        | 段落是否缩进                                                 | false  |                |
-| topic         | 所属话题/专栏                                                |        |                |
+| topic         | 所属话题/专栏                                                |        | 1.25.0 ~       |
+| author        | 该文章的作者                                                 |        | 1.23.0 ~       |
+| type          | 页面类型                                                    |        | 1.26.0 ~       |
+| references    | 参考资料                                                    |        |                |
+| h1            | 页内标题                                                    | title  | 1.26.0 ~       |
+| breadcrumb    | 面包屑导航                                                  | true   |                |
+| indexing      | 页面能否是否能被搜索                                         | true   |                |
 
+## 第三方插件
+
+| 参数           | 描述           | 类型    |
+| :------------ | :------------- | :------ |
+| mathjax       | 渲染文章公式    | boolean |
+| katex         | 同上           | blloean |
+| mermaid       | 渲染图表        | boolean |

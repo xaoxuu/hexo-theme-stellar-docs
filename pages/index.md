@@ -149,7 +149,7 @@ title: {{ title }}
 date: {{ date }}
 tags: []
 categories: []
-description: 
+description: # excerpt 也可 
 # 封面
 cover: 
 banner: 
