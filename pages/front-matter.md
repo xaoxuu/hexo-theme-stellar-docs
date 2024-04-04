@@ -53,5 +53,5 @@ title: front-matter 全部字段索引
 | 参数           | 描述           | 类型    |
 | :------------ | :------------- | :------ |
 | mathjax       | 渲染文章公式    | boolean |
-| katex         | 同上           | blloean |
+| katex         | 同上           | boolean |
 | mermaid       | 渲染图表        | boolean |
