@@ -111,6 +111,23 @@ search:
     codeblock: true # 是否搜索代码块（需要content: true)
 ```
 
+<!-- tab algolia_search -->
+
+首先你的需要是技术类博客或者项目文档，然后你才能申请 DocSearch ，会有人工审核。
+
+{% link https://docsearch.algolia.com/apply/ %}
+
+几个小时之后就会回复你一封邮件，附有有你的 `appId` `apiKey` `indexName` 填入其中即可。
+
+```yaml blog/_config.stellar.yml
+search:
+  service: algolia_search
+  algolia_search:
+    appId: 'xxxxx'
+    apiKey: 'xxxxxxxxxxxx'
+    indexName: 'xxxxxxxx'
+```
+
 <!-- tab others -->
 
 请提交PR...
