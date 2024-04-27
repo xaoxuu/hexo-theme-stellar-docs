@@ -112,6 +112,7 @@ download: href # 下载地址，设置此值后鼠标放在图片上会显示下
 width: 200px # 图片宽度
 padding: 16px # 图片四周填充宽度
 bg: '#ffffff' # 图片区域背景颜色，16进制
+fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大，如果放大地址为图片地址，可以设置为 true
 ```
 
 ### 横向铺满的图片
