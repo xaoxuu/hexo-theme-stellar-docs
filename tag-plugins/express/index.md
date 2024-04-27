@@ -102,7 +102,7 @@ tag_plugins:
 图片标签是一个精心设计的应对各种尺寸插图的标签，对于大图，可以放置一个「下载」按钮，语法格式如下：
 
 ```
-{% image src [description] [download:bool/string] [width:px] [padding:px] [bg:hex] %}
+{% image src [description] [download:bool/string] [width:px] [padding:px] [bg:hex] [fancybox:bool/string] %}
 ```
 
 ```yaml 参数说明
@@ -169,6 +169,8 @@ tag_plugins:
   image:
     fancybox: false
 ```
+
+从 1.28.1 版本开始，如果想在页面中展示较小的图片，但在 fancybox 中展示较大的高清的图片，可以用 `fancybox:大图链接` 参数。
 
 ## quot 引用
 
