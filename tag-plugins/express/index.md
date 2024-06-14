@@ -636,9 +636,10 @@ autoplay: 1/0 # 自动播放/手动播放 # 不设置默认0手动播放
 
 ## video 视频标签
 
-支持 bilibili 和视频外链，可设置最大宽度， bili 可设置自动播放
+支持 bilibili, youtube 和视频外链，可设置最大宽度， bili, yt 均可设置宽度和自动播放
 
 {% video bilibili:BV1GP4y1d729 %}
+{% video youtube:LB8KwiiUGy0 %}
 
 {% grid c:2 %}
 <!-- cell -->
@@ -651,6 +652,10 @@ autoplay: 1/0 # 自动播放/手动播放 # 不设置默认0手动播放
 {% video bilibili:BV1GP4y1d729 %}
 
 {% video bilibili:BV1GP4y1d729 width:100% autoplay:0 %}
+
+{% video youtube:LB8KwiiUGy0 %}
+
+{% video youtube:LB8KwiiUGy0 width:100% autoplay:0 %}
 
 {% grid c:2 %}
 <!-- cell -->
