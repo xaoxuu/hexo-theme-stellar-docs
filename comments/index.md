@@ -120,6 +120,16 @@ comments:
 
 ## 评论的灵活用法
 
+### 评论区懒加载
+
+该功能于 {% mark 1.29.0 %} 支持。
+
+```yaml blog/_config.stellar.yml
+comments:
+  service: # beaudar, utterances, giscus, twikoo, waline, artalk
+  lazyload: # true
+```
+
 ### 共用评论数据
 
 如果您有多个页面需要共用评论数据，可以在 `front-matter` 中覆盖评论参数，例如：
@@ -146,4 +156,11 @@ giscus:
   data-repo: xaoxuu/hexo-theme-stellar
   data-mapping: number
   data-term: 226
+```
+
+对于其他评论例如 `twikoo` `waline` `artalk`，您可以设置 `comment_id` 为相同的值使得不同页面共用同一评论区
+
+```yaml blog/source/wiki/stellar/index.md
+title: 快速开始您的博客之旅
+comment_id:
 ```
