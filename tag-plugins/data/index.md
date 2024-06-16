@@ -210,12 +210,12 @@ v1 版本已经停止维护。
 
 ```md
 {% folding %}
-{% md https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/README.md %}
+{% md https://gcore.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/README.md %}
 {% endfolding %}
 ```
 
 {% folding 效果如下 %}
-{% md https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/README.md %}
+{% md https://gcore.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/README.md %}
 {% endfolding %}
 
 ## ghcard 卡片
