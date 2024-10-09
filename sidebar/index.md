@@ -104,12 +104,21 @@ menubar:
 # 文章搜索
 search:
   service: local_search # local_search, todo...
-  local_search: # 在 front-matter 中设置 indexing:false 来避免被搜索索引
+  local_search:
     field: all # post, page, all
     path: /search.json # 搜索文件存放位置
     content: true # 是否搜索内容
+    skip_search: [] # 指定 path 中的内容不被搜索。
     codeblock: true # 是否搜索代码块（需要content: true)
 ```
+
+如果想要过滤某些页面，可以在 `front-matter` 中设置 `indexing: false` 来避免被搜索索引，或者在 `local_search` 中指定 `skip_search` 的空数组，格式如下
+
+```yaml blog/_config.stellar.yml
+skip_search: ['about*', 'post/2023*']
+```
+
+需要使用通配符 `*` 来匹配路径，以上配置将会忽略所有以 `about` 开头和以 `post/2023` 开头的页面。
 
 <!-- tab algolia_search -->
 
