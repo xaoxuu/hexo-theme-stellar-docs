@@ -434,7 +434,7 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 并在主题配置中填入你的 `api`
 
 ```yaml blog/_config.stellar.yml
-services:
+data_services:
   # {% link %}
   siteinfo:
     # 设置 api 可以自动提取网页标题、图标，服务部署方法：https://github.com/xaoxuu/site-info-api/
