@@ -186,11 +186,11 @@ tag_plugins:
   ...
   # {% quot %}
   quot:
-    default: # 可以自行配置多种图标方案
-      prefix: https://bu.dusays.com/2022/10/24/63567d3e092ff.png
-      suffix: https://bu.dusays.com/2022/10/24/63567d3e0ab55.png
+    default: # 可以自行配置多种图标方案，支持icons.yml中配置的图片key，也支持直接设置svg/png等文件链接
+      prefix: bxs:quote-left
+      suffix: bxs:quote-right
     hashtag:
-      prefix: https://bu.dusays.com/2022/10/24/63567d3e07da3.png
+      prefix: solar:hashtag-square-bold
 ```
 
 {% folding child:codeblock 写法如下 open:true %}
