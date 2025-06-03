@@ -203,7 +203,7 @@ repo: xaoxuu/hexo-theme-stellar
 timeline:
   layout: timeline
   title: 近期动态
-  api: https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues # 若你想限制数量，在api链接后面加上?per_page=1指限制为1条
+  api: https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues # 若你想限制数量，在api链接后面加上?per_page=1指限制为1条
   user: # 是否过滤只显示某个人发布的内容，如果要筛选多人，用英文逗号隔开
   hide: # title,footer # 隐藏标题或底部 # 此功能需要 Stellar v1.13.0
 ```
@@ -393,7 +393,7 @@ Stellar:
   leftbar: 
     - layout: timeline
       title: 最近更新
-      api: https://api.github.com/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1
+      api: https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1
       hide: footer
   ...
 ```
