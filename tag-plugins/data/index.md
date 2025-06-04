@@ -143,25 +143,24 @@ title: 数据类标签组件（6个）
 
 ### 实现动态友链
 
-从 [xaoxuu/issues-json-generator](https://github.com/xaoxuu/issues-json-generator) 作为模板克隆或者 fork 仓库
+从 [xaoxuu/friends](https://github.com/xaoxuu/friends) 作为模板克隆或者 fork 仓库，记得打开 github action 的运行权限就可以啦。
 
-修改 `config.yml` 并打开 github action 的运行权限
-
-```yaml config.yml
-# 要抓取的 issues 配置
-issues:
-  repo: xaoxuu/friends # 仓库持有者/仓库名（改成自己的）
-  label: active # 筛选具有 active 标签的 issue ，取消此项则会提取所有 open 状态的 issue
-  sort: # updated-desc # 排序，按最近更新，取消此项则按创建时间排序
-```
-
-不出意外的话，仓库中已经配置好了 issue 模板，只需要在模板中指定的位置填写信息就可以了。然后在自己的仓库里提交一个 issue 并将 `Label` 设置为 `active` 进行测试。
-
-提交完 issue 一分钟左右，如果仓库中出现了 `output` 分支提交，可以点击查看一下文件内容是否已经包含了刚刚提交的 issue 中的数据，如果包含，那么前端页面就可以使用友链数据了：
+不出意外的话，仓库中已经配置好了 issue 模板，只需要在模板中指定的位置填写信息就可以了。然后在自己的仓库里提交一个 issue 进行测试。提交完 issue 前往 Action 页面查看执行情况，如果执行成功，仓库中出现了 `output` 分支提交，可以点击查看一下文件内容是否已经包含了刚刚提交的 issue 中的数据，如果包含，那么前端页面就可以使用友链数据了：
 
 ```
-{% friends api:https://raw.github.xaox.cc/xaoxuu/friends/output/v2/data.json %}
+{% friends api:https://raw.github.com/xaoxuu/friends/output/v2/data.json %}
 ```
+
+这个仓库用到了3个工作流，分别是：
+- [issues2json](https://github.com/xaoxuu/issues2json)：自动获取issue中第一段json保存为文件，支持多种排序和过滤
+- [links-checker](https://github.com/xaoxuu/links-checker)：自动检查issue中填写的链接是否有效，可用于动态友链、示例博客
+- [feed-posts-parser](https://github.com/xaoxuu/feed-posts-parser)：友链文章订阅
+
+如果想修改规则，可以看看这3个工作流项目的 `README` 文档。
+
+### 旧的友链仓库怎么升级？
+
+详见这篇文章：[《感谢 AI，动态友链获重磅升级！》](https://xaoxuu.com/blog/20250602/)
 
 ### 数据托管与加速
 
