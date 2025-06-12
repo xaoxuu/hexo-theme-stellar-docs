@@ -51,15 +51,15 @@ title: 数据类标签组件（6个）
 
 1. 建一个仓库
 2. 创建一个 `issue` 并添加一个 `label` 进行测试
-3. 写 `timeline` 标签时加上 `api:https://api.github.xaox.cc/repos/your-name/your-repo/issues`
+3. 写 `timeline` 标签时加上 `api:https://api.github.com/repos/your-name/your-repo/issues`
 
 例如：
 ```md _posts/xxx.md
-{% timeline api:https://api.github.xaox.cc/repos/xaoxuu/blog-timeline/issues?direction=asc&per_page=3 %}{% endtimeline %}
+{% timeline api:https://api.github.com/repos/xaoxuu/blog-timeline/issues?direction=asc&per_page=3 %}{% endtimeline %}
 ```
 
 效果如下：
-{% timeline api:https://raw.github.xaox.cc/xaoxuu/ghapi-json-generator/refs/heads/output/v2/repos/xaoxuu/blog-timeline/issues%3Fper_page%3D20/data.json %}{% endtimeline %}
+{% timeline api:https://raw.github.xaox.cc/xaoxuu/ghapi-json-generator/refs/heads/output/v2/repos/xaoxuu/blog-timeline/issues%3Fper_page%3D5/data.json %}{% endtimeline %}
 
 <!-- tab 朋友圈 -->
 
@@ -86,7 +86,7 @@ title: 数据类标签组件（6个）
 用法同静态和动态单独使用时一样，例如：
 
 ```
-{% timeline reversed:true api:https://api.github.xaox.cc/repos/xaoxuu/blog-timeline/issues?per_page=2 %}
+{% timeline reversed:true api:https://raw.github.xaox.cc/xaoxuu/ghapi-json-generator/refs/heads/output/v2/repos/xaoxuu/blog-timeline/issues%3Fper_page%3D5/data.json %}
 <!-- node 这条内容为静态数据 -->
 这条内容为静态数据，静态数据在 `deploy` 时就已经确定了。
 {% endtimeline %}
