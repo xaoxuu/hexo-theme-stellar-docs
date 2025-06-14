@@ -1,6 +1,6 @@
 ---
 wiki: hexo-stellar
-title: 实现「笔记」栏目
+title: 用文档系统制作一本简易笔记
 ---
 
 ## 创建描述文件

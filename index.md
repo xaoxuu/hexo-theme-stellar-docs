@@ -5,7 +5,7 @@ title: 开始您全新的博客之旅
 
 Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件，帮助您简单从容地应对各种表达需求，十分推荐内容创作者使用 Stellar 开始您全新的博客之旅。
 
-{% folding 了解 Stellar 的设计理念 %}
+{% folding 了解 Stellar 如何在混乱中建立秩序 %}
 
 **“真正的简约远不止删繁就简，而是在纷繁中建立秩序。”**
 
@@ -128,13 +128,15 @@ npm: 6.14.13 ~ 10.2.3
 
 {% toc wiki:Stellar 文档目录 display:mobile %}
 
-## Star History
+## 关于 Stellar 
+
+### Star History
 
 本项目永久开源免费，如果您喜欢本项目，请 [点个赞](https://github.com/xaoxuu/hexo-theme-stellar/) 支持一下吧～
 
 {% image https://starchart.cc/xaoxuu/hexo-theme-stellar.svg %}
 
-## 开源许可协议
+### 开源许可协议
 
 {% quot 项目中的许可声明文件应包含在所有副本中 %}
 
@@ -163,3 +165,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## 探索 Stellar
+
+{% box 这里展示最新3篇探索号投稿文章 %}
+
+{% timeline hide:title,footer api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?state=all&labels=分享&per_page=3 %}
+{% endtimeline %}
+
+[更多文章](https://xaoxuu.com/wiki/stellar/articles.html) | [投稿](https://github.com/xaoxuu/hexo-theme-stellar/issues/new?template=article-share.md)
+
+{% endbox %}
