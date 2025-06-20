@@ -61,15 +61,6 @@ title: 数据类标签组件（6个）
 效果如下：
 {% timeline api:https://raw.github.xaox.cc/xaoxuu/ghapi-json-generator/refs/heads/output/v2/repos/xaoxuu/blog-timeline/issues%3Fper_page%3D5/data.json %}{% endtimeline %}
 
-<!-- tab 朋友圈 -->
-
-{% link https://xaoxuu.com/wiki/stellar/third-party/fcircle.html %}
-
-```md _posts/xxx.md
-{% timeline type:fcircle api:https://raw.github.xaox.cc/xaoxuu/friends-rss-generator/output/data.json %}
-{% endtimeline %}
-```
-
 <!-- tab 微博动态 -->
 
 1. fork shaoyaoqian/WeiboSpider 的爬虫，修改自己的仓库名

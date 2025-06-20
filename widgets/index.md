@@ -208,22 +208,6 @@ timeline:
   hide: # title,footer # 隐藏标题或底部 # 此功能需要 Stellar v1.13.0
 ```
 
-<!-- tab 朋友圈 -->
-
-这个功能在 {% mark 1.13.0 color:dark %} 版本后开始支持。
-
-{% link https://xaoxuu.com/wiki/stellar/third-party/fcircle.html %}
-
-```yaml blog/source/_data/widgets.yml
-# 愣着干啥，新建啊
-'朋友圈':
-  layout: timeline
-  title: 近期动态
-  api: https://api.vlts.cc/output_data/v1/xaoxuu/friends-rss-generator # 你的朋友圈数据文件地址
-  type: fcircle
-  limit: # 可通过这个限制最大数量
-```
-
 <!-- tab 微博动态 -->
 
 这个功能在 {% mark 1.18.0 color:dark %} 版本后开始支持：

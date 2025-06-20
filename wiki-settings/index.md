@@ -54,7 +54,6 @@ tree:
     - widgets
     - advanced-settings
     - notes
-    - fcircle
   '技术支持':
     - articles
     - todo
@@ -108,7 +107,6 @@ tree:
     - widgets
     - advanced-settings
     - notes
-    - fcircle
   '技术支持':
     - articles
     - todo
