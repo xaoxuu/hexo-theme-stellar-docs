@@ -1,6 +1,6 @@
 ---
 wiki: hexo-stellar
-title: 表达类标签组件（19+个）
+title: 表达类标签组件（21+个）
 ---
 
 ## emoji 表情包
@@ -119,10 +119,10 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 无论在什么宽度的设备上都希望横向铺满的图片，一般不需要额外操作。可以在链接后面写上图片描述，如有必要，可以通过设置 `download:true` 使其显示一个「下载」按钮链接指向图片地址，如果下载链接与显示的图片地址不同，可以 `download:下载链接` 来使其能够下载原图。
 
-{% image https://s.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://s.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd %}
+{% image https://res.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://res.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd %}
 
 ```md 写法如下
-{% image https://s.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://s.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd %}
+{% image https://res.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://res.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd %}
 ```
 
 ### 竖图（小图）优化
@@ -133,14 +133,14 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 <!-- tab 限制宽度 -->
 
-{% image https://s.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 %}
+{% image https://res.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 %}
 
 ```
 {% image /assets/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white %}
 ```
 
 {% folding 如果不进行约束，在宽屏设备上会占用很大篇幅 %}
-{% image https://s.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd %}
+{% image https://res.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd %}
 {% endfolding %}
 
 <!-- tab 设置填充区域 -->
@@ -702,6 +702,7 @@ autoplay: 1/0 # 自动播放/手动播放 # 不设置默认为0手动播放
 
 ## 文本修饰标签集
 
+- 这是 {% blur 高斯模糊 %} 标签
 - 这是 {% psw 密码 %} 标签
 - 这是 {% u 下划线 %} 标签
 - 这是 {% emp 着重号 %} 标签
@@ -712,6 +713,7 @@ autoplay: 1/0 # 自动播放/手动播放 # 不设置默认为0手动播放
 - 这是 {% kbd 键盘样式 %} 标签，试一试：{% kbd ⌘ %} + {% kbd D %}
 
 ```md 写法如下
+- 这是 {% blur 高斯模糊 %} 标签
 - 这是 {% psw 密码 %} 标签
 - 这是 {% u 下划线 %} 标签
 - 这是 {% emp 着重号 %} 标签
