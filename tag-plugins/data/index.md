@@ -26,7 +26,7 @@ title: 数据类标签组件（6个）
 {% timeline %}
 <!-- node 2021 年 2 月 16 日 -->
 主要部分功能已经开发的差不多了。
-{% image /assets/wiki/stellar/photos/hello@1x.png width:300px %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/photos/hello@1x.png width:300px %}
 <!-- node 2021 年 2 月 11 日 -->
 今天除夕，也是生日，一个人在外地过年+过生日，熬夜开发新主题，尽量在假期结束前放出公测版。
 {% endtimeline %}
@@ -35,7 +35,7 @@ title: 数据类标签组件（6个）
 {% timeline %}
 <!-- node 2021 年 2 月 16 日 -->
 主要部分功能已经开发的差不多了。
-{% image /assets/wiki/stellar/photos/hello@1x.png width:300px %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/photos/hello@1x.png width:300px %}
 <!-- node 2021 年 2 月 11 日 -->
 今天除夕，也是生日，一个人在外地过年+过生日，熬夜开发新主题，尽量在假期结束前放出公测版。
 {% endtimeline %}

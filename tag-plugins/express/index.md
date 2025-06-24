@@ -136,7 +136,7 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 {% image https://res.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 %}
 
 ```
-{% image /assets/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white %}
 ```
 
 {% folding 如果不进行约束，在宽屏设备上会占用很大篇幅 %}
@@ -147,10 +147,10 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 可以设置填充宽度和颜色，支持 `bg:var(--card)` 动态颜色，能够适配暗黑模式：
 
-{% image /assets/wiki/stellar/icon.svg bg:var(--card) padding:16px width:100px %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/icon.svg bg:var(--card) padding:16px width:100px %}
 
 ```
-{% image /assets/wiki/stellar/icon.svg bg:var(--card) padding:16px %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/icon.svg bg:var(--card) padding:16px %}
 ```
 
 {% endtabs %}
@@ -500,7 +500,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 
 <!-- okr kr-4 status:at_risk -->
 开发、测试和发布
-{% image /assets/wiki/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 %}
 
 {% endokr %}
 
@@ -536,7 +536,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 
 <!-- okr kr-4 status:at_risk -->
 开发、测试和发布
-{% image /assets/wiki/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 %}
 
 {% endokr %}
 ```

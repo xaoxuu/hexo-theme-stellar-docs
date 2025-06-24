@@ -51,7 +51,7 @@ func test() -> () {
 {% box child:tabs %}
 {% tabs %}
 <!-- tab 图文混排 -->
-{% image /assets/xaoxuu/blog/2020-0627a@2x.webp 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2020-0627a@2x.webp 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
 
 公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
 
@@ -150,7 +150,7 @@ func test() {
 {% tabs active:2 align:center %}
 
 <!-- tab 图片 -->
-{% image /assets/wiki/stellar/photos/hello@1x.png width:300px %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/photos/hello@1x.png width:300px %}
 
 <!-- tab 代码块 -->
 ```swift
