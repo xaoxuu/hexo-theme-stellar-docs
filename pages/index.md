@@ -40,7 +40,7 @@ cover: /assets/xaoxuu/blog/2020-0927a@1x.svg
 ```
 
 {% folding 显示效果 open:false %}
-{% image https://pic.imgdb.cn/item/63bc16f2be43e0d30eb899d1.jpg width:600px %}
+{% image https://pic.imgdb.cn/item/63bc16f2be43e0d30eb899d1.jpg width:600px ratio:884/554 %}
 {% endfolding %}
 
 上面这种方式会显示title与description或者摘要，若你想要图片全显示，可以加入如下参数：
@@ -64,11 +64,11 @@ Stellar {% mark v1.14.0 %} 更换 `cover-title` `cover-cat` `cover-subtitle` `co
 
 填写 `topic` 与 `headline` 时大标题位于上方
 
-{% image https://pic1.imgdb.cn/item/635aa9d016f2c2beb1fe4f53.jpg width:600px %}
+{% image https://pic1.imgdb.cn/item/635aa9d016f2c2beb1fe4f53.jpg width:600px ratio:890/466 %}
 
 只填写 `headline` 或填写 `headline` 与 `caption` 时大标题位于下方
 
-{% image https://pic1.imgdb.cn/item/635aaa8116f2c2beb1ffdd19.jpg width:600px %}
+{% image https://pic1.imgdb.cn/item/635aaa8116f2c2beb1ffdd19.jpg width:600px ratio:894/466 %}
 
 {% endfolding %}
 
