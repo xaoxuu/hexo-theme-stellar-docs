@@ -399,23 +399,23 @@ cell 4
 
 ### 用于独立页面顶部
 
-{% banner 随记 bg:/assets/banner/notes.jpg %}
+{% banner 随记 bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/banner/notes.jpg %}
 {% navbar active:/notes/ [随记](/notes/) [收藏](/bookmark/) %}
 {% endbanner %}
 
 ```md 写法如下：
-{% banner 随记 bg:/assets/banner/notes.jpg %}
+{% banner 随记 bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/banner/notes.jpg %}
 {% navbar active:/notes/ [随记](/notes/) [收藏](/bookmark/) %}
 {% endbanner %}
 ```
 
 ### 用于用户个人资料页
 
-{% banner 某某 这是个人简介 avatar:/assets/xaoxuu/avatar/rect-256@2x.png bg:/assets/banner/nebula.jpg %}
+{% banner 某某 这是个人简介 avatar:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/avatar/rect-256@2x.png bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/banner/nebula.jpg %}
 {% endbanner %}
 
 ```md 写法如下：
-{% banner 某某 这是个人简介 avatar:/assets/xaoxuu/avatar/rect-256@2x.png bg:/assets/banner/nebula.jpg %}
+{% banner 某某 这是个人简介 avatar:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/avatar/rect-256@2x.png bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/banner/nebula.jpg %}
 {% endbanner %}
 ```
 
@@ -424,33 +424,12 @@ cell 4
 设置 link 可以让整个卡片响应点击事件，实现点击跳转到对应文章：
 
 ```md
-{% banner 博客进阶：自动化部署 本文讲了如何利用脚本和 GitHub Actions 简化博客搭建和部署流程，提高效率。 bg:/assets/xaoxuu/blog/2022-1126a@2x.jpg link:/blog/20221126/ %}
+{% banner 博客进阶：自动化部署 本文讲了如何利用脚本和 GitHub Actions 简化博客搭建和部署流程，提高效率。 bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2022-1126a@2x.jpg link:/blog/20221126/ %}
 {% endbanner %}
 ```
 
-{% banner 博客进阶：自动化部署 本文讲了如何利用脚本和 GitHub Actions 简化博客搭建和部署流程，提高效率。 bg:/assets/xaoxuu/blog/2022-1126a@2x.jpg link:/blog/20221126/ %}
+{% banner 博客进阶：自动化部署 本文讲了如何利用脚本和 GitHub Actions 简化博客搭建和部署流程，提高效率。 bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2022-1126a@2x.jpg link:/blog/20221126/ %}
 {% endbanner %}
-
-
-## about 关于块容器
-
-{% note color:warning 这个功能即将废弃 在 1.21.0 版本后请使用 banner 组件代替。 %}
-
-方便在关于页面显示一段图文信息，比普通块容器稍微有一点点不一样：
-
-```
-{% about avatar:/assets/xaoxuu/avatar/rect-256@2x.png height:80px %}
-
-<img height="32px" alt="XAOXUU" src="/assets/xaoxuu/logo/180x30@2x.png">
-
-**如果宇宙中真有什么终极的逻辑，那就是我们终有一天会在舰桥上重逢，直到生命终结。**
-
-XAOXUU 目前是一个 iOS 开发者，代表作品有：ProHUD、ValueX 等。在业余时间也开发了 Stellar 博客主题，更多的作品可以去项目主页查看，希望大家喜欢～
-
-{% navbar [文章](/) [项目](/wiki/) [留言](#comments) [GitHub](https://github.com/xaoxuu/) %}
-
-{% endabout %}
-```
 
 
 ## swiper 轮播容器

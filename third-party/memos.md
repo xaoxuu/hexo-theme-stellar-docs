@@ -36,12 +36,9 @@ timeline:
 ### 创建个人的 memos 时间线组件
 
 ```
-{% timeline api:https://memos.xaox.cc/api/v1/memo?creatorId=1&limit=10 type:memos avatar:/assets/xaoxuu/avatar/rect-256@2x.png %}
+{% timeline api:https://memos.xaox.cc/api/v1/memo?creatorId=1&limit=10 type:memos avatar:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/avatar/rect-256@2x.png %}
 {% endtimeline %}
 ```
-
-{% timeline api:https://memos.xaox.cc/api/v1/memo?creatorId=1&limit=10 type:memos avatar:/assets/xaoxuu/avatar/rect-256@2x.png %}
-{% endtimeline %}
 
 ### 创建多人的 memos 时间线组件
 

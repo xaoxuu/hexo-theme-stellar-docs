@@ -51,7 +51,7 @@ tag_plugins:
 
 ## icon 图标标签
 
-支持在任意{% icon solar:planet-bold-duotone %}位置插入图标，支持外链{% icon https://api.iconify.design/solar:link-circle-bold.svg %}图标，也可以在 icons.yml 中提前配置好。
+支持在任意{% icon solar:planet-bold-duotone %}位置插入图标，支持外链{% icon https://api.iconify.design/fluent-color:link-multiple-20.svg?color=%23888888 %}图标，也可以在 icons.yml 中提前配置好。
 
 **{% icon ph:seal-question-fill color:purple %}可以指定图标的颜色吗？**
 
@@ -210,7 +210,7 @@ tag_plugins:
 
 {% quot prefix:solar:planet-bold-duotone 这是一个 icons.yml 配置的示例 %}
 
-{% quot prefix:https://api.iconify.design/line-md:moon-alt-to-sunny-outline-loop-transition.svg 这是一个 url 的示例 suffix:https://api.iconify.design/solar:list-heart-minimalistic-line-duotone.svg %}
+{% quot prefix:https://api.iconify.design/fluent-color:chat-bubbles-question-20.svg?color=%23888888 这是一个 url 的示例 suffix:https://api.iconify.design/fluent-color:drafts-20.svg?color=%23888888 %}
 
 
 {% folding child:codeblock 写法如下 open:true %}
@@ -692,10 +692,10 @@ autoplay: 1/0 # 自动播放/手动播放 # 不设置默认为0手动播放
 
 {% tabs %}
 <!-- tab 示例 -->
-{% frame iphone11 img:/assets/wiki/prohud/toast/demo-loading.png video:/assets/wiki/prohud/toast/demo-loading.mp4 focus:top %}
+{% frame iphone11 img:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/prohud/toast/demo-loading.png video:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/prohud/toast/demo-loading.mp4 focus:top %}
 <!-- tab 写法 -->
 ```md
-{% frame iphone11 img:/assets/wiki/prohud/toast/demo-loading.png video:/assets/wiki/prohud/toast/demo-loading.mp4 focus:top %}
+{% frame iphone11 img:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/prohud/toast/demo-loading.png video:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/prohud/toast/demo-loading.mp4 focus:top %}
 ```
 {% endtabs %}
 
