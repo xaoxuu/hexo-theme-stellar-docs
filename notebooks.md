@@ -72,27 +72,27 @@ menu_id: notes
 
 标签树组件看起来大致是这样：
 
-<img width="280" alt="image" src="https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/87935943-58f5-440b-9abb-be6ec25a759a">
+{% image https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/87935943-58f5-440b-9abb-be6ec25a759a width:300px ratio:560/1000 %}
 
 ## 笔记本列表页
 
 主体部分是以卡片形式显示的笔记本列表，跟 index wiki 页面类似，支持通过 sort 对笔记本进行排序，但目前不支持笔记本上的 tag。示例：
 
-<img width="680" alt="image" src="https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/b6c66171-9f87-4594-9038-e67a9d2cdcf3">
+{% image https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/b6c66171-9f87-4594-9038-e67a9d2cdcf3 width:500px ratio:627/529 %}
 
 默认的左侧边栏是 recent 组件，列出所有笔记本中最近更新的几篇笔记。跟 index wiki 页面的 recent 组件类似，会在笔记标题前面加上笔记本的名称。示例：
 
-<img width="279" alt="image" src="https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/4616fa3c-11fc-4bd1-aae4-64f29f9dfacb">
+{% image https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/4616fa3c-11fc-4bd1-aae4-64f29f9dfacb width:300px ratio:279/387 %}
 
 ## 笔记列表页
 
 主体部分是分页的笔记卡片，跟博客的近期发布页面类似，但默认按照笔记的更新时间逆序排列。支持在笔记的 front-matter 中通过 `pin` 或 `sticky` 字段来置顶笔记。卡片会显示笔记的更新时间和标签。示例：
 
-<img width="687" alt="image" src="https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/cff0595b-e6b2-4992-a18e-6f69d08d804c">
+{% image https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/cff0595b-e6b2-4992-a18e-6f69d08d804c width:500px ratio:1374/1820 %}
 
 笔记卡片支持类似于博客文章的 cover，但目前不支持 poster。示例：
 
-<img width="698" alt="image" src="https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/4a70cb9e-8a6b-4922-8b2f-82ecb78bc0e2">
+{% image https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/4a70cb9e-8a6b-4922-8b2f-82ecb78bc0e2 width:500px ratio:627/615 %}
 
 默认的左侧边栏是 tagtree 和 recent 组件。tagtree 组件会高亮当前选中的标签，如果没有选中标签，则高亮「全部笔记」。recent 组件会列出当前笔记本内最近更新的几篇笔记。
 
@@ -102,11 +102,11 @@ menu_id: notes
 
 主体部分就是笔记（本质就是一个 page）的内容。顶部优先展示更新时间，鼠标悬浮时展开发表时间。示例：
 
-<img width="296" alt="image" src="https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/972f5e84-1f1a-4706-b018-c88b3fcea06c">
+{% image https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/972f5e84-1f1a-4706-b018-c88b3fcea06c width:300px ratio:296/65 %}
 
 底部展示该笔记所属的所有标签，样式类似于博客的标签页，示例：
 
-<img width="382" alt="image" src="https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/4f0eade5-457b-4e64-9367-b9a34cdc7ec5">
+{% image https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/4f0eade5-457b-4e64-9367-b9a34cdc7ec5 width:300px ratio:382/88 %}
 
 另外跟博客、文档类似，可以控制是否显示许可协议和分享按钮。
 

@@ -72,14 +72,6 @@ Stellar {% mark v1.14.0 %} 更换 `cover-title` `cover-cat` `cover-subtitle` `co
 
 {% endfolding %}
 
-如果您想使用 Unsplash 搜索图片作为封面，可以在 `cover` 设置搜索关键词（用英文逗号隔开）：
-
-```yaml blog/source/_posts/xxx.md
----
-cover: workout,strava
----
-```
-
 ## 内容摘要
 
 ### 自动生成摘要
@@ -185,14 +177,6 @@ type: # tech/story
 
 ```yaml blog/source/_posts/xxx.md
 banner: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2020-0927a@1x.svg
-```
-
-如果您想使用 Unsplash 搜索图片作为横幅，可以在 `banner` 中设置搜索关键词（用英文逗号隔开）：
-
-```yaml blog/source/_posts/xxx.md
----
-banner: workout,strava
----
 ```
 
 ### 指定一级标题
