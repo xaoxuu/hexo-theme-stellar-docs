@@ -1,6 +1,6 @@
 ---
 wiki: hexo-stellar
-title: 表达类标签组件（21+个）
+title: 表达类标签组件（31+个）
 ---
 
 ## emoji 表情包
@@ -173,7 +173,42 @@ tag_plugins:
 
 从 1.28.1 版本开始，如果想在页面中展示较小的图片，但在 fancybox 中展示较大的高清的图片，可以用 `fancybox:大图链接` 参数。
 
-## quot 引用
+## blockquote 引用段落
+
+这个是标准写法 `> 引用内容` 的增强版本，适合不太强调的、大段落的引用。
+
+{% tabs %}
+<!-- tab 效果对比 -->
+
+> 这是使用 "> 引用" 写法的例子
+
+{% blockquote %}
+这是使用 quote 标签的例子
+{% endblockquote %}
+
+<!-- tab 写法 -->
+
+```
+> 这是使用 "> 引用" 写法的例子
+
+{% blockquote %}
+这是使用 quote 标签的例子
+{% endblockquote %}
+```
+
+{% endtabs %}
+
+
+两者的区别在于：
+
+- `> 引用` 写法在技术文章和非技术文章的样式不同，适配各自的风格
+- `blockquote` 标签写法则始终表现为非技术文章的样式
+
+> 因为本文是技术文章，所以你能看出两者样式的明显区别，而在非技术文章中，两者写法的样式是一样的。
+
+{% note 题外话 本来这个叫 quote，但是发现文章显示不全，和 box 标签以前命名为 noteblock 时的表现一样，可能又命中了 hexo 某些隐藏彩蛋。 %}
+
+## quot 强调引用
 
 适合居中且醒目的引用：{% quot Stellar 是迄今为止最好用的主题 %}
 
@@ -672,6 +707,13 @@ autoplay: 1/0 # 自动播放/手动播放 # 不设置默认为0手动播放
 ```
 
 > 目前 bilibili 的 iframe 标签不能放进 grid 容器里，原因未知。
+
+## chat 聊天标签
+
+非常感谢 [@且听风吟](https://github.com/HcGys) 为 Stellar 开发了精美的聊天风格标签，并提供了详细的使用文档。内置qq和微信风格，可配单聊、群聊、user、设备等，支持文本、icon、图片、语音、视频、文件和链接。user可在chat_users.yaml中统一设置，也可在具体使用时单独设置。
+
+- 示例：[https://stellar.listentothewind.cn](https://stellar.listentothewind.cn/blog/2023-09-22-%E6%B5%8B%E8%AF%95/#chat)
+- 文档：https://github.com/xaoxuu/hexo-theme-stellar/pull/560
 
 
 ## navbar 导航栏

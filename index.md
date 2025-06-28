@@ -173,6 +173,6 @@ SOFTWARE.
 {% timeline hide:title,footer api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?state=all&labels=分享&per_page=3 %}
 {% endtimeline %}
 
-[更多文章](https://xaoxuu.com/wiki/stellar/articles.html) | [投稿](https://github.com/xaoxuu/hexo-theme-stellar/issues/new?template=article-share.md)
+{% navbar [更多文章](https://xaoxuu.com/wiki/stellar/articles.html) [投稿](https://github.com/xaoxuu/hexo-theme-stellar/issues/new?template=article-share.md) %}
 
 {% endbox %}
