@@ -103,7 +103,7 @@ style:
   site:
     background-image: #'url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)'
     blur-px: 100px # 模糊半径
-    blur-bg: var(--alpha75) # 模糊颜色
+    blur-bg: var(--bg-a75) # 模糊颜色
 ```
 
 ## 文本对齐方向
