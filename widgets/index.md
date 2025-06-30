@@ -315,7 +315,7 @@ site_tree:
   # 其它自定义页面配置 layout: page
   page:
     leftbar: recent
-    rightbar: toc, timeline
+    rightbar: timeline, toc
 ```
 
 

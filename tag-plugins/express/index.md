@@ -173,7 +173,7 @@ tag_plugins:
 
 从 1.28.1 版本开始，如果想在页面中展示较小的图片，但在 fancybox 中展示较大的高清的图片，可以用 `fancybox:大图链接` 参数。
 
-## blockquote 引用段落
+## blockquote 段落引用
 
 这个是标准写法 `> 引用内容` 的增强版本，适合不太强调的、大段落的引用。
 
@@ -183,7 +183,7 @@ tag_plugins:
 > 这是使用 "> 引用" 写法的例子
 
 {% blockquote %}
-这是使用 quote 标签的例子
+这是使用 blockquote 标签的例子
 {% endblockquote %}
 
 <!-- tab 写法 -->
@@ -192,7 +192,7 @@ tag_plugins:
 > 这是使用 "> 引用" 写法的例子
 
 {% blockquote %}
-这是使用 quote 标签的例子
+这是使用 blockquote 标签的例子
 {% endblockquote %}
 ```
 

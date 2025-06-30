@@ -40,8 +40,40 @@ func test() -> () {
 ```
 {% endbox %}
 {% endgrid %}
-<!-- tab 示例代码 -->
+<!-- tab 写法 -->
 <script src="https://gist.github.xaox.cc/weekdaycare/741807d61e5796a91647510b9029a8f1.js"></script>
+{% endtabs %}
+
+### 嵌套多段代码块
+
+同一个 box 标签里面直接放多个代码块就可以啦：
+
+{% tabs %}
+<!-- tab 示例 -->
+{% box child:codeblock color:red %}
+```objc 发送端
++ (void)test {
+    [NSNotificationCenter.defaultCenter postNotificationName:@"test" object:nil];
+}
+```
+```swift 订阅端
+func setup() {
+    list.add(title: "test") { section in
+        section.add(title: "设置 Observer") {
+            NotificationCenter.default.addObserver(self, selector: #selector(self.onReceive), name: .init("test"), object: nil)
+        }
+        section.add(title: "发通知") {
+            OC.test()
+        }
+    }
+}
+@objc func onReceive(other: (() -> Void)? = nil) {
+    Capsule("收到通知")
+}
+```
+{% endbox %}
+<!-- tab 写法 -->
+<script src="https://gist.github.xaox.cc/xaoxuu/4066776ce26fdfcaed95e979c9d551e0.js"></script>
 {% endtabs %}
 
 ### 嵌套其它标签
