@@ -29,8 +29,8 @@ jobs:
       uses: peaceiris/actions-gh-pages@v4
       with:
         # deploy_key: ${{ secrets.DEPLOY_KEY }}
+        # external_repository: xaoxuu/hexo-theme-stellar-docs
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        external_repository: xaoxuu/hexo-theme-stellar-docs
         publish_branch: gh-pages
         publish_dir: ./public
         commit_message: ${{ github.event.head_commit.message }}
