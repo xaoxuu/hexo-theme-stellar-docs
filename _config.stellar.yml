@@ -1,0 +1,145 @@
+preconnect:
+  - https://gcore.jsdelivr.net
+  - https://unpkg.com
+  - https://cdn.bootcdn.net
+
+canonical:
+  originalHost: xaoxuu.com
+  officialHosts:
+    - backup.xaoxuu.com
+    - blog.xaoxuu.com
+    - xaoxuu.vercel.app
+    - xaoxuu.github.io
+    - xaoxuu.netlify.app
+    - xaoxuu.pages.dev
+
+inject:
+  head:
+    - <link rel="apple-touch-icon" sizes="180x180" href="/assets/xaoxuu/favicon/apple-touch-icon.png">
+    - <link rel="icon" type="image/png" sizes="32x32" href="/assets/xaoxuu/favicon/favicon-32x32.png">
+    - <link rel="icon" type="image/png" sizes="16x16" href="/assets/xaoxuu/favicon/favicon-16x16.png">
+    - <link rel="manifest" href="/assets/xaoxuu/favicon/site.webmanifest">
+    - <link rel="shortcut icon" href="/assets/xaoxuu/favicon/favicon.ico">
+    - <meta name="theme-color" content="#f8f8f8">
+    - <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" media="all" />
+
+logo:
+  subtitle: '风暴前夕 | xaoxuu.com'
+
+menubar:
+  columns: 4 # 一行多少个
+  items: # 可按照自己需求增加，符合以下格式即可
+    - id: post
+      theme: '#1BCDFC'
+      icon: solar:plate-bold-duotone
+      title: 博客
+      url: https://xaoxuu.com/
+    - id: wiki
+      theme: '#3DC550'
+      icon: solar:notebook-bold-duotone
+      title: 项目
+      url: https://xaoxuu.com/wiki/
+    - id: notes
+      theme: '#FA6400'
+      icon: solar:planet-bold-duotone
+      title: 探索
+      url: https://xaoxuu.com/notes/
+    - id: social
+      theme: '#F44336'
+      icon: solar:chat-square-like-bold-duotone
+      title: 社交
+      url: https://xaoxuu.com/friends/
+
+
+
+site_tree:
+  # home:
+  #   sidebar: welcome, search, recent, timeline
+  blog:
+    nav_tabs:
+      '朋友文章': /friends/rss/
+
+article:
+  # 分类颜色
+  category_color:
+    '探索号': '#f44336'
+    '设计开发': '#03a9f4'
+    # '奇思妙想': '#009688'
+    '解决方案': '#ff9800'
+    '技术加油站': '#4caf50'
+    '开源项目': '#4caf50'
+    '博客主题': '#ffa000'
+    '知识库': '#2196f3'
+    '前端': 'e91e63'
+    'iOS': '#009688'
+    # '应用程序': '#e91e63'
+    # '实用工具': '#009688'
+  share: [wechat, weibo, email, link]
+  license: '本文由 [${author.name}](${author.url}) 原创，采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。'
+
+comments:
+  service: giscus
+  beaudar:
+    repo: xaoxuu/blog-comments
+  giscus:
+    # src: https://giscus.xaox.cc/client.js
+    data-repo: xaoxuu/blog-comments
+    data-repo-id: MDEwOlJlcG9zaXRvcnkzMzM0MzA0NzE=
+    data-category: Announcements 
+    data-category-id: DIC_kwDOE9--x84CTUHq
+    data-theme: 'https://gcore.jsdelivr.net/gh/xaoxuu/giscus-theme@1.0.2/dist/preferred_color_scheme.css'
+
+footer:
+  # social:
+  #   github:
+  #     icon: '<img no-lazy src="/assets/placeholder/social/08a41b181ce68.svg"/>'
+  #     url: https://github.com/xaoxuu
+  #   music:
+  #     icon: '<img no-lazy src="/assets/placeholder/social/3845874.svg"/>'
+  #     url: https://music.163.com/#/user/home?id=63035382
+  #   unsplash:
+  #     icon: '<img no-lazy src="/assets/placeholder/social/3616429.svg"/>'
+  #     url: https://unsplash.com/@xaoxuu
+  #   comments:
+  #     icon: '<img no-lazy src="/assets/placeholder/social/942ebbf1a4b91.svg"/>'
+  #     url: /about/#comments
+  sitemap:
+    - title: 博客
+      items:
+        - '[近期发布](/)'
+        - '[分类](/blog/categories/)'
+        - '[标签](/blog/tags/)'
+        - '[归档](/blog/archives/)'
+    - title: 项目
+      items:
+        - '[开源项目](/wiki/tags/开源项目/)'
+        - '[实用工具](/wiki/tags/实用工具/)'
+        - '[应用程序](/wiki/tags/应用程序/)'
+        - '[知识库](/wiki/tags/知识库/)'
+    - title: 密友
+      items:
+        - '[枋柚梓](https://inkss.cn)'
+        - '[MHuiG](https://blog.mhuig.top)'
+        - '[Colsrch](https://colsrch.cn)'
+        - '[杜老师说](https://dusays.com)'
+    - title: 关于
+      items:
+        - '[本站简介](/about/)'
+        - '[隐私政策](/privacy/)'
+        - '[GitHub](https://github.com/xaoxuu)'
+        - '[xaox.cc](https://xaox.cc)'
+  content: |
+    本站由 [@xaoxuu](https://xaoxuu.com) 使用 [{theme.name} {theme.version}]({theme.tree}) 创建，至今已持续稳定运行八年。
+
+
+style:
+  font-family:
+    body: '"LXGW WenKai Screen", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
+    code: '"LXGW WenKai Screen", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
+    codeblock: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
+
+
+api_host:
+  ghapi: api.github.xaox.cc
+  ghraw: raw.github.xaox.cc
+  gist: gist.github.xaox.cc

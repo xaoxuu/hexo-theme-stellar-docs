@@ -1,6 +1,8 @@
 ---
 wiki: hexo-stellar
 title: 实现完整的笔记体系
+references:
+  - '[PR#464 @calfzhou](https://github.com/xaoxuu/hexo-theme-stellar/pull/464)'
 ---
 
 感谢 [@calfzhou](https://github.com/calfzhou) 提交 [PR#464](https://github.com/xaoxuu/hexo-theme-stellar/pull/464) 引入了一套全新的笔记系统，并提供了详细的文档说明。

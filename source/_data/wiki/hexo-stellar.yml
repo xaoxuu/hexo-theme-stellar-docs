@@ -1,0 +1,65 @@
+name: Stellar
+title: Stellar - 每个人的独立博客
+subtitle: '每个人的独立博客 | Designed by xaoxuu'
+tags: [前端, 开源项目]
+icon: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/icon.svg
+cover: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/icon.svg
+coverpage: true
+description: Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件。
+repo: xaoxuu/hexo-theme-stellar
+search:
+  filter: /wiki/stellar/
+  placeholder: 在 Stellar 中搜索...
+leftbar: 
+  - tree
+  - related
+  - timeline_stellar_releases
+  - timeline_stellar_more
+rightbar:
+  - ghrepo
+  - toc
+  # - timeline_stellar_releases
+  # - timeline_stellar_more
+
+license: '本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。'
+
+comment_title: '评论区仅供交流，有问题请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues) 反馈。'
+comments:
+  service: giscus
+  giscus:
+    data-repo: xaoxuu/hexo-theme-stellar
+    data-mapping: number
+    data-term: 226
+base_dir: /
+tree:
+  '快速开始':
+    - index
+    - examples
+    - releases
+  '基本使用':
+    - theme-settings/index
+    - pages/index
+    - sidebar/index
+    - tag-plugins/index
+    - tag-plugins/express/index
+    - tag-plugins/data/index
+    - tag-plugins/container/index
+    - comments/index
+  '进阶玩法':
+    - widgets/index
+    - wiki-settings/index
+    - wiki-settings/notes
+    - notebooks
+    - topic
+    - authors
+    - advanced-settings/index
+    - pages/front-matter
+  '第三方插件':
+    - third-party/katex
+    - third-party/mathjax
+    - third-party/graph
+    - third-party/memos
+  '社区支持':
+    - articles
+    - todo
+    - contributors

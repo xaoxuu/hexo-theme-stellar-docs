@@ -1,6 +1,8 @@
 ---
 wiki: hexo-stellar
 title: 表达类标签组件（31+个）
+references:
+  - '[PR#560 @HcGys](https://github.com/xaoxuu/hexo-theme-stellar/pull/560)'
 ---
 
 ## emoji 表情包
