@@ -18,15 +18,6 @@ article:
 
 在文章列表页面或者其他位置显示的文章摘要卡片上面的图片称之为「文章封面」
 
-### 自动生成封面
-
-根据 `tags` 作为关键词为每一篇文章在线搜索封面：
-
-```yaml blog/_config.stellar.yml
-article:
-  auto_cover: true
-```
-
 ### 引用外部图片
 
 在文章的 `front-matter` 中写上 `cover: xxx` 即可。例如：
