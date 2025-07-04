@@ -85,6 +85,12 @@ tag_plugins:
 ```
 {% vote id:default Stellar 是最好的 hexo 主题吗？ %}
 ```
+支持自定义图标，支持和反对分别是 `yes` 和 `no`：
+```
+{% vote id:default yes:solar:round-double-alt-arrow-up-bold no:solar:round-double-alt-arrow-down-bold 自定义图标 %}
+```
+自定义图标遵循 icon 标签的规则，但是为了正常高亮，建议在本地的 `icon.yml` 文件中配置而不要使用在线图标。
+{% vote id:default yes:solar:round-double-alt-arrow-up-bold no:solar:round-double-alt-arrow-down-bold 自定义图标 %}
 {% endtabs %}
 
 ## rating 评分
@@ -98,6 +104,12 @@ tag_plugins:
 ```
 {% rating id:default 给 Stellar 五星好评吧～ %}
 ```
+支持自定义图标，`icon`：
+```
+{% rating id:default icon:solar:heart-angle-bold 自定义图标 %}
+```
+自定义图标遵循 icon 标签的规则，但是为了正常高亮，建议在本地的 `icon.yml` 文件中配置而不要使用在线图标。
+{% rating id:default icon:solar:heart-angle-bold 自定义图标 %}
 {% endtabs %}
 
 ## mark 标记标签
