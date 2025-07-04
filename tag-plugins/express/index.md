@@ -1,6 +1,6 @@
 ---
 wiki: hexo-stellar
-title: 表达类标签组件（31+个）
+title: 表达类标签组件（33+个）
 references:
   - '[PR#560 @HcGys](https://github.com/xaoxuu/hexo-theme-stellar/pull/560)'
 ---
@@ -73,6 +73,32 @@ tag_plugins:
 ```
 
 > 还支持 style 参数，可以直接对样式进行修改，仅支持外链图标，style 参数中间不能有空格。
+
+## vote 投票
+
+这个功能在 {% mark 1.33.0 %} 版本后开始支持，需要自部署一个 [star-vote](https://github.com/xaoxuu/star-vote) 开源项目，支持部署到 vercel 并搭配 leancloud 使用。
+
+{% tabs %}
+<!-- tab 效果 -->
+{% vote id:default Stellar 是最好的 hexo 主题吗？ %}
+<!-- tab 代码 -->
+```
+{% vote id:default Stellar 是最好的 hexo 主题吗？ %}
+```
+{% endtabs %}
+
+## rating 评分
+
+这个功能在 {% mark 1.33.0 %} 版本后开始支持，需要自部署一个 [star-vote](https://github.com/xaoxuu/star-vote) 开源项目，支持部署到 vercel 并搭配 leancloud 使用。
+
+{% tabs %}
+<!-- tab 效果 -->
+{% rating id:default 给 Stellar 五星好评吧～ %}
+<!-- tab 代码 -->
+```
+{% rating id:default 给 Stellar 五星好评吧～ %}
+```
+{% endtabs %}
 
 ## mark 标记标签
 
