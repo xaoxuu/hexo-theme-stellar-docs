@@ -9,19 +9,19 @@ references:
 
 {% tabs %}
 <!-- tab 效果演示 -->
-内置了可配置的表情标签 {% emoji 爱你 %} {% emoji blobcat ablobcatattentionreverse %} {% emoji tieba 滑稽 %} 使用方法如下：
+内置了可配置的表情标签 {% emoji aini %} {% emoji blobcat attention %} {% emoji tieba huaji %} 使用方法如下：
 
 ```
-{% emoji 爱你 %}
-{% emoji blobcat ablobcatattentionreverse %}
-{% emoji tieba 滑稽 %}
+{% emoji aini %}
+{% emoji blobcat attention %}
+{% emoji tieba huaji %}
 ```
 
 如果对高度有特别要求，可以指定高度，例如：
-<center>{% emoji blobcat ablobcatrainbow height:1em %}{% emoji blobcat ablobcatrainbow height:2em %}{% emoji blobcat ablobcatrainbow height:3em %}{% emoji blobcat ablobcatrainbow height:2em %}{% emoji blobcat ablobcatrainbow height:1em %}</center>
+<center>{% emoji blobcat party height:1em %}{% emoji blobcat party height:2em %}{% emoji blobcat party height:3em %}{% emoji blobcat party height:2em %}{% emoji blobcat party height:1em %}</center>
 
 ```
-<center>{% emoji blobcat ablobcatrainbow height:1em %}{% emoji blobcat ablobcatrainbow height:2em %}{% emoji blobcat ablobcatrainbow height:3em %}{% emoji blobcat ablobcatrainbow height:2em %}{% emoji blobcat ablobcatrainbow height:1em %}</center>
+<center>{% emoji blobcat party height:1em %}{% emoji blobcat party height:2em %}{% emoji blobcat party height:3em %}{% emoji blobcat party height:2em %}{% emoji blobcat party height:1em %}</center>
 ```
 
 <!-- tab 语法格式 -->
@@ -548,7 +548,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 {% okr o1 %}
 
 2077年的小目标：完成 Volantis 6.0 并发布上线
-来自2077年末的复盘：已《基本》实现目标 {% emoji tieba 滑稽 %}
+来自2077年末的复盘：已《基本》实现目标 {% emoji tieba huaji %}
 
 <!-- okr kr1 percent:100 -->
 重构 tag-plugins 和 wiki 系统
@@ -585,7 +585,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 {% okr o1 %}
 
 2077年的小目标：完成 Volantis 6.0 并发布上线
-来自2077年末的复盘：已《基本》实现目标 {% emoji tieba 滑稽 %}
+来自2077年末的复盘：已《基本》实现目标 {% emoji tieba huaji %}
 
 <!-- okr kr1 percent:100 -->
 重构 tag-plugins 和 wiki 系统
