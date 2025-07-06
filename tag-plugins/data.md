@@ -1,6 +1,6 @@
 ---
 wiki: hexo-stellar
-title: 数据类标签组件（6个）
+title: 数据类标签组件（8个）
 ---
 
 ## timeline 时间线
@@ -26,7 +26,7 @@ title: 数据类标签组件（6个）
 {% timeline %}
 <!-- node 2021 年 2 月 16 日 -->
 主要部分功能已经开发的差不多了。
-{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/photos/hello@1x.png width:300px ratio:1179/390 %}
+{% image https://gcore.jsdelivr.net/gh/cdn-x/wiki/stellar/photos/hello@1x.png width:300px ratio:1179/390 %}
 <!-- node 2021 年 2 月 11 日 -->
 今天除夕，也是生日，一个人在外地过年+过生日，熬夜开发新主题，尽量在假期结束前放出公测版。
 {% endtimeline %}
@@ -35,7 +35,7 @@ title: 数据类标签组件（6个）
 {% timeline %}
 <!-- node 2021 年 2 月 16 日 -->
 主要部分功能已经开发的差不多了。
-{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/wiki/stellar/photos/hello@1x.png width:300px ratio:1179/390 %}
+{% image https://gcore.jsdelivr.net/gh/cdn-x/wiki/stellar/photos/hello@1x.png width:300px ratio:1179/390 %}
 <!-- node 2021 年 2 月 11 日 -->
 今天除夕，也是生日，一个人在外地过年+过生日，熬夜开发新主题，尽量在假期结束前放出公测版。
 {% endtimeline %}
@@ -149,15 +149,22 @@ title: 数据类标签组件（6个）
 
 如果想修改规则，可以看看这3个工作流项目的 `README` 文档。
 
-### 旧的友链仓库怎么升级？
+### 友链+友链文章聚合显示
+
+{% friends posts:true api:https://raw.github.xaox.cc/volantis-x/friends-example/output/v2/data.json %}
+
+写法比普通友链多了个 `posts:true`，要求必须是动态友链：
+
+```
+{% friends posts:true api:https://raw.github.com/volantis-x/friends-example/output/v2/data.json %}
+```
+
+
+### 旧的动态友链仓库怎么升级？
 
 详见这篇文章：[《感谢 AI，动态友链获重磅升级！》](https://xaoxuu.com/blog/20250602/)
 
 ### 数据托管与加速
-
-{% box 特别感谢 color:green %}
-特别感谢小冰博客的加速访问方案，解决了直接请求 GitHub API 速度过慢的问题，详见 [小冰博客](https://zfe.space/post/python-issues-api.html) 的教程。
-{% endbox %}
 
 支持把数据托管到任何其他地方来使用，例如：
 
@@ -165,12 +172,7 @@ title: 数据类标签组件（6个）
 {% friends api:https://raw.github.xaox.cc/xaoxuu/friends/output/v2/data.json %}
 ```
 
-{% box Stellar 1.13.0 color:warning %}
-动态数据 API 升级至 v2 版本，原使用 issue-api 仓库的需要将友链仓库同步更新。
-v1 版本已经停止维护。
-{% endbox %}
-
-> 你可以有 N 种办法加速访问 GitHub 仓库里的文件。
+你可以有 N 种办法加速访问 GitHub 仓库里的文件，例如 jsd、反代、webhook同步、GitHub Action 同步到 OSS 等，甚至也可以用第三方免费加速 github 文件的服务。
 
 ## sites 网站卡片
 
@@ -178,7 +180,7 @@ v1 版本已经停止维护。
 
 您可以在任何位置插入网站卡片组，支持静态数据和动态数据，静态数据需要写在数据文件中：
 
-```yaml blog/source/_data/links/sites_design.yml
+```yaml blog/source/_data/links/分组名.yml
 - title: 标题
   url: https://
   cover:
@@ -195,6 +197,47 @@ v1 版本已经停止维护。
 {% box Stellar v1.13.0 color:warning %}
 原 friends 和 sites 标签数据合并至 `links/xxx.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
 {% endbox %}
+
+
+## albums 专辑
+
+配置数据源：
+
+```yaml blog/source/_data/links/分组名.yml
+- title: 标题
+  url: https://
+  cover:
+  icon:
+  description:
+```
+
+文章中插入方式：
+
+```md blog/source/_posts/xxx.md
+{% albums 分组名 %}
+```
+
+{% albums music %}
+
+## posters 海报
+
+配置数据源：
+
+```yaml blog/source/_data/links/分组名.yml
+- title: 标题
+  url: https://
+  cover:
+  icon:
+  description:
+```
+
+文章中插入方式：
+
+```md blog/source/_posts/xxx.md
+{% posters 分组名 %}
+```
+
+{% posters games %}
 
 ## md 渲染外部 markdown 文件
 
