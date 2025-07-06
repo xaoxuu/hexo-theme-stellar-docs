@@ -280,7 +280,7 @@ style:
 inject:
   head:
     - <meta name="msapplication-TileColor" content="#2d89ef">
-    - <meta name="msapplication-config" content="https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/favicon/browserconfig.xml">
+    - <meta name="msapplication-config" content="https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/favicon/browserconfig.xml">
     - <meta name="theme-color" content="#ffffff">
   script:
     - <script async src="https://gcore.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>

@@ -24,9 +24,7 @@ article:
 
 ```yaml blog/source/_posts/xxx.md
 ---
-# 本地图片路径为 blog/source/assets/xaoxuu/blog/2020-0927a@1x.svg
-# 也可以直接引用图片直链 https://xxx.jpg
-cover: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2020-0927a@1x.svg
+cover: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706150531375.jpg
 ---
 ```
 
@@ -38,7 +36,7 @@ cover: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2020-0
 
 ```yaml blog/source/_posts/xxx.md
 ---
-cover: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2020-0927a@1x.svg # 必选
+cover: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706150531375.jpg # 必选
 poster: # 海报（可选，全图封面卡片）
   topic: 标题上方的小字 # 可选
   headline: 大标题 # 必选
@@ -80,7 +78,7 @@ article:
 
 ```yaml blog/source/_posts/xxx.md
 ---
-cover: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2020-0927a@1x.svg
+cover: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706150531375.jpg
 ---
 
 在心率管家默默无闻地上线了一年多之后，现在终于打算来好好聊聊关于手机摄像头测量心率的那些事。本文参考了很多前辈的文章，将在文末列出。
@@ -167,7 +165,7 @@ type: # tech/story
 文章页面顶部区域可以显示长长的横幅图片，设置方法如下：
 
 ```yaml blog/source/_posts/xxx.md
-banner: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2020-0927a@1x.svg
+banner: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706150531375.jpg
 ```
 
 ### 指定一级标题
@@ -282,7 +280,7 @@ article:
 
 ```yaml blog/source/_posts/xxx.md
 open_graph:
-  image: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2022-1029a@2x.webp
+  image: xxx
 ```
 
 ## 更多的独立页面

@@ -159,16 +159,16 @@ search:
 footer:
   social:
     github:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/placeholder/social/08a41b181ce68.svg"/>'
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder/social/08a41b181ce68.svg"/>'
       url: https://
     music:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/placeholder/social/3845874.svg"/>'
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder/social/3845874.svg"/>'
       url: https://
     unsplash:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/placeholder/social/3616429.svg"/>'
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder/social/3616429.svg"/>'
       url: https://
     comments:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/placeholder/social/942ebbf1a4b91.svg"/>'
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder/social/942ebbf1a4b91.svg"/>'
       url: https://
 ```
 

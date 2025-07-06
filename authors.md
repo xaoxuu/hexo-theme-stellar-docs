@@ -9,8 +9,8 @@ title: 一站多作者配置
 # 作者 1 （默认）
 xaoxuu:
   name: 'Mr. X'
-  avatar: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/avatar/rect-256@2x.png
-  banner: https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/banner/friends.jpg
+  avatar: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/avatar/classic.webp
+  banner: https://res.xaox.cc/posts/20250706144355248.webp-hd
   description: 如果宇宙中真有什么终极的逻辑，那就是我们终有一天会在舰桥上重逢，直到生命终结。
 # 作者 2
 author2:

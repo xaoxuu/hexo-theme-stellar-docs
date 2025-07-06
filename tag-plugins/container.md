@@ -83,7 +83,7 @@ func setup() {
 {% box child:tabs %}
 {% tabs %}
 <!-- tab 图文混排 -->
-{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2020-0627a@2x.webp 个人电脑作为办公设备时，我们该如何保护隐私？ download:true ratio:1200/600 %}
+{% image https://res.xaox.cc/posts/20250706162325884.webp-hd 个人电脑作为办公设备时，我们该如何保护隐私？ download:true ratio:1200/600 %}
 
 公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
 
@@ -383,23 +383,23 @@ cell 4
 
 ### 用于独立页面顶部
 
-{% banner 随记 bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/banner/notes.jpg %}
+{% banner 随记 bg:https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706164631268.webp %}
 {% navbar active:/notes/ [随记](/notes/) [收藏](/bookmark/) %}
 {% endbanner %}
 
 ```md 写法如下：
-{% banner 随记 bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/banner/notes.jpg %}
+{% banner 随记 bg:https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706164631268.webp %}
 {% navbar active:/notes/ [随记](/notes/) [收藏](/bookmark/) %}
 {% endbanner %}
 ```
 
 ### 用于用户个人资料页
 
-{% banner 某某 这是个人简介 avatar:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/avatar/rect-256@2x.png bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/banner/nebula.jpg %}
+{% banner 某某 这是个人简介 avatar:https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/avatar/classic.webp bg:https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706163949681.webp %}
 {% endbanner %}
 
 ```md 写法如下：
-{% banner 某某 这是个人简介 avatar:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/avatar/rect-256@2x.png bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/banner/nebula.jpg %}
+{% banner 某某 这是个人简介 avatar:https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/avatar/classic.webp bg:https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706163949681.webp %}
 {% endbanner %}
 ```
 
@@ -408,11 +408,11 @@ cell 4
 设置 link 可以让整个卡片响应点击事件，实现点击跳转到对应文章：
 
 ```md
-{% banner 博客进阶：自动化部署 本文讲了如何利用脚本和 GitHub Actions 简化博客搭建和部署流程，提高效率。 bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2022-1126a@2x.jpg link:/blog/20221126/ %}
+{% banner 博客进阶：自动化部署 本文讲了如何利用脚本和 GitHub Actions 简化博客搭建和部署流程，提高效率。 bg:https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706160404696.webp link:/blog/20221126/ %}
 {% endbanner %}
 ```
 
-{% banner 博客进阶：自动化部署 本文讲了如何利用脚本和 GitHub Actions 简化博客搭建和部署流程，提高效率。 bg:https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/blog/2022-1126a@2x.jpg link:/blog/20221126/ %}
+{% banner 博客进阶：自动化部署 本文讲了如何利用脚本和 GitHub Actions 简化博客搭建和部署流程，提高效率。 bg:https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706160404696.webp link:/blog/20221126/ %}
 {% endbanner %}
 
 ## gallery 图库

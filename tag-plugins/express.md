@@ -159,10 +159,10 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 无论在什么宽度的设备上都希望横向铺满的图片，一般不需要额外操作。可以在链接后面写上图片描述，如有必要，可以通过设置 `download:true` 使其显示一个「下载」按钮链接指向图片地址，如果下载链接与显示的图片地址不同，可以 `download:下载链接` 来使其能够下载原图。
 
-{% image https://res.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://res.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd ratio:1280/960 %}
+{% image https://res.xaox.cc/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://res.xaox.cc/posts/202401131914137.jpg-hd ratio:1280/960 %}
 
 ```md 写法如下
-{% image https://res.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://res.xaox.cc/xaoxuu/posts/202401131914137.jpg-hd ratio:1280/960 %}
+{% image https://res.xaox.cc/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://res.xaox.cc/posts/202401131914137.jpg-hd ratio:1280/960 %}
 ```
 
 ### 竖图（小图）优化
@@ -173,14 +173,14 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 <!-- tab 限制宽度 -->
 
-{% image https://res.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 ratio:720/1080 %}
+{% image https://res.xaox.cc/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 ratio:720/1080 %}
 
 ```
-{% image https://gcore.jsdelivr.net/gh/xaoxuu/assets.xaoxuu.com/xaoxuu/mirror/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white ratio:526/902 %}
+{% image https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white ratio:526/902 %}
 ```
 
 {% folding 如果不进行约束，在宽屏设备上会占用很大篇幅 %}
-{% image https://res.xaox.cc/xaoxuu/posts/202401131924265.jpg-hd  ratio:720/1080 %}
+{% image https://res.xaox.cc/posts/202401131924265.jpg-hd  ratio:720/1080 %}
 {% endfolding %}
 
 <!-- tab 设置填充区域 -->
