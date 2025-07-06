@@ -106,10 +106,9 @@ tag_plugins:
 ```
 支持自定义图标，`icon`：
 ```
-{% rating id:default icon:solar:heart-angle-bold 自定义图标 %}
+{% rating id:default icon:https://api.iconify.design/twemoji:star-struck.svg 自定义图标遵循 icon 标签的规则 %}
 ```
-自定义图标遵循 icon 标签的规则，但是为了正常高亮，建议在本地的 `icon.yml` 文件中配置而不要使用在线图标。
-{% rating id:default icon:solar:heart-angle-bold 自定义图标 %}
+{% rating id:default icon:https://api.iconify.design/twemoji:star-struck.svg 自定义图标遵循 icon 标签的规则 %}
 {% endtabs %}
 
 ## mark 标记标签
