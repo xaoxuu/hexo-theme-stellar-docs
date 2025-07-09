@@ -11,17 +11,9 @@ title: 探索个性化配置
 style:
   ...
   color:
-    # 动态颜色（会根据明暗主题重设明度值，只用关心色相和饱和度即可）
-    background: 'hsl(212 16% 98%)' # 浅色背景颜色
-    block: 'hsl(212 8% 95%)' # 块背景颜色
-    code: 'hsl(14 100% 48%)' # 行内代码颜色
-    text: 'hsl(0 0% 20%)' # 文本颜色
-    # 主题色配置（不会根据明暗动态调整，请设置为通用的颜色）
     theme: 'hsl(192 98% 55%)' # 主题色
     accent: 'hsl(14 100% 57%)' # 强调色
     link: 'hsl(207 90% 54%)' # 超链接颜色
-    button: 'hsl(192 98% 55%)' # 按钮颜色
-    hover: 'hsl(14 100% 57%)' # 按钮高亮颜色
 ```
 
 ## 字体
@@ -38,10 +30,9 @@ style:
     code: 85% # 14px
     codeblock: 0.8125rem # 13px
   font-family:
-    logo: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
-    body: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
-    code: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
-    codeblock: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
+    body: 'system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif'
+    code: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
+    codeblock: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
 ```
 
 ### 外部字体
@@ -156,12 +147,16 @@ scrollreveal:
 ## 图片懒加载
 
 ```yaml blog/_config.stellar.yml
-# 默认打开
-lazyload:
-  enable: true # [hexo clean && hexo s] is required after changing this value.
-  js: https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js
-  transition: blur # blur, fade
+# 基础依赖
+dependencies:
+  ...
+  lazyload:
+    js: https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js
+    transition: fade # blur, fade
+    fix_ratio: true # true / false
 ```
+
+开启 `fix_ratio` 时，使用 `{% image %}` 标签的图片会被固定长宽比，防止懒加载时页面高度发生跳变。需要至少先本地运行一次 `hexo s` 以完成图片比例数据填充。
 
 ## 加载提示
 
@@ -221,19 +216,18 @@ footer:
     #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
     #   url: /about/#comments
   sitemap:
-    # '博客':
-    #   - '[近期](/)'
-    #   - '[分类](/categories/)'
-    #   - '[标签](/tags/)'
-    #   - '[归档](/archives/)'
-    # '项目':
-    #   - '[开源库](/)'
-    # '社交':
-    #   - '[友链](/)'
-    #   - '[留言板](/)'
-    # '更多':
-    #   - '[关于本站](/)'
-    #   - '[GitHub](/)'
+    - title: 博客
+      items:
+        - '[近期发布](/)'
+        - '[分类](/blog/categories/)'
+        - '[标签](/blog/tags/)'
+        - '[归档](/blog/archives/)'
+    - title: 项目
+      items:
+        - '[开源项目](/wiki/tags/开源项目/)'
+        - '[实用工具](/wiki/tags/实用工具/)'
+        - '[应用程序](/wiki/tags/应用程序/)'
+        - '[知识库](/wiki/tags/知识库/)'
   content: | # 支持 Markdown 格式
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
     本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
