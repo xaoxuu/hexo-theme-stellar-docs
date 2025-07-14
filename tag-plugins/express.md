@@ -40,11 +40,11 @@ references:
 tag_plugins:
   ...
   emoji:
-    default: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/{name}.gif
+    default: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/qq/{name}.gif
     twemoji: https://gcore.jsdelivr.net/gh/twitter/twemoji/assets/svg/{name}.svg
-    qq: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/{name}.gif
-    aru: https://gcore.jsdelivr.net/gh/cdn-x/emoji/aru-l/{name}.gif
-    tieba: https://gcore.jsdelivr.net/gh/cdn-x/emoji/tieba/{name}.png
+    qq: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/qq/{name}.gif
+    aru: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/aru-l/{name}.gif
+    tieba: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/tieba/{name}.png
 ```
 
 > 在配置文件中，文件名用 `{name}` 代替。
