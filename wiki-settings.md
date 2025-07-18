@@ -15,8 +15,8 @@ name: Stellar
 title: Stellar - 每个人的独立博客
 subtitle: '每个人的独立博客 | Designed by xaoxuu'
 tags: 博客主题
-icon: https://gcore.jsdelivr.net/gh/cdn-x/wiki/stellar/icon.svg
-cover: https://gcore.jsdelivr.net/gh/cdn-x/wiki/stellar/icon.svg
+icon: https://gh.xaox.cc/cdn-x/wiki@main/stellar/icon.svg
+cover: https://gh.xaox.cc/cdn-x/wiki@main/stellar/icon.svg
 description: Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件。
 repo: xaoxuu/hexo-theme-stellar
 search:
@@ -129,7 +129,7 @@ tree:
 项目可以显示一个全屏封面，封面占据一个屏幕的高度，会居中依次显示项目的 logo、标题、描述。开启项目封面方法如下：
 
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
-cover: https://gcore.jsdelivr.net/gh/cdn-x/wiki/stellar/icon.svg
+cover: https://gh.xaox.cc/cdn-x/wiki@main/stellar/icon.svg
 coverpage: true # 默认是 true
 ```
 

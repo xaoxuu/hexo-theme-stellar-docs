@@ -175,7 +175,7 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 {% image https://res.xaox.cc/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 ratio:720/1080 %}
 
 ```
-{% image https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white ratio:526/902 %}
+{% image https://gh.xaox.cc/cdn-x/xaoxuu@main/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white ratio:526/902 %}
 ```
 
 {% folding 如果不进行约束，在宽屏设备上会占用很大篇幅 %}
@@ -186,10 +186,10 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 可以设置填充宽度和颜色，支持 `bg:var(--card)` 动态颜色，能够适配暗黑模式：
 
-{% image https://gcore.jsdelivr.net/gh/cdn-x/wiki/stellar/icon.svg bg:var(--card) padding:16px width:100px ratio:512/512 %}
+{% image https://gh.xaox.cc/cdn-x/wiki@main/stellar/icon.svg bg:var(--card) padding:16px width:100px ratio:512/512 %}
 
 ```
-{% image https://gcore.jsdelivr.net/gh/cdn-x/wiki/stellar/icon.svg bg:var(--card) padding:16px ratio:512/512 %}
+{% image https://gh.xaox.cc/cdn-x/wiki@main/stellar/icon.svg bg:var(--card) padding:16px ratio:512/512 %}
 ```
 
 {% endtabs %}
@@ -574,7 +574,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 
 <!-- okr kr-4 status:at_risk -->
 开发、测试和发布
-{% image https://gcore.jsdelivr.net/gh/cdn-x/wiki/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 ratio:512/512 %}
+{% image https://gh.xaox.cc/cdn-x/wiki@main/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 ratio:512/512 %}
 
 {% endokr %}
 
@@ -610,7 +610,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 
 <!-- okr kr-4 status:at_risk -->
 开发、测试和发布
-{% image https://gcore.jsdelivr.net/gh/cdn-x/wiki/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 ratio:512/512 %}
+{% image https://gh.xaox.cc/cdn-x/wiki@main/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 ratio:512/512 %}
 
 {% endokr %}
 ```
@@ -773,10 +773,10 @@ autoplay: 1/0 # 自动播放/手动播放 # 不设置默认为0手动播放
 
 {% tabs %}
 <!-- tab 示例 -->
-{% frame iphone11 img:https://gcore.jsdelivr.net/gh/cdn-x/wiki/prohud/toast/demo-loading.png video:https://gcore.jsdelivr.net/gh/cdn-x/wiki/prohud/toast/demo-loading.mp4 focus:top %}
+{% frame iphone11 img:https://gh.xaox.cc/cdn-x/wiki@main/prohud/toast/demo-loading.png video:https://gh.xaox.cc/cdn-x/wiki@main/prohud/toast/demo-loading.mp4 focus:top %}
 <!-- tab 写法 -->
 ```md
-{% frame iphone11 img:https://gcore.jsdelivr.net/gh/cdn-x/wiki/prohud/toast/demo-loading.png video:https://gcore.jsdelivr.net/gh/cdn-x/wiki/prohud/toast/demo-loading.mp4 focus:top %}
+{% frame iphone11 img:https://gh.xaox.cc/cdn-x/wiki@main/prohud/toast/demo-loading.png video:https://gh.xaox.cc/cdn-x/wiki@main/prohud/toast/demo-loading.mp4 focus:top %}
 ```
 {% endtabs %}
 
