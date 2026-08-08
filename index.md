@@ -140,7 +140,7 @@ npm: 6.14.13 ~ latest
 
 {% quot 项目中的许可声明文件应包含在所有副本中 %}
 
-本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](https://xaoxuu.com/wiki/stellar/contributors.html) 提交的代码，使用 [MIT License](https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
+本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](https://xaoxuu.com/wiki/stellar/contributors/) 提交的代码，使用 [MIT License](https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
 
 ```license
 MIT License
@@ -173,6 +173,6 @@ SOFTWARE.
 {% timeline hide:title,footer api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?state=all&labels=分享&per_page=3 %}
 {% endtimeline %}
 
-{% navbar [更多文章](https://xaoxuu.com/wiki/stellar/articles.html) [投稿](https://github.com/xaoxuu/hexo-theme-stellar/issues/new?template=article-share.md) %}
+{% navbar [更多文章](https://xaoxuu.com/wiki/stellar/articles/) [投稿](https://github.com/xaoxuu/hexo-theme-stellar/issues/new?template=article-share.md) %}
 
 {% endbox %}

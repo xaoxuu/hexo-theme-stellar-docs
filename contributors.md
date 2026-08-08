@@ -15,7 +15,7 @@ title: 开发者和社区支持
 - [Issues](https://github.com/xaoxuu/hexo-theme-stellar/issues) 技术问题答疑、BUG反馈
 - [Discussions](https://github.com/xaoxuu/hexo-theme-stellar/discussions) 论坛、相关话题讨论
 - [文档](https://github.com/xaoxuu/hexo-theme-stellar-docs) 维护
-- [探索号](https://xaoxuu.com/wiki/stellar/articles.html) 文章收录
+- [探索号](https://xaoxuu.com/wiki/stellar/articles/) 文章收录
 - QQ群：1146399464，验证码：{% psw vlts-2021 %}（以聊天为主，技术问题未必跟进。）
 
 > 无论在什么渠道，学习并掌握 [提问的智慧(28k+ Stars)](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md) 可以方便大家更高效地帮你解决问题。
