@@ -24,10 +24,20 @@ references:
 <center>{% emoji blobcat party height:1em %}{% emoji blobcat party height:2em %}{% emoji blobcat party height:3em %}{% emoji blobcat party height:2em %}{% emoji blobcat party height:1em %}</center>
 ```
 
+不想引入整套表情包时，也可以用 `url:` 直接引用一张外部图片作为表情，例如：
+
+```
+{% emoji url:https://emoticons.hzchu.top/emoticons/azukisan/003.png %}
+{% emoji url:https://emoticons.hzchu.top/emoticons/azukisan/003.png name:阿梓 height:2em %}
+```
+
+`name` 可选，作为图片的 `alt` 文本；`height` 用法同上。
+
 <!-- tab 语法格式 -->
 
 ```
 {% emoji [source] name [height:1.75em] %}
+{% emoji url:图片地址 [name:alt] [height:1.75em] %}
 ```
 
 其中 `source` 可省略，默认为配置中的第一个 `source`（详见「引入表情包」部分）
