@@ -45,23 +45,3 @@ title: 开发者和社区支持
 
 {% endbox %}
 {% endgrid %}
-
-
-{% folding 感谢点赞支持者 %}
-
-{% quot icon:hashtag 1-100 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=1 %}
-{% quot icon:hashtag 101-200 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=2 %}
-{% quot icon:hashtag 201-300 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=3 %}
-{% quot icon:hashtag 301-400 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=4 %}
-{% quot icon:hashtag 401-500 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=5 %}
-{% quot icon:hashtag 501-600 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=6 %}
-{% quot icon:hashtag 601-700 %}
-{% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/stargazers?per_page=100&page=7 %}
-
-{% endfolding %}
