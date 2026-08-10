@@ -44,6 +44,8 @@ toc:
 
 `toc` 的 `fallback` 默认是 `recent`，即一篇文章没有 `TOC` 的时候会显示一个 `recent`
 
+toc 组件底部的操作按钮按页面内容显示：「回到顶部」「参与讨论」仅在页面存在目录或渲染评论区时出现；其中「参与讨论」只在页面实际渲染评论区时显示（页面或所属 Wiki 项目设置 `comments: false` 时隐藏）。
+
 {% quot el:h3 recent %}
 
 ```yaml blog/source/_data/widgets.yml
