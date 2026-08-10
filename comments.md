@@ -164,3 +164,30 @@ giscus:
 title: 快速开始您的博客之旅
 comment_id:
 ```
+
+## 首页评论区
+
+首页默认不显示评论区，可以通过 `site_tree.home.comments` 开启，设置为 `true` 时使用全局 `comments.service` 配置：
+
+```yaml blog/_config.stellar.yml
+site_tree:
+  home:
+    comments: true
+```
+
+也可以像页面 front-matter 一样覆盖评论参数：
+
+```yaml blog/_config.stellar.yml
+site_tree:
+  home:
+    comments:
+      service: giscus # 覆盖全局评论服务
+      comment_title: 欢迎讨论~
+      comment_id: about # 与其他页面共用同一评论区（artalk/twikoo/waline）
+      # giscus:
+      #   data-repo: xaoxuu/blog-comments
+```
+
+仅首页第一页（`/`）显示评论区，分页页（`/page/2/`）不显示。
+
+> 提示：如果首页启用的评论服务不是全局 `comments.service`，且该服务带有内置样式（beaudar/utterances/twikoo/waline/artalk），需要把它加入 `comments.custom_css`，否则样式不会打包进站点。
