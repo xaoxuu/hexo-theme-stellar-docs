@@ -1,6 +1,6 @@
 ---
 wiki: hexo-stellar
-title: 表达类标签组件（33+个）
+title: 表达类标签组件（34+个）
 references:
   - '[PR#560 @HcGys](https://github.com/xaoxuu/hexo-theme-stellar/pull/560)'
 ---
@@ -814,3 +814,35 @@ autoplay: 1/0 # 自动播放/手动播放 # 不设置默认为0手动播放
 - 这是 {% sub 下角标 %} 标签
 - 这是 {% kbd 键盘样式 %} 标签，试一试：{% kbd ⌘ %} + {% kbd D %}
 ```
+
+## mbti 人格特征
+
+静态展示 16Personalities 风格的 MBTI 人格特征卡片：顶部为标题（如「我的 MBTI 人格：INTJ-T（架构师）」），中间为五个维度的两端标签进度条；传入档案链接时标题可点击跳转。
+
+{% tabs %}
+<!-- tab 示例 -->
+{% mbti INTJ-T 93-72-78-83-51 url:https://www.16personalities.com/ch/档案/9d09a4297ffa2 icon:https://www.16personalities.com/static/images/personality-types/avatars/faces/intj-architect-s3-v1-male.svg?v=3 image:https://www.16personalities.com/static/images/profile/reports/architect/profile_scene_architect_personality_traits_neutral_male.svg?v=1 %}
+```md
+{% mbti INTJ-T 93-72-78-83-51 url:https://www.16personalities.com/ch/档案/9d09a4297ffa2 %}
+```
+<!-- tab 写法 -->
+
+```md 语法格式
+{% mbti 类型代码 百分比1-百分比2-百分比3-百分比4-百分比5 [url:档案链接] [image:图片地址] %}
+```
+
+**参数说明**
+
+- `类型代码`：必填，如 `INTJ-T` / `INTJ`，大小写均可，决定标题与配色
+- `百分比`：必填，五个数值用 `-` 分隔，顺序固定为精力 → 认知方式 → 决策方式 → 生活方式 → 身份（各为前者的百分比，如内向 93%）
+- `url`：可选，`url:档案链接` 形式，支持完整 URL 或纯档案 ID（自动补全为中文站链接）；传入后标题可点击跳转（hover 显示下划线）
+- `image`：可选，标题上方的横幅图片地址，铺满卡片宽度、高度自适应；不填则不显示
+
+**边界行为**
+
+- 类型无法识别时使用主题默认色并输出构建告警
+- 类型代码缺少 `-A/-T` 变体时，身份维度默认按「自信果断」方向渲染并输出构建告警
+- 百分比缺位按 0 处理，超出 0–100 自动钳制，多余数值忽略
+- 明暗主题下进度条均使用类型对应色值
+
+{% endtabs %}
