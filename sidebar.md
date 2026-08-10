@@ -69,7 +69,7 @@ menubar:
   columns: 4 # 一行多少个
   items: # 可按照自己需求增加，符合以下格式即可
     # - id: post # 页面中高亮的 menu_id
-    #   theme: '#1BCDFC' # 高亮时的颜色，仅 svg 中 fill="currentColor" 时有效
+    #   theme: '#1BCDFC' # 激活/悬停时的主题色，图标与圆点会以该颜色生成渐变
     #   icon: solar:documents-bold-duotone # 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
     #   title: 博客 # 标题
     #   url: / # 跳转链接，支持相对路径和绝对路径
@@ -88,6 +88,14 @@ menubar:
     #   icon: solar:chat-square-like-bold-duotone
     #   title: 社交
     #   url: /friends/
+```
+
+激活/悬停时，图标和圆点使用 `theme` 颜色的渐变：右上角为与白色混合的淡色变体，向底部中间过渡到主色。渐变方向与淡色比例可调整：
+
+```yaml blog/_config.stellar.yml
+style:
+  gradient:
+    angle: 206.6deg # 渐变方向：右上角 → 底部中间（225deg 为 45 度对角线，180deg 为垂直向下）
 ```
 
 侧边栏宽度有限，如何在不影响观感的情况下设置更多的主导航栏按钮呢？建议设置一个「更多」按钮，然后在「更多」页面的侧边栏放上列表组件。
