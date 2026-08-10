@@ -129,6 +129,19 @@ style:
     image: 6px # 图片圆角
 ```
 
+### 连续曲率圆角（squircle）
+
+默认开启，将圆角从普通圆弧升级为曲率连续的 squircle 曲线（`superellipse(1.2)`，介于圆弧与完整 squircle 之间），且自动适配任意容器宽高、响应式尺寸与胶囊形按钮。该效果仅 Chromium 139+ 原生支持，其余浏览器自动回退为普通圆角，不影响显示。
+
+```yaml blog/_config.stellar.yml
+style:
+  ...
+  corner-shape: superellipse(1.2) # superellipse(1.2) 开启，round 关闭；可改 superellipse(2) 增强为完整 squircle
+```
+
+> 头像、圆点等需要保持正圆的元素不受此配置影响，仍为圆形。
+> 文章卡片与横幅的渐变模糊层采用「同图模糊层」（filter + mask）实现，以兼容连续曲率圆角（Chromium 的 corner-shape 裁剪与 backdrop-filter 不兼容）；hover 位移动画由卡片外层容器承载。
+
 ## 页面缓入效果
 
 ```yaml blog/_config.stellar.yml
