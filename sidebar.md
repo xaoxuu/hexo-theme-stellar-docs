@@ -47,10 +47,13 @@ style:
 style:
   ...
   leftbar:
+    ui-style: card # glass（背景图+磨砂玻璃效果，默认历史行为）/ card（纯色卡片：var(--card) 实色背景 + 中间阴影，默认值）
     background-image: url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg)
     blur-px: 100px # 模糊半径
     blur-bg: var(--bg-a60) # 模糊颜色
 ```
+
+`ui-style` 控制左栏外观：`glass` 为背景图 + 磨砂玻璃效果；`card` 为纯色卡片风格（浅色纯白、深色主题深灰黑），带介于卡片常规与 hover 之间的中间档阴影。默认值为 `card`，设置 `ui-style: glass` 可恢复旧效果。
 
 {% folding 关于linear-gradient的用法示例 child:codeblock %}
 ```css
