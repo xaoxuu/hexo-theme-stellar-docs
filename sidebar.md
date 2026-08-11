@@ -55,6 +55,8 @@ style:
 
 `ui-style` 控制左栏外观：`glass` 为背景图 + 磨砂玻璃效果；`card` 为纯色卡片风格（浅色纯白、深色主题深灰黑），带介于卡片常规与 hover 之间的中间档阴影。默认值为 `card`，设置 `ui-style: glass` 可恢复旧效果。
 
+卡片风格下左栏交互同步切换：菜单与各列表项 hover/active 背景使用 `var(--block)`；搜索条底部条默认为 `var(--text-meta)`，输入或悬停时仍显示彩虹渐变。
+
 {% folding 关于linear-gradient的用法示例 child:codeblock %}
 ```css
 /* 渐变轴为 45 度，从蓝色渐变到红色 */
