@@ -27,6 +27,18 @@ logo:
   title: '[{config.title}](/)' # you can set html tag like: '[<img no-lazy height="32px" src="xxx"/>](/)'
 ```
 
+### 动态头像
+
+头像 hover 时会出现一个旋转的彩虹光环（`animate: always` 时持续旋转），为纯 CSS 锥形渐变实现，不依赖图片，默认配色与搜索条激活时的底部渐变一致：
+
+```yaml blog/_config.stellar.yml
+style:
+  gradient:
+    avatar: 'conic-gradient(from 0deg, #04f3ff, #08ffc6, #ddf730, #ffbd19, #ff1fe0, #c418ff, #3b5bff, #04f3ff)' # 光环渐变色（彩虹），可自定义
+  animated_avatar:
+    animate: auto # auto=悬停时动画, always=持续动画, false=关闭
+```
+
 ## Background（背景）
 
 此功能在 {% mark 1.26.0 %} 中支持，可以设置：纯色/渐变色/图片作为背景。
