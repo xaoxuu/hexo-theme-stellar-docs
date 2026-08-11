@@ -47,8 +47,8 @@ Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富
 ```yaml 建议的版本
 Hexo: 6.3.0 ~ latest
 hexo-cli: 4.3.0 ~ latest
-node: 14.17.3 ～ latest LTS # 建议选择 LTS 版本，过高的版本 hexo 还没有进行兼容。
-npm: 6.14.13 ~ latest
+node: >= 22 # 建议选择 LTS 版本
+npm: >= 10
 ```
 
 ## 安装与更新
@@ -134,7 +134,7 @@ npm: 6.14.13 ~ latest
 
 本项目永久开源免费，如果您喜欢本项目，请 [点个赞](https://github.com/xaoxuu/hexo-theme-stellar/) 支持一下吧～
 
-{% image https://starchart.cc/xaoxuu/hexo-theme-stellar.svg  ratio:1024/400 %}
+{% image https://star-history.dera.page/svg?repos=xaoxuu/hexo-theme-stellar&type=date&legend=top-left ratio:800/533 %}
 
 ### 开源许可协议
 
