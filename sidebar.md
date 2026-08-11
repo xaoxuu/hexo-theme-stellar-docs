@@ -57,6 +57,8 @@ style:
 
 卡片风格下左栏交互同步切换：菜单与各列表项 hover/active 背景使用 `var(--block-border)`；搜索条底部条默认为 `var(--text-meta)`，输入或悬停时仍显示彩虹渐变。
 
+卡片风格下组件背景同步切换：原本白色半透明的背景（`--bg-a20/a50` 等）显示为 `var(--block)`，与右栏观感一致。
+
 {% folding 关于linear-gradient的用法示例 child:codeblock %}
 ```css
 /* 渐变轴为 45 度，从蓝色渐变到红色 */
