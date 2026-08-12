@@ -8,6 +8,13 @@ title: 开发者和社区支持
 
 {% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/contributors?per_page=100&direction=asc %}
 
+{% quot icon:hashtag el:h2 如何贡献 %}
+
+无论贡献代码还是文档，都欢迎先浏览 [贡献指南](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/CONTRIBUTING.md)：
+
+- **代码**：Fork [hexo-theme-stellar](https://github.com/xaoxuu/hexo-theme-stellar)，按贡献指南完成方案、开发与验证后提交 Pull Request。
+- **文档**：在 [hexo-theme-stellar-docs](https://github.com/xaoxuu/hexo-theme-stellar-docs) 仓库维护本 Wiki 内容。
+
 {% quot icon:hashtag el:h2 如何加入社区 %}
 
 社区建设主要包括以下几个方面：
