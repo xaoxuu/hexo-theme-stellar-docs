@@ -209,6 +209,20 @@ site_tree:
       '朋友文章': /friends/rss/ # 这里填写的链接要与对应页面一致，否则可能无法正确高亮
 ```
 
+## 置顶内容轮播
+
+所有带顶部 tab 栏的列表页（首页/归档/标签/分类/专栏/wiki 列表等）上方可以展示置顶内容轮播：
+
+```yaml blog/_config.stellar.yml
+pin_slider:
+  enable: false   # 是否开启
+  interval: 4000  # 自动轮播间隔（毫秒）
+```
+
+- 博客类列表页（首页/归档/标签/分类/专栏等）展示置顶文章：在文章 `front-matter` 中设置 `pin: true|number`（兼容 `sticky` 别名，设置即置顶，数字越大越靠前，`true` 视作 1）。
+- wiki 列表页展示置顶的 wiki 项目：在项目数据文件（`source/_data/wiki/*.yml`）中设置 `pin: true|number`，规则同上。
+- 默认关闭；没有置顶内容时不渲染；开启后文章卡片不再显示置顶图标。
+
 ## 站点地图
 
 页面底部的站点导航，你也可以在 `content` 中自定义一些文字信息，支持 Markdown 格式。

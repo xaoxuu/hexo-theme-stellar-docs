@@ -18,6 +18,7 @@ tags: 博客主题
 icon: https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg
 cover: https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg
 description: Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件。
+pin: 1 # 置顶轮播排序值（可选，设置即置顶，数字越大越靠前，true 视作 1）
 repo: xaoxuu/hexo-theme-stellar
 search:
   filter: /wiki/stellar/
