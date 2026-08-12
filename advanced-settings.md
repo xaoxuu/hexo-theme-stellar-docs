@@ -125,7 +125,7 @@ style:
   border-radius:
     card: 12px # 卡片圆角
     block: 12px # 块圆角
-    bar: 6px # 导航栏圆角
+    bar: 12px # 横条类元素圆角（navbar top、float-panel、分页器等）
     image: 6px # 图片圆角
 ```
 
@@ -213,17 +213,14 @@ site_tree:
 
 ## 置顶内容轮播
 
-所有带顶部 tab 栏的列表页（首页/归档/标签/分类/专栏/wiki 列表等）上方可以展示置顶内容轮播：
-
-```yaml blog/_config.stellar.yml
-pin_slider:
-  enable: false   # 是否开启
-  interval: 4000  # 自动轮播间隔（毫秒）
-```
+所有带顶部 tab 栏的列表页（首页/归档/标签/分类/专栏/wiki 列表等）上方自动展示置顶内容轮播，无需开关配置；只要有置顶内容即渲染，自动轮播间隔固定 5000ms。
 
 - 博客类列表页（首页/归档/标签/分类/专栏等）展示置顶文章：在文章 `front-matter` 中设置 `pin: true|number`（兼容 `sticky` 别名，设置即置顶，数字越大越靠前，`true` 视作 1）。
 - wiki 列表页展示置顶的 wiki 项目：在项目数据文件（`source/_data/wiki/*.yml`）中设置 `pin: true|number`，规则同上。
-- 默认关闭；没有置顶内容时不渲染；开启后文章卡片不再显示置顶图标。
+- 轮播区宽高比与非置顶文章统一，由 `article.cover_ratio` 控制（修改该值即可整体调整）。
+- 置顶文章卡片为固定「标题 + 一行小字」结构：标题取 `poster.headline` > `title`，小字取 `poster.caption` > `description` > excerpt（截断 50 字）；文字区采用与 poster 卡片同款渐变模糊层与底部渐变背景（盒模型为 padding 1rem、宽度铺满）；有封面时封面铺满，无封面时为纯白卡片（文字按普通文章颜色）。
+- 鼠标悬停轮播区时左右两侧显示翻页按钮（样式同 swiper 导航按钮），点击切换上一张/下一张。
+- 没有置顶内容时不渲染；置顶文章卡片不再显示置顶图标（由轮播展示）。
 
 ## 站点地图
 
@@ -232,18 +229,18 @@ pin_slider:
 ```yaml
 footer:
   social:
-    # github:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
-    #   url: /
-    # music:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
-    #   url: /
-    # unsplash:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
-    #   url: /
-    # comments:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
-    #   url: /about/#comments
+    github:
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
+      url: /
+    music:
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
+      url: /
+    unsplash:
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
+      url: /
+    comments:
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
+      url: /about/#comments
   sitemap:
     - title: 博客
       items:
