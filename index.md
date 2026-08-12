@@ -1,48 +1,35 @@
 ---
 wiki: hexo-stellar
-title: 开始您全新的博客之旅
+title: 开启您全新的博客之旅
 ---
 
-Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件，帮助您简单从容地应对各种表达需求，十分推荐内容创作者使用 Stellar 开始您全新的博客之旅。
+Stellar 是一个内置文档系统的简约商务风 Hexo 主题，提供丰富的标签与动态数据组件，帮助您从容应对各种表达需求，轻松开启全新的博客之旅。
 
-{% folding 了解 Stellar 如何在混乱中建立秩序 %}
-
-**“真正的简约远不止删繁就简，而是在纷繁中建立秩序。”**
-
-人的注意力是有限的，要提高有效信息的醒目程度，就必须降低不重要信息醒目程度，删除所有无效信息。
-
-**降低视觉密度**
-
-- 增加留白，增加间距。
-- 减少颜色丰富度，大面积出现的是中性色，彩色必须有其特殊意义，意义相同的元素使用同一种颜色。
-
-**提高有效信息优先级**
-
-- 文章标题永远是最大的，对比度最高的
-- 不可交互的不重要的小标题（如侧边栏某个插件的标题）降低对比度
-- 与文章相关的不重要的小标题，使用小号字体
-
-**删掉无效信息**
-
-- 文章标签、字数、阅读量、评论数
-- 网站访问量、字数、搭建时间
-- 全局播放器（除了特殊文章）
-
-{% endfolding %}
+{% toc wiki:Stellar 文档目录 display:mobile %}
 
 ## 开始前的准备工作
 
-尽管我们致力于降低使用门槛，但是自建独立博客仍然需要一定的相关知识，[markdown](https://www.runoob.com/markdown/md-tutorial.html) 常用语法是必须要掌握的，除此之外，您还需要知道 `yaml` 文件格式、简单的 `git` 知识，最最重要的是，遇到问题知道该如何高效地寻找答案：
+{% tabs %}
 
-{% checkbox checked:true 翻阅和搜索文档 %}
-{% checkbox checked:true 搜索 issues 中是否已经有解决办法 %}
-{% checkbox checked:true 如果没有，新建 issue 并按照要求进行操作，详尽地描述您遇到的问题 %}
+<!-- tab 有 AI -->
 
-**如果您没有使用过 Hexo 也不要着急，我十分建议您去通读一遍 [Hexo](https://hexo.io/zh-cn/docs/) 中文文档**。
+新用户无需提前通读全部文档，借助 AI 助手即可快速上手：
+
+1. 让 AI 了解项目：本项目配套了较为完整的 AI 知识库，AI 能更轻松、更准确地理解 Stellar。
+2. 向 AI 提出需求：安装配置、页面搭建、主题自定义等任务，都可以让 AI 结合项目文档协助完成。
+3. 遇到问题直接询问：边做边学，随时向 AI 提问，或查阅 [Hexo](https://hexo.io/zh-cn/docs/) 中文文档。
+
+<!-- tab 没 AI -->
+
+自建独立博客需要具备一些基础知识：[markdown](https://www.runoob.com/markdown/md-tutorial.html) 常用语法需要掌握；此外，您还需要了解 `yaml` 文件格式和基本的 `git` 操作。如果您还没有使用过 Hexo，建议先通读一遍 [Hexo](https://hexo.io/zh-cn/docs/) 中文文档。
 
 {% link https://hexo.io/zh-cn/docs/ %}
 
-此外，如果您从旧版本更新或者其它主题迁移，请确保环境版本不要太低，否则会产生兼容性问题：
+{% endtabs %}
+
+## 环境要求
+
+无论是全新安装，还是从旧版本升级、从其他主题迁移，都建议保持环境版本不低于以下要求，以免出现兼容性问题：
 
 ```yaml 建议的版本
 Hexo: 6.3.0 ~ latest
@@ -71,7 +58,7 @@ npm: >= 10
 1. 打开终端并进入博客文件夹，执行：
 {% copy npm i hexo-theme-stellar %}
 
-2. 阅读 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases) 进行迁移操作。
+2. 查看 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)，按说明完成迁移。
 
 {% note color:green 适用范围 稳定版适用于以内容创作为主，不需要自定义主题，追求稳定和可靠性的用户。 %}
 
@@ -90,9 +77,9 @@ npm: >= 10
 1. 打开终端并进入主题文件夹，执行：
 {% copy git pull %}
 
-2. 阅读 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases) 进行迁移操作。
+2. 查看 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)，按说明完成迁移。
 
-{% note color:blue 适用范围 最新版适用于以内容创作为主，不需要自定义主题，追求新特性的用户。 %}
+{% note color:blue 适用范围 最新版适用于希望第一时间体验新特性的用户。 %}
 
 <!-- tab 自定义 -->
 
@@ -111,7 +98,7 @@ npm: >= 10
 1. 在您 fork 的 Stellar 主题仓库打开终端，执行：
 {% copy git pull %}
 
-2. 阅读 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases) 进行迁移操作。
+2. 查看 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)，按说明完成迁移。
 
 {% note color:yellow 适用范围 自定义版适用于对主题有自定义需求，且掌握了一定的前端知识和动手能力的用户。 %}
 
@@ -126,13 +113,29 @@ npm: >= 10
 {% endtabs %}
 {% endbox %}
 
-{% toc wiki:Stellar 文档目录 display:mobile %}
+## 开始使用
 
-## 关于 Stellar 
+安装并启用主题后，建议按以下顺序阅读文档：
 
-### Star History
+{% navbar [主题配置](https://xaoxuu.com/wiki/stellar/theme-settings/) [页面](https://xaoxuu.com/wiki/stellar/pages/) [侧边栏](https://xaoxuu.com/wiki/stellar/sidebar/) [标签插件](https://xaoxuu.com/wiki/stellar/tag-plugins/) [评论区](https://xaoxuu.com/wiki/stellar/comments/) %}
 
-本项目永久开源免费，如果您喜欢本项目，请 [点个赞](https://github.com/xaoxuu/hexo-theme-stellar/) 支持一下吧～
+{% note 小提示 完整文档目录见侧边栏或页面顶部的文档目录；[示例站点](https://xaoxuu.com/wiki/stellar/examples/) 展示了 Stellar 的多种玩法，[更新日志](https://xaoxuu.com/wiki/stellar/releases/) 记录了每个版本的变化。 %}
+
+## 问题排查
+
+遇到问题时，按以下顺序排查：
+
+1. 翻阅和搜索本系列文档
+2. 搜索 [issues](https://github.com/xaoxuu/hexo-theme-stellar/issues) 中是否已经有解决办法
+3. 如果没有，新建 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues/new/choose) 并按照要求进行操作，详尽地描述您遇到的问题
+
+## 关于 Stellar
+
+{% quot 真正的简约不止删繁就简，而是在纷繁中建立秩序。它通过克制视觉元素、突出有效信息、删除无效内容，让注意力始终落在真正重要的东西上。 %}
+
+### 支持本项目
+
+本项目永久开源、完全免费。如果您喜欢它，不妨 [点个赞](https://github.com/xaoxuu/hexo-theme-stellar/) 支持一下～
 
 {% image https://star-history.dera.page/svg?repos=xaoxuu/hexo-theme-stellar&type=date&legend=top-left ratio:800/533 %}
 
@@ -140,7 +143,7 @@ npm: >= 10
 
 {% quot 项目中的许可声明文件应包含在所有副本中 %}
 
-本项目是由 [@xaoxuu](https://github.com/xaoxuu) 设计和开发，后期也合并了 [开源贡献者](https://xaoxuu.com/wiki/stellar/contributors/) 提交的代码，使用 [MIT License](https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/LICENSE) 开源许可协议进行授权，拷贝、分享或基于此进行创作时请遵守协议内容：
+本项目由 [@xaoxuu](https://github.com/xaoxuu) 设计并开发，同时收录了 [开源贡献者](https://xaoxuu.com/wiki/stellar/contributors/) 的代码贡献，采用 [MIT License](https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar/main/LICENSE) 协议开源。复制、分享或基于本项目进行创作时，请遵守协议内容：
 
 ```license
 MIT License
@@ -166,9 +169,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## 探索 Stellar
+## 社区分享
 
-{% box 这里展示最新3篇探索号投稿文章 %}
+{% box 这里展示最新 3 篇「探索号」投稿文章 %}
 
 {% timeline hide:title,footer api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/issues?state=all&labels=分享&per_page=3 %}
 {% endtimeline %}
