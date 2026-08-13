@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2025-07-19 11:52
+updated: 2026-08-13 23:20
 wiki: hexo-stellar
 title: 数据类标签组件（8个）
 ---
@@ -249,9 +249,17 @@ title: 数据类标签组件（8个）
 {% endfolding %}
 ```
 
+`wrap` 参数默认为 `true`：渲染结果保留在 `.data-service.ds-mdrender` 容器内（现状）；传 `wrap:false` 时渲染后不留外部容器，内容直接融入正文：
+
+```md
+{% md https://raw.githubusercontent.com/xaoxuu/hexo-theme-stellar/main/README.md wrap:false %}
+```
+
 {% folding 效果如下 %}
 {% md https://gcore.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/README.md %}
 {% endfolding %}
+
+> 说明：当 src 是 GitHub raw 地址（`raw.githubusercontent.com`）时，会使用主题配置 `api_host.ghraw` 的镜像站，README 内的相对图片/链接也会解析到同一镜像基址；远程渲染的标题默认适配本地文章格式（补齐锚点 id，h1 视为页面标题自动隐藏），并自动进入页面右侧目录，无需额外参数。
 
 ## ghcard 卡片
 
