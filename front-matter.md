@@ -1,6 +1,6 @@
 ---
 date: 2025-07-06 13:34
-updated: 2026-08-13 00:27
+updated: 2026-08-13 23:28
 wiki: hexo-stellar
 title: front-matter 全部字段索引
 ---
@@ -16,7 +16,7 @@ title: front-matter 全部字段索引
 | `date`            | 建立日期                                                     | 文件建立日期                                                 |
 | `updated`         | 更新日期                                                     | 文件更新日期                                                 |
 | `sticky`          | 置顶（数字越大越靠前）                                         |                                                              |
-| `pin`             | 置顶轮播排序值（设置即置顶，数字越大越靠前，`true` 视作 1；兼容 `sticky` 别名）。有置顶内容即自动渲染轮播，文章改由轮播展示，卡片不再显示置顶图标 |                                                              |
+| `pin`             | 置顶排序值（设置即置顶，数字越大越靠前，`true` 视作 1；兼容 `sticky` 别名）。`article.pin_style` 为默认 `carousel` 时，文章由置顶轮播展示且首页列表不重复；为 `flat` 时，文章在首页第一页列表靠前展示，卡片不再显示置顶图标 |                                                              |
 | `comments`        | 开启文章的评论功能                                           | `true`                                                       |
 | `tags`            | 标签（不适用于分页）                                         |                                                              |
 | `categories`      | 分类（不适用于分页）                                         |                                                              |
