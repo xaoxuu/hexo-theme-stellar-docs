@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-13 22:29
+updated: 2026-08-14 00:35
 wiki: hexo-stellar
 title: 如何使用文档系统
 ---
@@ -166,6 +166,8 @@ repo: xaoxuu/hexo-theme-stellar
 ```
 
 > 提示：如果项目首页（如 `source/wiki/{id}/index.md`）正文为空，且配置了 `repo`（可选 `branch`），该页会自动以 GitHub 仓库的 README.md 作为主页正文——标题自动适配文章格式，相对图片/链接解析到仓库镜像地址，右侧目录也会在渲染后自动生成。`branch` 缺省使用仓库默认分支；首页正文非空时以本地内容为准。
+
+> 说明：正文为空的 README 主页（以及其它 wiki 页）的 meta description / og:description / JSON-LD 描述会优先取用项目 YAML 中的 `description` 作为备用方案；页面 front matter 显式设置 `description`（或 `open_graph.description`）时以页面级描述为准。
 
 ## 项目评论设置
 
