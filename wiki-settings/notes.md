@@ -1,4 +1,6 @@
 ---
+date: 2024-01-04 13:45
+updated: 2025-07-01 21:17
 wiki: hexo-stellar
 title: 用文档系统制作一本简易笔记
 ---

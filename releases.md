@@ -1,4 +1,6 @@
 ---
+date: 2023-12-06 21:55
+updated: 2025-07-01 21:17
 wiki: hexo-stellar
 title: 更新日志与注意事项
 ---

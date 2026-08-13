@@ -1,4 +1,6 @@
 ---
+date: 2023-12-06 21:55
+updated: 2025-07-06 13:34
 wiki: hexo-stellar
 title: 网站和主题基本信息配置
 ---

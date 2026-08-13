@@ -1,4 +1,6 @@
 ---
+date: 2023-12-06 21:55
+updated: 2025-07-19 11:52
 wiki: hexo-stellar
 title: 数据类标签组件（8个）
 ---

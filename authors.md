@@ -1,4 +1,6 @@
 ---
+date: 2024-01-08 12:39
+updated: 2025-07-06 17:11
 wiki: hexo-stellar
 title: 一站多作者配置
 ---

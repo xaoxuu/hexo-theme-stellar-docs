@@ -1,4 +1,6 @@
 ---
+date: 2024-01-04 13:45
+updated: 2025-07-01 21:17
 wiki: hexo-stellar
 title: 使用「mathjax」插件
 mathjax: true
