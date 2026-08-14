@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-14 22:36
+updated: 2026-08-15 00:50
 wiki: hexo-stellar
 title: 容器类标签组件（9个）
 ---
@@ -487,6 +487,8 @@ cell 4
 
 ## table 表格容器
 
+不带 `table` 标签的普通 Markdown 表格默认「宽度足够时铺满容器，内容宽度超过容器时横向滚动」（单元格默认不换行）；需要单元格内自动换行、固定列宽等样式时，再用 `table` 标签包裹。所有表格样式（普通 Markdown / scroll / wrap / compact）统一为 wrap 同款的圆角卡片边框。
+
 `table` 标签用于包裹 Markdown 表格，通过 `style` 参数切换展示样式：
 
 ### scroll
@@ -494,7 +496,7 @@ cell 4
 {% table style:scroll %}
 | 场景 | 示例内容 |
 | :--- | :--- |
-| 横向滚动 | https://very-long-example-domain.com/path/with/many/segments/that/exceeds/container/width |
+| 横向滚动 | 这是一段比较长的说明文字，如果长度超出了页面宽度，会超出容器宽度，导致横向滚动 |
 | 普通单元格 | 内容较短的单元格 |
 {% endtable %}
 
@@ -511,7 +513,8 @@ cell 4
 {% table style:wrap %}
 | 场景 | 示例内容 |
 | :--- | :--- |
-| 自动换行 | 这是一段比较长的说明文字，列宽固定后会在单元格内自动换行，而不是把表格撑出容器 |
+| 自动换行 | 这是一段比较长的说明文字，如果长度超出了页面宽度，会自动换行到下一行，而不是超出容器宽度 |
+| 普通单元格 | 内容较短的单元格 |
 {% endtable %}
 
 ```
@@ -523,6 +526,8 @@ cell 4
 ```
 
 ### compact
+
+与 `scroll` 一样「宽度足够时铺满、内容超出时横向滚动」，仅内边距与行高更紧凑。
 
 {% table style:compact %}
 | 参数 | 说明 |
