@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-14 22:40
+updated: 2026-08-15 00:21
 wiki: hexo-stellar
 title: 探索个性化配置
 ---
@@ -240,6 +240,32 @@ article:
 ```
 
 两个配置需要时设为 `true` 即可，可以独立开关。
+
+## AI 成分标签
+
+文章可以在 front-matter 中用 `ai_label` 字段标记 AI 成分：`manual`（本文完全由人类完成）、`reviewed`（已 AI 审核）、`polished`（已 AI 润色）、`generated`（由 AI 生成）。未设置 `ai_label` 时取 `article.ai_label.default`：为空则不显示，非空（如 `manual`）则按该档渲染。文章页显示在顶部面包屑行最右（阅读时长右侧），为彩色文字（无底色）；当文章 banner 含图片时，标签文字使用默认颜色。文章列表卡片不显示该标签。
+
+文案由多语言系统提供（`languages/*.yml` 的 `meta.ai_label.*`，随站点语言切换；缺失翻译时标签不渲染），颜色与图标由 `article.ai_label` 配置，主题提供默认值，可按需覆盖：
+
+```yaml
+article:
+  ai_label:
+    default: # 未设置 ai_label 时取此值；为空则不显示
+    manual:
+      color: '#03a9f4'
+      icon: solar:shield-user-bold-duotone
+    reviewed:
+      color: '#4caf50'
+      icon: solar:shield-check-bold-duotone
+    polished:
+      color: '#4caf50'
+      icon: solar:shield-up-bold-duotone
+    generated:
+      color: '#ff9800'
+      icon: solar:shield-warning-bold-duotone
+```
+
+每档可选配 `icon`（取值同站内图标系统，如 `solar:...`），渲染在标签文案前。自定义文案需修改主题语言文件（`languages/*.yml`）。
 
 ## 站点地图
 

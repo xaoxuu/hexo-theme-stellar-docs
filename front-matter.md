@@ -1,6 +1,6 @@
 ---
 date: 2025-07-06 13:34
-updated: 2026-08-13 23:28
+updated: 2026-08-15 00:17
 wiki: hexo-stellar
 title: front-matter 全部字段索引
 ---
@@ -46,6 +46,7 @@ title: front-matter 全部字段索引
 | topic         | 所属话题/专栏                                                |        | 1.25.0 ~       |
 | author        | 该文章的作者                                                 |        | 1.23.0 ~       |
 | type          | 页面类型                                                    |        | 1.26.0 ~       |
+| ai_label      | AI 成分标记：`manual` / `polished` / `generated` / `reviewed`；未设置时取 `article.ai_label.default`（为空则不显示）；文案由多语言系统提供（`meta.ai_label.*`），颜色与图标由 `article.ai_label` 配置 |        |                |
 | references    | 参考资料                                                    |        |                |
 | h1            | 页内标题                                                    | title  | 1.26.0 ~       |
 | breadcrumb    | 面包屑导航                                                  | true   |                |
