@@ -1,8 +1,8 @@
 ---
 date: 2023-12-06 21:55
-updated: 2025-07-19 11:52
+updated: 2026-08-14 22:36
 wiki: hexo-stellar
-title: 容器类标签组件（8个）
+title: 容器类标签组件（9个）
 ---
 
 
@@ -484,3 +484,57 @@ cell 4
 {% note color:warning 注意 一个页面只能设置一次，第一个 `swiper` 容器的效果全局生效。 %}
 
 {% endtabs %}
+
+## table 表格容器
+
+`table` 标签用于包裹 Markdown 表格，通过 `style` 参数切换展示样式：
+
+### scroll
+
+{% table style:scroll %}
+| 场景 | 示例内容 |
+| :--- | :--- |
+| 横向滚动 | https://very-long-example-domain.com/path/with/many/segments/that/exceeds/container/width |
+| 普通单元格 | 内容较短的单元格 |
+{% endtable %}
+
+```
+{% table style:scroll %}
+| 列1 | 列2 |
+| --- | --- |
+| A | B |
+{% endtable %}
+```
+
+### wrap
+
+{% table style:wrap %}
+| 场景 | 示例内容 |
+| :--- | :--- |
+| 自动换行 | 这是一段比较长的说明文字，列宽固定后会在单元格内自动换行，而不是把表格撑出容器 |
+{% endtable %}
+
+```
+{% table style:wrap %}
+| 列1 | 列2 |
+| --- | --- |
+| A | B |
+{% endtable %}
+```
+
+### compact
+
+{% table style:compact %}
+| 参数 | 说明 |
+| :--- | :--- |
+| 内边距 | 上下 4px、左右 1em |
+| 行高 | 1.4 |
+{% endtable %}
+
+```
+{% table style:compact %}
+| 列1 | 列2 |
+| --- | --- |
+| A | B |
+{% endtable %}
+```

@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-13 23:28
+updated: 2026-08-14 22:40
 wiki: hexo-stellar
 title: 探索个性化配置
 ---
@@ -133,12 +133,12 @@ style:
 
 ### 连续曲率圆角（squircle）
 
-默认开启，将圆角从普通圆弧升级为曲率连续的 squircle 曲线（`superellipse(1.2)`，介于圆弧与完整 squircle 之间），且自动适配任意容器宽高、响应式尺寸与胶囊形按钮。该效果仅 Chromium 139+ 原生支持，其余浏览器自动回退为普通圆角，不影响显示。
+默认开启，将圆角从普通圆弧升级为曲率连续的 squircle 曲线（`superellipse(1.25)`，介于圆弧与完整 squircle 之间），且自动适配任意容器宽高、响应式尺寸与胶囊形按钮。该效果仅 Chromium 139+ 原生支持，其余浏览器自动回退为普通圆角，不影响显示。
 
 ```yaml blog/_config.stellar.yml
 style:
   ...
-  corner-shape: superellipse(1.2) # superellipse(1.2) 开启，round 关闭；可改 superellipse(2) 增强为完整 squircle
+  corner-shape: superellipse(1.25) # superellipse(1.25) 开启，round 关闭；可改 superellipse(2) 增强为完整 squircle
 ```
 
 > 头像、圆点等需要保持正圆的元素不受此配置影响，仍为圆形。
@@ -228,6 +228,18 @@ site_tree:
 - 置顶文章卡片为固定「标题 + 一行小字」结构：标题取 `poster.headline` > `title`，小字取 `poster.caption` > `description` > excerpt（截断 50 字）；文字区采用与 poster 卡片同款渐变模糊层与底部渐变背景（盒模型为 padding 1rem、宽度铺满）；有封面时封面铺满，无封面时为纯白卡片（文字按普通文章颜色）。
 - 鼠标悬停轮播区时左右两侧显示翻页按钮（样式同 swiper 导航按钮），点击切换上一张/下一张。
 - 没有置顶内容时不渲染；置顶文章卡片不再显示置顶图标（由轮播展示）。
+
+## 阅读时长与文章卡片标签
+
+文章页顶部面包屑行右侧可以显示字数和预计阅读时长（默认关闭）；文章卡片也可以在时间/分类那行小字旁显示标签（纯文字，最多 5 个，默认关闭）：
+
+```yaml
+article:
+  reading_time: false # 文章页显示字数与预计阅读时长（默认关闭）
+  card_tags: false    # 文章卡片显示标签（最多 5 个，默认关闭）
+```
+
+两个配置需要时设为 `true` 即可，可以独立开关。
 
 ## 站点地图
 
