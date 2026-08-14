@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-13 23:20
+updated: 2026-08-14 23:10
 wiki: hexo-stellar
 title: 数据类标签组件（8个）
 ---
@@ -14,6 +14,7 @@ title: 数据类标签组件（8个）
 - gitea issues 支持多种筛选参数，详见 [API](https://docs.gitea.com/zh-cn/api/1.20/#tag/issue/operation/issueListIssues)
 - gitea releases 支持多种筛选参数，详见 [API](https://docs.gitea.com/zh-cn/api/1.20/#tag/repository/operation/repoListReleases)
 - memos
+- rss（RSS 2.0 / Atom / RSS 1.0 / JSON Feed）
 - ...
 
 常见的使用场景请看这篇文章：
@@ -70,6 +71,29 @@ title: 数据类标签组件（8个）
 
 ```md _posts/xxx.md
 {% timeline limit:20 type:weibo api:你的json文件地址 %}{% endtimeline %}
+```
+
+<!-- tab RSS 订阅 -->
+
+这个功能在 {% mark 1.34.0 color:dark %} 版本后开始支持：
+
+动态数据也可以直接拉取 RSS / Atom / JSON Feed 订阅源，适合配合 [RSSHub](https://docs.rsshub.app/) 聚合各类平台动态（如 B 站、微博等）：
+
+```md _posts/xxx.md
+{% timeline type:rss api:https://rsshub.app/bilibili/user/dynamic/你的uid %}{% endtimeline %}
+```
+
+可选参数：
+
+- `limit`：显示条数，默认 `10`
+- `content_type`：显示内容或摘要，`content`（默认）或 `summary`
+- `show_title`：是否显示标题，默认 `true`
+- `show_content`：是否显示内容，默认 `true`
+
+例如只显示标题、限制 5 条：
+
+```md _posts/xxx.md
+{% timeline type:rss api:https://rsshub.app/bilibili/user/dynamic/你的uid limit:5 show_content:false %}{% endtimeline %}
 ```
 
 {% endtabs %}

@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-10 21:25
+updated: 2026-08-14 23:10
 wiki: hexo-stellar
 title: 侧边栏组件的配置与使用（9个）
 ---
@@ -223,6 +223,20 @@ weibo:
   api: https://raw.githubusercontent.com/GitHub用户名/仓库名/output/output/tweets.json # 你的微博爬取数据文件地址
   type: weibo
   limit: 20
+```
+
+<!-- tab RSS 订阅 -->
+
+这个功能在 {% mark 1.34.0 color:dark %} 版本后开始支持，动态数据直接拉取 RSS / Atom / JSON Feed 订阅源（可配合 [RSSHub](https://docs.rsshub.app/) 聚合各类平台动态）：
+
+```yaml blog/source/_data/widgets.yml
+rss:
+  layout: timeline
+  title: 订阅动态
+  api: https://rsshub.app/bilibili/user/dynamic/你的uid # RSS / Atom / JSON Feed 地址
+  type: rss
+  limit: 10
+  content_type: content # content 或 summary
 ```
 
 {% endtabs %}
