@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-12 14:26
+updated: 2026-08-15 21:14
 wiki: hexo-stellar
 title: 侧边栏配置
 ---
@@ -143,9 +143,15 @@ search:
     field: all # post, page, all
     path: /search.json # 搜索文件存放位置
     content: true # 是否搜索内容
+    lazy_load: true # 懒加载：首次点击搜索框时才加载搜索数据（默认开启）；站点内容较多时建议关闭，防止首次搜索卡顿
+    cache_ttl: 86400 # 搜索数据缓存时长（秒），默认 1 天；0 表示不缓存，建议按内容更新频率调整
     skip_search: [] # 指定 path 中的内容不被搜索。
     codeblock: true # 是否搜索代码块（需要content: true)
 ```
+
+默认开启懒加载：页面加载时不请求 `search.json`，首次点击搜索框才加载；搜索数据会缓存 1 天（`cache_ttl`，单位秒，`0` 表示不缓存），缓存过期后先显示旧结果并后台静默刷新。
+
+站点内容较多时建议关闭懒加载（`lazy_load: false`），避免首次搜索卡顿；`cache_ttl` 建议随内容更新频率自行调整。
 
 如果想要过滤某些页面，可以在 `front-matter` 中设置 `indexing: false` 来避免被搜索索引，或者在 `local_search` 中指定 `skip_search` 的空数组，格式如下
 
