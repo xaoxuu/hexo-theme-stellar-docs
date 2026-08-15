@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-10 21:10
+updated: 2026-08-15 15:20
 wiki: hexo-stellar
 title: 评论插件配置（6个）
 ---
@@ -119,6 +119,8 @@ comments:
 ```
 
 {% link https://artalk.js.org %}
+
+Artalk 邮件通知中的评论链接（形如 `?atk_comment=<id>`）以及侧栏「最近评论」的 `#atk-comment-<id>` 链接，打开页面会自动定位并高亮对应评论：此时评论区跳过视口懒加载立即初始化，定位完成后 URL 中的 `atk_*` 查询参数会被自动清理。
 
 ## 评论的灵活用法
 
