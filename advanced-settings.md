@@ -142,7 +142,7 @@ style:
 ```
 
 > 头像、圆点等需要保持正圆的元素不受此配置影响，仍为圆形。
-> 文章卡片与横幅的渐变模糊层采用「同图模糊层」（filter + mask）实现，以兼容连续曲率圆角（Chromium 的 corner-shape 裁剪与 backdrop-filter 不兼容）；hover 位移动画由卡片外层容器承载。
+> 文章卡片与横幅的渐变模糊层采用「同图模糊层」（filter + mask）实现，以兼容连续曲率圆角（Chromium 的 corner-shape 裁剪与 backdrop-filter 不兼容），并在文字所在边缘叠加黑色渐变蒙版（边缘不透明度约 0.5，垂直中线为 0）；hover 位移动画由卡片外层容器承载。
 
 ## 页面缓入效果
 
@@ -231,7 +231,7 @@ site_tree:
 - wiki 列表页展示置顶的 wiki 项目：在项目数据文件（`source/_data/wiki/*.yml`）中设置 `pin: true|number`，规则同上。
 - wiki 置顶项目始终以轮播展示，不受 `article.pin_style` 影响。
 - 轮播区宽高比与非置顶文章统一，由 `article.cover_ratio` 控制（修改该值即可整体调整）。
-- 置顶文章卡片为固定「标题 + 一行小字」结构：标题取 `poster.headline` > `title`，小字取 `poster.caption` > `description` > excerpt（截断 50 字）；文字区采用与 poster 卡片同款渐变模糊层与底部渐变背景（盒模型为 padding 1rem、宽度铺满）；有封面时封面铺满，无封面时为纯白卡片（文字按普通文章颜色）。
+- 置顶文章卡片为固定「标题 + 一行小字」结构：标题取 `poster.headline` > `title`，小字取 `poster.caption` > `description` > excerpt（截断 50 字）；文字区采用与 poster 卡片同款渐变模糊层与底部黑色渐变蒙版（盒模型为 padding 1rem、宽度铺满）；有封面时封面铺满，无封面时为纯白卡片（文字按普通文章颜色）。
 - 鼠标悬停轮播区时左右两侧显示翻页按钮（样式同 swiper 导航按钮），点击切换上一张/下一张。
 - 没有置顶内容时不渲染；置顶文章卡片不再显示置顶图标（由轮播展示）。
 
