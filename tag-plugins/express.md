@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-15 20:41
+updated: 2026-08-15 23:53
 wiki: hexo-stellar
 title: 表达类标签组件（34+个）
 references:
@@ -65,16 +65,16 @@ tag_plugins:
 
 ## icon 图标标签
 
-支持在任意{% icon solar:planet-bold-duotone %}位置插入图标，支持外链{% icon https://api.iconify.design/fluent-color:link-multiple-20.svg?color=%23888888 %}图标，也可以在 icons.yml 中提前配置好。
+支持在任意{% icon example:planet %}位置插入图标，支持外链{% icon https://api.iconify.design/fluent-color:link-multiple-20.svg?color=%23888888 %}图标，也可以在 icons.yml 中提前配置好。
 
-**{% icon ph:seal-question-fill color:purple %}可以指定图标的颜色吗？**
+**{% icon quot:question color:purple %}可以指定图标的颜色吗？**
 
 当然可以，还可以在主题配置中设置默认颜色：
 
 ```md 写法如下
-icons.yml 中的图标：{% icon solar:planet-bold-duotone %}
+icons.yml 中的图标：{% icon example:planet %}
 外链图标：{% icon https://api.iconify.design/solar:link-circle-bold.svg %}
-指定颜色：{% icon ph:seal-question-fill color:red %}
+指定颜色：{% icon quot:question color:red %}
 ```
 
 ```yaml 配置默认颜色
@@ -92,12 +92,14 @@ tag_plugins:
 
 | 命名空间 | 用途 | 示例 |
 |----------|------|------|
-| `solar:` | 主视觉图标：翻页 / 轮播、侧边栏小部件、文章徽标、微博转发 / 点赞 | `solar:planet-bold-duotone` |
-| `default:` | 主题功能图标：返回、复制、下载、分类、日期、评论、加载、占位兜底等 | `default:goback` |
+| `default:` | 主题功能图标：日期、分类、返回、编辑、主题切换、置顶、标签等 | `default:calendar` |
+| `example:` | 仅用于配置示例的占位图标 | `example:planet` |
 | `github:` | GitHub 仓库卡片 | `github:star` |
 | `share:` | 文章分享按钮 | `share:wechat` |
 | `chat:` | chat 聊天标签：浏览器来源、文件类型、界面控件 | `chat:qq` |
-| `ph:` / `bxs:` | quot 强调引用图标 | `bxs:quote-left` |
+| `quot:` | quot 强调引用图标 | `quot:quote-left` |
+| `weibo:` | 微博 / 时间线数据服务图标（转发 / 点赞 / 评论） | `weibo:like` |
+| `copy:` / `image:` / `hashtag:` | 复制、图片、hashtag 标签插件专用图标 | `hashtag:hashtag` |
 | `vote:` / `rating:` | 投票 / 评分插件 | `vote:thumbsup` |
 
 站点可在 `source/_data/icons.yml` 中覆盖或补充同名键，无需修改主题。
@@ -291,10 +293,10 @@ tag_plugins:
   # {% quot %}
   quot:
     default: # 可以自行配置多种图标方案，支持icons.yml中配置的图片key，也支持直接设置svg/png等文件链接
-      prefix: bxs:quote-left
-      suffix: bxs:quote-right
+      prefix: quot:quote-left
+      suffix: quot:quote-right
     hashtag:
-      prefix: solar:hashtag-square-bold
+      prefix: quot:hashtag
 ```
 
 {% folding child:codeblock 写法如下 open:true %}
@@ -312,14 +314,14 @@ tag_plugins:
 
 从 1.26.5 版本开始，您可以通过 prefix 或 suffix 参数设置任意图标或图片，支持 URL 或 icons.yml 文件中配置，例如：
 
-{% quot prefix:solar:planet-bold-duotone 这是一个 icons.yml 配置的示例 %}
+{% quot prefix:quot:question 这是一个 icons.yml 配置的示例 %}
 
 {% quot prefix:https://api.iconify.design/fluent-color:chat-bubbles-question-20.svg?color=%23888888 这是一个 url 的示例 suffix:https://api.iconify.design/fluent-color:drafts-20.svg?color=%23888888 %}
 
 
 {% folding child:codeblock 写法如下 open:true %}
 ```
-{% quot prefix:solar:planet-bold-duotone 这是一个 icons.yml 配置的示例 %}
+{% quot prefix:quot:question 这是一个 icons.yml 配置的示例 %}
 
 {% quot prefix:https://api.iconify.design/line-md:moon-alt-to-sunny-outline-loop-transition.svg 这是一个 url 的示例 suffix:https://api.iconify.design/solar:list-heart-minimalistic-line-duotone.svg %}
 ```
@@ -550,10 +552,10 @@ data_services:
 
 这个功能在 {% button 1.26.6 https://github.com/xaoxuu/hexo-theme-stellar/tree/1.26.6 size:xs %} 版本后开始支持。
 
-{% button 文档 https://xaoxuu.com/wiki/stellar/ icon:solar:notebook-bold %} {% button 源码 https://github.com/xaoxuu/hexo-theme-stellar/ icon:solar:code-square-bold %} {% button 示例 https://github.com/xaoxuu/hexo-stellar-starter/ icon:solar:cup-star-bold-duotone %}
+{% button 文档 https://xaoxuu.com/wiki/stellar/ icon:default:documents %} {% button 源码 https://github.com/xaoxuu/hexo-theme-stellar/ icon:chat:file-code %} {% button 示例 https://github.com/xaoxuu/hexo-stellar-starter/ icon:rating:star %}
 
 ```md 写法如下
-{% button 探索 https://github.com/xaoxuu/hexo-theme-stellar/ icon:solar:planet-bold-duotone %}
+{% button 探索 https://github.com/xaoxuu/hexo-theme-stellar/ icon:example:planet %}
 ```
 
 ```md 语法格式
@@ -566,7 +568,7 @@ text: 探索 # 显示文字
 url: # 跳转链接
 # 可选参数
 color: orange # theme, accent, red, orange, yellow, green, cyan, blue, purple
-icon: solar:planet-bold-duotone # 显示图标，支持 icon.yml 中的文件名和外链图标
+icon: example:planet # 显示图标，支持 icons.yml 中的键和外链图标
 size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs 是最小号
 ```
 

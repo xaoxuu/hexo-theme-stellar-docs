@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-15 23:29
+updated: 2026-08-15 23:53
 wiki: hexo-stellar
 title: 侧边栏配置
 ---
@@ -91,22 +91,22 @@ menubar:
   items: # 可按照自己需求增加，符合以下格式即可
     # - id: post # 页面中高亮的 menu_id
     #   theme: '#1BCDFC' # 激活/悬停时的主题色，图标与圆点会以该颜色生成渐变
-    #   icon: solar:documents-bold-duotone # 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
+    #   icon: default:documents # 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
     #   title: 博客 # 标题
     #   url: / # 跳转链接，支持相对路径和绝对路径
     # - id: wiki
     #   theme: '#3DC550'
-    #   icon: solar:notebook-bookmark-bold-duotone
+    #   icon: example:notebook
     #   title: 文档
     #   url: /wiki/
     # - id: explore
     #   theme: '#FA6400'
-    #   icon: solar:planet-bold-duotone
+    #   icon: example:planet
     #   title: 探索
     #   url: /explore/
     # - id: social
     #   theme: '#F44336'
-    #   icon: solar:chat-square-like-bold-duotone
+    #   icon: example:chat
     #   title: 社交
     #   url: /friends/
 ```

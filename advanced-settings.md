@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-15 22:53
+updated: 2026-08-15 23:53
 wiki: hexo-stellar
 title: 探索个性化配置
 ---
@@ -260,19 +260,19 @@ article:
     default: # 未设置 ai_label 时取此值；为空则不显示
     manual:
       color: '#03a9f4'
-      icon: solar:shield-user-bold-duotone
+      icon: default:shield-user
     reviewed:
       color: '#4caf50'
-      icon: solar:shield-check-bold-duotone
+      icon: default:shield-check
     polished:
       color: '#4caf50'
-      icon: solar:shield-up-bold-duotone
+      icon: default:shield-up
     generated:
       color: '#ff9800'
-      icon: solar:shield-warning-bold-duotone
+      icon: default:shield-warning
 ```
 
-每档可选配 `icon`（取值同站内图标系统，如 `solar:...`），渲染在标签文案前。自定义文案需修改主题语言文件（`languages/*.yml`）。
+每档可选配 `icon`（取值同站内图标系统，如 `default:shield-user`），渲染在标签文案前。自定义文案需修改主题语言文件（`languages/*.yml`）。
 
 ## 站点地图
 
