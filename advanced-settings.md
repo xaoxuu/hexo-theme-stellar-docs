@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-15 23:53
+updated: 2026-08-16 01:30
 wiki: hexo-stellar
 title: 探索个性化配置
 ---
@@ -237,7 +237,7 @@ site_tree:
 
 ## 阅读信息与文章标签
 
-文章页顶部面包屑行右侧可以显示字数和预计阅读时长（默认关闭）；文章卡片可以在时间/分类那行小字旁显示标签（标签前缀为 hashtag 图标，最多 5 个，默认关闭）；文章页正文结束后、页脚（`article-footer`）之前默认显示一行本文标签（胶囊样式，点击进入对应标签页）：
+文章页顶部横幅第一行右侧可以显示字数和预计阅读时长（默认关闭）；文章卡片可以在时间/分类那行小字旁显示标签（标签前缀为 hashtag 图标，最多 5 个，默认关闭）；文章页正文结束后、页脚（`article-footer`）之前默认显示一行本文标签（胶囊样式，点击进入对应标签页）：
 
 ```yaml
 article:
@@ -250,7 +250,7 @@ article:
 
 ## AI 成分标签
 
-文章可以在 front-matter 中用 `ai_label` 字段标记 AI 成分：`manual`（本文完全由人类完成）、`reviewed`（已 AI 审核）、`polished`（已 AI 润色）、`generated`（由 AI 生成）。未设置 `ai_label` 时取 `article.ai_label.default`：为空则不显示，非空（如 `manual`）则按该档渲染。文章页显示在顶部面包屑行最右（阅读时长右侧），为彩色文字（无底色）；当文章 banner 含图片时，标签文字使用默认颜色。文章列表卡片不显示该标签。
+文章可以在 front-matter 中用 `ai_label` 字段标记 AI 成分：`manual`（本文完全由人类完成）、`reviewed`（已 AI 审核）、`polished`（已 AI 润色）、`generated`（由 AI 生成）。未设置 `ai_label` 时取 `article.ai_label.default`：为空则不显示，非空（如 `manual`）则按该档渲染。文章页显示在顶部横幅第一行右侧（阅读时长右侧），为彩色文字（无底色）；当文章 banner 含图片时，标签文字使用默认颜色。文章列表卡片不显示该标签。
 
 文案由多语言系统提供（`languages/*.yml` 的 `meta.ai_label.*`，随站点语言切换；缺失翻译时标签不渲染），颜色与图标由 `article.ai_label` 配置，主题提供默认值，可按需覆盖：
 
