@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-14 21:57
+updated: 2026-08-15 20:41
 wiki: hexo-stellar
 title: 表达类标签组件（34+个）
 references:
@@ -101,6 +101,8 @@ tag_plugins:
 | `vote:` / `rating:` | 投票 / 评分插件 | `vote:thumbsup` |
 
 站点可在 `source/_data/icons.yml` 中覆盖或补充同名键，无需修改主题。
+
+> 主题图标默认异步加载：首屏关键图标（搜索、菜单、移动端侧栏按钮、返回）由模板内联，其余图标输出轻量占位符，页面按命名空间拉取 `js/icons/{ns}.json` 后原位替换为完整 SVG——最终效果与内联一致，只是图标数据不再随每个页面重复传输；站点在 `source/_data/icons.yml` 覆盖或新增的图标同样生效，无需额外配置。
 
 ## vote 投票
 
