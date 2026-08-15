@@ -86,6 +86,22 @@ tag_plugins:
 
 > 还支持 style 参数，可以直接对样式进行修改，仅支持外链图标，style 参数中间不能有空格。
 
+### 内置图标
+
+主题内置图标统一存放在 `_data/icons.yml`（单一数据源），键格式为 `namespace:icon-name`，可直接作为 `icon` 参数使用。常用命名空间：
+
+| 命名空间 | 用途 | 示例 |
+|----------|------|------|
+| `solar:` | 主视觉图标：翻页 / 轮播、侧边栏小部件、文章徽标、微博转发 / 点赞 | `solar:planet-bold-duotone` |
+| `default:` | 主题功能图标：返回、复制、下载、分类、日期、评论、加载、占位兜底等 | `default:goback` |
+| `github:` | GitHub 仓库卡片 | `github:star` |
+| `share:` | 文章分享按钮 | `share:wechat` |
+| `chat:` | chat 聊天标签：浏览器来源、文件类型、界面控件 | `chat:qq` |
+| `ph:` / `bxs:` | quot 强调引用图标 | `bxs:quote-left` |
+| `vote:` / `rating:` | 投票 / 评分插件 | `vote:thumbsup` |
+
+站点可在 `source/_data/icons.yml` 中覆盖或补充同名键，无需修改主题。
+
 ## vote 投票
 
 这个功能在 {% mark 1.33.0 %} 版本后开始支持，需要自部署一个 [star-vote](https://github.com/xaoxuu/star-vote) 开源项目，支持部署到 vercel 并搭配 leancloud 使用。
