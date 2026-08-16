@@ -38,7 +38,7 @@ title: front-matter 全部字段索引
 | leftbar       | 左侧边栏配置                                                 |        | 1.27.0 ~       |
 | rightbar      | 右侧边栏配置                                                 |        | 1.27.0 ~       |
 | comment_title | 评论区标题                                                   |        |                |
-| poster        | 文章封面，包含 topic/headline/caption/color 子配置            |        |               |
+| poster        | 文章封面，包含 topic/headline/caption 子配置                 |        |               |
 | banner        | 页面顶部横幅背景                                             |        |                |
 | banner_info   | 横幅信息，包含 avatar/title/subtitle 子配置                  |        |                |
 | logo          | 左侧边栏顶部 logo 区域信息，包含 icon/avatar/title/subtitle 子配置 |        |                |

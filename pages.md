@@ -43,7 +43,6 @@ poster: # 海报（可选，全图封面卡片）
   topic: 标题上方的小字 # 可选
   headline: 大标题 # 必选
   caption: 标题下方的小字 # 可选
-  color: 标题颜色 # 可选，默认为跟随主题的动态颜色 # white,red...
 ---
 ```
 
@@ -140,7 +139,6 @@ poster: # 海报（可选，全图封面卡片）
   topic: 标题上方的小字 # 可选
   headline: 大标题 # 必选
   caption: 标题下方的小字 # 可选
-  color: 标题颜色 # 可选
 # 插件
 sticky: # 数字越大越靠前
 mermaid:
@@ -171,6 +169,8 @@ banner: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706150531375.
 ```
 
 横幅的文字区域（面包屑/日期与标题）常驻同图渐变模糊层与黑色渐变蒙版，hover 时背景图缓慢放大并整体变暗，与文章列表封面观感一致。
+
+横幅文字颜色随背景图自适应：标题大字按背景明暗做黑白对比（默认阈值 0.6，偏向浅色文字），面包屑/日期/副标题等小字取背景图平均色 lighten/darken 后的变体（JS 按需计算并写入 `--text-banner` / `--text-banner-theme`）。
 
 ### 指定一级标题
 
