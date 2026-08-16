@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-16 15:46
+updated: 2026-08-16 18:47
 wiki: hexo-stellar
 title: 编写文章以及独立页面
 ---
@@ -34,33 +34,30 @@ cover: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706150531375.j
 {% image https://pic.imgdb.cn/item/63bc16f2be43e0d30eb899d1.jpg width:600px ratio:884/554 %}
 {% endfolding %}
 
-上面这种方式会显示title与description或者摘要，若你想要图片全显示，可以加入如下参数：
+上面这种方式会显示 title 与 description 或者摘要。若你想要图片全显示的「文字封面卡片」，在站点配置中统一启用：
+
+```yaml blog/_config.stellar.yml
+article:
+  card_style: hero # hero = 全图文字封面卡片（默认）/ classic = 普通卡片
+```
+
+启用后，所有带 `cover` 的文章卡片都会变为全图文字封面：标题取自 `title`，封面底部显示一行小字，小字优先取 `subtitle`，其次 `description`，再其次 excerpt 前 50 字：
 
 ```yaml blog/source/_posts/xxx.md
 ---
+title: 文章标题
 cover: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706150531375.jpg # 必选
-poster: # 海报（可选，全图封面卡片）
-  topic: 标题上方的小字 # 可选
-  headline: 大标题 # 必选
-  caption: 标题下方的小字 # 可选
+subtitle: 一行小字 # 可选：subtitle > description > excerpt 前 50 字
 ---
 ```
 
-Stellar {% mark v1.14.0 %} 更换 `cover-title` `cover-cat` `cover-subtitle` `cover-text-color` 为 `poster`
-
-> 为了显示美观，建议 `topic` 和 `caption` 选择其一与 `headline` 搭配使用。
-
 {% folding 显示效果 open:false %}
-
-填写 `topic` 与 `headline` 时大标题位于上方
-
-{% image https://pic1.imgdb.cn/item/635aa9d016f2c2beb1fe4f53.jpg width:600px ratio:890/466 %}
-
-只填写 `headline` 或填写 `headline` 与 `caption` 时大标题位于下方
 
 {% image https://pic1.imgdb.cn/item/635aaa8116f2c2beb1ffdd19.jpg width:600px ratio:894/466 %}
 
 {% endfolding %}
+
+> 文字封面卡片的小字只显示一行，超出部分省略；没有 `subtitle` / `description` 时取 excerpt 前 50 字，仍没有则只显示标题。原 `poster`（topic/headline/caption）配置已移除，主题不再读取。
 
 ## 内容摘要
 
@@ -135,10 +132,7 @@ description: # excerpt 也可
 # 封面
 cover: 
 banner: 
-poster: # 海报（可选，全图封面卡片）
-  topic: 标题上方的小字 # 可选
-  headline: 大标题 # 必选
-  caption: 标题下方的小字 # 可选
+subtitle: # 可选：hero 卡片与置顶轮播的一行小字，其次回退 description
 # 插件
 sticky: # 数字越大越靠前
 mermaid:

@@ -1,6 +1,6 @@
 ---
 date: 2025-06-14 19:48
-updated: 2026-08-15 23:53
+updated: 2026-08-16 18:32
 wiki: hexo-stellar
 title: 实现完整的笔记体系
 references:
@@ -94,7 +94,7 @@ menu_id: notes
 
 {% image https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/cff0595b-e6b2-4992-a18e-6f69d08d804c width:500px ratio:1374/1820 %}
 
-笔记卡片支持类似于博客文章的 cover，但目前不支持 poster。示例：
+笔记卡片支持类似于博客文章的 `cover`，但不参与博客文章的 hero 文字封面卡片（`article.card_style` 仅作用于博客文章列表）。示例：
 
 {% image https://github.com/xaoxuu/hexo-theme-stellar/assets/3761553/4a70cb9e-8a6b-4922-8b2f-82ecb78bc0e2 width:500px ratio:627/615 %}
 

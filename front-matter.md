@@ -1,6 +1,6 @@
 ---
 date: 2025-07-06 13:34
-updated: 2026-08-15 00:17
+updated: 2026-08-16 18:47
 wiki: hexo-stellar
 title: front-matter 全部字段索引
 ---
@@ -38,7 +38,7 @@ title: front-matter 全部字段索引
 | leftbar       | 左侧边栏配置                                                 |        | 1.27.0 ~       |
 | rightbar      | 右侧边栏配置                                                 |        | 1.27.0 ~       |
 | comment_title | 评论区标题                                                   |        |                |
-| poster        | 文章封面，包含 topic/headline/caption 子配置                 |        |               |
+| subtitle      | hero 卡片与置顶轮播的一行小字：subtitle > description > excerpt 前 50 字 |        |               |
 | banner        | 页面顶部横幅背景                                             |        |                |
 | banner_info   | 横幅信息，包含 avatar/title/subtitle 子配置                  |        |                |
 | logo          | 左侧边栏顶部 logo 区域信息，包含 icon/avatar/title/subtitle 子配置 |        |                |
