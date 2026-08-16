@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2025-07-06 17:11
+updated: 2026-08-16 15:46
 wiki: hexo-stellar
 title: 编写文章以及独立页面
 ---
@@ -169,6 +169,8 @@ type: # tech/story
 ```yaml blog/source/_posts/xxx.md
 banner: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/posts/20250706150531375.jpg
 ```
+
+横幅的文字区域（面包屑/日期与标题）常驻同图渐变模糊层与黑色渐变蒙版，hover 时背景图缓慢放大并整体变暗，与文章列表封面观感一致。
 
 ### 指定一级标题
 
