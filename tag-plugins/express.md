@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-16 12:59
+updated: 2026-08-16 23:27
 wiki: hexo-stellar
 title: 表达类标签组件（34+个）
 references:
@@ -98,7 +98,7 @@ tag_plugins:
 | `share:` | 文章分享按钮 | `share:wechat` |
 | `chat:` | chat 聊天标签：浏览器来源、文件类型、界面控件 | `chat:qq` |
 | `quot:` | quot 强调引用图标 | `quot:quote-left` |
-| `weibo:` | 微博 / 时间线数据服务图标（转发 / 点赞 / 评论） | `weibo:like` |
+| `weibo:` | 微博 / 时间线数据服务图标（转发 / 点赞） | `weibo:like` |
 | `copy:` / `image:` / `hashtag:` | 复制、图片、hashtag 标签插件专用图标 | `hashtag:hashtag` |
 | `vote:` / `rating:` | 投票 / 评分插件 | `vote:thumbsup` |
 
