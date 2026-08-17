@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-14 00:35
+updated: 2026-08-18 00:04
 wiki: hexo-stellar
 title: 如何使用文档系统
 ---
@@ -15,8 +15,10 @@ Stellar 独创了其它 Hexo 主题所没有的 Wiki 文档系统，可以自动
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
 name: Stellar
 title: Stellar - 每个人的独立博客
+headline: 每个人的独立博客 # 可选：Wiki 卡片营销标题，空时取 title
 subtitle: '每个人的独立博客 | Designed by xaoxuu'
 tags: 博客主题
+available: Web # 可选：Wiki 列表卡片显示“适用于”范围
 icon: https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg
 cover: https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg
 description: Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件。
@@ -62,6 +64,12 @@ tree:
     - todo
     - contributors
 ```
+
+## Wiki 列表卡片
+
+Wiki 总列表使用自适应网格，一行可按可用空间显示多张固定 3:4 的竖版卡片；每列最小宽度为 240px，空间充足时自动均分并铺满容器，空间不足时回落为单列。卡片使用独立的 Wiki 封面组件，不与文章 Hero 卡片共用。只有配置 `cover` 时才显示封面背景；未配置时保持纯色空背景，并在 hover 使用通用 `block-border` 边框。有封面时，原图加载与封面主题色计算均完成后才显示主题色渐变模糊层；平均色计算失败会确认使用主题色回退，加载失败自动降级为空封面，避免空白区域出现亮色蒙版或默认主题色闪现。信息层按自身内容高度贴在封面底部：上方文案区与全宽项目底栏分别设置内边距，项目底栏使用 10% 不透明度黑色轻微区分。内容区使用封面主题色的渐变模糊层：主题色经深色化以保证白字可读，从卡片 50% 开始渐显，在最底部达到不透明；悬浮时显示同源但明度提高 20 个点、跟随全局连续曲率的圆角边框。标签、适用范围与热度统一复用元信息的无背景、无边框主题文字样式，间距为 `.5rem 1rem`；适用范围前置通用多设备图标，热度数值继续取 GitHub star 数据并显示为通用火焰图标。项目区不显示顶部边框，项目图标使用 30% 圆角和 `var(--block)` 背景；未配置 `icon` 时使用内置 Solar `default:documents`，颜色为 `var(--text-p2)`。底部显示 `headline` 营销标题（字号 `1.25rem`、字重 `700`，为空时取 `title`，再回退 `name`）、可选的 `available`、热度，以及图标、`name` 和副标题。副标题优先取显式 `subtitle`；其中包含 ` | ` 且左侧非空时只显示左侧，否则再按 `description`、内容摘要的顺序取值。
+
+`platforms` 是可选字符串数组；未配置时不会显示“适用于”。配置 `repo: owner/repo` 时会动态显示 GitHub star，仓库不存在或请求失败时自动隐藏。
 
 <!-- node 2/3 设置布局模板和项目名称 -->
 在此文档项目的 `md` 文件的 `front-matter` 部分指定所属的项目 `id` （即上一步创建的文件名 `id.yml`）
