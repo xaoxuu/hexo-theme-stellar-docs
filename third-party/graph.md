@@ -1,6 +1,6 @@
 ---
 date: 2024-01-04 13:45
-updated: 2025-07-01 21:17
+updated: 2026-08-18 13:32
 wiki: hexo-stellar
 title: 使用图表类插件
 mermaid: true
@@ -50,3 +50,15 @@ gitGraph
 {% endtabs %}
 
 {% link https://mermaid.js.org/intro/ %}
+
+### 样式配置
+
+主题配置中的 `style_optimization` 用于选择 Mermaid 样式：
+
+```yaml
+mermaid:
+  style_optimization: false # 默认使用 Mermaid 官方主题
+  theme: neutral
+```
+
+设置为 `true` 时，才会加载 Stellar 自定义 Mermaid 样式；设置为 `false` 或不配置时使用 Mermaid 官方主题。若图表中的文字、箭头或边标签不可见，建议先使用默认的官方主题进行排查。

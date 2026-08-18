@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-15 23:53
+updated: 2026-08-18 22:26
 wiki: hexo-stellar
 title: 侧边栏配置
 ---
@@ -27,6 +27,16 @@ logo:
 logo:
   avatar: '[{config.avatar}](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
   title: '[{config.title}](/)' # you can set html tag like: '[<img no-lazy height="32px" src="xxx"/>](/)'
+```
+
+### Wiki 返回入口
+
+Wiki 内容页会在左栏 Logo 上方显示“所有项目”入口，点击后回到 Wiki 项目列表。入口复用文章列表分页“上一页”的 `default:arrow-left` 图标；不会使用单独的返回图标。
+
+页面 front-matter 的 `wiki_home` 优先于 Wiki 项目配置中的同名字段，设为 `false` 时隐藏该入口，默认显示：
+
+```yaml
+wiki_home: false
 ```
 
 ### 动态头像
@@ -213,7 +223,22 @@ footer:
     comments:
       icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder/social/942ebbf1a4b91.svg"/>'
       url: https://
+    spacer: # 撑开中间空间，将后续按钮推至右侧
+    links:
+      type: dropdown
+      icon: default:documents
+      title: 更多链接
+      items:
+        - icon: default:documents
+          title: 文档
+          url: /wiki/
+        - icon: default:github
+          title: GitHub
+          url: https://github.com/
 ```
+```
+
+social 条目按配置顺序显示。普通条目使用 icon、title、url；`spacer` 是保留的占位标识，放在两个按钮之间即可撑开中间空间，将其后的按钮推至同一行右侧，配置值会被忽略。按钮与 dropdown 触发器仅固定 32px 高度，并使用 4px 内边距；宽度按图标自然计算，主题不会覆写 SVG 尺寸，按钮圆角为 8px，因此不同纵横比的图标不会被拉伸。将 type 设置为 dropdown 后，主按钮沿用该尺寸规则，子项使用 icon、title、url。dropdown 使用通用 `.dropdown` 样式、`bar-glass()` 玻璃背景与原生 `<details>/<summary>` 结构，鼠标移入按钮时自动展开；透明桥接区连接按钮与菜单之间的间隙，离开按钮、菜单和桥接区后立即关闭，不使用延迟计时器。打开后挂载到全局浮层，并根据触发按钮周围的可用空间自动决定上下和左右位置，因此不会被 sidebar 容器裁剪，菜单定位完成后淡入显示；菜单过高时可以垂直滚动。它不关联语言或其它具体业务，也不支持嵌套菜单。
 
 ## 自定义组件
 

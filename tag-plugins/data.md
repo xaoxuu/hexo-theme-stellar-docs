@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-14 23:10
+updated: 2026-08-18 13:58
 wiki: hexo-stellar
 title: 数据类标签组件（8个）
 ---
@@ -219,6 +219,8 @@ title: 数据类标签组件（8个）
 ```md
 {% sites 分组名 %}
 ```
+
+条目未配置 `icon` 或 `avatar` 时，如果主题配置了 `data_services.siteinfo.api`，网站卡片会复用 siteinfo 接口自动补充信息区的圆形图标；该接口不会自动获取网站截图。
 
 {% box Stellar v1.13.0 color:warning %}
 原 friends 和 sites 标签数据合并至 `links/xxx.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
