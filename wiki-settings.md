@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-19 00:58
+updated: 2026-08-19 01:37
 wiki: hexo-stellar
 title: 如何使用文档系统
 ---
@@ -153,6 +153,8 @@ coverpage: [logo, description]
 ## 项目首页 Hero 封面
 
 开启 `coverpage` 后，项目首页会渲染为全屏双栏 Hero。`cover` 仍只用于 Wiki 列表卡片；首页背景请使用新的 `background` 字段。它可以是静态图片 URL，也可以是内置动态背景名 `galaxy`。静态图在底部 20% 会渐变模糊并过渡到站点背景色。
+
+`galaxy` 使用四层 WebGL 星场呈现纵深移动、辉光、闪烁与自动旋转；鼠标移动会产生平滑视差，但不会推开星点。透明星场使用纯黑底色，离开视口或页面进入后台时自动暂停。浏览器启用“减少动态效果”、不支持 WebGL 或动态层加载失败时，会保留同一静态底色作为回退。
 
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
 background: galaxy # 或 https://res.xaox.cc/hero.webp
