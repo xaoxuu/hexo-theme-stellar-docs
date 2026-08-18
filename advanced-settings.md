@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-17 21:06
+updated: 2026-08-18 23:14
 wiki: hexo-stellar
 title: 探索个性化配置
 ---
@@ -27,8 +27,7 @@ style:
 ```yaml blog/_config.stellar.yml
 style:
   font-size:
-    root: 16px
-    body: .9375rem # 15px
+    root: 16px # 桌面端字号基准；移动端自动增加 2px
     code: 85% # 14px
     codeblock: 0.8125rem # 13px
   font-family:
@@ -36,6 +35,8 @@ style:
     code: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
     codeblock: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
 ```
+
+字号基准由 `root` 统一控制：桌面端使用配置值，移动端在此基础上增加 2px；story 布局在当前页面基准上再增加 2px。页面字号基准使用 `--fs-content-base`，组件字号使用 `--fs-content`。旧的 `style.font-size.body` 字段已移除，不再生效。
 
 ### 外部字体
 
