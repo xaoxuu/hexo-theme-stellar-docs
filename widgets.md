@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-19 22:13
+updated: 2026-08-20 00:11
 wiki: hexo-stellar
 title: 侧边栏组件的配置与使用（9个）
 ---
@@ -89,7 +89,7 @@ related:
 
 {% quot el:h3 linklist %}
 
-`view` 显式选择 `list` 或 `grid`。网格模式下 `columns` 表示最大列数，组件会按可用宽度自动减少列数；`show_title` 控制是否显示标题，不再根据列数隐式隐藏。
+`view` 显式选择 `list` 或 `grid`。用户配置的 linklist 使用集合默认密度；网格模式下 `columns` 表示最大列数，组件会按可用宽度自动减少列数；`show_title` 控制是否显示标题，不再根据列数隐式隐藏。链接指向当前页面时，列表模式在右侧显示激活圆点，网格模式仅使用背景、文字和图标高亮，不显示圆点。
 
 ```yaml blog/source/_data/widgets.yml
 linklist:
