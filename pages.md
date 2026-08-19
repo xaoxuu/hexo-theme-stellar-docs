@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-16 18:47
+updated: 2026-08-19 22:13
 wiki: hexo-stellar
 title: 编写文章以及独立页面
 ---
@@ -305,7 +305,6 @@ title: 友链
 
 ```yaml blog/_config.stellar.yml
 menubar:
-  columns: 4 # 一行多少个
   items: # 可按照自己需求增加，符合以下格式即可
     ...
     - id: more

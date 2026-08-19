@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-14 23:10
+updated: 2026-08-19 22:13
 wiki: hexo-stellar
 title: 侧边栏组件的配置与使用（9个）
 ---
@@ -89,12 +89,14 @@ related:
 
 {% quot el:h3 linklist %}
 
-`columns` 为1显示为列表，2是每两个按钮放一行，`icon` 和 `title` 会同时显示，大于2则只显示 `icon`
+`view` 显式选择 `list` 或 `grid`。网格模式下 `columns` 表示最大列数，组件会按可用宽度自动减少列数；`show_title` 控制是否显示标题，不再根据列数隐式隐藏。
 
 ```yaml blog/source/_data/widgets.yml
 linklist:
   layout: linklist
-  columns: 1 
+  view: grid
+  columns: 2
+  show_title: true
   items:
     - icon: '<svg...></svg>' # 或者 icons.yml 中设置的 icon 名称
       title: 关于
@@ -110,7 +112,8 @@ welcome:
   layout: markdown
   title: 欢迎欢迎
   linklist: # 与 linklist 组件写法相同
-    columns: 1 
+    view: list
+    show_title: true
     items:
       - icon:
         title: 
