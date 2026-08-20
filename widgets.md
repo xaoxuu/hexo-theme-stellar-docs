@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-20 00:11
+updated: 2026-08-20 12:02
 wiki: hexo-stellar
 title: 侧边栏组件的配置与使用（9个）
 ---
@@ -131,7 +131,7 @@ welcome:
   src: # 可以设置外部 md 文件链接
 ```
 
-`linklist` 显示为嵌套在 md 组件中，效果参考
+`linklist` 显示为嵌套在 md 组件中。为了区分说明文字与链接条目，内嵌列表会默认显示背景：glass 左栏使用 `var(--bg-a10)`，card 左栏和右栏使用 `var(--block)`。效果参考：
 
 {% link https://xaoxuu.com %}
 
