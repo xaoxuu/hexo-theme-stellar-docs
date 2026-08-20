@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-18 21:54
+updated: 2026-08-20 11:20
 wiki: hexo-stellar
 title: 容器类标签组件（10个）
 ---
@@ -100,16 +100,17 @@ func setup() {
 
 {% dropdown direction:down 更多链接 %}
 - icon:default:documents [文档](/wiki/)
-- icon:default:github [GitHub](https://github.com/)
+- [GitHub](https://github.com/)
 {% enddropdown %}
 
 ```md 语法格式
 {% dropdown [direction:up/down] [align:left/right] [open:true] title %}
-- icon:key [标题](url)
+- [标题](url)
+- icon:key [带图标标题](url)
 {% enddropdown %}
 ```
 
-主按钮使用固定绘制的圆角端点箭头和标题，展开时箭头旋转 180°；不需要 `icon` 参数（已有内容中的 `icon:` 参数会被忽略以保持兼容）。子项使用 `icon:key [标题](URL)`，也支持将 `icon:key` 写在链接之后。菜单使用主题通用玻璃背景，自动适配明暗主题。鼠标移入按钮时自动展开；透明桥接区连接按钮与菜单之间的间隙，离开按钮、菜单和桥接区后立即关闭，不使用延迟计时器，菜单出现时使用淡入动画。未指定方向时，菜单会根据触发按钮周围的可用空间自动决定上下位置，并贴合触发按钮的左边或右边；`direction:up/down` 可以显式指定垂直方向，`align:left/right` 可以显式指定水平对齐边。菜单挂载到全局浮层，不受正文或 sidebar 容器裁剪；高度超过可用空间时会出现垂直滚动。不支持嵌套 dropdown。
+主按钮使用位于标题右侧的圆角端点箭头，展开时箭头旋转 180°；不需要 `icon` 参数（已有内容中的 `icon:` 参数会被忽略以保持兼容）。子项只需 `[标题](URL)`，也可以在链接前后增加 `icon:key`；省略图标时仅显示文字。菜单使用主题通用玻璃背景，最小宽度固定为 150px，列表项复用侧边栏 glass collection 的 compact 间距、圆角和 hover 样式，并自动适配明暗主题；带图标与无图标条目保持相同行高，无图标项不会留下图标占位。鼠标移入按钮时自动展开；透明桥接区连接按钮与菜单之间的间隙，离开按钮、菜单和桥接区后立即关闭，不使用延迟计时器，菜单出现时使用淡入动画。未指定方向时，菜单会根据触发按钮周围的可用空间自动决定上下位置，并贴合触发按钮的左边或右边；`direction:up/down` 可以显式指定垂直方向，`align:left/right` 可以显式指定水平对齐边。菜单挂载到全局浮层，不受正文或 sidebar 容器裁剪；高度超过可用空间时会出现垂直滚动。不支持嵌套 dropdown。
 
 ## folding 折叠容器
 

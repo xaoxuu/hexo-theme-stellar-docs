@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-20 00:51
+updated: 2026-08-20 11:09
 wiki: hexo-stellar
 title: 侧边栏配置
 ---
@@ -235,13 +235,12 @@ footer:
         - icon: default:documents
           title: 文档
           url: /wiki/
-        - icon: default:github
-          title: GitHub
+        - title: GitHub
           url: https://github.com/
 ```
 ```
 
-social 条目按配置顺序显示。普通条目使用 icon、title、url；`spacer` 是保留的占位标识，放在两个按钮之间即可撑开中间空间，将其后的按钮推至同一行右侧，配置值会被忽略。按钮与 dropdown 触发器仅固定 32px 高度，并使用 4px 内边距；宽度按图标自然计算，主题不会覆写 SVG 尺寸，按钮圆角为 8px，因此不同纵横比的图标不会被拉伸。将 type 设置为 dropdown 后，主按钮沿用该尺寸规则，子项使用 icon、title、url。dropdown 使用通用 `.dropdown` 样式、`bar-glass()` 玻璃背景与原生 `<details>/<summary>` 结构，鼠标移入按钮时自动展开；透明桥接区连接按钮与菜单之间的间隙，离开按钮、菜单和桥接区后立即关闭，不使用延迟计时器。打开后挂载到全局浮层，并根据触发按钮周围的可用空间自动决定上下和左右位置，因此不会被 sidebar 容器裁剪，菜单定位完成后淡入显示；菜单过高时可以垂直滚动。它不关联语言或其它具体业务，也不支持嵌套菜单。
+social 条目按配置顺序显示。普通条目使用 icon、title、url；`spacer` 是保留的占位标识，放在两个按钮之间即可撑开中间空间，将其后的按钮推至同一行右侧，配置值会被忽略。按钮与 dropdown 触发器共用 32px 高度、4px 内边距、图标尺寸和 8px 圆角；dropdown 主图标未激活时透明度为 `0.5`，hover 或打开后恢复为 `1`，打开态也与普通按钮悬停高亮一致。将 type 设置为 dropdown 后，主按钮仍要求 icon 和 title；子项要求 title、url，icon 可以省略。dropdown 使用通用玻璃背景与原生 `<details>/<summary>` 结构，列表项复用侧边栏 glass collection 的 compact 间距、圆角和 hover 样式。鼠标移入按钮时自动展开；透明桥接区连接按钮与菜单之间的间隙，离开按钮、菜单和桥接区后立即关闭，不使用延迟计时器。打开后挂载到全局浮层，并根据触发按钮周围的可用空间自动决定上下和左右位置，因此不会被 sidebar 容器裁剪，菜单定位完成后淡入显示；菜单过高时可以垂直滚动。它不关联语言或其它具体业务，也不支持嵌套菜单。
 
 ## 自定义组件
 
