@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-20 22:10
+updated: 2026-08-20 22:29
 wiki: hexo-stellar
 title: 探索个性化配置
 ---
@@ -160,7 +160,7 @@ style:
 
 ## 卡片鼠标光效与倾斜
 
-Stellar 可以为文章、笔记、笔记本、Wiki 项目、置顶轮播、专栏列表的最新文章、`{% link %}` 链接卡片和 `{% grid bg:card %}` 单元格启用鼠标跟随光斑与轻量 3D 倾斜；菜单、摘要列表、文档树、链接网格和 dropdown 等标准 UI Collection 条目只启用光斑，不会倾斜。默认关闭：
+Stellar 可以为文章、笔记、笔记本、Wiki 项目、置顶轮播、专栏列表的最新文章、`{% link %}` 链接卡片和 `{% grid bg:card %}` 单元格启用鼠标跟随光斑与轻量 3D 倾斜；Wiki Hero 操作按钮及菜单、摘要列表、文档树、链接网格和 dropdown 等标准 UI Collection 条目只启用光斑，不会倾斜。默认关闭：
 
 ```yaml blog/_config.stellar.yml
 plugins:
