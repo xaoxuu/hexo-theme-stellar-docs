@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-20 22:29
+updated: 2026-08-21 00:36
 wiki: hexo-stellar
 title: 探索个性化配置
 ---
@@ -160,7 +160,7 @@ style:
 
 ## 卡片鼠标光效与倾斜
 
-Stellar 可以为文章、笔记、笔记本、Wiki 项目、置顶轮播、专栏列表的最新文章、`{% link %}` 链接卡片和 `{% grid bg:card %}` 单元格启用鼠标跟随光斑与轻量 3D 倾斜；Wiki Hero 操作按钮及菜单、摘要列表、文档树、链接网格和 dropdown 等标准 UI Collection 条目只启用光斑，不会倾斜。默认关闭：
+Stellar 可以为文章、笔记、笔记本、Wiki 项目、置顶轮播、专栏列表的最新文章、`{% link %}` 链接卡片和 `{% grid bg:card %}` 单元格启用鼠标跟随光斑与轻量 3D 倾斜；Wiki Hero 操作按钮、搜索结果链接及菜单、摘要列表、文档树、链接网格和 dropdown 等标准 UI Collection 条目只启用光斑，不会倾斜。默认关闭：
 
 ```yaml blog/_config.stellar.yml
 plugins:
@@ -178,9 +178,9 @@ plugins:
 </div>
 ```
 
-其中 `.card-hover` 接入通用生命周期，两个修饰类可以按需单独使用；光斑颜色可在组件上用 `--card-hover-spotlight-color` 覆盖。动态插入组件后可调用 `stellar.cardHover.mountAll(root)`，销毁时调用 `stellar.cardHover.destroy()`。
+其中 `.card-hover` 接入通用生命周期，两个修饰类可以按需单独使用；光斑颜色可在组件上用 `--card-hover-spotlight-color` 覆盖。动态插入组件后可调用 `stellar.cardHover.mountAll(root)`，移除动态容器前可调用 `stellar.cardHover.unmountAll(root)`，销毁全部实例时调用 `stellar.cardHover.destroy()`。
 
-鼠标离开时，倾斜会立即回正，光斑则停在最后指针位置淡出，不会先闪回卡片中心；完全透明后才会无感复位。键盘聚焦时只显示居中光斑。触屏、非精细指针和系统“减少动态效果”模式下会自动停用动态效果；插件关闭或脚本加载失败时，组合类不会影响链接点击与原有卡片样式。轮播内部切换轨道、专栏标题/描述/归档式文章条目、非 Collection 的侧栏组件、TOC、搜索结果、sites、albums、posters 与 chat 内嵌链接不参与倾斜效果。
+鼠标离开时，倾斜会立即回正，光斑则停在最后指针位置淡出，不会先闪回卡片中心；完全透明后才会无感复位。键盘聚焦时只显示居中光斑。触屏、非精细指针和系统“减少动态效果”模式下会自动停用动态效果；插件关闭或脚本加载失败时，组合类不会影响链接点击与原有卡片样式。搜索结果仅可点击的章节/摘要链接参与光效，不会倾斜或上浮，链接外的页面标题保持静止。轮播内部切换轨道、专栏标题/描述/归档式文章条目、非 Collection 的侧栏组件、TOC、sites、albums、posters 与 chat 内嵌链接不参与倾斜效果。
 
 ## 页面缓入效果
 
