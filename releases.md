@@ -1,8 +1,10 @@
 ---
 date: 2023-12-06 21:55
 updated: 2025-07-01 21:17
-wiki: hexo-stellar
 title: 更新日志与注意事项
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 版本命名规范：{% mark 大版本 color:red %} {% mark 小版本 color:yellow %} {% mark 修复版本 color:green %}

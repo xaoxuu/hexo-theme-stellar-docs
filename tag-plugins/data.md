@@ -1,8 +1,10 @@
 ---
 date: 2023-12-06 21:55
 updated: 2026-08-18 13:58
-wiki: hexo-stellar
 title: 数据类标签组件（8个）
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 ## timeline 时间线

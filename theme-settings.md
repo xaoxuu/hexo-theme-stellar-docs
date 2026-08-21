@@ -1,8 +1,10 @@
 ---
 date: 2023-12-06 21:55
-updated: 2025-07-06 13:34
-wiki: hexo-stellar
+updated: 2026-08-22 00:12
 title: 网站和主题基本信息配置
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 ## 站点信息
@@ -40,6 +42,27 @@ language:
 ## 创建主题配置文件
 
 在博客根目录的 `_config.yml` 文件旁边新建一个文件： `_config.stellar.yml` ，在这个文件中的配置信息优先级高于主题文件夹中的配置文件。
+
+## 网站 Brand
+
+侧边栏与支持的移动端列表页使用统一 `brand` 配置：
+
+```yaml blog/_config.stellar.yml
+brand:
+  image:
+    src: '{config.avatar}'
+    style: avatar
+    url: /about/
+  name: '{config.title}'
+  tagline: '{config.subtitle}'
+  url: /
+```
+
+`image.style` 可选 `avatar`、`icon`、`plain`：头像正圆裁剪，图标使用圆角矩形，透明原图不裁剪也不填充背景。图片背景默认透明，可通过 `image.background` 显式配置；`plain` 禁止配置背景。
+
+`image` 是原子对象；只要在 `_config.stellar.yml` 中覆盖它，就必须同时写出 `src` 和 `style`，不会从主题默认图片对象继承缺失字段。
+
+`image.url` 是图片链接，根级 `url` 是名称链接。Brand 不再解析 `[图片](链接)` 或 `[名称](链接)` 形式的 Markdown 链接。
 
 
 ## 头部标签自定义

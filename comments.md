@@ -1,8 +1,10 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-15 15:20
-wiki: hexo-stellar
+updated: 2026-08-21 23:17
 title: 评论插件配置（6个）
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 ## Beaudar
@@ -140,14 +142,20 @@ comments:
 
 ```yaml blog/source/about/index.md
 title: 关于
-beaudar:
-  'issue-term': '留言板'
+comments:
+  enabled: true
+  service: beaudar
+  beaudar:
+    issue-term: 留言板
 ```
 
 ```yaml blog/source/friends/index.md
 title: 友链
-beaudar:
-  'issue-term': '留言板'
+comments:
+  enabled: true
+  service: beaudar
+  beaudar:
+    issue-term: 留言板
 ```
 
 ### 使用其它评论数据
@@ -156,17 +164,22 @@ beaudar:
 
 ```yaml blog/source/wiki/stellar/index.md
 title: 快速开始您的博客之旅
-giscus:
-  data-repo: xaoxuu/hexo-theme-stellar
-  data-mapping: number
-  data-term: 226
+comments:
+  enabled: true
+  service: giscus
+  giscus:
+    data-repo: xaoxuu/hexo-theme-stellar
+    data-mapping: number
+    data-term: 226
 ```
 
-对于其他评论例如 `twikoo` `waline` `artalk`，您可以设置 `comment_id` 为相同的值使得不同页面共用同一评论区
+对于 `twikoo`、`waline`、`artalk` 等服务，可以设置相同的 `comments.id` 共用评论区：
 
 ```yaml blog/source/wiki/stellar/index.md
 title: 快速开始您的博客之旅
-comment_id:
+comments:
+  enabled: true
+  id: shared-thread
 ```
 
 ## 首页评论区
@@ -185,11 +198,12 @@ site_tree:
 site_tree:
   home:
     comments:
+      enabled: true
       service: giscus # 覆盖全局评论服务
-      comment_title: 欢迎讨论~
-      comment_id: about # 与其他页面共用同一评论区（artalk/twikoo/waline）
-      # giscus:
-      #   data-repo: xaoxuu/blog-comments
+      title: 欢迎讨论~
+      id: about # 与其他页面共用同一评论区
+      giscus:
+        data-repo: xaoxuu/blog-comments
 ```
 
 仅首页第一页（`/`）显示评论区，分页页（`/page/2/`）不显示。

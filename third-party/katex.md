@@ -1,9 +1,11 @@
 ---
 date: 2024-01-04 13:45
 updated: 2025-07-01 21:17
-wiki: hexo-stellar
 title: 使用「katex」插件
 katex: true
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 使用前需要在 Markdown 文件开头加入

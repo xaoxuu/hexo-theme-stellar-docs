@@ -1,8 +1,10 @@
 ---
 date: 2022-10-21 13:15
 updated: 2026-08-13 01:36
-wiki: hexo-stellar
 title: 开启您全新的博客之旅
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 Stellar 是一个内置文档系统的简约商务风 Hexo 主题，提供丰富的标签与动态数据组件，帮助您从容应对各种表达需求，轻松开启全新的博客之旅。

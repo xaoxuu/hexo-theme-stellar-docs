@@ -1,8 +1,10 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-20 12:02
-wiki: hexo-stellar
+updated: 2026-08-21 23:17
 title: 侧边栏组件的配置与使用（9个）
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 实现并显示一个小组件需要两个步骤：
@@ -22,7 +24,9 @@ title: 侧边栏组件的配置与使用（9个）
 
 ```yaml blog/source/_posts/xxx.md
 ---
-leftbar: ['我的小组件1', '我的小组件2']
+sidebar:
+  left:
+    widgets: ['我的小组件1', '我的小组件2']
 ---
 ```
 
@@ -46,7 +50,7 @@ toc:
 
 `toc` 的 `fallback` 默认是 `recent`，即一篇文章没有 `TOC` 的时候会显示一个 `recent`
 
-toc 组件底部的操作按钮按页面内容显示：「回到顶部」「参与讨论」仅在页面存在目录或渲染评论区时出现；其中「参与讨论」只在页面实际渲染评论区时显示（页面或所属 Wiki 项目设置 `comments: false` 时隐藏）。
+toc 组件底部的操作按钮按页面内容显示：「回到顶部」「参与讨论」仅在页面存在目录或渲染评论区时出现；页面或所属 Wiki 项目设置 `comments.enabled: false` 时隐藏讨论入口。
 
 {% quot el:h3 recent %}
 
@@ -169,7 +173,7 @@ ghuser:
 
 {% quot el:h3 ghrepo %}
 
-显示 GitHub 仓库基础信息，需要搭配 `repo` 一起使用：
+显示 GitHub 仓库基础信息，需要搭配 `source.repository` 一起使用：
 
 ```yaml blog/source/_data/widgets.yml
 ghrepo:
@@ -180,7 +184,8 @@ ghrepo:
 
 ```yaml blog/source/_posts/xxx.md
 ---
-repo: xaoxuu/hexo-theme-stellar
+source:
+  repository: xaoxuu/hexo-theme-stellar
 ---
 ```
 
@@ -188,9 +193,10 @@ repo: xaoxuu/hexo-theme-stellar
 
 ```yaml blog/source/_data/wiki/projects.yml
 name: Stellar
-title: Stellar
-subtitle: '每个人的独立博客 | Designed by xaoxuu'
-repo: xaoxuu/hexo-theme-stellar
+headline: 每个人的独立博客
+tagline: Designed by xaoxuu
+source:
+  repository: xaoxuu/hexo-theme-stellar
 ...
 ```
 
@@ -249,14 +255,18 @@ rss:
 ```yaml blog/_config.stellar.yml
 site_tree:
   ...:
-    leftbar: welcome, recent, 朋友圈, weibo
+    sidebar:
+      left:
+        widgets: [welcome, recent, 朋友圈, weibo]
 ```
 
 或者在你需要显示的页面引入，页面内引入优先于配置文件引入：
 
 ```yaml blog/source/_posts/xxx.md
 ---
-leftbar: [ghuser, 朋友圈]
+sidebar:
+  left:
+    widgets: [ghuser, 朋友圈]
 ---
 ```
 
@@ -276,28 +286,40 @@ site_tree:
   # -- 列表类页面 -- #
   # 主页配置
   home:
-    leftbar: welcome, recent
-    rightbar: timeline
+    sidebar:
+      left:
+        widgets: [welcome, recent]
+      right:
+        widgets: [timeline]
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
-    menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
-    leftbar: welcome, recent # for categories/tags/archives
-    rightbar: timeline
-    nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
-      # '朋友文章': /friends/rss/
+    navigation:
+      menu: post
+      tabs:
+        # '朋友文章': /friends/rss/
+    sidebar:
+      left:
+        widgets: [welcome, recent]
+      right:
+        widgets: [timeline]
   # 博客专栏列表页配置
   index_topic:
     base_dir: topic # 只影响自动生成的页面路径
-    menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 topic 的页面默认使用这里配置的 menu_id
+    navigation:
+      menu: post
   # 文档列表页配置
   index_wiki:
     base_dir: wiki # 只影响自动生成的页面路径
-    menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
-    leftbar: ghissues, related, recent # for wiki
-    rightbar: timeline
-    nav_tabs:
-      # 'more': https://github.com/xaoxuu
+    navigation:
+      menu: wiki
+      tabs:
+        # 'more': https://github.com/xaoxuu
+    sidebar:
+      left:
+        widgets: [ghissues, related, recent]
+      right:
+        widgets: [timeline]
 ```
 
 ### 内容类页面
@@ -310,33 +332,53 @@ site_tree:
   # -- 内容类页面 -- #
   # 博客文章内页配置
   post:
-    menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
-    leftbar: related, ghrepo, ghissues, recent # for pages using 'layout:post'
-    rightbar: ghrepo, toc
+    navigation:
+      menu: post
+    sidebar:
+      left:
+        widgets: [related, ghrepo, ghissues, recent]
+      right:
+        widgets: [ghrepo, toc]
   # 博客专栏文章内页配置
   topic:
-    menu_id: post
+    navigation:
+      menu: post
   # 文档内页配置
   wiki:
-    menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
-    leftbar: tree, ghissues, related, recent # for wiki
-    rightbar: ghrepo, toc
+    navigation:
+      menu: wiki
+    sidebar:
+      left:
+        widgets: [tree, ghissues, related, recent]
+      right:
+        widgets: [ghrepo, toc]
   # 作者信息配置
   author: 
     base_dir: author # 只影响自动生成的页面路径
-    menu_id: post
-    leftbar: recent
-    rightbar:
+    navigation:
+      menu: post
+    sidebar:
+      left:
+        widgets: [recent]
+      right:
+        widgets: []
   # 错误页配置
   error_page:
-    menu_id: post
+    navigation:
+      menu: post
     '404': '/404.html'
-    leftbar: recent
-    rightbar:
+    sidebar:
+      left:
+        widgets: [recent]
+      right:
+        widgets: []
   # 其它自定义页面配置 layout: page
   page:
-    leftbar: recent
-    rightbar: timeline, toc
+    sidebar:
+      left:
+        widgets: [recent]
+      right:
+        widgets: [timeline, toc]
 ```
 
 
@@ -360,10 +402,12 @@ my_timeline_lite:
 ```yaml blog/source/_posts/xxx.md
 ---
 title: 某一篇文章
-leftbar:
-  - welcome # 只写一个字符串代表引用对应的通用组件
-  - override: my_timeline_lite
-    api: https://xxx
+sidebar:
+  left:
+    widgets:
+      - welcome # 只写一个字符串代表引用对应的通用组件
+      - override: my_timeline_lite
+        api: https://xxx
 ---
 ```
 
@@ -374,31 +418,29 @@ leftbar:
 ```yaml blog/source/_posts/xxx.md
 ---
 title: 某一篇文章
-leftbar:
-  - welcome # 只写一个字符串代表引用对应的通用组件
-  - layout: markdown
-    title: '重要通知 [NOTE.2022-09]'
-    content: |
-      请不要原封不动的把本站内容复制到贵站中使用，这样一方面不尊重原作者，另一方面也会因为存在大量重复内容影响贵站收录甚至降权。
-
-      从2022年9月起本站已不再开源，已经持有源码副本或`fork`的朋友请及时删除以防止被他人恶意搬运的情况继续发生。
-      
-      [> 了解详情](https://github.com/xaoxuu/xaoxuu.github.io#readme)
-    src: # 可以设置外部 md 文件链接
+sidebar:
+  left:
+    widgets:
+      - welcome
+      - layout: markdown
+        title: '重要通知'
+        content: |
+          这是页面专属的匿名组件。
+        src: # 可以设置外部 md 文件链接
 ---
 ```
 
 又或者在项目的配置文件中创建专属于这个项目的组件：
 
 ```yaml blog/_data/projects.yml
-Stellar:
-  name: Stellar
-  title: Stellar - 每个人的独立博客
-  subtitle: '每个人的独立博客 | Designed by xaoxuu'
-  leftbar: 
-    - layout: timeline
-      title: 最近更新
-      api: https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1
-      hide: footer
-  ...
+name: Stellar
+headline: Stellar - 每个人的独立博客
+tagline: Designed by xaoxuu
+sidebar:
+  left:
+    widgets:
+      - layout: timeline
+        title: 最近更新
+        api: https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1
+        hide: footer
 ```

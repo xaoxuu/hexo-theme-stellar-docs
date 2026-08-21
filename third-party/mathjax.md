@@ -1,9 +1,11 @@
 ---
 date: 2024-01-04 13:45
 updated: 2025-07-01 21:17
-wiki: hexo-stellar
 title: 使用「mathjax」插件
 mathjax: true
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 使用前需要在 Markdown 文件开头加入
@@ -27,4 +29,3 @@ $$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
 ```
 
 {% endtabs %}
-

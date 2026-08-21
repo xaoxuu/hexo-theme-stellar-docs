@@ -1,48 +1,62 @@
 ---
 date: 2024-01-04 13:45
-updated: 2025-07-01 21:17
-wiki: hexo-stellar
+updated: 2026-08-21 23:17
 title: 用文档系统制作一本简易笔记
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
+
+页面数量较少、需要手动维护目录顺序时，可以直接把 Wiki 项目作为一本简易笔记。
 
 ## 创建描述文件
 
 ```yaml blog/source/_data/wiki/notes.yml
 name: 备忘录
-title: 备忘录
-icon: # 列表页图标
-cover: # 封面页大图
-coverpage: [cover, title, description] # 封面页显示的内容
-
+headline: 备忘录
+tagline: 随手记录的知识
+identity:
+  icon: https://example.com/icon.svg
+card:
+  cover: https://example.com/card.webp
+hero:
+  enabled: true
+  background:
+    image: https://example.com/hero.webp
+navigation:
+  menu: notes
 comments:
-  service: giscus # 若你不适用默认的评论方式，需要添加此项
-  giscus: # 需要你在主题配置文件_config.stellar.yml中设置好giscus的其他参数，其他评论方式同理
-    'data-term': '23'
-    'data-mapping': number
-
-base_dir: /notes/
+  enabled: true
+  service: giscus
+  giscus:
+    data-term: '23'
+    data-mapping: number
+routing:
+  base_dir: /notes/
 tree:
-  '日常问题解决方案':
+  日常问题解决方案:
     - mac
-  '移动端开发笔记':
+  移动端开发笔记:
     - ios
     - flutter
-  '前端学习笔记':
+  前端学习笔记:
     - nodejs
     - server
-  '在线工具':
-    - json
 ```
 
-## 设置 menu_id
-
-然后笔记页面的 `front-matter` 中指定要高亮的 `menu_id`：
+## 关联页面
 
 ```yaml blog/source/notes/index.md
 ---
-wiki: notes # 这个跟上面的 /wiki/notes.yml 关联起来
-menu_id: notes # 这个跟配置文件中的 `menubar.items.notes` 关联起来，这很重要，如果没有这个，就像普通的wiki项目一样了
+title: 备忘录
+collection:
+  type: wiki
+  id: notes
+navigation:
+  menu: notes
 ---
 ```
 
-这样就可以啦～
+集合级 `navigation.menu` 已经可以为所有页面设置菜单高亮；只有单页需要不同行为时，才在页面 Front-matter 中覆盖。
+
+如果页面数量会持续增长、希望自动按更新时间和标签树管理，请改用独立的笔记本系统。

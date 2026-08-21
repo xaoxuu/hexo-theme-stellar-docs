@@ -1,8 +1,10 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-21 00:36
-wiki: hexo-stellar
+updated: 2026-08-21 23:17
 title: 探索个性化配置
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 ## 主题色
@@ -250,9 +252,10 @@ style:
 
 ```yaml blog/_config.stellar.yml
 site_tree:
-  blog:
-    nav_tabs: # 近期发布 分类 标签 归档 and ...
-      '朋友文章': /friends/rss/ # 这里填写的链接要与对应页面一致，否则可能无法正确高亮
+  index_blog:
+    navigation:
+      tabs: # 近期发布 分类 标签 归档 and ...
+        '朋友文章': /friends/rss/ # 链接需与对应页面一致
 ```
 
 顶部 tab 栏（navbar top）的背景条在页面顶部未滚动/未吸顶时为卡片样式（`var(--card)` 底色 + 文章卡片同款阴影），页面滚动 2px 后吸顶恢复玻璃效果；回到顶部恢复卡片样式。
@@ -264,12 +267,17 @@ site_tree:
 - `carousel`（默认）：所有带顶部 tab 栏的博客类列表页（首页/归档/标签/分类/专栏等）上方自动展示置顶文章轮播，无需开关配置；只要有置顶内容即渲染，自动轮播间隔固定 5000ms，首页第一页列表不再重复展示置顶文章。
 - `flat`（平铺）：博客类列表页不渲染文章轮播；首页第一页文章列表顶部按轮播同款规则展示全部置顶文章（含超出单页切片的老文章），同页不重复；归档/分类/标签/首页第二页起的列表中置顶文章按日期正常出现。
 
-置顶文章判定与排序（两种样式通用）：在文章 `front-matter` 中设置 `pin: true|number`（兼容 `sticky` 别名，设置即置顶，数字越大越靠前，`true` 视作 1，0/负数同样参与，非数字视作 0，权重相同保持原顺序）。
+置顶文章在 `front-matter` 中设置 `listing.priority`：必须是大于 `0` 的有限数字，数字越大越靠前，权重相同保持原顺序。
 
-- wiki 列表页展示置顶的 wiki 项目：在项目数据文件（`source/_data/wiki/*.yml`）中设置 `pin: true|number`，规则同上。
+```yaml
+listing:
+  priority: 10
+```
+
+- Wiki 列表页展示置顶项目：在 `source/_data/wiki/*.yml` 中设置 `listing.priority`，规则同上。
 - wiki 置顶项目始终以轮播展示，不受 `article.pin_style` 影响。
 - 轮播区宽高比与非置顶文章统一，由 `article.cover_ratio` 控制（修改该值即可整体调整）。
-- 置顶文章卡片为固定「标题 + 一行小字」结构：标题取 `title`，小字取 `subtitle` > `description` > excerpt（截断 50 字）；文章幻灯片与 wiki 项目幻灯片共用与 hero 卡片同款覆盖层：常驻底部渐变模糊层与黑色渐变蒙版，hover 时背景图与模糊层缓慢放大并变暗；有封面时封面铺满，无封面时为纯白卡片（文字按普通文章颜色）。
+- 置顶文章卡片的标题取 `title`，小字取 `card.tagline` > `description` > excerpt，封面只取 `card.cover`。
 - 鼠标悬停轮播区时左右两侧显示翻页按钮（样式同 swiper 导航按钮），点击切换上一张/下一张。
 - 没有置顶内容时不渲染；置顶文章卡片不再显示置顶图标（由轮播展示）。
 
@@ -288,7 +296,12 @@ article:
 
 ## AI 成分标签
 
-文章可以在 front-matter 中用 `ai_label` 字段标记 AI 成分：`manual`（本文完全由人类完成）、`reviewed`（已 AI 审核）、`polished`（已 AI 润色）、`generated`（由 AI 生成）。未设置 `ai_label` 时取 `article.ai_label.default`：为空则不显示，非空（如 `manual`）则按该档渲染。文章页显示在顶部横幅第一行右侧（阅读时长右侧），为彩色文字（无底色）；当文章 banner 含图片时，标签文字使用默认颜色。文章列表卡片不显示该标签。
+文章可以在 front-matter 中用 `article.ai_label` 标记 AI 成分：`manual`、`reviewed`、`polished`、`generated`。页面未设置时取主题 `article.ai_label.default`。
+
+```yaml
+article:
+  ai_label: reviewed
+```
 
 文案由多语言系统提供（`languages/*.yml` 的 `meta.ai_label.*`，随站点语言切换；缺失翻译时标签不渲染），颜色与图标由 `article.ai_label` 配置，主题提供默认值，可按需覆盖：
 

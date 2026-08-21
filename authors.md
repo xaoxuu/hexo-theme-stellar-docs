@@ -1,8 +1,10 @@
 ---
 date: 2024-01-08 12:39
 updated: 2025-07-06 17:11
-wiki: hexo-stellar
 title: 一站多作者配置
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 支持多个作者在一个站点发布文章，需要先配置作者信息：

@@ -1,8 +1,10 @@
 ---
 date: 2023-12-06 21:55
 updated: 2026-08-20 11:20
-wiki: hexo-stellar
 title: 容器类标签组件（10个）
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 

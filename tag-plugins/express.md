@@ -1,10 +1,13 @@
 ---
 date: 2023-12-06 21:55
 updated: 2026-08-16 23:27
-wiki: hexo-stellar
 title: 表达类标签组件（34+个）
-references:
-  - '[PR#560 @HcGys](https://github.com/xaoxuu/hexo-theme-stellar/pull/560)'
+collection:
+  type: wiki
+  id: hexo-stellar
+footer:
+  references:
+    - '[PR#560 @HcGys](https://github.com/xaoxuu/hexo-theme-stellar/pull/560)'
 ---
 
 ## emoji 表情包

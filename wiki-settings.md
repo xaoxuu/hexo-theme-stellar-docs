@@ -1,311 +1,241 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-21 21:39
-wiki: hexo-stellar
+updated: 2026-08-22 00:12
 title: 如何使用文档系统
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
-Stellar 独创了其它 Hexo 主题所没有的 Wiki 文档系统，可以自动找到一个项目的所有文档分页，生成一个目录树，还可以手动指定顺序、标题、分组，而非依赖文件路径、文件名来排序和显示。
+Stellar 的 Wiki 系统会将多个页面组织成一个项目，并根据项目配置生成列表卡片、项目首页 Hero、目录树、侧边栏和评论区。
 
-## 基本流程
+## 创建项目
 
-{% timeline %}
-<!-- node 1/3 创建项目描述文件 -->
-在 `blog/source/_data/` 文件夹中创建一个 `wiki` 文件夹，在其中放入各个项目的文档。以 Stellar 项目为例，文件名就是项目的 `id`：
+在 `source/_data/wiki/` 中创建项目文件，文件名就是项目 id：
+
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
-name: Stellar
-title: Stellar - 每个人的独立博客
-headline: 每个人的独立博客 # 可选：Wiki 卡片营销标题，空时取 title
-subtitle: '每个人的独立博客 | Designed by xaoxuu'
-tags: 博客主题
-available: Web # 可选：Wiki 列表卡片显示“适用于”范围
-icon: https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg
-cover: https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg
-description: Stellar 是一个内置文档系统的简约商务风 Hexo 主题，支持丰富的标签和动态数据组件。
-pin: 1 # 置顶轮播排序值（可选，设置即置顶，数字越大越靠前，true 视作 1）
-repo: xaoxuu/hexo-theme-stellar
-search:
-  filter: /wiki/stellar/
-  placeholder: 在 Stellar 中搜索...
-leftbar: 
-  - tree
-  - timeline_stellar_releases
-  - related
-comment_title: '评论区仅供交流，有问题请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues) 反馈。'
+name: Stellar # 短名称
+headline: 每个人的独立博客 # 卡片和 Hero 主标题
+tagline: 基于 Hexo 的全能型个人知识库 # 一行辅助文案
+description: Stellar 是一个内置文档系统的 Hexo 主题。
+tags: [博客主题, 知识库]
+audience: 独立博主
+
+identity:
+  icon: https://example.com/icon.svg
+card:
+  cover: https://example.com/card.webp
+hero:
+  enabled: true
+  background:
+    image: https://example.com/hero.webp
+  preview:
+    type: terminal
+    commands:
+      - label: npm
+        codes: npm i hexo-theme-stellar
+  actions:
+    - title: 在线演示
+      url: https://example.com
+      icon: default:monitor
+
+source:
+  repository: xaoxuu/hexo-theme-stellar
+  branch: main
+routing:
+  base_dir: /wiki/stellar/
+listing:
+  priority: 10
+  sort: 1
+
+sidebar:
+  left:
+    search:
+      filter: /wiki/stellar/
+      placeholder: 在 Stellar 中搜索
+    widgets: [tree, related]
+  right:
+    widgets: [ghrepo, toc]
+footer:
+  license: true
+  share: true
 comments:
+  enabled: true
+  title: 欢迎讨论
   service: giscus
   giscus:
     data-repo: xaoxuu/hexo-theme-stellar
     data-mapping: number
     data-term: 226
-base_dir: /wiki/stellar/
+
 tree:
-  '快速开始':
+  快速开始:
     - index
     - examples
-    - releases
-  '基本使用':
-    - theme-settings
+  基本使用:
     - pages
     - sidebar
-    - tag-plugins
-    - tag-plugins/express
-    - tag-plugins/data
-    - tag-plugins/container
-    - comments
-  '文档系统':
-    - wiki-settings
-  '进阶玩法':
-    - widgets
-    - advanced-settings
-    - notes
-  '技术支持':
-    - articles
-    - todo
-    - contributors
 ```
 
-## Wiki 列表卡片
+集合字段的语义边界如下：
 
-Wiki 总列表使用自适应网格，一行可按可用空间显示多张固定 3:4 的竖版卡片；每列最小宽度为 240px，空间充足时自动均分并铺满容器，空间不足时回落为单列。卡片使用独立的 Wiki 封面组件，不与文章 Hero 卡片共用。只有配置 `cover` 时才显示封面背景；未配置时保持纯色空背景，并在 hover 使用通用 `block-border` 边框。有封面时，原图加载与封面主题色计算均完成后才显示主题色渐变模糊层；平均色计算失败会确认使用主题色回退，加载失败自动降级为空封面，避免空白区域出现亮色蒙版或默认主题色闪现。信息层按自身内容高度贴在封面底部：上方文案区与全宽项目底栏分别设置内边距，项目底栏使用 10% 不透明度黑色轻微区分。内容区使用封面主题色的渐变模糊层：主题色经深色化以保证白字可读，从卡片 50% 开始渐显，在最底部达到不透明；悬浮时显示同源但明度提高 20 个点、跟随全局连续曲率的圆角边框。标签、适用范围与热度统一复用元信息的无背景、无边框主题文字样式，间距为 `.5rem 1rem`；适用范围前置通用多设备图标，热度数值继续取 GitHub star 数据并显示为通用火焰图标。项目区不显示顶部边框，项目图标使用 30% 圆角和 `var(--block)` 背景；未配置 `icon` 时使用内置 Solar `default:documents`，颜色为 `var(--text-p2)`。底部显示 `headline` 营销标题（字号 `1.25rem`、字重 `700`，为空时取 `title`，再回退 `name`）、可选的 `available`、热度，以及图标、`name` 和副标题。副标题优先取显式 `subtitle`；其中包含 ` | ` 且左侧非空时只显示左侧，否则再按 `description`、内容摘要的顺序取值。
+- `name` 是面包屑等紧凑位置使用的短名称。
+- `headline` 是 Wiki 卡片和 Hero 的主标题；缺失时使用 `name`。
+- `tagline` 是卡片、自动 Brand 等位置的一行辅助文案。
+- `description` 是较完整的项目说明，也用于 SEO 回退。
+- `identity.icon` 只代表项目身份；`card.cover` 只用于列表卡片；`hero.background` 只用于项目首页 Hero。
+- `audience` 是 Wiki 列表卡片中的适用对象。
+- `listing.priority > 0` 进入置顶区域；`listing.sort` 控制普通 Wiki 项目顺序。
 
-`available` 是可选字符串；未配置时不会显示“适用于”。配置 `repo: owner/repo` 时会动态显示 GitHub star，仓库不存在或请求失败时自动隐藏。
+`tags` 必须是字符串数组，即使只有一项也写作 `[博客主题]`。v2 不再把错误的字符串类型自动转成数组。
 
-<!-- node 2/3 设置布局模板和项目名称 -->
-在此文档项目的 `md` 文件的 `front-matter` 部分指定所属的项目 `id` （即上一步创建的文件名 `id.yml`）
+## 关联页面
+
+Wiki 页面通过统一的 `collection` 对象声明归属：
+
 ```yaml blog/source/wiki/stellar/index.md
 ---
-wiki: hexo-stellar # 这是项目id，对应 /data/wiki/hexo-stellar.yml
-title: 这是分页标题
+title: 快速开始
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 ```
 
-<!-- node 3/3 将此项目「上架」 -->
-在 `blog/source/_data/` 文件夹中创建一个 `wiki.yml` 文件，在其中写入需要显示的项目 `id`：
+`collection.type` 只能是 `wiki`、`topic` 或 `notebook`，`collection.id` 对应数据文件名。不再使用三个互斥的顶层字段。
+
+## 上架 Wiki
+
+在 `source/_data/wiki.yml` 中列出公开展示的项目 id：
 
 ```yaml blog/source/_data/wiki.yml
 - hexo-stellar
-- 其它项目
+- another-project
 ```
 
-这样在项目列表（wiki）页面就可以看到刚刚创建的项目了。
+没有上架的项目仍可生成具体文档页，但不会出现在 Wiki 总列表。
 
-{% endtimeline %}
+## 路由和目录树
 
-## 项目分页索引
-
-指定项目所在文件夹和目录树：
-
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-base_dir: /wiki/stellar/
-tree:
-  '快速开始':
-    - index # 会被关联到 /wiki/stellar/index.md
-    - examples # 会被关联到 /wiki/stellar/examples.md
-    - releases
-  '基本使用':
-    - theme-settings
-    - pages
-    - sidebar
-    - tag-plugins
-    - tag-plugins/express
-    - tag-plugins/data
-    - tag-plugins/container
-    - comments
-  '文档系统':
-    - wiki-settings
-  '进阶玩法':
-    - widgets
-    - advanced-settings
-    - notes
-  '技术支持':
-    - articles
-    - todo
-    - contributors
-```
-
-如果目录树不需要分组，可以这样写：
-
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-base_dir: /wiki/stellar/
-tree:
-  - index # 会被关联到 /wiki/stellar/index.md
-  - examples # 会被关联到 /wiki/stellar/examples.md
-  - ...
-```
-
-
-## 是否显示封面
-
-项目可以显示一个全屏封面，封面占据一个屏幕的高度，会居中依次显示项目的 logo、标题、描述。开启项目封面方法如下：
-
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-cover: https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg
-coverpage: true # 默认是 true
-```
-
-如果 logo 中已经包含了项目标题，可以这样设置不显示项目标题：
-
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-coverpage: [logo, description]
-```
-
-## 项目首页 Hero 封面
-
-开启 `coverpage` 后，项目首页会渲染为全屏双栏 Hero。`cover` 仍只用于 Wiki 列表卡片；Hero 的 `background` 只接受静态图片 URL，动态效果通过独立的 `animation` 配置启用。静态图在底部 20% 会渐变模糊并过渡到站点背景色。
-
-`animation.type: galaxy` 使用四层 WebGL 星场呈现纵深移动、辉光、闪烁与自动旋转，默认带有轻量鼠标排斥。Galaxy 默认透明，可以单独使用，也可以叠加在 `background` 图片上；两者同时存在时，标题和按钮按图片平均色自适应，动画不可用时仍保留图片。仅配置 Galaxy 时使用纯黑底色。离开视口或页面进入后台时动画自动暂停；浏览器启用“减少动态效果”、不支持 WebGL 或动态层加载失败时只显示静态回退。旧的 `background: galaxy` 写法不再支持。
-
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-background: https://res.xaox.cc/hero.webp # 可选，可与动画叠加
-animation:
-  type: galaxy
-  params: # 可选，未填写的参数使用默认值
-    density: 2
-    hueShift: 140
-    speed: 0.5
-    glowIntensity: 0.2
-preview:
-  type: terminal # terminal | image
-  commands:
-    - label: npm
-      codes: |
-        npm i hexo-theme-stellar
-        npx hexo config theme stellar
-    - label: pnpm
-      codes: |
-        pnpm add hexo-theme-stellar
-        pnpm exec hexo config theme stellar
-actions:
-  - title: 在线演示
-    url: https://example.com
-    icon: default:monitor
-```
-
-Galaxy 支持以下全部参数与默认值：
-
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-animation:
-  type: galaxy
-  params:
-    focal: [0.5, 0.5]
-    rotation: [1, 0]
-    starSpeed: 2
-    density: 2
-    hueShift: 140
-    speed: 0.5
-    glowIntensity: 0.2
-    saturation: 0.1
-    mouseRepulsion: true
-    twinkleIntensity: 0.1
-    rotationSpeed: 0.1
-    repulsionStrength: 0.1
-    autoCenterRepulsion: 0
-    transparent: true
-```
-
-参数缺失时逐项使用默认值，未知参数会被忽略。`focal` 的两个数值限制在 `0–1`；`rotation` 接受两个有限数值；`hueShift` 会归一化到 `0–360`；速度、密度和强度参数必须为非负有限数值；`rotationSpeed` 可以为负数以反向旋转；布尔参数只接受 `true` 或 `false`。非法值只回退当前参数，不影响其它有效配置。显式设置 `transparent: false` 时，不透明 Canvas 会覆盖同时配置的背景图片。
-
-终端模式的 `commands[].codes` 支持多行文本，访客可切换安装方式并一次复制完整命令。图片预览改为：
+`routing.base_dir` 是目录项匹配的基础路径；`tree` 可以按分组对象或简单数组书写：
 
 ```yaml
-preview:
-  type: image
-  src: https://res.xaox.cc/demo.webp
-  alt: Stellar 首页预览
+routing:
+  base_dir: /wiki/stellar/
+tree:
+  快速开始:
+    - index
+    - examples
+  进阶:
+    - advanced-settings
 ```
 
-Hero 顶部左侧是无背景的站点标题按钮，文字取站点 `title`、颜色沿用 Hero 的 `--text-banner`，点击返回网站首页。封面左侧会自动显示 `name`、`headline`（为空时回退 `title`）和 `description`；主标题会随背景明暗切换为高对比的黑或白，并保留同源主题色的柔和发光轮廓。配置 `repo` 时，内置“源码”按钮及 GitHub 最新 tag 版本信息会自动出现；版本信息加载期间不显示占位文字或边框，成功后淡入，并以新标签页打开 GitHub 返回的链接（缺失时回退到对应 tag 页面）。无 tag 或请求失败时，该按钮会自动移除。“源码”按钮背景与边框使用 `--text-banner`，文字与图标反转相同颜色，始终与背景形成相反关系。启用 `plugins.card_hover` 后，源码、文档与自定义 action 按钮会显示鼠标跟随光斑，但不会倾斜或上浮；插件关闭、触屏或减少动态效果时保持原样。最新版本标签的边框取同源主题色的 50% 透明度，文字不受影响。内置“文档”按钮固定跳转到当前首页正文，`actions` 用于追加在线演示等自定义按钮。直接打开不带 hash 的项目首页时，页面默认停在 Hero 顶部；仅显式访问 `#start` 或点击“文档”按钮时才定位到正文。内置按钮、终端复制、未命名命令序号与辅助标签会随站点 `language` 切换；`actions[].title` 是项目自定义文案，不会由主题翻译。图片背景与仅 Galaxy 的黑色底图都会沿用 Wiki 列表封面的文字自适应逻辑：标题取高对比色，说明与玻璃按钮取同源主题色；终端预览则将该主题色与透明色各混合 50%，再叠加背景模糊，主题色尚不可用时回退站点背景色。图标使用主题内置的 `default:*` 名称，例如 `default:monitor`。
-
-## 项目文档标签
-
-如果您有很多项目，有些项目是有相关性的，可以相同的 `tags` 值：
-
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-tags: 博客主题
+```yaml
+routing:
+  base_dir: /wiki/stellar/
+tree:
+  - index
+  - examples
 ```
 
-也可以设置多个 `tags` 值：
+每个目录项都必须是字符串。未被 `tree` 收录、但属于该 Wiki 的有标题页面会进入额外分组。
 
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-tags: [博客主题, 开源项目]
+## 项目首页 Hero
+
+`hero.enabled: true` 只在项目首页启用全屏 Hero。背景图与动态效果可单独使用，也可叠加：
+
+```yaml
+hero:
+  enabled: true
+  background:
+    image: https://example.com/hero.webp
+    effect:
+      type: galaxy
+      options:
+        density: 2
+        starSpeed: 2
+        hueShift: 140
+        mouseInteraction: true
+        disableAnimation: false
+  preview:
+    type: image
+    src: https://example.com/preview.webp
+    alt: 首页预览
+  actions:
+    - title: 在线演示
+      url: https://example.com
+      icon: default:monitor
 ```
 
+`hero.background.effect.options` 是 React Bits Galaxy 的第三方参数袋，因此保留上游 `camelCase`。支持的字段包括：
 
-## 项目的 GitHub 仓库信息
-
-设置了 `repo` 值就会在右上角显示项目仓库的相关链接：
-
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-repo: xaoxuu/hexo-theme-stellar
+```yaml
+options:
+  focal: [0.5, 0.5]
+  rotation: [1, 0]
+  starSpeed: 2
+  density: 2
+  hueShift: 140
+  disableAnimation: false
+  speed: 0.5
+  mouseInteraction: true
+  glowIntensity: 0.2
+  saturation: 0.1
+  mouseRepulsion: true
+  repulsionStrength: 0.1
+  twinkleIntensity: 0.1
+  rotationSpeed: 0.1
+  autoCenterRepulsion: 0
+  transparent: true
 ```
 
-> 提示：如果项目首页（如 `source/wiki/{id}/index.md`）正文为空，且配置了 `repo`（可选 `branch`），该页会自动以 GitHub 仓库的 README.md 作为主页正文——标题自动适配文章格式，相对图片/链接解析到仓库镜像地址，右侧目录也会在渲染后自动生成。`branch` 缺省使用仓库默认分支；首页正文非空时以本地内容为准。
+这里不能写 `star_speed` 等 Stellar 风格别名。未知字段或错误类型会终止构建，而不是静默忽略。浏览器启用“减少动态效果”、不支持 WebGL 或动态层加载失败时，仅保留静态背景。
 
-> 说明：正文为空的 README 主页（以及其它 wiki 页）的 meta description / og:description / JSON-LD 描述会优先取用项目 YAML 中的 `description` 作为备用方案；页面 front matter 显式设置 `description`（或 `open_graph.description`）时以页面级描述为准。
+## GitHub 仓库与 README 首页
 
-## 项目评论设置
+```yaml
+source:
+  repository: xaoxuu/hexo-theme-stellar
+  branch: main
+```
 
-如果希望项目的所有分页使用相同的评论数据，可以在这里覆盖评论配置：
+配置仓库后，GitHub 组件和 Hero 源码入口会使用该地址。如果项目首页正文为空，主题会读取仓库的 `README.md`；`branch` 缺失时使用仓库默认分支。正文非空时始终以本地内容为准。
 
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-comment_title: '评论区仅供交流，有问题请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues) 反馈。'
+## 侧边栏、页脚和评论
+
+```yaml
+sidebar:
+  left:
+    widgets: [tree, related]
+    search:
+      filter: /wiki/stellar/
+      placeholder: 在 Stellar 中搜索
+    wiki_home: true
+  right:
+    widgets: [ghrepo, toc]
+footer:
+  license: true
+  share: true
 comments:
+  enabled: true
+  title: 评论区仅供交流
+  service: giscus
   giscus:
-    data-repo: xaoxuu/hexo-theme-stellar
-    data-mapping: number
-    data-term: 226
+    data-repo: owner/repo
 ```
 
-## 侧边栏组件
+`sidebar.left` 表示页面左侧主导航栏，`sidebar.right` 表示正文右侧辅助栏。两侧的 `widgets` 都必须是数组。评论服务对象保持第三方字段原样。
 
-如果您希望自定义某个项目的侧边栏组件，可以设置 `sidebar` 值：
+集合未配置 `sidebar.left.brand` 时，主题会用 `identity.icon`、`name`、`tagline` 和 Wiki 首页生成自动 Brand；缺少身份图标时只使用主题默认项目图，不会拿 `card.cover` 或 Hero 背景代替。
 
-可以覆盖组件：
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-leftbar:
-  - tree
-  - timeline_stellar_releases
-  - related
-```
+## 修改 Wiki 总路径
 
-> todo
-
-## 在目录树中隐藏某篇文章
-
-可以在 `front-matter` 中不设置 `title` 标题，或者将 `title` 改为 `seo_title`：
-
-```yaml blog/source/xxx/xxx.md
-title: 原本的标题
-```
-
-> todo
-
-## 显示许可协议
-
-沿用主题配置文件中设置的：
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-license: true
-```
-
-也可以指定协议内容：
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。'
-```
-
-## 显示分享
-
-```yaml blog/source/_data/wiki/hexo-stellar.yml
-share: true
-```
-
-
-## 修改 wiki 路径
-
-修改如下配置：
+Wiki 索引路径属于主题站点结构配置：
 
 ```yaml blog/_config.stellar.yml
 site_tree:
-  wiki:
-    base_dir: wiki # books / products ...
+  index_wiki:
+    base_dir: wiki
 ```
+
+项目自己的内容路径仍由各自的 `routing.base_dir` 决定。

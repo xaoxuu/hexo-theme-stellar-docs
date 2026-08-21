@@ -1,49 +1,84 @@
 ---
 date: 2024-01-14 17:47
-updated: 2026-08-20 12:32
-wiki: hexo-stellar
+updated: 2026-08-22 00:46
 title: 实现博客专栏/专题
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
-如果你使用过 Stellar 的 wiki 系统，那么专栏就非常容易了，相当于一个简化版的 wiki 系统，区别是：
+专栏把一组博客文章组织为连续主题：文章仍存放在 `source/_posts/`，主题根据 `collection` 归属自动聚合和排序。
 
-- 无需「上架」动作
-- 文章创建于 `blog/source/_posts` 文件夹内
-- 按照时间排序，默认最新的排最上面
-- 页面布局类似于普通文章
+## 创建专栏
 
-## 基本流程
+在 `source/_data/topic/` 中创建描述文件，文件名就是专栏 id：
 
-### 1. 创建一个专栏
-
-在 `blog/source/_data/` 文件夹中创建一个 `topic` 文件夹，在其中放入各个专栏的描述文件，文件名就是项目的 `id`：
-
-```yaml blog/source/_data/topic/id.yml
-name: Stellar # 在面包屑导航上会显示较短的名字
-title: Stellar - 每个人的独立博客 # 在列表页会显示完整的专栏标题
-description: 关于搭建独立博客相关的知识和经验分享，以及 Stellar 的高级用法、版本更新相关的注意事项。
-icon: https://res.xaox.cc/... # 专栏图标
-cover: https://res.xaox.cc/... # 列表页最新文章卡片的背景图，固定 2:1 宽高比
-order_by: -date # 默认是按发布日期倒序排序
+```yaml blog/source/_data/topic/stellar.yml
+name: Stellar
+headline: Stellar 开发札记
+tagline: 从设计到实现
+description: 关于 Stellar 的设计、开发和版本更新。
+identity:
+  icon: https://example.com/icon.svg
+card:
+  cover: https://example.com/card.webp
+hero:
+  background:
+    image: https://example.com/banner.webp
+listing:
+  order_by: -date
+article:
+  type: tech
+sidebar:
+  left:
+    widgets: [recent]
+  right:
+    widgets: [toc]
 ```
 
-专栏索引页（`/topic/`）以纯平铺布局展示全部专栏，并按照每个专栏最新文章的发布时间倒序排列（无文章的专栏排在末尾）。每个条目无卡片背景，条目间以分隔线衔接，专栏之间留出较大间隔；内部上下排列——顶部为专栏标题（居中、两侧 accent 斜杠装饰，复用文学文章的标题样式）与其下方的一句话描述，中间为**最新文章卡片**（背景为 `cover` 封面图，固定 2:1 宽高比，底部渐变模糊文字区显示最新文章标题与发布日期，标题大字随封面明暗黑白对比、日期小字取封面平均色变体，点击整卡进入最新文章），底部为按发布日期倒序排列的其他文章。其他文章复用归档列表的日期与标题样式，默认显示 3 篇；超过 3 篇时可通过列表下方的按钮展开全部剩余文章，并可再次收起。
+- `name` 用于紧凑位置，`headline` 是专栏列表主标题。
+- `identity.icon` 是专栏的内容身份图标，不会自动改变 Brand。
+- `card.cover` 是专栏列表中的最新文章卡片背景。
+- `hero.background.image` 可作为专栏文章横幅的集合级默认图。
+- `listing.order_by` 是 Hexo 查询排序表达式，默认 `-date`。
 
-### 2. 发布文章
-
-在此专栏文章的 `md` 文件的 `front-matter` 部分指定所属的专栏 `id` （即上一步创建的文件名 `id.yml`）
+## 发布专栏文章
 
 ```yaml blog/source/_posts/20240114.md
 ---
 title: 这是文章标题
-topic: id # 这是专栏id，对应 blog/source/_data/topic/id.yml
+collection:
+  type: topic
+  id: stellar
 ---
 
 文章正文
 ```
 
-## 这个功能的定位是什么？
+`collection.id` 必须对应 `source/_data/topic/stellar.yml` 的文件名。
 
-相比分类功能，它更偏向于一个更加有前后关系的文章集合，类似于文档的分页，但是相比文档，它又像文章一样持续增加新页面，一般以时间为排序依据。比分类更加结构化，比文档更加自动化，可以根据自己的需求选择使用不同的功能。
+## 专栏 Brand
 
-{% link https://xaoxuu.com/blog/20240203/ %}
+专栏只是博客文章的组织方式，因此专栏文章默认完整使用站点根级 `brand`。专栏的 `identity.icon`、`name`、`tagline` 和路由不会自动进入 Brand。
+
+如果某个专栏确实需要独立品牌，在专栏 YAML 中主动覆盖：
+
+```yaml blog/source/_data/topic/stellar.yml
+sidebar:
+  left:
+    brand:
+      image:
+        src: https://example.com/topic.svg
+        style: icon
+      name: Stellar 开发札记
+      tagline: 从设计到实现
+      url: /topic/stellar/
+```
+
+页面 Front Matter 中的 `sidebar.left.brand` 仍可以以更高优先级覆盖专栏或站点 Brand。
+
+## 展示逻辑
+
+专栏索引页按各专栏最新文章的时间排序，无文章的专栏排在末尾。每个专栏先显示最新文章卡片，再列出其它文章；文章内部仍使用普通博客文章布局。
+
+相比分类，专栏强调一组文章的整体主题和前后关系；相比 Wiki，专栏无需手动维护目录树，更适合持续增加的新文章。

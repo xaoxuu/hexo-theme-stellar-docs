@@ -1,8 +1,10 @@
 ---
 date: 2025-07-09 21:33
 updated: 2026-08-15 13:45
-wiki: hexo-stellar
 title: SEO 设置
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 

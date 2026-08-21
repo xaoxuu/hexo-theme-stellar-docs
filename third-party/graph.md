@@ -1,9 +1,11 @@
 ---
 date: 2024-01-04 13:45
 updated: 2026-08-18 13:32
-wiki: hexo-stellar
 title: 使用图表类插件
 mermaid: true
+collection:
+  type: wiki
+  id: hexo-stellar
 ---
 
 ## mermaid
