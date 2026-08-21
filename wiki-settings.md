@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-20 22:29
+updated: 2026-08-21 21:39
 wiki: hexo-stellar
 title: 如何使用文档系统
 ---
@@ -152,12 +152,19 @@ coverpage: [logo, description]
 
 ## 项目首页 Hero 封面
 
-开启 `coverpage` 后，项目首页会渲染为全屏双栏 Hero。`cover` 仍只用于 Wiki 列表卡片；首页背景请使用新的 `background` 字段。它可以是静态图片 URL，也可以是内置动态背景名 `galaxy`。静态图在底部 20% 会渐变模糊并过渡到站点背景色。
+开启 `coverpage` 后，项目首页会渲染为全屏双栏 Hero。`cover` 仍只用于 Wiki 列表卡片；Hero 的 `background` 只接受静态图片 URL，动态效果通过独立的 `animation` 配置启用。静态图在底部 20% 会渐变模糊并过渡到站点背景色。
 
-`galaxy` 使用四层 WebGL 星场呈现纵深移动、辉光、闪烁与自动旋转；鼠标移动会产生平滑视差，但不会推开星点。透明星场使用纯黑底色，离开视口或页面进入后台时自动暂停。浏览器启用“减少动态效果”、不支持 WebGL 或动态层加载失败时，会保留同一静态底色作为回退。
+`animation.type: galaxy` 使用四层 WebGL 星场呈现纵深移动、辉光、闪烁与自动旋转，默认带有轻量鼠标排斥。Galaxy 默认透明，可以单独使用，也可以叠加在 `background` 图片上；两者同时存在时，标题和按钮按图片平均色自适应，动画不可用时仍保留图片。仅配置 Galaxy 时使用纯黑底色。离开视口或页面进入后台时动画自动暂停；浏览器启用“减少动态效果”、不支持 WebGL 或动态层加载失败时只显示静态回退。旧的 `background: galaxy` 写法不再支持。
 
 ```yaml blog/source/_data/wiki/hexo-stellar.yml
-background: galaxy # 或 https://res.xaox.cc/hero.webp
+background: https://res.xaox.cc/hero.webp # 可选，可与动画叠加
+animation:
+  type: galaxy
+  params: # 可选，未填写的参数使用默认值
+    density: 2
+    hueShift: 140
+    speed: 0.5
+    glowIntensity: 0.2
 preview:
   type: terminal # terminal | image
   commands:
@@ -175,6 +182,30 @@ actions:
     icon: default:monitor
 ```
 
+Galaxy 支持以下全部参数与默认值：
+
+```yaml blog/source/_data/wiki/hexo-stellar.yml
+animation:
+  type: galaxy
+  params:
+    focal: [0.5, 0.5]
+    rotation: [1, 0]
+    starSpeed: 2
+    density: 2
+    hueShift: 140
+    speed: 0.5
+    glowIntensity: 0.2
+    saturation: 0.1
+    mouseRepulsion: true
+    twinkleIntensity: 0.1
+    rotationSpeed: 0.1
+    repulsionStrength: 0.1
+    autoCenterRepulsion: 0
+    transparent: true
+```
+
+参数缺失时逐项使用默认值，未知参数会被忽略。`focal` 的两个数值限制在 `0–1`；`rotation` 接受两个有限数值；`hueShift` 会归一化到 `0–360`；速度、密度和强度参数必须为非负有限数值；`rotationSpeed` 可以为负数以反向旋转；布尔参数只接受 `true` 或 `false`。非法值只回退当前参数，不影响其它有效配置。显式设置 `transparent: false` 时，不透明 Canvas 会覆盖同时配置的背景图片。
+
 终端模式的 `commands[].codes` 支持多行文本，访客可切换安装方式并一次复制完整命令。图片预览改为：
 
 ```yaml
@@ -184,7 +215,7 @@ preview:
   alt: Stellar 首页预览
 ```
 
-Hero 顶部左侧是无背景的站点标题按钮，文字取站点 `title`、颜色沿用 Hero 的 `--text-banner`，点击返回网站首页。封面左侧会自动显示 `name`、`headline`（为空时回退 `title`）和 `description`；主标题会随背景明暗切换为高对比的黑或白，并保留同源主题色的柔和发光轮廓。配置 `repo` 时，内置“源码”按钮及 GitHub 最新 tag 版本信息会自动出现；版本信息加载期间不显示占位文字或边框，成功后淡入，并以新标签页打开 GitHub 返回的链接（缺失时回退到对应 tag 页面）。无 tag 或请求失败时，该按钮会自动移除。“源码”按钮背景与边框使用 `--text-banner`，文字与图标反转相同颜色，始终与背景形成相反关系。启用 `plugins.card_hover` 后，源码、文档与自定义 action 按钮会显示鼠标跟随光斑，但不会倾斜或上浮；插件关闭、触屏或减少动态效果时保持原样。最新版本标签的边框取同源主题色的 50% 透明度，文字不受影响。内置“文档”按钮固定跳转到当前首页正文，`actions` 用于追加在线演示等自定义按钮。直接打开不带 hash 的项目首页时，页面默认停在 Hero 顶部；仅显式访问 `#start` 或点击“文档”按钮时才定位到正文。内置按钮、终端复制、未命名命令序号与辅助标签会随站点 `language` 切换；`actions[].title` 是项目自定义文案，不会由主题翻译。`background` 图和内置动态背景都会沿用 Wiki 列表封面的文字自适应逻辑：标题取高对比色，说明与玻璃按钮取同源主题色；终端预览则将该主题色与透明色各混合 50%，再叠加背景模糊，主题色尚不可用时回退站点背景色。图标使用主题内置的 `default:*` 名称，例如 `default:monitor`。
+Hero 顶部左侧是无背景的站点标题按钮，文字取站点 `title`、颜色沿用 Hero 的 `--text-banner`，点击返回网站首页。封面左侧会自动显示 `name`、`headline`（为空时回退 `title`）和 `description`；主标题会随背景明暗切换为高对比的黑或白，并保留同源主题色的柔和发光轮廓。配置 `repo` 时，内置“源码”按钮及 GitHub 最新 tag 版本信息会自动出现；版本信息加载期间不显示占位文字或边框，成功后淡入，并以新标签页打开 GitHub 返回的链接（缺失时回退到对应 tag 页面）。无 tag 或请求失败时，该按钮会自动移除。“源码”按钮背景与边框使用 `--text-banner`，文字与图标反转相同颜色，始终与背景形成相反关系。启用 `plugins.card_hover` 后，源码、文档与自定义 action 按钮会显示鼠标跟随光斑，但不会倾斜或上浮；插件关闭、触屏或减少动态效果时保持原样。最新版本标签的边框取同源主题色的 50% 透明度，文字不受影响。内置“文档”按钮固定跳转到当前首页正文，`actions` 用于追加在线演示等自定义按钮。直接打开不带 hash 的项目首页时，页面默认停在 Hero 顶部；仅显式访问 `#start` 或点击“文档”按钮时才定位到正文。内置按钮、终端复制、未命名命令序号与辅助标签会随站点 `language` 切换；`actions[].title` 是项目自定义文案，不会由主题翻译。图片背景与仅 Galaxy 的黑色底图都会沿用 Wiki 列表封面的文字自适应逻辑：标题取高对比色，说明与玻璃按钮取同源主题色；终端预览则将该主题色与透明色各混合 50%，再叠加背景模糊，主题色尚不可用时回退站点背景色。图标使用主题内置的 `default:*` 名称，例如 `default:monitor`。
 
 ## 项目文档标签
 
