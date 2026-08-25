@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-22 00:12
+updated: 2026-08-25 19:25
 title: 网站和主题基本信息配置
 collection:
   type: wiki
@@ -21,6 +21,8 @@ language:
   - zh-CN
   - en
 ```
+
+这些字段继续供 Hexo、SEO 等站点能力使用；侧边栏 Brand 不会从这里继承 `title`、`avatar` 或 `subtitle`。
 
 更多关于 Hexo 文件的配置请移步官方文档
 
@@ -45,24 +47,28 @@ language:
 
 ## 网站 Brand
 
-侧边栏与支持的移动端列表页使用统一 `brand` 配置：
+侧边栏与支持的移动端列表页使用 `site.brand`：
 
 ```yaml blog/_config.stellar.yml
-brand:
-  image:
-    src: '{config.avatar}'
-    style: avatar
-    url: /about/
-  name: '{config.title}'
-  tagline: '{config.subtitle}'
-  url: /
+site:
+  brand:
+    image:
+      src: https://example.com/avatar.webp
+      variant: avatar
+      href: /about/
+    name: 我的博客
+    wordmark: https://example.com/wordmark.svg
+    tagline:
+      text: 每个人的独立博客
+      hover: example.com
+    href: /
 ```
 
-`image.style` 可选 `avatar`、`icon`、`plain`：头像正圆裁剪，图标使用圆角矩形，透明原图不裁剪也不填充背景。图片背景默认透明，可通过 `image.background` 显式配置；`plain` 禁止配置背景。
+`image.variant` 可选 `avatar`、`icon`、`plain`：头像正圆裁剪，图标使用圆角矩形，透明原图不裁剪。`image.href` 是图片链接，根级 `href` 是标题或字标链接。
 
-`image` 是原子对象；只要在 `_config.stellar.yml` 中覆盖它，就必须同时写出 `src` 和 `style`，不会从主题默认图片对象继承缺失字段。
+`name` 只接受纯文本；图片字标请使用 `wordmark`。`tagline.text` 和 `tagline.hover` 分别是普通与悬停文案。`image.src`、`name` 和 `tagline.text` 只读取主题配置，省略时均为 `null`，不会继承 Hexo 的 `avatar`、`title` 或 `subtitle`。普通页面没有配置图片、名称或字标时不会显示 Brand Header。
 
-`image.url` 是图片链接，根级 `url` 是名称链接。Brand 不再解析 `[图片](链接)` 或 `[名称](链接)` 形式的 Markdown 链接。
+Brand 不解析 HTML 或 Markdown 链接，旧 `style/url/background` 字段会由 `stellar doctor` 报告迁移错误。
 
 
 ## 头部标签自定义
