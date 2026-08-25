@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-16 23:27
+updated: 2026-08-25 13:36
 title: 表达类标签组件（34+个）
 collection:
   type: wiki
@@ -111,7 +111,7 @@ tag_plugins:
 
 ## vote 投票
 
-这个功能在 {% mark 1.33.0 %} 版本后开始支持，需要自部署一个 [star-vote](https://github.com/xaoxuu/star-vote) 开源项目，支持部署到 vercel 并搭配 leancloud 使用。
+这个功能在 {% mark 1.33.0 %} 版本后开始支持。Stellar 默认选择 `star_vote` provider，使用 xaox.cc 提供的公共 [star-vote](https://github.com/xaoxuu/star-vote) 服务；公共实例不可用时保留静态计数且不显示错误。需要独立数据或更高配额时，可以自行部署并覆盖对应 provider 参数袋内的 endpoint。
 
 {% tabs %}
 <!-- tab 效果 -->
@@ -130,7 +130,7 @@ tag_plugins:
 
 ## rating 评分
 
-这个功能在 {% mark 1.33.0 %} 版本后开始支持，需要自部署一个 [star-vote](https://github.com/xaoxuu/star-vote) 开源项目，支持部署到 vercel 并搭配 leancloud 使用。
+这个功能在 {% mark 1.33.0 %} 版本后开始支持。Stellar 默认选择 `star_vote` provider，使用 xaox.cc 提供的公共 [star-vote](https://github.com/xaoxuu/star-vote) 服务；公共实例不可用时保留静态评分且不显示错误。需要独立数据或更高配额时，可以自行部署并覆盖对应 provider 参数袋内的 endpoint。
 
 {% tabs %}
 <!-- tab 效果 -->
@@ -145,6 +145,23 @@ tag_plugins:
 ```
 {% rating id:default icon:https://api.iconify.design/twemoji:star-struck.svg 自定义图标遵循 icon 标签的规则 %}
 {% endtabs %}
+
+投票和评分保持两个独立能力，可以分别覆盖，也可以将对应 `provider` 设为 `null` 关闭。关闭后标签仍能构建并显示，但按钮不可交互：
+
+```yaml blog/_config.stellar.yml
+extensions:
+  services:
+    rating:
+      provider: star_vote
+      providers:
+        star_vote:
+          endpoint: https://star-vote.xaox.cc/api/rating
+    vote:
+      provider: star_vote
+      providers:
+        star_vote:
+          endpoint: https://star-vote.xaox.cc/api/vote
+```
 
 ## mark 标记标签
 
@@ -536,19 +553,20 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 ```
 {% endtabs %}
 
-随着网站流量的增加，使用主题默认的 `api` 很可能会导致流量超限，推荐使用自部署的 `api` 抓取网站信息。参考下方仓库的 `README` 。
+Stellar 默认使用 xaox.cc 的公共服务补全链接卡片。公共实例不可用时保留原始标题、图标和描述，不显示错误。随着网站流量增加，建议参考下方仓库的 `README` 自行部署并覆盖 endpoint。
 
 {% link https://github.com/xaoxuu/site-info-api %}
 
-并在主题配置中填入你的 `api`
+在主题配置中填入自部署 endpoint；将 `provider` 设为 `null` 可关闭自动补全：
 
 ```yaml blog/_config.stellar.yml
-data_services:
-  # {% link %}
-  siteinfo:
-    # 设置 api 可以自动提取网页标题、图标，服务部署方法：https://github.com/xaoxuu/site-info-api/
-    # 接口测试通过后，把按钮的 href 部分替换成 {href} 之后填写到下方，例如：https://api.xaox.cc/site_info/v1?url={href}
-    api: 
+extensions:
+  services:
+    site_info:
+      provider: site_info_api
+      providers:
+        site_info_api:
+          endpoint: https://api.xaox.cc/site_info/v1?url={href}
 ```
 
 ## button 按钮

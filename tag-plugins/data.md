@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-18 13:58
+updated: 2026-08-25 13:36
 title: 数据类标签组件（8个）
 collection:
   type: wiki
@@ -222,7 +222,7 @@ collection:
 {% sites 分组名 %}
 ```
 
-条目未配置 `icon` 或 `avatar` 时，如果主题配置了 `data_services.siteinfo.api`，网站卡片会复用 siteinfo 接口自动补充信息区的圆形图标；该接口不会自动获取网站截图。
+条目未配置 `icon` 或 `avatar` 时，网站卡片会复用 `extensions.services.site_info` 选中的 provider 自动补充信息区的圆形图标。主题默认选择 `site_info_api` 并使用 xaox.cc 公共实例；站点可覆盖 `providers.site_info_api.endpoint` 为自部署地址，或设置 `provider: null` 关闭。请求失败时保留主题兜底图标且不显示错误；该接口不会自动获取网站截图。
 
 {% box Stellar v1.13.0 color:warning %}
 原 friends 和 sites 标签数据合并至 `links/xxx.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
@@ -301,6 +301,18 @@ collection:
 ```
 
 {% link https://github.com/anuraghazra/github-readme-stats GitHub&nbsp;Card&nbsp;API %}
+
+默认选择 `github_readme_stats` provider；需要使用自部署实例时，覆盖选中参数袋内的 endpoint：
+
+```yaml blog/_config.stellar.yml
+extensions:
+  services:
+    github_card:
+      provider: github_readme_stats
+      providers:
+        github_readme_stats:
+          endpoint: https://github-readme-stats.vercel.app
+```
 
 ## toc 文档目录树
 
