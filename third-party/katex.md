@@ -2,9 +2,10 @@
 date: 2024-01-04 13:45
 updated: 2025-07-01 21:17
 title: 使用「katex」插件
-katex: true
+render:
+  math: katex
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

@@ -1,9 +1,9 @@
 ---
 date: 2025-06-14 19:48
-updated: 2026-08-22 00:12
+updated: 2026-08-24 23:48
 title: 实现完整的笔记体系
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 footer:
   references:
@@ -25,24 +25,26 @@ identity:
   icon: /images/favicon.png
 card:
   cover: https://example.com/notebook.webp
-routing:
-  base_dir: /notes/dev/
+route:
+  path: /notes/dev/
 listing:
-  sort: 1
+  order: 1
   excerpt_length: 128
   per_page: 10
-  order_by: -updated
+  sort:
+    field: updated
+    direction: desc
 navigation:
   menu: notes
 footer:
-  license: true
-  share: true
+  license: null
+  share: []
 sidebar:
   left:
     widgets: [tagtree, recent]
   right:
     widgets: []
-note:
+note_defaults:
   sidebar:
     left:
       widgets: [tagtree, recent]
@@ -50,23 +52,25 @@ note:
       widgets: [toc]
 ```
 
-`listing.sort` 控制笔记本列表顺序；`listing.per_page` 和 `listing.order_by` 控制笔记列表。`sidebar` 用于笔记本列表页，`note.sidebar` 用于具体笔记页。
+`listing.order` 控制笔记本列表顺序；`listing.per_page` 和结构化 `listing.sort` 控制笔记列表。`per_page: null` 继承 Hexo，`0` 关闭分页。`sidebar` 用于笔记本列表页，`note_defaults.sidebar` 用于具体笔记页。
 
-笔记本未显式配置 `sidebar.left.brand` 时，会从 `identity.icon`、`name`、`tagline` 和 `routing.base_dir` 生成自动 Brand；`card.cover` 不会作为 Brand 图片回退。
+笔记本未显式配置 `sidebar.left.brand` 时，会从 `identity.icon`、`name`、`tagline` 和 `route.path` 生成自动 Brand；`card.cover` 不会作为 Brand 图片回退。
 
 主题级默认值写在：
 
 ```yaml blog/_config.stellar.yml
-notebook:
-  listing:
-    excerpt_length: 128
-    per_page: null
-    order_by: -updated
-  tag_icons:
-    '': quot:hashtag
-  footer:
-    license: false
-    share: false
+content:
+  notebook:
+    listing:
+      excerpt_length: 128
+      per_page: null
+      sort:
+        field: updated
+        direction: desc
+    tag_icons: {}
+    footer:
+      license: null
+      share: null
 ```
 
 ## 创建笔记
@@ -77,7 +81,7 @@ notebook:
 ---
 title: Node.js 笔记
 collection:
-  type: notebook
+  profile: notebook
   id: dev-notes
 tags:
   - knowledge/nodejs
@@ -96,8 +100,8 @@ listing:
 ## 页面结构
 
 - 笔记本列表页列出所有笔记本。
-- 笔记本页按 `listing.order_by` 分页列出笔记。
+- 笔记本页按 `listing.sort.field` 和 `listing.sort.direction` 排序并分页列出笔记。
 - 标签页只显示对应标签及其子标签的笔记。
 - 笔记页优先展示更新时间，并可显示标签、许可协议和分享入口。
 
-笔记卡片的 `card.cover` 只用于列表卡片，不参与博客文章的 `article.card_style`。搜索框会自动限定在当前笔记本的 `routing.base_dir`。
+笔记卡片的 `card.cover` 只用于列表卡片，不参与博客文章的 `content.article.listing.card_layout`。搜索框会自动限定在当前笔记本的 `route.path`。

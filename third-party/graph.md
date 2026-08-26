@@ -1,10 +1,11 @@
 ---
 date: 2024-01-04 13:45
-updated: 2026-08-18 13:32
+updated: 2026-08-25 00:08
 title: 使用图表类插件
-mermaid: true
+render:
+  diagrams: mermaid
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
@@ -18,7 +19,8 @@ collection:
 
 ```md _posts/xxx.md
 ---
-mermaid: true
+render:
+  diagrams: mermaid
 ---
 ```
 
@@ -47,7 +49,7 @@ gitGraph
 
 <!-- tab 代码示例 -->
 
-<script src="https://gist.github.xaox.cc/weekdaycare/f7769263a4df46b2d75e32684f4ae873.js"></script>
+{% gist weekdaycare/f7769263a4df46b2d75e32684f4ae873 %}
 
 {% endtabs %}
 
@@ -55,12 +57,16 @@ gitGraph
 
 ### 样式配置
 
-主题配置中的 `style_optimization` 用于选择 Mermaid 样式：
+Mermaid 使用官方样式，可在 provider 参数中选择官方主题：
 
 ```yaml
-mermaid:
-  style_optimization: false # 默认使用 Mermaid 官方主题
-  theme: neutral
+extensions:
+  features:
+    diagrams:
+      provider: mermaid
+      providers:
+        mermaid:
+          theme: neutral
 ```
 
-设置为 `true` 时，才会加载 Stellar 自定义 Mermaid 样式；设置为 `false` 或不配置时使用 Mermaid 官方主题。若图表中的文字、箭头或边标签不可见，建议先使用默认的官方主题进行排查。
+页面可以用 `render.diagrams: false` 关闭，或用 `mermaid` / Mermaid 参数对象覆盖。

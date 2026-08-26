@@ -1,9 +1,9 @@
 ---
 date: 2023-12-06 21:55
 updated: 2026-08-25 13:36
-title: 数据类标签组件（8个）
+title: 数据类标签组件（9个）
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
@@ -287,7 +287,7 @@ collection:
 {% md https://gcore.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/README.md %}
 {% endfolding %}
 
-> 说明：当 src 是 GitHub raw 地址（`raw.githubusercontent.com`）时，会使用主题配置 `api_host.ghraw` 的镜像站，README 内的相对图片/链接也会解析到同一镜像基址；远程渲染的标题默认适配本地文章格式（补齐锚点 id，h1 视为页面标题自动隐藏），并自动进入页面右侧目录，无需额外参数。
+> 说明：当 src 是 GitHub raw 地址（`raw.githubusercontent.com`）时，会使用 `extensions.services.github.raw_url` 的镜像站，README 内的相对图片/链接也会解析到同一镜像基址。
 
 ## ghcard 卡片
 
@@ -312,6 +312,15 @@ extensions:
       providers:
         github_readme_stats:
           endpoint: https://github-readme-stats.vercel.app
+```
+
+## gist 代码片段
+
+`gist` 标签通过 `extensions.services.github.gist_url` 构造脚本地址：
+
+```md
+{% gist owner/id %}
+{% gist owner/id file:example.js %}
 ```
 
 ## toc 文档目录树

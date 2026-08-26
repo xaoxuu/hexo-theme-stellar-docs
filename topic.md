@@ -3,7 +3,7 @@ date: 2024-01-14 17:47
 updated: 2026-08-27 00:19
 title: 实现博客专栏/专题
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
@@ -26,9 +26,11 @@ hero:
   background:
     image: https://example.com/banner.webp
 listing:
-  order_by: -date
+  sort:
+    field: date
+    direction: desc
 article:
-  type: tech
+  style: tech
 sidebar:
   left:
     widgets: [recent]
@@ -40,7 +42,7 @@ sidebar:
 - `identity.icon` 是专栏的内容身份图标，不会自动改变 Brand。
 - `card.cover` 是专栏列表中的最新文章卡片背景，不会传给专栏成员文章。
 - `hero.background.image` 可作为专栏文章横幅的集合级默认图。
-- `listing.order_by` 是 Hexo 查询排序表达式，默认 `-date`。
+- `listing.sort` 使用 `field: date|updated|title` 与 `direction: asc|desc`，默认按发布日期降序。
 
 ## 发布专栏文章
 
@@ -48,7 +50,7 @@ sidebar:
 ---
 title: 这是文章标题
 collection:
-  type: topic
+  profile: topic
   id: stellar
 card:
   cover: https://example.com/post-card.webp

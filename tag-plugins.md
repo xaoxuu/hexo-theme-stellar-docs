@@ -3,7 +3,7 @@ date: 2023-12-06 21:55
 updated: 2025-07-06 13:34
 title: 使用标签组件增强阅读体验
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

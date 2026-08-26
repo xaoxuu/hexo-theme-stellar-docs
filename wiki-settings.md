@@ -3,7 +3,7 @@ date: 2023-12-06 21:55
 updated: 2026-08-22 00:12
 title: 如何使用文档系统
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

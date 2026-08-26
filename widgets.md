@@ -1,9 +1,9 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-21 23:17
+updated: 2026-08-27 00:32
 title: 侧边栏组件的配置与使用（9个）
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
@@ -250,14 +250,14 @@ rss:
 
 {% endtabs %}
 
-无论是哪种动态数据，你都可以在 `_config.stellar.yml` 中的 `site_tree` 中设置引用
+无论是哪种动态数据，你都可以在 `_config.stellar.yml` 的 `layout.profiles` 中设置引用：
 
 ```yaml blog/_config.stellar.yml
-site_tree:
-  ...:
-    sidebar:
-      left:
-        widgets: [welcome, recent, 朋友圈, weibo]
+layout:
+  profiles:
+    home:
+      sidebar:
+        left: [welcome, recent, 朋友圈, weibo]
 ```
 
 或者在你需要显示的页面引入，页面内引入优先于配置文件引入：
@@ -272,54 +272,49 @@ sidebar:
 
 ## 配置默认布局
 
-在 {% mark 1.26.0 color:dark %} 版本中，站点主结构树有较大的变化，支持自定义每种页面的组件显示情况，侧边栏会按照指定的顺序从组件库中读取组件并显示：
+`layout.profiles` 支持为每种页面配置组件显示情况，侧边栏会按照指定顺序从组件库中读取并显示组件：
 
 ### 列表类页面
 
 列表类页面是指博客文章列表、专栏列表、wiki 项目列表等页面的配置。
 
-这里解释一下 `base_dir` 是什么意思，比如说当我创建一个 wiki 项目或者笔记页面时，会自动生成一个总项目列表，该页面的默认路径是 `/wiki` ，你可以 [点此查看](https://xaoxuu.com/wiki/) 该页面，改变 `base_dir` 即改变该路径。
+`path` 表示自动生成页面的公开路径。例如创建 Wiki 项目时会自动生成总项目列表，默认路径是 `/wiki/`，可在对应 Profile 中修改。
 
 ```yaml blog/_config.stellar.yml
-# 站点主结构树
-site_tree:
-  # -- 列表类页面 -- #
-  # 主页配置
-  home:
-    sidebar:
-      left:
-        widgets: [welcome, recent]
-      right:
-        widgets: [timeline]
-  # 博客列表页配置
-  index_blog:
-    base_dir: blog # 只影响自动生成的页面路径
-    navigation:
-      menu: post
-      tabs:
-        # '朋友文章': /friends/rss/
-    sidebar:
-      left:
-        widgets: [welcome, recent]
-      right:
-        widgets: [timeline]
-  # 博客专栏列表页配置
-  index_topic:
-    base_dir: topic # 只影响自动生成的页面路径
-    navigation:
-      menu: post
-  # 文档列表页配置
-  index_wiki:
-    base_dir: wiki # 只影响自动生成的页面路径
-    navigation:
-      menu: wiki
-      tabs:
-        # 'more': https://github.com/xaoxuu
-    sidebar:
-      left:
-        widgets: [ghissues, related, recent]
-      right:
-        widgets: [timeline]
+layout:
+  profiles:
+    # 主页配置
+    home:
+      sidebar:
+        left: [welcome, recent]
+        right: [timeline]
+    # 博客列表页配置
+    blog_index:
+      path: /blog/
+      navigation:
+        active_menu: post
+        tabs:
+          - title: 朋友文章
+            url: /friends/rss/
+      sidebar:
+        left: [welcome, recent]
+        right: [timeline]
+    # 博客专栏列表页配置
+    topic_index:
+      path: /topic/
+      navigation:
+        active_menu: post
+    # 文档列表页配置
+    wiki_index:
+      path: /wiki/
+      navigation:
+        active_menu: wiki
+        tabs:
+          - title: more
+            url: https://github.com/xaoxuu
+      sidebar:
+        left: [ghissues, related, recent]
+        right: [timeline]
 ```
 
 ### 内容类页面
@@ -327,58 +322,47 @@ site_tree:
 是指具体到文章页面，文档页面和专栏文章等的具体配置
 
 ```yaml blog/_config.stellar.yml
-# 站点主结构树
-site_tree:
-  # -- 内容类页面 -- #
-  # 博客文章内页配置
-  post:
-    navigation:
-      menu: post
-    sidebar:
-      left:
-        widgets: [related, ghrepo, ghissues, recent]
-      right:
-        widgets: [ghrepo, toc]
-  # 博客专栏文章内页配置
-  topic:
-    navigation:
-      menu: post
-  # 文档内页配置
-  wiki:
-    navigation:
-      menu: wiki
-    sidebar:
-      left:
-        widgets: [tree, ghissues, related, recent]
-      right:
-        widgets: [ghrepo, toc]
-  # 作者信息配置
-  author: 
-    base_dir: author # 只影响自动生成的页面路径
-    navigation:
-      menu: post
-    sidebar:
-      left:
-        widgets: [recent]
-      right:
-        widgets: []
-  # 错误页配置
-  error_page:
-    navigation:
-      menu: post
-    '404': '/404.html'
-    sidebar:
-      left:
-        widgets: [recent]
-      right:
-        widgets: []
-  # 其它自定义页面配置 layout: page
-  page:
-    sidebar:
-      left:
-        widgets: [recent]
-      right:
-        widgets: [timeline, toc]
+layout:
+  profiles:
+    # 博客文章内页配置
+    post:
+      navigation:
+        active_menu: post
+      sidebar:
+        left: [related, ghrepo, ghissues, recent]
+        right: [ghrepo, toc]
+    # 博客专栏文章内页配置
+    topic:
+      navigation:
+        active_menu: post
+    # 文档内页配置
+    wiki:
+      navigation:
+        active_menu: wiki
+      sidebar:
+        left: [tree, ghissues, related, recent]
+        right: [ghrepo, toc]
+    # 作者信息配置
+    author:
+      path: /author/
+      navigation:
+        active_menu: post
+      sidebar:
+        left: [recent]
+        right: []
+    # 错误页配置
+    error:
+      path: /404.html
+      navigation:
+        active_menu: post
+      sidebar:
+        left: [recent]
+        right: []
+    # 其它自定义页面配置 layout: page
+    page:
+      sidebar:
+        left: [recent]
+        right: [timeline, toc]
 ```
 
 

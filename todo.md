@@ -3,7 +3,7 @@ date: 2023-12-06 21:55
 updated: 2025-07-01 21:17
 title: 项目进度和近期计划
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

@@ -3,7 +3,7 @@ date: 2024-01-08 12:39
 updated: 2025-07-06 17:11
 title: 一站多作者配置
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

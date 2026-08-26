@@ -3,7 +3,7 @@ date: 2022-10-21 13:15
 updated: 2026-08-13 01:36
 title: 开启您全新的博客之旅
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

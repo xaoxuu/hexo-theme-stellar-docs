@@ -3,7 +3,7 @@ date: 2023-12-06 21:55
 updated: 2026-08-13 00:45
 title: 开发者和社区支持
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

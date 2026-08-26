@@ -3,7 +3,7 @@ date: 2026-08-18 14:07
 updated: 2026-08-21 23:17
 title: 多语言内容体系
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

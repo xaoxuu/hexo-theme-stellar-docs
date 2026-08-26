@@ -1,9 +1,9 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-20 11:20
+updated: 2026-08-25 00:08
 title: 容器类标签组件（10个）
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
@@ -45,7 +45,7 @@ func test() -> () {
 {% endbox %}
 {% endgrid %}
 <!-- tab 写法 -->
-<script src="https://gist.github.xaox.cc/weekdaycare/741807d61e5796a91647510b9029a8f1.js"></script>
+{% gist weekdaycare/741807d61e5796a91647510b9029a8f1 %}
 {% endtabs %}
 
 ### 嵌套多段代码块
@@ -77,7 +77,7 @@ func setup() {
 ```
 {% endbox %}
 <!-- tab 写法 -->
-<script src="https://gist.github.xaox.cc/xaoxuu/4066776ce26fdfcaed95e979c9d551e0.js"></script>
+{% gist xaoxuu/4066776ce26fdfcaed95e979c9d551e0 %}
 {% endtabs %}
 
 ### 嵌套其它标签
@@ -92,7 +92,7 @@ func setup() {
 公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
 
 <!-- tab 示例代码 -->
-<script src="https://gist.github.xaox.cc/xaoxuu/c983c958ef0deab819376c231e977ba7.js"></script>
+{% gist xaoxuu/c983c958ef0deab819376c231e977ba7 %}
 {% endtabs %}
 {% endbox %}
 
@@ -221,7 +221,7 @@ print("hello world")
 {% endtabs %}
 
 <!-- tab 示例代码 -->
-<script src="https://gist.github.xaox.cc/xaoxuu/cfd4e9645047115c6aa9b19cd9b28e97.js"></script>
+{% gist xaoxuu/cfd4e9645047115c6aa9b19cd9b28e97 %}
 
 {% endtabs %}
 

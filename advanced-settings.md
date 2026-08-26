@@ -1,9 +1,9 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-26 23:09
+updated: 2026-08-27 00:32
 title: 探索个性化配置
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
@@ -12,10 +12,9 @@ collection:
 支持 `HEX` & `HSL` 表示颜色
 
 ```yaml blog/_config.stellar.yml
-style:
-  ...
-  color:
-    theme: 'hsl(192 98% 55%)' # 主题色
+appearance:
+  colors:
+    primary: 'hsl(192 98% 55%)' # 主色
     accent: 'hsl(14 100% 57%)' # 强调色
     link: 'hsl(207 90% 54%)' # 超链接颜色
 ```
@@ -27,15 +26,15 @@ style:
 ### 系统字体
 
 ```yaml blog/_config.stellar.yml
-style:
-  font-size:
-    root: 16px # 桌面端字号基准；移动端自动增加 2px
-    code: 85% # 14px
-    codeblock: 0.8125rem # 13px
-  font-family:
-    body: 'system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif'
-    code: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
-    codeblock: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
+appearance:
+  typography:
+    font_size:
+      root: 16px # 桌面端字号基准；移动端自动增加 2px
+      inline_code: 85% # 14px
+      code_block: 0.8125rem # 13px
+    font_family:
+      body: 'system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif'
+      code: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
 ```
 
 字号基准由 `root` 统一控制：桌面端使用配置值，移动端在此基础上增加 2px；story 布局在当前页面基准上再增加 2px。页面字号基准使用 `--fs-content-base`，组件字号使用 `--fs-content`。旧的 `style.font-size.body` 字段已移除，不再生效。
@@ -48,17 +47,17 @@ style:
 
 ```yaml blog/_config.stellar.yml
 inject:
-  head:
-    - <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
-  script:
+  head_end: |-
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
 ```
 
 并在 `_config.stellar.yml` 中填写你引入的字体名称
 
 ```yaml blog/_config.stellar.yml
-style:
-  font-family:
-    body: '"Noto Serif SC", "Microsoft Yahei",..., sans-serif'
+appearance:
+  typography:
+    font_family:
+      body: '"Noto Serif SC", "Microsoft Yahei",..., sans-serif'
 ```
 
 选择在线字体：
@@ -197,12 +196,13 @@ style:
 Stellar 可以为文章、笔记、笔记本、Wiki 项目、置顶轮播、专栏列表的最新文章、`{% link %}` 链接卡片和 `{% grid bg:card %}` 单元格启用鼠标跟随光斑与轻量 3D 倾斜；Wiki Hero 操作按钮、搜索结果链接及菜单、摘要列表、文档树、链接网格和 dropdown 等标准 UI Collection 条目只启用光斑，不会倾斜。默认关闭：
 
 ```yaml blog/_config.stellar.yml
-plugins:
-  card_hover:
-    enable: false
-    spotlight_color: 'rgba(255, 255, 255, 0.25)'
-    max_tilt: 3 # 最大倾斜角度，范围限制为 0～8°
+extensions:
+  features:
+    card_hover:
+      enabled: false
 ```
+
+光斑颜色与最大倾斜角由主题内部维护，不作为公开配置。
 
 单个自定义组件也可以复用同一能力：
 
@@ -234,16 +234,14 @@ scrollreveal:
 ## 图片懒加载
 
 ```yaml blog/_config.stellar.yml
-# 基础依赖
-dependencies:
-  ...
-  lazyload:
-    js: https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js
-    transition: fade # blur, fade
-    fix_ratio: true # true / false
+extensions:
+  features:
+    lazy_loading:
+      transition: fade # blur / fade
+      auto_aspect_ratio: true
 ```
 
-开启 `fix_ratio` 时，使用 `{% image %}` 标签的图片会被固定长宽比，防止懒加载时页面高度发生跳变。需要至少先本地运行一次 `hexo s` 以完成图片比例数据填充。
+开启 `auto_aspect_ratio` 时，Hexo server 开发模式会扫描 `{% image %}` 标签并把 `ratio:W/H` 写回 Markdown，防止懒加载时页面高度跳变；生产构建不会改写源文件。
 
 JS 动态插入的图片（例如置顶内容轮播）会被自动注册到懒加载，无需手动调用更新。
 
@@ -318,44 +316,29 @@ listing:
 文章页顶部横幅第一行右侧可以显示字数和预计阅读时长（默认关闭）；文章卡片可以在时间/分类那行小字旁显示标签（标签前缀为 hashtag 图标，最多 5 个，默认关闭）；文章页正文结束后、页脚（`article-footer`）之前默认显示一行本文标签（胶囊样式，点击进入对应标签页）：
 
 ```yaml
-article:
-  reading_time: false # 文章页显示字数与预计阅读时长（默认关闭）
-  card_tags: false    # 文章卡片显示标签（最多 5 个，默认关闭）
-  tags: true          # 文章页末尾显示本文标签，链接到标签页（默认开启）
+content:
+  article:
+    show_reading_time: false
+    listing:
+      show_tags: false
+    footer:
+      show_tags: true
 ```
 
 三个配置可以独立开关。
 
 ## AI 成分标签
 
-文章可以在 front-matter 中用 `article.ai_label` 标记 AI 成分：`manual`、`reviewed`、`polished`、`generated`。页面未设置时取主题 `article.ai_label.default`。
+文章可以在 front matter 或 Collection 中用 `article.ai_label` 标记 AI 成分：`manual`、`reviewed`、`polished`、`generated`。未设置时不显示。
 
 ```yaml
 article:
   ai_label: reviewed
 ```
 
-文案由多语言系统提供（`languages/*.yml` 的 `meta.ai_label.*`，随站点语言切换；缺失翻译时标签不渲染），颜色与图标由 `article.ai_label` 配置，主题提供默认值，可按需覆盖：
+文案由多语言系统提供（`languages/*.yml` 的 `meta.ai_label.*`，随站点语言切换；缺失翻译时标签不渲染），颜色与图标由主题内部固定，不提供全局样式配置。
 
-```yaml
-article:
-  ai_label:
-    default: # 未设置 ai_label 时取此值；为空则不显示
-    manual:
-      color: '#03a9f4'
-      icon: default:shield-user
-    reviewed:
-      color: '#4caf50'
-      icon: default:shield-check
-    polished:
-      color: '#4caf50'
-      icon: default:shield-up
-    generated:
-      color: '#ff9800'
-      icon: default:shield-warning
-```
-
-每档可选配 `icon`（取值同站内图标系统，如 `default:shield-user`），渲染在标签文案前。自定义文案需修改主题语言文件（`languages/*.yml`）。
+自定义文案需修改主题语言文件（`languages/*.yml`）。
 
 ## 站点地图
 
@@ -430,26 +413,26 @@ highlight:
   hljs: true
 ```
 
-然后再找到 `highlightjs_theme` 修改 css 链接：
+然后配置 `highlight_stylesheet`：
 
 ```yaml blog/_config.stellar.yml
-style:
-  codeblock:
-    highlightjs_theme: https://gcore.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/atom-one-dark.min.css
+appearance:
+  code_block:
+    highlight_stylesheet: https://gcore.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/atom-one-dark.min.css
 ```
 
 ## 外部文件注入
 
-在主题配置文件中进行修改 `inject.head` 以在 `<head>` 标签末尾处注入代码，修改 `inject.script` 以在 `<body>` 标签末尾处注入代码。
+在主题配置文件中修改 `inject.head_end` 以在 `<head>` 标签末尾注入原文，修改 `inject.body_end` 以在 `<body>` 标签末尾注入原文。两项都只接受字符串，不接受数组。
 
 ```yaml blog/_config.stellar.yml
 inject:
-  head:
-    - <meta name="msapplication-TileColor" content="#2d89ef">
-    - <meta name="msapplication-config" content="https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/favicon/browserconfig.xml">
-    - <meta name="theme-color" content="#ffffff">
-  script:
-    - <script async src="https://gcore.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+  head_end: |-
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config" content="https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+  body_end: |-
+    <script async src="https://gcore.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 ```
 
 ### 不蒜子统计插件
@@ -457,8 +440,9 @@ inject:
 直接贴到要显示的地方（支持 `markdown` 的组件）就行：
 
 ```yaml blog/_config.stellar.yml
-footer:
-  content: |
-    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+site:
+  footer:
+    content: |
+      <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 ```

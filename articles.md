@@ -3,7 +3,7 @@ date: 2023-12-06 21:55
 updated: 2025-07-01 21:17
 title: 探索号 🛰️ 文章分享
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

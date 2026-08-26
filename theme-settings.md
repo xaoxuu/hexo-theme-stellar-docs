@@ -3,7 +3,7 @@ date: 2023-12-06 21:55
 updated: 2026-08-25 19:25
 title: 网站和主题基本信息配置
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

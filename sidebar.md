@@ -1,9 +1,9 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-22 00:56
+updated: 2026-08-24 23:13
 title: 侧边栏配置
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
@@ -16,41 +16,24 @@ Stellar v2 统一使用 `sidebar.left` 和 `sidebar.right`：
 
 ## 站点默认侧边栏
 
-各页面类型的默认组件在 `_config.stellar.yml` 的 `site_tree` 中配置：
+各页面类型的默认组件在 `_config.stellar.yml` 的 `layout.profiles` 中配置。Profile 侧栏直接使用 Widget 数组：
 
 ```yaml blog/_config.stellar.yml
-site_tree:
-  home:
-    sidebar:
-      left:
-        widgets: [welcome, recent]
-      right:
-        widgets: []
-  post:
-    navigation:
-      menu: post
-    sidebar:
-      left:
-        widgets: [recent]
-      right:
-        widgets: [toc]
-  wiki:
-    navigation:
-      menu: wiki
-    sidebar:
-      left:
-        widgets: [tree, related]
-      right:
-        widgets: [toc]
-  page:
-    sidebar:
-      left:
-        widgets: [recent]
-      right:
-        widgets: [toc]
+layout:
+  profiles:
+    home:
+      sidebar:
+        left: [welcome, recent]
+        right: []
+    post:
+      navigation:
+        active_menu: post
+      sidebar:
+        left: [related, recent]
+        right: [toc]
 ```
 
-`widgets` 必须是数组。即使只有一个组件也写成 `[toc]`，清空则写 `[]`。
+Profile 的 `left/right` 本身就是数组。页面或集合覆盖仍使用 `sidebar.left/right.widgets` 对象结构，以便同时携带搜索、菜单和 Brand 等内容级参数。
 
 ## 页面覆盖
 
@@ -94,11 +77,11 @@ sidebar:
     widgets: [ghrepo, toc]
 ```
 
-优先级从高到低为：页面 Front-matter、集合 YAML、`site_tree` 页面类型默认值。
+优先级从高到低为：页面 Front-matter、集合 YAML、`layout.profiles` 页面类型默认值。
 
 ## 左侧 Brand
 
-站点全局使用主题根级 `brand`。页面或集合需要覆盖时，使用 `sidebar.left.brand`：
+站点全局使用 `site.brand`。页面或集合需要覆盖时，使用 `sidebar.left.brand`：
 
 ```yaml
 sidebar:
@@ -106,21 +89,25 @@ sidebar:
     brand:
       image:
         src: https://example.com/icon.svg
-        style: icon
+        variant: icon
+        href: /wiki/stellar/
       name: Stellar
-      tagline: 每个人的独立博客
-      url: /wiki/stellar/
+      wordmark:
+      tagline:
+        text: 每个人的独立博客
+        hover:
+      href: /wiki/stellar/
 ```
 
-`image.style` 有三种明确语义：
+`image.variant` 有三种明确语义：
 
 - `avatar`：正圆裁剪并填满，可继续使用头像旋转背景效果。
 - `icon`：圆角矩形、完整容纳图片。
 - `plain`：不裁剪、不设圆角、不填背景，适合透明底品牌图。
 
-图片背景默认透明，只有 `avatar` 和 `icon` 可以通过 `image.background` 显式配置。`image.url` 控制图片链接，Brand 根级 `url` 控制名称链接。
+Brand 图片背景策略由主题内部决定，不提供 `image.background`。`image.href` 控制图片链接，Brand 根级 `href` 控制名称或字标链接。
 
-`image` 是原子对象：只要覆盖就必须同时写 `src` 与 `style`，不会继承上级图片的其它字段。名称允许受信任的内联 HTML，但不再解析 Markdown 链接。
+`name` 只接受纯文本；图片字标使用 `wordmark`。`tagline.text/hover` 分别控制普通与悬停文案。旧 `style/url/background`、HTML 名称和管道分隔标语都不会兼容读取。
 
 Wiki 与 Notebook 未显式配置 Brand 时，会从 `identity.icon`、`name`、`tagline` 和集合首页自动生成；图标缺失时使用主题默认项目图，不会用 `card.cover` 等其它图片代替。Topic 默认完整继承站点 Brand；只有主动配置 `sidebar.left.brand` 时才覆盖。
 

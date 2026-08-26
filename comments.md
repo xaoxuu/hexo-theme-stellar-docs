@@ -3,7 +3,7 @@ date: 2023-12-06 21:55
 updated: 2026-08-21 23:17
 title: 评论插件配置（6个）
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

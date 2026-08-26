@@ -1,9 +1,9 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-22 00:12
+updated: 2026-08-25 00:08
 title: 编写文章以及独立页面
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
@@ -28,14 +28,15 @@ banner:
 listing:
   priority: 0
 article:
-  type: tech
-  indent: false
+  style: tech
+  paragraph_indent: never
   author:
   ai_label:
 footer:
   references: []
-  license: true
+  license: null
   share: true
+  show_tags: true
 comments:
   enabled: true
 visibility:
@@ -49,9 +50,9 @@ sidebar:
 navigation:
   menu: post
   breadcrumb: true
-mermaid:
-katex:
-mathjax:
+render:
+  math: false # false / katex / mathjax
+  diagrams: false # false / mermaid / Mermaid options object
 ---
 ```
 
@@ -69,12 +70,14 @@ card:
 
 `card.tagline` 缺失时依次使用 `description`、`excerpt` 或正文摘要。主题不会用横幅图片或其它身份图标自动补 `card.cover`。
 
-主题级卡片样式与自动摘要长度仍在 `_config.stellar.yml` 的 `article` 中配置：
+主题级卡片样式与自动摘要长度在 `_config.stellar.yml` 的 `content.article.listing` 中配置：
 
 ```yaml
-article:
-  card_style: hero # hero | classic
-  auto_excerpt: 200
+content:
+  article:
+    listing:
+      card_layout: hero # hero | classic
+      excerpt_length: 200
 ```
 
 ## 内容页横幅
@@ -96,8 +99,8 @@ banner:
 
 ```yaml
 article:
-  type: story # tech | story
-  indent: true
+  style: story # tech | story
+  paragraph_indent: always
   author: xaoxuu
   ai_label: reviewed # manual | reviewed | polished | generated
 ```
@@ -110,7 +113,7 @@ article:
 
 ```yaml
 collection:
-  type: topic
+  profile: topic
   id: stellar
 ```
 

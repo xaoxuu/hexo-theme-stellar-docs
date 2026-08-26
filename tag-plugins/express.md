@@ -3,7 +3,7 @@ date: 2023-12-06 21:55
 updated: 2026-08-25 13:36
 title: 表达类标签组件（34+个）
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 footer:
   references:
@@ -14,10 +14,10 @@ footer:
 
 {% tabs %}
 <!-- tab 效果演示 -->
-内置了可配置的表情标签 {% emoji aini %} {% emoji blobcat 0_0 %} {% emoji tieba huaji %} 使用方法如下：
+内置了可配置的表情标签 {% emoji qq aini %} {% emoji blobcat 0_0 %} {% emoji tieba huaji %} 使用方法如下：
 
 ```
-{% emoji aini %}
+{% emoji qq aini %}
 {% emoji blobcat 0_0 %}
 {% emoji tieba huaji %}
 ```
@@ -45,21 +45,21 @@ footer:
 {% emoji url:图片地址 [name:alt] [height:1.75em] %}
 ```
 
-其中 `source` 可省略，默认为配置中的第一个 `source`（详见「引入表情包」部分）
+其中 `source` 可省略，默认使用 `default_source`（详见「引入表情包」部分）。每个模板都必须包含 `{name}`。
 
 > 表情速查表：[Stellar内嵌blobcat小表情](https://weekdaycare.cn/posts/emoji-blob/)
 
 <!-- tab 引入表情包 -->
 
 ```yaml blog/_config.stellar.yml
-tag_plugins:
-  ...
-  emoji:
-    default: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/qq/{name}.gif
-    twemoji: https://gcore.jsdelivr.net/gh/twitter/twemoji/assets/svg/{name}.svg
-    qq: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/qq/{name}.gif
-    aru: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/aru-l/{name}.gif
-    tieba: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/tieba/{name}.png
+extensions:
+  tags:
+    emoji:
+      default_source: blobcat
+      sources:
+        blobcat: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/blobcat/{name}.gif
+        twemoji: https://gcore.jsdelivr.net/gh/twitter/twemoji/assets/svg/{name}.svg
+        qq: https://gcore.jsdelivr.net/gh/cdn-x/emoticons/qq/{name}.gif
 ```
 
 > 在配置文件中，文件名用 `{name}` 代替。
@@ -81,10 +81,11 @@ icons.yml 中的图标：{% icon example:planet %}
 ```
 
 ```yaml 配置默认颜色
-tag_plugins:
-  icon:
-    # 留空时，图标和文字颜色相同
-    default_color: accent # theme, accent, red, orange, yellow, green, cyan, blue, purple
+extensions:
+  tags:
+    icon:
+      # 留空时，图标和文字颜色相同
+      default_color: accent # theme, accent, red, orange, yellow, green, cyan, blue, purple
 ```
 
 > 还支持 style 参数，可以直接对样式进行修改，仅支持外链图标，style 参数中间不能有空格。
@@ -252,16 +253,6 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 {% image fancybox:true https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/2022/Apple_Shot-on-iphone-macro-challenge_Cat_big.jpg.large_2x.jpg download:https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/2022/Images-of-Shot-on-iphone-macro-challenge.zip 图片来自 Apple 官网 ratio:1960/1470 %}
 
-如果您希望全站所有的 `image` 标签都开启此功能，可在主题配置文件中修改以下参数：
-
-```yaml blog/_config.stellar.yml
-######## Tag Plugins ########
-tag_plugins:
-  # {% image %}
-  image:
-    fancybox: false
-```
-
 从 1.28.1 版本开始，如果想在页面中展示较小的图片，但在 fancybox 中展示较大的高清的图片，可以用 `fancybox:大图链接` 参数。
 
 ## blockquote 段落引用
@@ -305,18 +296,17 @@ tag_plugins:
 
 支持自定义引号：{% quot 热门话题 icon:hashtag %}
 
-其中自定义引号素材在主题配置文件的 `tag_plugins.quot` 中配置：
+其中自定义引号素材在主题配置文件的 `extensions.tags.quot` 中配置：
 
 ```yaml
-tag_plugins:
-  ...
-  # {% quot %}
-  quot:
-    default: # 可以自行配置多种图标方案，支持icons.yml中配置的图片key，也支持直接设置svg/png等文件链接
-      prefix: quot:quote-left
-      suffix: quot:quote-right
-    hashtag:
-      prefix: quot:hashtag
+extensions:
+  tags:
+    quot:
+      default:
+        prefix: quot:quote-left
+        suffix: quot:quote-right
+      hashtag:
+        prefix: quot:hashtag
 ```
 
 {% folding child:codeblock 写法如下 open:true %}

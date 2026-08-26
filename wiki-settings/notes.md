@@ -3,7 +3,7 @@ date: 2024-01-04 13:45
 updated: 2026-08-21 23:17
 title: 用文档系统制作一本简易笔记
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 

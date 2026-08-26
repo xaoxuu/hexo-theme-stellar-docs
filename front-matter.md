@@ -1,9 +1,9 @@
 ---
 date: 2025-07-06 13:34
-updated: 2026-08-22 00:12
+updated: 2026-08-24 23:48
 title: front-matter 全部字段索引
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
@@ -70,7 +70,7 @@ navigation:
   breadcrumb: true
 article:
   type: tech # tech | story
-  indent: false
+  paragraph_indent: never
   author: xaoxuu
   ai_label: reviewed
 footer:

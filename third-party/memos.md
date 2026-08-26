@@ -3,7 +3,7 @@ date: 2024-01-04 13:45
 updated: 2025-07-06 17:11
 title: 使用「memos」极简版
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 
