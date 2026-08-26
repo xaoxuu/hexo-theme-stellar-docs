@@ -1,6 +1,6 @@
 ---
 date: 2024-01-14 17:47
-updated: 2026-08-22 00:46
+updated: 2026-08-27 00:19
 title: 实现博客专栏/专题
 collection:
   type: wiki
@@ -38,7 +38,7 @@ sidebar:
 
 - `name` 用于紧凑位置，`headline` 是专栏列表主标题。
 - `identity.icon` 是专栏的内容身份图标，不会自动改变 Brand。
-- `card.cover` 是专栏列表中的最新文章卡片背景。
+- `card.cover` 是专栏列表中的最新文章卡片背景，不会传给专栏成员文章。
 - `hero.background.image` 可作为专栏文章横幅的集合级默认图。
 - `listing.order_by` 是 Hexo 查询排序表达式，默认 `-date`。
 
@@ -50,12 +50,17 @@ title: 这是文章标题
 collection:
   type: topic
   id: stellar
+card:
+  cover: https://example.com/post-card.webp
+  tagline: 文章列表小字
 ---
 
 文章正文
 ```
 
 `collection.id` 必须对应 `source/_data/topic/stellar.yml` 的文件名。
+
+专栏文章在博客首页、分类和标签等文章列表中继承全局 `content.article.listing.card_layout`。`hero` 布局还要求当前文章显式配置 `card.cover`；未配置时回退为无封面的 `classic` 卡片。专栏 YAML 中的 `card.cover` / `card.tagline` 仅用于专栏索引，不会作为成员文章的回退值；需要使用同一内容时，请在文章 Front Matter 中分别配置。
 
 ## 专栏 Brand
 
