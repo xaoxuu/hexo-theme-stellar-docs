@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-25 23:28
+updated: 2026-08-26 23:09
 title: 探索个性化配置
 collection:
   type: wiki
@@ -89,18 +89,49 @@ style:
 
 但是我个人并不推荐引用本地字体，相比于英文字体，中文字体囊括了众多的字符，这也无法避免地导致字体文件体积的增加，如果你想使用自己的字体而找不到在线的字体引入链接，可以自行制作字体的 `woff2` 切片来减少对网页加载速度的影响。
 
-## 背景图片
+## 侧栏艺术渐变
 
-此功能在 {% mark 1.26.4 %} 中支持，可以设置：纯色/渐变色/图片作为背景。未完全适配，慎用！
+主题默认使用不需要图片的 Glass 艺术渐变侧栏。浅色和深色模式各有一套调色板，主题使用它们生成多层径向与锥形色块。默认值等价于：
 
 ```yaml blog/_config.stellar.yml
-style:
-  ...
-  site:
-    background-image: #'url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)'
-    blur-px: 100px # 模糊半径
-    blur-bg: var(--bg-a75) # 模糊颜色
+appearance:
+  backgrounds:
+    sidebar:
+      surface: glass
+      type: gradient
+      image:
+      gradient:
+        light: ['hsl(210 32% 84%)', 'hsl(188 44% 84%)', 'hsl(12 64% 73%)', 'hsl(35 100% 82%)']
+        dark: ['hsl(210 16% 48%)', 'hsl(188 18% 50%)', 'hsl(12 30% 42%)', 'hsl(35 36% 49%)']
+      opacity: 1
+      backdrop:
+        radius: 100px
+        overlay: var(--bg-a50)
 ```
+
+这两套 HSL 保留了旧默认侧栏图片经过模糊和遮罩后的冷灰、青蓝、珊瑚与砂金色关系。如果只想调整一种模式，只覆盖对应调色板即可：
+
+```yaml blog/_config.stellar.yml
+appearance:
+  backgrounds:
+    sidebar:
+      gradient:
+        dark: ['hsl(220 18% 48%)', 'hsl(170 20% 50%)', 'hsl(330 30% 42%)', 'hsl(45 36% 49%)']
+```
+
+`light` 和 `dark` 列表都必须恰好包含四个合法 CSS 颜色，顺序依次为基础色、左上色块、右中色块和左下色块。除了 HSL，也可以使用 Hex、RGB 或 CSS 颜色变量。渐变继续使用 `opacity`、`backdrop.radius` 和 `backdrop.overlay`；`surface: card` 会隐藏装饰背景。
+
+`type` 显式决定背景类型，可选 `gradient`、`image` 或 `color`。使用图片时不需要清空渐变，直接选择图片类型：
+
+```yaml blog/_config.stellar.yml
+appearance:
+  backgrounds:
+    sidebar:
+      type: image
+      image: /images/sidebar.webp
+```
+
+选择 `color` 时使用 `color.light/dark`。主题只消费选中类型的参数，不会因为渐变调色板非空而覆盖图片。如果希望图片保留旧默认观感，可另外显式设置 `opacity: 0.8` 和 `backdrop.overlay: var(--bg-a60)`。不支持 CSS gradient 的浏览器会显示当前模式调色板的第一个基础色。
 
 ## 文本对齐方向
 
