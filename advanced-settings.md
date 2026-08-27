@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-27 00:32
+updated: 2026-08-27 12:55
 title: 探索个性化配置
 collection:
   profile: wiki
@@ -179,18 +179,6 @@ style:
 > 文章列表封面、置顶轮播、页面顶部横幅与 `{% banner %}` 标签的背景图覆盖层统一采用「同图模糊层」（filter + mask）实现，以兼容连续曲率圆角（Chromium 的 corner-shape 裁剪与 backdrop-filter 不兼容），并在文字所在边缘常驻黑色渐变蒙版（边缘不透明度约 0.25，垂直中线为 0）；hover 时背景图与模糊层同步缓慢放大（scale 1.05）并整体变暗（亮度 75%、饱和度 120%）。
 > 封面/轮播/横幅的图片角落同样跟随该配置：图片 URL 由容器自身背景承载（Chromium 的 `corner-shape` 只作用于元素自身背景绘制，不会传递给子图片的 overflow 裁剪），因此角落与其它元素观感一致；Safari/Firefox 不支持 `corner-shape`，自动回退普通圆角。
 
-## 页面切换过渡
-
-Stellar 默认使用浏览器原生的跨文档 View Transition 平滑衔接同源页面。它不会恢复 PJAX，也不会保留旧页面 DOM；浏览器仍然完整加载新页面，但会在新页面首帧就绪前保留旧页面快照。左侧栏作为独立过渡区域，内容未变化时不会跟随整页闪烁。
-
-```yaml blog/_config.stellar.yml
-style:
-  page_transition:
-    enable: true # 默认开启；设为 false 可关闭
-```
-
-减少动态效果模式会自动关闭过渡。不支持该能力的浏览器、跨域链接、刷新、地址栏导航和页内锚点会保持普通导航，不需要额外兼容配置。
-
 ## 卡片鼠标光效与倾斜
 
 Stellar 可以为文章、笔记、笔记本、Wiki 项目、置顶轮播、专栏列表的最新文章、`{% link %}` 链接卡片和 `{% grid bg:card %}` 单元格启用鼠标跟随光斑与轻量 3D 倾斜；Wiki Hero 操作按钮、搜索结果链接及菜单、摘要列表、文档树、链接网格和 dropdown 等标准 UI Collection 条目只启用光斑，不会倾斜。默认关闭：
@@ -219,17 +207,13 @@ extensions:
 ## 页面缓入效果
 
 ```yaml blog/_config.stellar.yml
-# 默认关闭
-scrollreveal:
-  enable: false
-  js: https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js
-  distance: 4px # 执行距离
-  duration: 400 # ms # 执行时长
-  interval: 100 # ms # 执行间隔（时间）
-  scale: 0.1 # 0.1~1 # 执行方式（缩放）
+extensions:
+  features:
+    reveal:
+      enabled: true
 ```
 
-{% note color:warning 此效果会和图片懒加载插件冲突，导致部分卡片和footer可能加载不出来 %}
+Reveal 使用浏览器原生 `IntersectionObserver` 和 Web Animations API，不加载第三方动画脚本。只提供 `enabled` 开关，动画距离、时长、错峰和缩放由主题统一维护。页面首次显示时已经位于视口内的内容直接显示，之后滚入视口的内容才播放动画。页面内容默认可见；浏览器不支持相关 API、系统开启“减少动态效果”或运行时初始化失败时会直接显示内容，不会因动画失效而留下空白区域。
 
 ## 图片懒加载
 
