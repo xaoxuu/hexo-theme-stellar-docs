@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-22 00:12
+updated: 2026-08-30 15:35
 title: 如何使用文档系统
 collection:
   profile: wiki
@@ -48,13 +48,11 @@ listing:
   priority: 10
   sort: 1
 
-sidebar:
-  left:
-    search:
-      filter: /wiki/stellar/
-      placeholder: 在 Stellar 中搜索
+regions:
+  leftbar:
+    brand: collection_brand
     widgets: [tree, related]
-  right:
+  rightbar:
     widgets: [ghrepo, toc]
 footer:
   license: true
@@ -204,14 +202,13 @@ source:
 ## 侧边栏、页脚和评论
 
 ```yaml
-sidebar:
-  left:
-    widgets: [tree, related]
-    search:
-      filter: /wiki/stellar/
-      placeholder: 在 Stellar 中搜索
-    wiki_home: true
-  right:
+regions:
+  topbar:
+    widgets: [brand, menu, search, actions]
+  leftbar:
+    inherit: false
+    widgets: [wiki_home, tree, related]
+  rightbar:
     widgets: [ghrepo, toc]
 footer:
   license: true
@@ -224,9 +221,9 @@ comments:
     data-repo: owner/repo
 ```
 
-`sidebar.left` 表示页面左侧主导航栏，`sidebar.right` 表示正文右侧辅助栏。两侧的 `widgets` 都必须是数组。评论服务对象保持第三方字段原样。
+`topbar`、`leftbar` 与 `rightbar` 可以同时存在；Region 可使用 Widget 数组简写，也可使用完整对象。`inherit: false` 会先清空站点/Profile 已有 Widget。评论服务对象保持第三方字段原样。
 
-集合未配置 `sidebar.left.brand` 时，主题会用 `identity.icon`、`name`、`tagline` 和 Wiki 首页生成自动 Brand；缺少身份图标时只使用主题默认项目图，不会拿 `card.cover` 或 Hero 背景代替。
+Wiki 的 Brand Widget 会用 `identity.icon`、`name`、`tagline` 和 Wiki 首页生成自动 Brand；缺少身份图标时只使用主题默认项目图，不会拿 `card.cover` 或 Hero 背景代替。
 
 ## 修改 Wiki 总路径
 

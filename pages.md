@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-25 00:08
+updated: 2026-08-30 15:35
 title: 编写文章以及独立页面
 collection:
   profile: wiki
@@ -42,10 +42,10 @@ comments:
 visibility:
   listed: true
   searchable: true
-sidebar:
-  left:
+regions:
+  leftbar:
     widgets:
-  right:
+  rightbar:
     widgets:
 navigation:
   menu: post
@@ -147,23 +147,14 @@ visibility:
 navigation:
   menu: more
   breadcrumb: false
-sidebar:
-  left:
-    widgets: [recent]
-    search: false
-    menu: true
-    brand:
-      image:
-        src: https://example.com/icon.svg
-        style: icon
-      name: 关于本站
-      tagline: 独立页面
-      url: /about/
-  right:
+regions:
+  leftbar:
+    widgets: [brand, menu, recent]
+  rightbar:
     widgets: [toc]
 ```
 
-`navigation.menu` 对应 `menubar.items` 中的 id，用于高亮主菜单。`sidebar.left` 是页面左侧主导航栏，`sidebar.right` 是正文右侧辅助栏；`widgets` 必须写成数组。
+`navigation.menu` 对应 `site.menu.items` 中的 id，用于高亮主菜单。`regions.leftbar` 是桌面侧边 Region，`regions.rightbar` 是正文旁上下文 Region；`widgets` 必须写成数组。Brand 业务数据统一写在站点级 `site.brand`，页面只决定是否放置 `brand` Widget。
 
 手机端 Brand 栏由页面类型自动决定：主页和各类索引/列表页显示，文章、普通页面、集合内容页、归档、作者页和 404 隐藏，不提供页面开关。
 
@@ -215,10 +206,10 @@ open_graph:
 title: 关于
 navigation:
   menu: more
-sidebar:
-  left:
+regions:
+  leftbar:
     widgets: [recent]
-  right:
+  rightbar:
     widgets: [toc]
 ---
 ```

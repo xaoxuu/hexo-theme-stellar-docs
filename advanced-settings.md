@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-27 12:55
+updated: 2026-08-27 22:49
 title: 探索个性化配置
 collection:
   profile: wiki
@@ -95,7 +95,7 @@ style:
 ```yaml blog/_config.stellar.yml
 appearance:
   backgrounds:
-    sidebar:
+    leftbar:
       surface: glass
       type: gradient
       image:
@@ -113,7 +113,7 @@ appearance:
 ```yaml blog/_config.stellar.yml
 appearance:
   backgrounds:
-    sidebar:
+    leftbar:
       gradient:
         dark: ['hsl(220 18% 48%)', 'hsl(170 20% 50%)', 'hsl(330 30% 42%)', 'hsl(45 36% 49%)']
 ```
@@ -125,7 +125,7 @@ appearance:
 ```yaml blog/_config.stellar.yml
 appearance:
   backgrounds:
-    sidebar:
+    leftbar:
       type: image
       image: /images/sidebar.webp
 ```

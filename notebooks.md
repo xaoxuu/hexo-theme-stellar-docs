@@ -1,6 +1,6 @@
 ---
 date: 2025-06-14 19:48
-updated: 2026-08-24 23:48
+updated: 2026-08-27 22:49
 title: 实现完整的笔记体系
 collection:
   profile: wiki
@@ -39,22 +39,20 @@ navigation:
 footer:
   license: null
   share: []
-sidebar:
-  left:
+regions:
+  leftbar:
     widgets: [tagtree, recent]
-  right:
-    widgets: []
 note_defaults:
-  sidebar:
-    left:
+  regions:
+    leftbar:
       widgets: [tagtree, recent]
-    right:
+    rightbar:
       widgets: [toc]
 ```
 
-`listing.order` 控制笔记本列表顺序；`listing.per_page` 和结构化 `listing.sort` 控制笔记列表。`per_page: null` 继承 Hexo，`0` 关闭分页。`sidebar` 用于笔记本列表页，`note_defaults.sidebar` 用于具体笔记页。
+`listing.order` 控制笔记本列表顺序；`listing.per_page` 和结构化 `listing.sort` 控制笔记列表。`per_page: null` 继承 Hexo，`0` 关闭分页。`regions` 用于笔记本列表页，`note_defaults.regions` 用于具体笔记页。
 
-笔记本未显式配置 `sidebar.left.brand` 时，会从 `identity.icon`、`name`、`tagline` 和 `route.path` 生成自动 Brand；`card.cover` 不会作为 Brand 图片回退。
+笔记本的 Brand Widget 会从 `identity.icon`、`name`、`tagline` 和 `route.path` 生成自动 Brand；`card.cover` 不会作为 Brand 图片回退。是否显示以及放在哪个 Region，由 `brand` Widget 的位置决定。
 
 主题级默认值写在：
 

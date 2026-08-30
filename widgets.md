@@ -1,13 +1,13 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-27 00:32
-title: 侧边栏组件的配置与使用（9个）
+updated: 2026-08-27 22:49
+title: Region Widget 的配置与使用
 collection:
   profile: wiki
   id: hexo-stellar
 ---
 
-实现并显示一个小组件需要两个步骤：
+实现并显示一个 Widget 需要两个步骤：
 
 1. 【配置】在组件库中声明组件
 2. 【使用】在需要的位置调用
@@ -20,12 +20,12 @@ collection:
   ...(其它属性)
 ```
 
-使用的地方有：【主题配置】、【项目配置】、【页面】，后者可以覆盖前者，例如：
+使用位置包括站点全局、Profile、Collection 和 Page Region；后一层默认追加到前一层，例如：
 
 ```yaml blog/source/_posts/xxx.md
 ---
-sidebar:
-  left:
+regions:
+  leftbar:
     widgets: ['我的小组件1', '我的小组件2']
 ---
 ```
@@ -256,23 +256,24 @@ rss:
 layout:
   profiles:
     home:
-      sidebar:
-        left: [welcome, recent, 朋友圈, weibo]
+      regions:
+        leftbar:
+          widgets: [welcome, recent, 朋友圈, weibo]
 ```
 
 或者在你需要显示的页面引入，页面内引入优先于配置文件引入：
 
 ```yaml blog/source/_posts/xxx.md
 ---
-sidebar:
-  left:
+regions:
+  leftbar:
     widgets: [ghuser, 朋友圈]
 ---
 ```
 
 ## 配置默认布局
 
-`layout.profiles` 支持为每种页面配置组件显示情况，侧边栏会按照指定顺序从组件库中读取并显示组件：
+`layout.profiles` 支持为每种页面配置 Region。每个 Region 按数组顺序从 Widget Catalog 读取并显示组件：
 
 ### 列表类页面
 
@@ -285,9 +286,11 @@ layout:
   profiles:
     # 主页配置
     home:
-      sidebar:
-        left: [welcome, recent]
-        right: [timeline]
+      regions:
+        leftbar:
+          widgets: [welcome, recent]
+        rightbar:
+          widgets: [timeline]
     # 博客列表页配置
     blog_index:
       path: /blog/
@@ -296,9 +299,11 @@ layout:
         tabs:
           - title: 朋友文章
             url: /friends/rss/
-      sidebar:
-        left: [welcome, recent]
-        right: [timeline]
+      regions:
+        leftbar:
+          widgets: [welcome, recent]
+        rightbar:
+          widgets: [timeline]
     # 博客专栏列表页配置
     topic_index:
       path: /topic/
@@ -312,9 +317,11 @@ layout:
         tabs:
           - title: more
             url: https://github.com/xaoxuu
-      sidebar:
-        left: [ghissues, related, recent]
-        right: [timeline]
+      regions:
+        leftbar:
+          widgets: [ghissues, related, recent]
+        rightbar:
+          widgets: [timeline]
 ```
 
 ### 内容类页面
@@ -328,9 +335,11 @@ layout:
     post:
       navigation:
         active_menu: post
-      sidebar:
-        left: [related, ghrepo, ghissues, recent]
-        right: [ghrepo, toc]
+      regions:
+        leftbar:
+          widgets: [related, ghrepo, ghissues, recent]
+        rightbar:
+          widgets: [ghrepo, toc]
     # 博客专栏文章内页配置
     topic:
       navigation:
@@ -339,30 +348,37 @@ layout:
     wiki:
       navigation:
         active_menu: wiki
-      sidebar:
-        left: [tree, ghissues, related, recent]
-        right: [ghrepo, toc]
+      regions:
+        topbar:
+          widgets: [brand, menu, search, actions]
+        leftbar:
+          inherit: false
+          widgets: [tree, ghissues, related, recent]
+        rightbar:
+          widgets: [ghrepo, toc]
     # 作者信息配置
     author:
       path: /author/
       navigation:
         active_menu: post
-      sidebar:
-        left: [recent]
-        right: []
+      regions:
+        leftbar:
+          widgets: [recent]
     # 错误页配置
     error:
       path: /404.html
       navigation:
         active_menu: post
-      sidebar:
-        left: [recent]
-        right: []
+      regions:
+        leftbar:
+          widgets: [recent]
     # 其它自定义页面配置 layout: page
     page:
-      sidebar:
-        left: [recent]
-        right: [timeline, toc]
+      regions:
+        leftbar:
+          widgets: [recent]
+        rightbar:
+          widgets: [timeline, toc]
 ```
 
 
@@ -386,8 +402,8 @@ my_timeline_lite:
 ```yaml blog/source/_posts/xxx.md
 ---
 title: 某一篇文章
-sidebar:
-  left:
+regions:
+  leftbar:
     widgets:
       - welcome # 只写一个字符串代表引用对应的通用组件
       - override: my_timeline_lite
@@ -397,13 +413,13 @@ sidebar:
 
 ### 匿名组件：仅在使用时创建
 
-适合仅在一个页面或项目中才需要用到的组件，例如在某个页面的侧边栏放一个公告：
+适合仅在一个页面或项目中才需要用到的组件，例如在某个页面的 Leftbar 放一个公告：
 
 ```yaml blog/source/_posts/xxx.md
 ---
 title: 某一篇文章
-sidebar:
-  left:
+regions:
+  leftbar:
     widgets:
       - welcome
       - layout: markdown
@@ -420,8 +436,8 @@ sidebar:
 name: Stellar
 headline: Stellar - 每个人的独立博客
 tagline: Designed by xaoxuu
-sidebar:
-  left:
+regions:
+  leftbar:
     widgets:
       - layout: timeline
         title: 最近更新

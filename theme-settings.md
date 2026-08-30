@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-25 19:25
+updated: 2026-08-27 11:12
 title: 网站和主题基本信息配置
 collection:
   profile: wiki
@@ -44,6 +44,10 @@ language:
 ## 创建主题配置文件
 
 在博客根目录的 `_config.yml` 文件旁边新建一个文件： `_config.stellar.yml` ，在这个文件中的配置信息优先级高于主题文件夹中的配置文件。
+
+开发预览时，保存站点根目录的 `_config.stellar.yml` 会自动重读配置并重新生成页面，无需重启 `hexo server`。新配置未通过 Schema 校验时，终端会显示警告并继续使用上一次有效配置。站点 `_config.yml` 是 Hexo 核心配置，修改后仍可能需要重启。
+
+YAML 字段可以暂时留空，不需要为了通过校验而填写占位值。例如只写 `topbar:` 时，主题会将它视为未配置并使用默认值，不会中断热重载。只有当某字段明确把 `null` 定义为关闭或继承语义时，空值才会被保留，例如 `extensions.search.provider: null` 表示关闭搜索。非空的错误类型仍会报错。
 
 ## 网站 Brand
 

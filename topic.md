@@ -1,6 +1,6 @@
 ---
 date: 2024-01-14 17:47
-updated: 2026-08-27 00:19
+updated: 2026-08-30 15:35
 title: 实现博客专栏/专题
 collection:
   profile: wiki
@@ -31,10 +31,10 @@ listing:
     direction: desc
 article:
   style: tech
-sidebar:
-  left:
+regions:
+  leftbar:
     widgets: [recent]
-  right:
+  rightbar:
     widgets: [toc]
 ```
 
@@ -68,21 +68,15 @@ card:
 
 专栏只是博客文章的组织方式，因此专栏文章默认完整使用站点根级 `brand`。专栏的 `identity.icon`、`name`、`tagline` 和路由不会自动进入 Brand。
 
-如果某个专栏确实需要独立品牌，在专栏 YAML 中主动覆盖：
+专栏默认完整继承站点 Brand。若要显示 Brand，只需把系统 Widget 放入目标 Region：
 
 ```yaml blog/source/_data/topic/stellar.yml
-sidebar:
-  left:
-    brand:
-      image:
-        src: https://example.com/topic.svg
-        style: icon
-      name: Stellar 开发札记
-      tagline: 从设计到实现
-      url: /topic/stellar/
+regions:
+  leftbar:
+    widgets: [brand, related, recent]
 ```
 
-页面 Front Matter 中的 `sidebar.left.brand` 仍可以以更高优先级覆盖专栏或站点 Brand。
+Brand 的业务数据统一来自 `site.brand`；Collection 与 Page Region 只决定是否显示以及显示位置，不再覆盖一份 Brand 数据。
 
 ## 展示逻辑
 
