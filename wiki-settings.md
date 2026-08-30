@@ -48,12 +48,11 @@ listing:
   priority: 10
   sort: 1
 
-regions:
-  leftbar:
-    brand: collection_brand
-    widgets: [tree, related]
-  rightbar:
-    widgets: [ghrepo, toc]
+leftbar:
+  brand: collection_brand
+  widgets: [tree, related]
+rightbar:
+  widgets: [ghrepo, toc]
 footer:
   license: true
   share: true
@@ -202,14 +201,13 @@ source:
 ## 侧边栏、页脚和评论
 
 ```yaml
-regions:
-  topbar:
-    widgets: [brand, menu, search, actions]
-  leftbar:
-    inherit: false
-    widgets: [wiki_home, tree, related]
-  rightbar:
-    widgets: [ghrepo, toc]
+topbar:
+  widgets: [site_brand, spacer, menu, actions]
+leftbar:
+  brand: collection_brand
+  widgets: [tree, related]
+rightbar:
+  widgets: [ghrepo, toc]
 footer:
   license: true
   share: true
@@ -221,7 +219,7 @@ comments:
     data-repo: owner/repo
 ```
 
-`topbar`、`leftbar` 与 `rightbar` 可以同时存在；Region 可使用 Widget 数组简写，也可使用完整对象。`inherit: false` 会先清空站点/Profile 已有 Widget。评论服务对象保持第三方字段原样。
+`topbar`、`leftbar` 与 `rightbar` 可以同时存在；三个 Region 都必须使用对象结构。最后一个显式 `widgets` 数组整体替换站点/Profile 的数组。评论服务对象保持第三方字段原样。
 
 Wiki 的 Brand Widget 会用 `identity.icon`、`name`、`tagline` 和 Wiki 首页生成自动 Brand；缺少身份图标时只使用主题默认项目图，不会拿 `card.cover` 或 Hero 背景代替。
 

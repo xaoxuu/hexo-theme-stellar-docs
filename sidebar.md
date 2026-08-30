@@ -17,109 +17,98 @@ Stellar v2 使用 `topbar`、`leftbar`、`rightbar` 三个可组合 Region。它
 appearance:
   preset: card # card | flat | glass | minimal；整站统一
 
-layout:
-  regions:
-    topbar:
-      widgets: []
-    leftbar:
-      default_state: expanded # expanded | collapsed
-      widgets: [brand, search, menu, actions]
-    rightbar:
-      widgets: []
+topbar:
+  widgets: []
+leftbar:
+  default_state: expanded # expanded | collapsed
+  widgets: []
+rightbar:
+  widgets: []
 
-  profiles:
-    post:
-      regions:
-        leftbar:
-          widgets: [related, recent]
-        rightbar:
-          widgets: [ghrepo, toc]
+profiles:
+  post:
+    leftbar:
+      widgets: [related, recent]
+    rightbar:
+      widgets: [ghrepo, toc]
 ```
 
-`leftbar.default_state` 只允许配置在站点级 `layout.regions.leftbar`。最终 Widget 为空时，主题不会生成对应 Region。
+`leftbar.default_state` 只允许配置在站点级 `leftbar`。最终 Widget 为空时，主题不会生成对应 Region。
 
-Region 也接受数组简写，空键或对象中的空子字段会被当作未配置：
+三个 Region 都必须使用对象结构，数组简写会被 Schema 拒绝：
 
 ```yaml
-layout:
-  regions:
-    topbar: [brand, search, menu, actions]
-    leftbar:
-    rightbar: [toc]
+topbar:
+  widgets: [site_brand, spacer, menu, settings, actions]
+leftbar:
+  widgets: []
+rightbar:
+  widgets: [toc]
 ```
 
 ## Region 级联
 
 最终 Widget 顺序按以下层级解析：
 
-1. 站点全局 `layout.regions`
-2. 页面类型 `layout.profiles.<profile>.regions`
-3. Wiki、专栏或笔记本 YAML 中的 `regions`
-4. 页面 Front Matter 中的 `regions`
+1. 站点全局 `topbar/leftbar/rightbar`
+2. 页面类型 `profiles.<profile>.topbar/leftbar/rightbar`
+3. Wiki、专栏或笔记本 YAML 中的 `topbar/leftbar/rightbar`
+4. 页面 Front Matter 中的 `topbar/leftbar/rightbar`
 
-每层默认 `inherit: true`，会把本层 `widgets` 追加到已有数组。若要替换已有内容，显式使用 `inherit: false`：
+最后一个显式 `widgets` 数组整体替换上层数组；空数组清空，省略字段继承：
 
 ```yaml
-regions:
-  leftbar:
-    inherit: false
-    widgets: [tree]
-  rightbar:
-    widgets: [ghrepo, toc]
+leftbar:
+  widgets: [tree]
+rightbar:
+  widgets: [ghrepo, toc]
 ```
 
-主题不会自动去重、排序或把 Widget 移到其它 Region。Notebook 的 Note 默认布局使用同形的 `note_defaults.regions`。
+主题不会自动去重、排序或把 Widget 移到其它 Region。Notebook 的 Note 默认布局使用同形的 `note_defaults.topbar/leftbar/rightbar`。
 
 ## 系统 Widget
 
-以下固定站点元素也是 Widget，可以由用户决定摆放位置：
+以下站点元素由 Region 对象投影：
 
-- `brand`：使用 `site.brand`；Wiki 与 Notebook 可从项目 Identity 生成默认 Brand。
-- `menu`：使用 `site.menu` 和当前页面的菜单高亮。
-- `search`：使用 `extensions.search`，并保留 Wiki/Notebook 搜索范围。
-- `actions`：使用 `site.footer.actions`。
-- `wiki_home`：返回 Wiki 总索引。
+- `site_brand` / `collection_brand`：Topbar 中使用的站点或 Collection Brand Widget。
+- `menu`：使用根级 `menu` 和当前页面的菜单高亮；搜索入口复用其中的 search item 与共享 Dialog。
+- `settings`：打开外观设置。
+- `actions`：使用根级 `footer.actions`。
+- `spacer`：只用于 Topbar 的弹性占位。
+- Leftbar 的 Brand、Menu、Footer Actions 与 Settings 是固定槽位，由 `leftbar.brand/menu/footer_actions` 控制；`widgets` 只保存普通内容 Widget。
 
 移动 Widget 只改变位置，不需要复制业务配置。例如 Topbar-only 站点：
 
 ```yaml
-layout:
-  regions:
-    topbar:
-      widgets: [brand, menu, search, actions]
+topbar:
+  widgets: [site_brand, spacer, menu, settings, actions]
+leftbar:
+  widgets: []
+rightbar:
+  widgets: []
+profiles:
+  home:
     leftbar:
       widgets: []
-    rightbar:
+  blog_index:
+    leftbar:
       widgets: []
-  profiles:
-    home:
-      regions:
-        leftbar:
-          inherit: false
-          widgets: []
-    blog_index:
-      regions:
-        leftbar:
-          inherit: false
-          widgets: []
 ```
 
-全局空数组不会清除 Profile 追加的 Widget。要实现真正的 Topbar-only，还需要在会追加 Leftbar Widget 的 Profile 中使用 `inherit: false`。上例同时覆盖首页的 `home` 和分页列表的 `blog_index`。
+Profile 的 `widgets: []` 会清空继承的 Widget。上例同时覆盖首页的 `home` 和分页列表的 `blog_index`。
 
 文档站可以同时使用三个 Region：
 
 ```yaml
-layout:
-  profiles:
-    wiki:
-      regions:
-        topbar:
-          widgets: [brand, menu, search, actions]
-        leftbar:
-          inherit: false
-          widgets: [wiki_home, tree]
-        rightbar:
-          widgets: [ghrepo, toc]
+profiles:
+  wiki:
+    topbar:
+      widgets: [site_brand, spacer, menu, actions]
+    leftbar:
+      brand: collection_brand
+      widgets: [tree]
+    rightbar:
+      widgets: [ghrepo, toc]
 ```
 
 ## Widget 的位置能力
@@ -165,7 +154,7 @@ site:
     href: /
 ```
 
-站内搜索 Provider 继续配置在 `extensions.search`。Region 中只放置 `search` Widget，不复制 Provider 或索引配置。
+站内搜索 Provider 继续配置在根级 `search`。Region 中只放置对应入口 Widget，不复制 Provider 或索引配置。
 
 ## 从旧字段迁移
 
@@ -173,15 +162,15 @@ v2 预发布字段不会继续作为运行时别名：
 
 | 旧写法 | 新写法 |
 | :-- | :-- |
-| `sidebar.left.widgets` | `regions.leftbar.widgets` |
-| `sidebar.right.widgets` | `regions.rightbar.widgets` |
-| Profile 的 `sidebar.left/right` | Profile 的 `regions.leftbar/rightbar.widgets` |
-| `layout.regions.sidebar/context` | `layout.regions.leftbar/rightbar` |
+| `sidebar.left.widgets` | `leftbar.widgets` |
+| `sidebar.right.widgets` | `rightbar.widgets` |
+| Profile 的 `sidebar.left/right` | `profiles.<profile>.leftbar/rightbar` |
+| 旧 Region 包装中的 `topbar/leftbar/rightbar` | 对应作用域的直接同名字段 |
 | `sidebarRail` | `leftbarRail` |
 | `appearance.backgrounds.sidebar` | `appearance.backgrounds.leftbar` |
-| `note_defaults.sidebar` | `note_defaults.regions` |
+| `note_defaults.sidebar` | `note_defaults.leftbar/rightbar` |
 | `sidebar.left.search/menu/wiki_home` | 在目标 Region 的 `widgets` 中放置系统 Widget |
-| `sidebar.left.brand` | 业务数据改到 `site.brand`，Region 中放置 `brand` |
+| `sidebar.left.brand` | 业务数据改到根级 `brand`，Leftbar 使用 `brand` 固定槽位 |
 | `appearance.backgrounds.sidebar.surface` | `appearance.preset`；改为整站统一表面风格 |
 
 Doctor 会直接拒绝旧字段并给出迁移位置。Blueprint `classic-blog` 已更名为 `classic`，Visual Style `stellar` 已更名为 `card`，均不保留别名。

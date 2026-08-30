@@ -42,11 +42,10 @@ comments:
 visibility:
   listed: true
   searchable: true
-regions:
-  leftbar:
-    widgets:
-  rightbar:
-    widgets:
+leftbar:
+  widgets:
+rightbar:
+  widgets:
 navigation:
   menu: post
   breadcrumb: true
@@ -147,14 +146,13 @@ visibility:
 navigation:
   menu: more
   breadcrumb: false
-regions:
-  leftbar:
-    widgets: [brand, menu, recent]
-  rightbar:
-    widgets: [toc]
+leftbar:
+  widgets: [recent]
+rightbar:
+  widgets: [toc]
 ```
 
-`navigation.menu` 对应 `site.menu.items` 中的 id，用于高亮主菜单。`regions.leftbar` 是桌面侧边 Region，`regions.rightbar` 是正文旁上下文 Region；`widgets` 必须写成数组。Brand 业务数据统一写在站点级 `site.brand`，页面只决定是否放置 `brand` Widget。
+`navigation.menu` 对应 `menu.items` 中的 id，用于高亮主菜单。`leftbar` 是桌面侧边 Region，`rightbar` 是正文旁上下文 Region；三个 Region 都必须是包含 `widgets` 的对象。Brand 业务数据统一写在站点级 `brand`。
 
 手机端 Brand 栏由页面类型自动决定：主页和各类索引/列表页显示，文章、普通页面、集合内容页、归档、作者页和 404 隐藏，不提供页面开关。
 
@@ -206,11 +204,10 @@ open_graph:
 title: 关于
 navigation:
   menu: more
-regions:
-  leftbar:
-    widgets: [recent]
-  rightbar:
-    widgets: [toc]
+leftbar:
+  widgets: [recent]
+rightbar:
+  widgets: [toc]
 ---
 ```
 

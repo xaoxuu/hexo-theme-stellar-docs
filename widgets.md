@@ -20,13 +20,12 @@ collection:
   ...(其它属性)
 ```
 
-使用位置包括站点全局、Profile、Collection 和 Page Region；后一层默认追加到前一层，例如：
+使用位置包括站点全局、Profile、Collection 和 Page Region；最后一个显式 `widgets` 数组整体替换上层数组，例如：
 
 ```yaml blog/source/_posts/xxx.md
 ---
-regions:
-  leftbar:
-    widgets: ['我的小组件1', '我的小组件2']
+leftbar:
+  widgets: ['我的小组件1', '我的小组件2']
 ---
 ```
 
@@ -250,30 +249,27 @@ rss:
 
 {% endtabs %}
 
-无论是哪种动态数据，你都可以在 `_config.stellar.yml` 的 `layout.profiles` 中设置引用：
+无论是哪种动态数据，你都可以在 `_config.stellar.yml` 的 `profiles` 中设置引用：
 
 ```yaml blog/_config.stellar.yml
-layout:
-  profiles:
-    home:
-      regions:
-        leftbar:
-          widgets: [welcome, recent, 朋友圈, weibo]
+profiles:
+  home:
+    leftbar:
+      widgets: [welcome, recent, 朋友圈, weibo]
 ```
 
 或者在你需要显示的页面引入，页面内引入优先于配置文件引入：
 
 ```yaml blog/source/_posts/xxx.md
 ---
-regions:
-  leftbar:
-    widgets: [ghuser, 朋友圈]
+leftbar:
+  widgets: [ghuser, 朋友圈]
 ---
 ```
 
 ## 配置默认布局
 
-`layout.profiles` 支持为每种页面配置 Region。每个 Region 按数组顺序从 Widget Catalog 读取并显示组件：
+`profiles` 支持为每种页面配置 Region。每个 Region 按 `widgets` 数组顺序从 Widget Catalog 读取并显示组件：
 
 ### 列表类页面
 
@@ -282,46 +278,39 @@ regions:
 `path` 表示自动生成页面的公开路径。例如创建 Wiki 项目时会自动生成总项目列表，默认路径是 `/wiki/`，可在对应 Profile 中修改。
 
 ```yaml blog/_config.stellar.yml
-layout:
-  profiles:
-    # 主页配置
-    home:
-      regions:
-        leftbar:
-          widgets: [welcome, recent]
-        rightbar:
-          widgets: [timeline]
-    # 博客列表页配置
-    blog_index:
-      path: /blog/
-      navigation:
-        active_menu: post
-        tabs:
-          - title: 朋友文章
-            url: /friends/rss/
-      regions:
-        leftbar:
-          widgets: [welcome, recent]
-        rightbar:
-          widgets: [timeline]
-    # 博客专栏列表页配置
-    topic_index:
-      path: /topic/
-      navigation:
-        active_menu: post
-    # 文档列表页配置
-    wiki_index:
-      path: /wiki/
-      navigation:
-        active_menu: wiki
-        tabs:
-          - title: more
-            url: https://github.com/xaoxuu
-      regions:
-        leftbar:
-          widgets: [ghissues, related, recent]
-        rightbar:
-          widgets: [timeline]
+profiles:
+  # 主页配置
+  home:
+    leftbar:
+      widgets: [welcome, recent]
+    rightbar:
+      widgets: [timeline]
+  # 博客列表页配置
+  blog_index:
+    path: /blog/
+    active_menu: post
+    tabs:
+      - title: 朋友文章
+        url: /friends/rss/
+    leftbar:
+      widgets: [welcome, recent]
+    rightbar:
+      widgets: [timeline]
+  # 博客专栏列表页配置
+  topic_index:
+    path: /topic/
+    active_menu: post
+  # 文档列表页配置
+  wiki_index:
+    path: /wiki/
+    active_menu: wiki
+    tabs:
+      - title: more
+        url: https://github.com/xaoxuu
+    leftbar:
+      widgets: [ghissues, related, recent]
+    rightbar:
+      widgets: [timeline]
 ```
 
 ### 内容类页面
@@ -329,56 +318,45 @@ layout:
 是指具体到文章页面，文档页面和专栏文章等的具体配置
 
 ```yaml blog/_config.stellar.yml
-layout:
-  profiles:
-    # 博客文章内页配置
-    post:
-      navigation:
-        active_menu: post
-      regions:
-        leftbar:
-          widgets: [related, ghrepo, ghissues, recent]
-        rightbar:
-          widgets: [ghrepo, toc]
-    # 博客专栏文章内页配置
-    topic:
-      navigation:
-        active_menu: post
-    # 文档内页配置
-    wiki:
-      navigation:
-        active_menu: wiki
-      regions:
-        topbar:
-          widgets: [brand, menu, search, actions]
-        leftbar:
-          inherit: false
-          widgets: [tree, ghissues, related, recent]
-        rightbar:
-          widgets: [ghrepo, toc]
-    # 作者信息配置
-    author:
-      path: /author/
-      navigation:
-        active_menu: post
-      regions:
-        leftbar:
-          widgets: [recent]
-    # 错误页配置
-    error:
-      path: /404.html
-      navigation:
-        active_menu: post
-      regions:
-        leftbar:
-          widgets: [recent]
-    # 其它自定义页面配置 layout: page
-    page:
-      regions:
-        leftbar:
-          widgets: [recent]
-        rightbar:
-          widgets: [timeline, toc]
+profiles:
+  # 博客文章内页配置
+  post:
+    active_menu: post
+    leftbar:
+      widgets: [related, ghrepo, ghissues, recent]
+    rightbar:
+      widgets: [ghrepo, toc]
+  # 博客专栏文章内页配置
+  topic:
+    active_menu: post
+  # 文档内页配置
+  wiki:
+    active_menu: wiki
+    topbar:
+      widgets: [site_brand, spacer, menu, actions]
+    leftbar:
+      brand: collection_brand
+      widgets: [tree, ghissues, related, recent]
+    rightbar:
+      widgets: [ghrepo, toc]
+  # 作者信息配置
+  author:
+    path: /author/
+    active_menu: post
+    leftbar:
+      widgets: [recent]
+  # 错误页配置
+  error:
+    path: /404.html
+    active_menu: post
+    leftbar:
+      widgets: [recent]
+  # 其它自定义页面配置 layout: page
+  page:
+    leftbar:
+      widgets: [recent]
+    rightbar:
+      widgets: [timeline, toc]
 ```
 
 
@@ -402,12 +380,11 @@ my_timeline_lite:
 ```yaml blog/source/_posts/xxx.md
 ---
 title: 某一篇文章
-regions:
-  leftbar:
-    widgets:
-      - welcome # 只写一个字符串代表引用对应的通用组件
-      - override: my_timeline_lite
-        api: https://xxx
+leftbar:
+  widgets:
+    - welcome # 只写一个字符串代表引用对应的通用组件
+    - override: my_timeline_lite
+      api: https://xxx
 ---
 ```
 
@@ -418,15 +395,14 @@ regions:
 ```yaml blog/source/_posts/xxx.md
 ---
 title: 某一篇文章
-regions:
-  leftbar:
-    widgets:
-      - welcome
-      - layout: markdown
-        title: '重要通知'
-        content: |
-          这是页面专属的匿名组件。
-        src: # 可以设置外部 md 文件链接
+leftbar:
+  widgets:
+    - welcome
+    - layout: markdown
+      title: '重要通知'
+      content: |
+        这是页面专属的匿名组件。
+      src: # 可以设置外部 md 文件链接
 ---
 ```
 
@@ -436,11 +412,10 @@ regions:
 name: Stellar
 headline: Stellar - 每个人的独立博客
 tagline: Designed by xaoxuu
-regions:
-  leftbar:
-    widgets:
-      - layout: timeline
-        title: 最近更新
-        api: https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1
-        hide: footer
+leftbar:
+  widgets:
+    - layout: timeline
+      title: 最近更新
+      api: https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/releases?per_page=1
+      hide: footer
 ```

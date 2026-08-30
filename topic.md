@@ -31,11 +31,10 @@ listing:
     direction: desc
 article:
   style: tech
-regions:
-  leftbar:
-    widgets: [recent]
-  rightbar:
-    widgets: [toc]
+leftbar:
+  widgets: [recent]
+rightbar:
+  widgets: [toc]
 ```
 
 - `name` 用于紧凑位置，`headline` 是专栏列表主标题。
@@ -71,9 +70,8 @@ card:
 专栏默认完整继承站点 Brand。若要显示 Brand，只需把系统 Widget 放入目标 Region：
 
 ```yaml blog/source/_data/topic/stellar.yml
-regions:
-  leftbar:
-    widgets: [brand, related, recent]
+leftbar:
+  widgets: [related, recent]
 ```
 
 Brand 的业务数据统一来自 `site.brand`；Collection 与 Page Region 只决定是否显示以及显示位置，不再覆盖一份 Brand 数据。

@@ -22,7 +22,7 @@ v2 不读取 v1 别名。发现旧字段、未知字段或错误类型时，构�
 | `collection` | 页面所属的 Wiki、专栏或笔记本 |
 | `card` | 列表卡片的封面和辅助文案 |
 | `banner` | 内容页顶部横幅 |
-| `regions` | Topbar、Leftbar 与 Rightbar 的 Widget 覆盖 |
+| `topbar/leftbar/rightbar` | 三个 Region 的 Widget 覆盖 |
 | `navigation` | 菜单高亮和面包屑 |
 | `article` | 文章排版、作者和 AI 标记 |
 | `footer` | 参考资料、许可协议和分享 |
@@ -48,14 +48,12 @@ banner:
   avatar: https://example.com/avatar.webp
   headline: 页内主标题
   tagline: 横幅辅助文案
-regions:
-  topbar:
-    widgets: [brand, menu, search, actions]
-  leftbar:
-    inherit: false
-    widgets: [wiki_home, tree, related]
-  rightbar:
-    widgets: [toc]
+topbar:
+  widgets: [site_brand, spacer, menu, actions]
+leftbar:
+  widgets: [tree, related]
+rightbar:
+  widgets: [toc]
 navigation:
   menu: docs
   breadcrumb: true
@@ -98,7 +96,7 @@ source:
 | `identity.icon` | 集合配置中的项目/专栏/笔记本身份图标 | 不作为封面兜底 |
 | `hero.background.image` | 集合首页 Hero 背景 | 不影响普通内容页 |
 
-Brand 图片不属于上述内容资源。站点统一使用 `site.brand` 保存业务数据，页面或集合只在 `regions.<region>.widgets` 中摆放 `brand`。其中 `brand.image` 必须完整提供 `src` 和 `variant`。
+Brand 图片不属于上述内容资源。站点统一使用 `brand` 保存业务数据，页面或集合只在目标 Region 的 `widgets` 中摆放对应系统 Widget。其中 `brand.image` 必须完整提供 `src` 和 `variant`。
 
 主题不会跨语义字段猜测。例如缺少 `card.cover` 时，不会拿 `identity.icon` 自动充当封面。
 
