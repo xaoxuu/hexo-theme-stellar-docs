@@ -2,9 +2,6 @@
 date: 2023-12-06 21:55
 updated: 2026-08-25 00:08
 title: 容器类标签组件（10个）
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 

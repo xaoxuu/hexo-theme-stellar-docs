@@ -1,10 +1,7 @@
 ---
 date: 2025-06-14 19:48
-updated: 2026-09-04 23:13
+updated: 2026-09-05 00:05
 title: 实现完整的笔记体系
-collection:
-  profile: wiki
-  id: hexo-stellar
 footer:
   references:
     - '[PR#464 @calfzhou](https://github.com/xaoxuu/hexo-theme-stellar/pull/464)'
@@ -32,8 +29,7 @@ listing:
   sort:
     field: updated
     direction: desc
-navigation:
-  menu: notes
+active_menu: notes
 footer:
   license: null
   share: []
@@ -45,7 +41,7 @@ rightbar:
 
 `listing.order` 控制笔记本列表顺序；`listing.per_page` 和结构化 `listing.sort` 控制笔记列表。`per_page: null` 继承 Hexo，`0` 关闭分页。笔记本列表、标签页和 Note 详情都使用 Collection 顶层 Region，并分别叠加 `note_index` 与 `note` Profile。
 
-笔记本的根级 `cover` 只用于笔记本列表卡片，不会作为 Brand 图片回退。Brand 需在 `topbar.brand` 或 `leftbar.brand` 中显式配置。
+笔记本的根级 `cover` 只用于笔记本列表卡片。未显式配置 `leftbar.brand` 时，主题从笔记本的 `name/tagline/icon/route` 生成 Leftbar Brand；Profile、Collection 或 Page 仍可覆盖差异或设为 `false`。
 
 主题级默认值写在：
 

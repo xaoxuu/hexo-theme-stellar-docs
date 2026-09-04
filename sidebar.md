@@ -2,9 +2,6 @@
 date: 2023-12-06 21:55
 updated: 2026-09-04 23:13
 title: Region 与 Leftbar 配置
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 Stellar v2 使用 `topbar`、`leftbar`、`rightbar` 三个可组合 Region。它们可以单独存在，也可以同时存在：极简站点可以只保留 Topbar，经典博客可以只使用 Leftbar，文档站则可以同时使用顶部主导航、左侧文档树和正文右侧目录。

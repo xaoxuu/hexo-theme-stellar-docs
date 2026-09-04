@@ -2,9 +2,6 @@
 date: 2024-01-04 13:45
 updated: 2025-07-06 17:11
 title: 使用「memos」极简版
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 需要有自己的 memos 账号，可以在别人部署的 memos 上注册，或者自建 memos 服务，详见官方文档：

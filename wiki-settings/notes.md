@@ -1,10 +1,7 @@
 ---
 date: 2024-01-04 13:45
-updated: 2026-09-04 23:13
+updated: 2026-09-05 00:05
 title: 用文档系统制作一本简易笔记
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 页面数量较少、需要手动维护目录顺序时，可以直接把 Wiki 项目作为一本简易笔记。
@@ -21,8 +18,7 @@ hero:
   enabled: true
   background:
     image: https://example.com/hero.webp
-navigation:
-  menu: notes
+active_menu: notes
 comments:
   enabled: true
   provider: giscus
@@ -51,11 +47,9 @@ title: 备忘录
 collection:
   profile: wiki
   id: notes
-navigation:
-  menu: notes
 ---
 ```
 
-集合级 `navigation.menu` 已经可以为所有页面设置菜单高亮；只有单页需要不同行为时，才在页面 Front-matter 中覆盖。
+集合根级 `active_menu` 已经可以为所有页面设置菜单高亮；只有单页需要不同行为时，才在页面 Front-matter 中用同名字段覆盖。这个示例页面位于 Wiki 标准命名空间外，因此保留显式 `collection` 消歧。
 
 如果页面数量会持续增长、希望自动按更新时间和标签树管理，请改用独立的笔记本系统。

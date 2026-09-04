@@ -1,10 +1,7 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-21 23:17
+updated: 2026-09-05 00:05
 title: 评论插件配置（6个）
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 ## Beaudar
@@ -144,8 +141,8 @@ comments:
 title: 关于
 comments:
   enabled: true
-  service: beaudar
-  beaudar:
+  provider: beaudar
+  options:
     issue-term: 留言板
 ```
 
@@ -153,8 +150,8 @@ comments:
 title: 友链
 comments:
   enabled: true
-  service: beaudar
-  beaudar:
+  provider: beaudar
+  options:
     issue-term: 留言板
 ```
 
@@ -166,8 +163,8 @@ comments:
 title: 快速开始您的博客之旅
 comments:
   enabled: true
-  service: giscus
-  giscus:
+  provider: giscus
+  options:
     data-repo: xaoxuu/hexo-theme-stellar
     data-mapping: number
     data-term: 226

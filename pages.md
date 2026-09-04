@@ -1,10 +1,7 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-09-04 23:13
+updated: 2026-09-05 00:05
 title: 编写文章以及独立页面
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 Stellar v2 将页面外观与行为拆分到命名明确的对象中。Hexo 自带的 `title`、`date`、`tags`、`categories`、`description`、`excerpt` 等字段保持不变。
@@ -42,12 +39,11 @@ visibility:
   listed: true
   searchable: true
 leftbar:
-  widgets:
+  widgets: []
 rightbar:
-  widgets:
-navigation:
-  menu: post
-  breadcrumb: true
+  widgets: []
+active_menu: post
+breadcrumb: true
 render:
   math: false # false / katex / mathjax
   diagrams: false # false / mermaid / Mermaid options object
@@ -136,21 +132,20 @@ visibility:
   searchable: true
 ```
 
-`listing.priority > 0` 才置顶，数字越大越靠前。`visibility.listed` 控制主题列表，`visibility.searchable` 控制站内搜索；两者可以分别设置。
+`listing.priority > 0` 才置顶，数字越大越靠前；该字段只用于 Post、Topic 和 Notebook 页面，Wiki 与普通 Page 不接受。`visibility.listed` 控制主题列表，`visibility.searchable` 控制站内搜索；两者可以分别设置。
 
 ## 导航和侧边栏
 
 ```yaml
-navigation:
-  menu: more
-  breadcrumb: false
+active_menu: more
+breadcrumb: false
 leftbar:
   widgets: [recent]
 rightbar:
   widgets: [toc]
 ```
 
-`navigation.menu` 对应 `topbar.menu` 与 `leftbar.menu` 的 id 并集，用于高亮主菜单。`leftbar` 是桌面侧边 Region，`rightbar` 是正文旁上下文 Region；三个 Region 都必须使用对象结构。Topbar 与 Leftbar 分别配置自己的 Brand，不存在根级 Brand。
+`active_menu` 对应 `topbar.menu` 与 `leftbar.menu` 的 id 并集，用于高亮主菜单；`breadcrumb` 控制面包屑。`leftbar` 是桌面侧边 Region，`rightbar` 是正文旁上下文 Region；三个 Region 都必须使用对象结构。Topbar 与 Leftbar 分别配置自己的 Brand，不存在根级 Brand。
 
 手机端 Brand 栏由页面类型自动决定：主页和各类索引/列表页显示，文章、普通页面、集合内容页、归档、作者页和 404 隐藏，不提供页面开关。
 
@@ -195,13 +190,12 @@ open_graph:
 
 ## 独立页面
 
-关于、友链等独立页面无需特殊布局。通过 `navigation.menu` 设置菜单高亮，再按需组合 Stellar 标签：
+关于、友链等独立页面无需特殊布局。通过 `active_menu` 设置菜单高亮，再按需组合 Stellar 标签：
 
 ```yaml blog/source/about/index.md
 ---
 title: 关于
-navigation:
-  menu: more
+active_menu: more
 leftbar:
   widgets: [recent]
 rightbar:

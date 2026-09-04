@@ -1,10 +1,7 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-09-04 23:13
+updated: 2026-09-05 00:05
 title: 如何使用文档系统
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 Stellar 的 Wiki 系统会将多个页面组织成一个项目，并根据项目配置生成列表卡片、项目首页 Hero、目录树、侧边栏和评论区。
@@ -23,6 +20,8 @@ audience: 独立博主
 
 icon: https://example.com/icon.svg
 cover: https://example.com/card.webp
+banner:
+  image: https://example.com/article-banner.webp
 hero:
   enabled: true
   background:
@@ -44,21 +43,14 @@ route:
   path: /wiki/stellar/
 listing:
   priority: 10
-  sort: 1
+  order: 1
 
 leftbar:
-  brand:
-    image:
-      src: https://example.com/icon.svg
-      variant: icon
-    name: Stellar
-    tagline: 基于 Hexo 的全能型个人知识库
-    href: /wiki/stellar/
   widgets: [tree, related]
 rightbar:
   widgets: [ghrepo, toc]
 footer:
-  license: true
+  license: null
   share: true
 comments:
   enabled: true
@@ -85,26 +77,23 @@ navigation:
 - `headline` 是 Wiki 卡片和 Hero 的主标题；缺失时使用 `name`。
 - `tagline` 是卡片、自动 Brand 等位置的一行辅助文案。
 - `description` 是较完整的项目说明，也用于 SEO 回退。
-- `icon` 只代表项目身份；`cover` 只用于列表卡片；`hero.background` 只用于项目首页 Hero。
+- `icon` 代表项目身份，并用于默认 Leftbar Brand；`cover` 只用于列表卡片；`banner` 是内容页默认横幅；`hero.background` 只用于项目首页 Hero。
 - `audience` 是 Wiki 列表卡片中的适用对象。
-- `listing.priority > 0` 进入置顶区域；`listing.sort` 控制普通 Wiki 项目顺序。
+- `listing.priority > 0` 进入置顶区域；`listing.order` 控制普通 Wiki 项目顺序。
 
 `tags` 必须是字符串数组，即使只有一项也写作 `[博客主题]`。v2 不再把错误的字符串类型自动转成数组。
 
 ## 关联页面
 
-Wiki 页面通过统一的 `collection` 对象声明归属：
+Wiki 页面优先由 `route.path` 与 `navigation.tree` 唯一推导归属，无需重复声明：
 
 ```yaml blog/source/wiki/stellar/index.md
 ---
 title: 快速开始
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 ```
 
-`collection.profile` 只能是 `wiki`、`topic` 或 `notebook`，`collection.id` 对应数据文件名。不再使用三个互斥的顶层字段。
+只有零候选、多候选或页面位置无法表达归属时，才用 `collection.profile/id` 显式消歧；显式值必须指向已注册 Collection 并与其它归属信号一致。
 
 ## 上架 Wiki
 
@@ -225,7 +214,7 @@ leftbar:
 rightbar:
   widgets: [ghrepo, toc]
 footer:
-  license: true
+  license: null
   share: true
 comments:
   enabled: true
@@ -237,7 +226,7 @@ comments:
 
 `topbar`、`leftbar` 与 `rightbar` 可以同时存在；三个 Region 都必须使用对象结构。最后一个显式 `widgets` 数组整体替换站点/Profile 的数组。评论服务对象保持第三方字段原样。
 
-Wiki 的根级 `cover` 只服务项目列表卡片，不会作为 Brand 或 Hero 图片回退。Brand 需在 `topbar.brand` 或 `leftbar.brand` 中显式配置。
+Wiki 的根级 `cover` 只服务项目列表卡片，不会作为 Brand 或 Hero 图片回退。未显式配置 `leftbar.brand` 时，主题从 `name/tagline/icon/route` 生成 Leftbar Brand；Profile、Collection 或 Page 可覆盖差异或设为 `false`。Topbar Brand 不自动生成。
 
 ## 修改 Wiki 总路径
 

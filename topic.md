@@ -1,10 +1,7 @@
 ---
 date: 2024-01-14 17:47
-updated: 2026-09-04 23:13
+updated: 2026-09-05 00:05
 title: 实现博客专栏/专题
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 专栏把一组博客文章组织为连续主题：文章仍存放在 `source/_posts/`，主题根据 `collection` 归属自动聚合和排序。
@@ -20,9 +17,8 @@ tagline: 从设计到实现
 description: 关于 Stellar 的设计、开发和版本更新。
 icon: https://example.com/icon.svg
 cover: https://example.com/card.webp
-hero:
-  background:
-    image: https://example.com/banner.webp
+banner:
+  image: https://example.com/banner.webp
 listing:
   sort:
     field: date
@@ -38,7 +34,7 @@ rightbar:
 - `name` 用于紧凑位置，`headline` 是专栏列表主标题。
 - `icon` 是专栏的内容身份图标，不会自动改变 Brand。
 - `cover` 是专栏列表中的最新文章卡片背景，不会传给专栏成员文章。
-- `hero.background.image` 可作为专栏文章横幅的集合级默认图。
+- `banner.image` 是专栏文章横幅的集合级默认图；页面 `banner` 可按字段覆盖。
 - `listing.sort` 使用 `field: date|updated|title` 与 `direction: asc|desc`，默认按发布日期降序。
 
 ## 发布专栏文章
@@ -65,6 +61,7 @@ tagline: 文章列表小字
 专栏只是博客文章的组织方式。它默认继承目标 Region 的 Brand，专栏根级 `icon`、`name`、`tagline` 和路由不会自动生成 Brand。若要显示专栏专属 Brand，在目标 Region 显式覆盖：
 
 ```yaml blog/source/_data/topic/stellar.yml
+name: Stellar
 leftbar:
   brand:
     image:

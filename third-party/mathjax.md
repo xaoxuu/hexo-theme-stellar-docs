@@ -4,9 +4,6 @@ updated: 2025-07-01 21:17
 title: 使用「mathjax」插件
 render:
   math: mathjax
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 使用前需要在 Markdown 文件开头加入

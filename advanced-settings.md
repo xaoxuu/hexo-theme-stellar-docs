@@ -2,9 +2,6 @@
 date: 2023-12-06 21:55
 updated: 2026-09-04 23:13
 title: 探索个性化配置
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 ## 主题色

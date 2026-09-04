@@ -2,9 +2,6 @@
 date: 2026-08-18 14:07
 updated: 2026-08-21 23:17
 title: 多语言内容体系
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 Stellar 将“主题内置文案翻译”和“站点内容多语言”视为两个独立问题。

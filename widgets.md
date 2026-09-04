@@ -2,9 +2,6 @@
 date: 2023-12-06 21:55
 updated: 2026-09-04 23:13
 title: Region Widget 的配置与使用
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 实现并显示一个 Widget 需要两个步骤：

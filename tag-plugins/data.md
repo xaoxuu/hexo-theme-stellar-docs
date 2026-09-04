@@ -2,9 +2,6 @@
 date: 2023-12-06 21:55
 updated: 2026-08-25 13:36
 title: 数据类标签组件（9个）
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 ## timeline 时间线

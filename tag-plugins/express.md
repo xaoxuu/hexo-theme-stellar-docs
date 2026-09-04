@@ -2,9 +2,6 @@
 date: 2023-12-06 21:55
 updated: 2026-08-25 13:36
 title: 表达类标签组件（34+个）
-collection:
-  profile: wiki
-  id: hexo-stellar
 footer:
   references:
     - '[PR#560 @HcGys](https://github.com/xaoxuu/hexo-theme-stellar/pull/560)'

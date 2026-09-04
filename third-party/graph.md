@@ -4,9 +4,6 @@ updated: 2026-08-25 00:08
 title: 使用图表类插件
 render:
   diagrams: mermaid
-collection:
-  profile: wiki
-  id: hexo-stellar
 ---
 
 ## mermaid
