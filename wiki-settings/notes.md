@@ -1,6 +1,6 @@
 ---
 date: 2024-01-04 13:45
-updated: 2026-08-21 23:17
+updated: 2026-09-04 23:13
 title: 用文档系统制作一本简易笔记
 collection:
   profile: wiki
@@ -15,10 +15,8 @@ collection:
 name: 备忘录
 headline: 备忘录
 tagline: 随手记录的知识
-identity:
-  icon: https://example.com/icon.svg
-card:
-  cover: https://example.com/card.webp
+icon: https://example.com/icon.svg
+cover: https://example.com/card.webp
 hero:
   enabled: true
   background:
@@ -27,21 +25,22 @@ navigation:
   menu: notes
 comments:
   enabled: true
-  service: giscus
-  giscus:
+  provider: giscus
+  options:
     data-term: '23'
     data-mapping: number
-routing:
-  base_dir: /notes/
-tree:
-  日常问题解决方案:
-    - mac
-  移动端开发笔记:
-    - ios
-    - flutter
-  前端学习笔记:
-    - nodejs
-    - server
+route:
+  path: /notes/
+navigation:
+  tree:
+    日常问题解决方案:
+      - mac
+    移动端开发笔记:
+      - ios
+      - flutter
+    前端学习笔记:
+      - nodejs
+      - server
 ```
 
 ## 关联页面
@@ -50,7 +49,7 @@ tree:
 ---
 title: 备忘录
 collection:
-  type: wiki
+  profile: wiki
   id: notes
 navigation:
   menu: notes

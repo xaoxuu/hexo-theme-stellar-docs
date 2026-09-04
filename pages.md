@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-30 15:35
+updated: 2026-09-04 23:13
 title: 编写文章以及独立页面
 collection:
   profile: wiki
@@ -18,9 +18,8 @@ date: {{ date }}
 tags: []
 categories: []
 description:
-card:
-  cover:
-  tagline:
+cover:
+tagline:
 banner:
   image:
   headline:
@@ -62,12 +61,11 @@ render:
 `card` 只控制文章在首页、专栏、搜索等列表中的呈现：
 
 ```yaml
-card:
-  cover: https://example.com/card.webp
-  tagline: 一行辅助文案
+cover: https://example.com/card.webp
+tagline: 一行辅助文案
 ```
 
-`card.tagline` 缺失时依次使用 `description`、`excerpt` 或正文摘要。主题不会用横幅图片或其它身份图标自动补 `card.cover`。
+根级 `tagline` 缺失时依次使用 `description`、`excerpt` 或正文摘要。主题不会用横幅图片、Collection 封面或其它身份图标自动补根级 `cover`。
 
 主题级卡片样式与自动摘要长度在 `_config.stellar.yml` 的 `content.article.listing` 中配置：
 
@@ -92,7 +90,7 @@ banner:
   tagline: 页面顶部的一行说明
 ```
 
-设置 `banner.enabled: false` 可关闭横幅。`banner.headline: ''` 可隐藏横幅主标题。横幅与卡片需要使用同一张图时，请分别显式配置 `card.cover` 和 `banner.image`。
+设置 `banner.enabled: false` 可关闭横幅。`banner.headline: ''` 可隐藏横幅主标题。横幅与卡片需要使用同一张图时，请分别显式配置根级 `cover` 和 `banner.image`。
 
 ## 文章排版和作者
 
@@ -118,13 +116,13 @@ collection:
 
 ```yaml
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ```
 
 ```yaml
 collection:
-  type: notebook
+  profile: notebook
   id: dev-notes
 ```
 
@@ -152,7 +150,7 @@ rightbar:
   widgets: [toc]
 ```
 
-`navigation.menu` 对应 `menu.items` 中的 id，用于高亮主菜单。`leftbar` 是桌面侧边 Region，`rightbar` 是正文旁上下文 Region；三个 Region 都必须是包含 `widgets` 的对象。Brand 业务数据统一写在站点级 `brand`。
+`navigation.menu` 对应 `topbar.menu` 与 `leftbar.menu` 的 id 并集，用于高亮主菜单。`leftbar` 是桌面侧边 Region，`rightbar` 是正文旁上下文 Region；三个 Region 都必须使用对象结构。Topbar 与 Leftbar 分别配置自己的 Brand，不存在根级 Brand。
 
 手机端 Brand 栏由页面类型自动决定：主页和各类索引/列表页显示，文章、普通页面、集合内容页、归档、作者页和 404 隐藏，不提供页面开关。
 
@@ -175,8 +173,8 @@ comments:
   enabled: true
   title: 欢迎讨论
   id: shared-thread
-  service: giscus
-  giscus:
+  provider: giscus
+  options:
     data-repo: owner/repo
     data-mapping: specific
     data-term: shared-thread

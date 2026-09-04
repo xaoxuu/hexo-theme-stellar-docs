@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-30 15:35
+updated: 2026-09-04 23:13
 title: 如何使用文档系统
 collection:
   profile: wiki
@@ -21,10 +21,8 @@ description: Stellar 是一个内置文档系统的 Hexo 主题。
 tags: [博客主题, 知识库]
 audience: 独立博主
 
-identity:
-  icon: https://example.com/icon.svg
-card:
-  cover: https://example.com/card.webp
+icon: https://example.com/icon.svg
+cover: https://example.com/card.webp
 hero:
   enabled: true
   background:
@@ -42,14 +40,20 @@ hero:
 source:
   repository: xaoxuu/hexo-theme-stellar
   branch: main
-routing:
-  base_dir: /wiki/stellar/
+route:
+  path: /wiki/stellar/
 listing:
   priority: 10
   sort: 1
 
 leftbar:
-  brand: collection_brand
+  brand:
+    image:
+      src: https://example.com/icon.svg
+      variant: icon
+    name: Stellar
+    tagline: 基于 Hexo 的全能型个人知识库
+    href: /wiki/stellar/
   widgets: [tree, related]
 rightbar:
   widgets: [ghrepo, toc]
@@ -59,19 +63,20 @@ footer:
 comments:
   enabled: true
   title: 欢迎讨论
-  service: giscus
-  giscus:
+  provider: giscus
+  options:
     data-repo: xaoxuu/hexo-theme-stellar
     data-mapping: number
     data-term: 226
 
-tree:
-  快速开始:
-    - index
-    - examples
-  基本使用:
-    - pages
-    - sidebar
+navigation:
+  tree:
+    快速开始:
+      - index
+      - examples
+    基本使用:
+      - pages
+      - sidebar
 ```
 
 集合字段的语义边界如下：
@@ -80,7 +85,7 @@ tree:
 - `headline` 是 Wiki 卡片和 Hero 的主标题；缺失时使用 `name`。
 - `tagline` 是卡片、自动 Brand 等位置的一行辅助文案。
 - `description` 是较完整的项目说明，也用于 SEO 回退。
-- `identity.icon` 只代表项目身份；`card.cover` 只用于列表卡片；`hero.background` 只用于项目首页 Hero。
+- `icon` 只代表项目身份；`cover` 只用于列表卡片；`hero.background` 只用于项目首页 Hero。
 - `audience` 是 Wiki 列表卡片中的适用对象。
 - `listing.priority > 0` 进入置顶区域；`listing.sort` 控制普通 Wiki 项目顺序。
 
@@ -94,12 +99,12 @@ Wiki 页面通过统一的 `collection` 对象声明归属：
 ---
 title: 快速开始
 collection:
-  type: wiki
+  profile: wiki
   id: hexo-stellar
 ---
 ```
 
-`collection.type` 只能是 `wiki`、`topic` 或 `notebook`，`collection.id` 对应数据文件名。不再使用三个互斥的顶层字段。
+`collection.profile` 只能是 `wiki`、`topic` 或 `notebook`，`collection.id` 对应数据文件名。不再使用三个互斥的顶层字段。
 
 ## 上架 Wiki
 
@@ -114,28 +119,30 @@ collection:
 
 ## 路由和目录树
 
-`routing.base_dir` 是目录项匹配的基础路径；`tree` 可以按分组对象或简单数组书写：
+`route.path` 是目录项匹配的基础路径；`navigation.tree` 可以按分组对象或简单数组书写：
 
 ```yaml
-routing:
-  base_dir: /wiki/stellar/
-tree:
-  快速开始:
+route:
+  path: /wiki/stellar/
+navigation:
+  tree:
+    快速开始:
+      - index
+      - examples
+    进阶:
+      - advanced-settings
+```
+
+```yaml
+route:
+  path: /wiki/stellar/
+navigation:
+  tree:
     - index
     - examples
-  进阶:
-    - advanced-settings
 ```
 
-```yaml
-routing:
-  base_dir: /wiki/stellar/
-tree:
-  - index
-  - examples
-```
-
-每个目录项都必须是字符串。未被 `tree` 收录、但属于该 Wiki 的有标题页面会进入额外分组。
+每个目录项都必须是字符串。未被 `navigation.tree` 收录、但属于该 Wiki 的有标题页面会进入额外分组。
 
 ## 项目首页 Hero
 
@@ -202,9 +209,18 @@ source:
 
 ```yaml
 topbar:
-  widgets: [site_brand, spacer, menu, actions]
+  enabled: true
+  brand:
+    name: Stellar
+    href: /wiki/stellar/
+  menu: []
+  widgets: [spacer, menu]
 leftbar:
-  brand: collection_brand
+  brand:
+    name: Stellar
+    href: /wiki/stellar/
+  footer:
+    actions: []
   widgets: [tree, related]
 rightbar:
   widgets: [ghrepo, toc]
@@ -214,23 +230,23 @@ footer:
 comments:
   enabled: true
   title: 评论区仅供交流
-  service: giscus
-  giscus:
+  provider: giscus
+  options:
     data-repo: owner/repo
 ```
 
 `topbar`、`leftbar` 与 `rightbar` 可以同时存在；三个 Region 都必须使用对象结构。最后一个显式 `widgets` 数组整体替换站点/Profile 的数组。评论服务对象保持第三方字段原样。
 
-Wiki 的 Brand Widget 会用 `identity.icon`、`name`、`tagline` 和 Wiki 首页生成自动 Brand；缺少身份图标时只使用主题默认项目图，不会拿 `card.cover` 或 Hero 背景代替。
+Wiki 的根级 `cover` 只服务项目列表卡片，不会作为 Brand 或 Hero 图片回退。Brand 需在 `topbar.brand` 或 `leftbar.brand` 中显式配置。
 
 ## 修改 Wiki 总路径
 
 Wiki 索引路径属于主题站点结构配置：
 
 ```yaml blog/_config.stellar.yml
-site_tree:
-  index_wiki:
-    base_dir: wiki
+profiles:
+  wiki_index:
+    path: /wiki/
 ```
 
-项目自己的内容路径仍由各自的 `routing.base_dir` 决定。
+项目自己的内容路径仍由各自的 `route.path` 决定。

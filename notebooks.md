@@ -1,6 +1,6 @@
 ---
 date: 2025-06-14 19:48
-updated: 2026-08-27 22:49
+updated: 2026-09-04 23:13
 title: 实现完整的笔记体系
 collection:
   profile: wiki
@@ -21,10 +21,8 @@ name: 开发笔记
 headline: Development Notes
 tagline: 持续整理的开发知识
 description: 关于 Web、Node.js 和工具链的笔记。
-identity:
-  icon: /images/favicon.png
-card:
-  cover: https://example.com/notebook.webp
+icon: /images/favicon.png
+cover: https://example.com/notebook.webp
 route:
   path: /notes/dev/
 listing:
@@ -41,16 +39,13 @@ footer:
   share: []
 leftbar:
   widgets: [tagtree, recent]
-note_defaults:
-  leftbar:
-    widgets: [tagtree, recent]
-  rightbar:
-    widgets: [toc]
+rightbar:
+  widgets: [toc]
 ```
 
-`listing.order` 控制笔记本列表顺序；`listing.per_page` 和结构化 `listing.sort` 控制笔记列表。`per_page: null` 继承 Hexo，`0` 关闭分页。顶层 Region 用于笔记本列表页，`note_defaults.topbar/leftbar/rightbar` 用于具体笔记页。
+`listing.order` 控制笔记本列表顺序；`listing.per_page` 和结构化 `listing.sort` 控制笔记列表。`per_page: null` 继承 Hexo，`0` 关闭分页。笔记本列表、标签页和 Note 详情都使用 Collection 顶层 Region，并分别叠加 `note_index` 与 `note` Profile。
 
-笔记本的 Brand Widget 会从 `identity.icon`、`name`、`tagline` 和 `route.path` 生成自动 Brand；`card.cover` 不会作为 Brand 图片回退。是否显示以及放在哪个 Region，由 `brand` Widget 的位置决定。
+笔记本的根级 `cover` 只用于笔记本列表卡片，不会作为 Brand 图片回退。Brand 需在 `topbar.brand` 或 `leftbar.brand` 中显式配置。
 
 主题级默认值写在：
 
@@ -82,8 +77,7 @@ collection:
 tags:
   - knowledge/nodejs
   - tools
-card:
-  cover: https://example.com/note.webp
+cover: https://example.com/note.webp
 listing:
   priority: 5
 ---
@@ -100,4 +94,4 @@ listing:
 - 标签页只显示对应标签及其子标签的笔记。
 - 笔记页优先展示更新时间，并可显示标签、许可协议和分享入口。
 
-笔记卡片的 `card.cover` 只用于列表卡片，不参与博客文章的 `content.article.listing.card_layout`。搜索框会自动限定在当前笔记本的 `route.path`。
+笔记的根级 `cover` 只用于列表卡片，不参与博客文章的 `content.article.listing.card_layout`。搜索框会自动限定在当前笔记本的 `route.path`。

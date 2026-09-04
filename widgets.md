@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-27 22:49
+updated: 2026-09-04 23:13
 title: Region Widget 的配置与使用
 collection:
   profile: wiki
@@ -333,9 +333,18 @@ profiles:
   wiki:
     active_menu: wiki
     topbar:
-      widgets: [site_brand, spacer, menu, actions]
+      enabled: true
+      brand:
+        name: Stellar
+        href: /wiki/stellar/
+      menu: []
+      widgets: [spacer, menu]
     leftbar:
-      brand: collection_brand
+      brand:
+        name: Stellar
+        href: /wiki/stellar/
+      footer:
+        actions: []
       widgets: [tree, ghissues, related, recent]
     rightbar:
       widgets: [ghrepo, toc]

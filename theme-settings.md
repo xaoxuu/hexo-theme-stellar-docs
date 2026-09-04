@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-27 11:12
+updated: 2026-09-04 23:13
 title: 网站和主题基本信息配置
 collection:
   profile: wiki
@@ -51,26 +51,22 @@ YAML 字段可以暂时留空，不需要为了通过校验而填写占位值。
 
 ## 网站 Brand
 
-侧边栏与支持的移动端列表页使用 `site.brand`：
+Leftbar Brand 在 `leftbar.brand` 中配置；Topbar 需要时使用独立的 `topbar.brand`：
 
 ```yaml blog/_config.stellar.yml
-site:
+leftbar:
   brand:
     image:
       src: https://example.com/avatar.webp
       variant: avatar
-      href: /about/
     name: 我的博客
-    wordmark: https://example.com/wordmark.svg
-    tagline:
-      text: 每个人的独立博客
-      hover: example.com
+    tagline: 每个人的独立博客
     href: /
 ```
 
-`image.variant` 可选 `avatar`、`icon`、`plain`：头像正圆裁剪，图标使用圆角矩形，透明原图不裁剪。`image.href` 是图片链接，根级 `href` 是标题或字标链接。
+`image.variant` 可选 `avatar`、`icon`、`plain`：头像正圆裁剪，图标完整容纳，透明原图不裁剪。`href` 是整个 Brand 的链接。
 
-`name` 只接受纯文本；图片字标请使用 `wordmark`。`tagline.text` 和 `tagline.hover` 分别是普通与悬停文案。`image.src`、`name` 和 `tagline.text` 只读取主题配置，省略时均为 `null`，不会继承 Hexo 的 `avatar`、`title` 或 `subtitle`。普通页面没有配置图片、名称或字标时不会显示 Brand Header。
+Topbar 与 Leftbar 各自保存完整 Brand，不存在根级 Brand。对象按字段级联，字段值 `null` 显式隐藏对应内容，整个 `brand: false` 则隐藏 Brand。空 Brand 不生成容器。
 
 Brand 不解析 HTML 或 Markdown 链接，旧 `style/url/background` 字段会由 `stellar doctor` 报告迁移错误。
 

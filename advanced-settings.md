@@ -1,6 +1,6 @@
 ---
 date: 2023-12-06 21:55
-updated: 2026-08-27 22:49
+updated: 2026-09-04 23:13
 title: 探索个性化配置
 collection:
   profile: wiki
@@ -291,7 +291,7 @@ listing:
 - Wiki 列表页展示置顶项目：在 `source/_data/wiki/*.yml` 中设置 `listing.priority`，规则同上。
 - wiki 置顶项目始终以轮播展示，不受 `article.pin_style` 影响。
 - 轮播区宽高比与非置顶文章统一，由 `article.cover_ratio` 控制（修改该值即可整体调整）。
-- 置顶文章卡片的标题取 `title`，小字取 `card.tagline` > `description` > excerpt，封面只取 `card.cover`。
+- 置顶文章卡片的标题取 `title`，小字取根级 `tagline` > `description` > excerpt，封面只取根级 `cover`。
 - 鼠标悬停轮播区时左右两侧显示翻页按钮（样式同 swiper 导航按钮），点击切换上一张/下一张。
 - 没有置顶内容时不渲染；置顶文章卡片不再显示置顶图标（由轮播展示）。
 
