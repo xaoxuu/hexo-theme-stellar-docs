@@ -1,7 +1,7 @@
 ---
 title: Wiki 文档
 date: 2023-12-06 21:55
-updated: 2026-09-06 02:28
+updated: 2026-09-06 22:41
 ---
 
 Wiki 通过目录组织一组页面，适合产品手册、项目文档和长期维护的专题。目录顺序由你指定，可以按阅读需要分组。
@@ -59,9 +59,7 @@ navigation:
 hero:
   enabled: true
   background:
-    effect:
-      type: galaxy
-      options: {}
+    image: /images/wiki-hero.webp
   preview:
     type: terminal
     commands:
@@ -73,7 +71,81 @@ hero:
       icon: default:github
 ```
 
-Hero 仅适用于 Wiki 项目首页。背景图片、预览图片及项目卡片封面分别配置，见 [Collection 参考](/wiki/stellar/reference/collection/)；普通页面横幅使用 `banner`。
+Hero 仅适用于 Wiki 项目首页。
+
+### 背景图片
+
+只需要静态背景时，配置 `hero.background.image`：
+
+```yaml blog/source/_data/wiki/handbook.yml
+hero:
+  enabled: true
+  background:
+    image: /images/wiki-hero.webp
+```
+
+图片支持站点相对路径或可访问的完整 URL。项目展示墙中的卡片封面使用根级 `cover`，普通 Wiki 内容页横幅使用 `banner.image`，它们不会替代 Hero 背景。
+
+### 动态效果
+
+当前内置 `ferrofluid`、`light-rays` 和 `galaxy` 三种效果。在 `hero.background.effect.type` 中选择效果，通过同级 `options` 调整参数；省略 `options` 时使用全部默认值。背景图片与动态效果可以同时配置，此时图片显示在动态效果下方。
+
+#### Ferrofluid
+
+```yaml blog/source/_data/wiki/handbook.yml
+hero:
+  enabled: true
+  background:
+    effect:
+      type: ferrofluid
+      options:
+        colors: ['#ffffff', '#06B6D4', '#E0F2FE']
+        backgroundColor: '#03010A'
+        flowDirection: down
+        mouseInteraction: true
+```
+
+Ferrofluid 显示流动的磁流体轮廓，可使用最多八种颜色，并在鼠标附近产生磁性扰动。
+
+#### Light Rays
+
+```yaml blog/source/_data/wiki/handbook.yml
+hero:
+  enabled: true
+  background:
+    effect:
+      type: light-rays
+      options:
+        raysOrigin: top-center
+        raysColor: '#00ffff'
+        raysSpeed: 1.5
+        lightSpread: 0.8
+        rayLength: 1.2
+        followMouse: true
+        mouseInfluence: 0.1
+        noiseAmount: 0.1
+        distortion: 0.05
+```
+
+Light Rays 显示从指定方向投射的体积光束，并可跟随鼠标改变方向。
+
+#### Galaxy
+
+```yaml blog/source/_data/wiki/handbook.yml
+hero:
+  enabled: true
+  background:
+    effect:
+      type: galaxy
+      options:
+        starSpeed: 2
+        density: 2
+        hueShift: 140
+        mouseInteraction: true
+        mouseRepulsion: true
+```
+
+Galaxy 显示具有纵深移动、辉光和鼠标排斥交互的星场。三种效果的全部参数、默认值、运行时策略和图片叠加规则见 [Collection 参考](/wiki/stellar/reference/collection/#Hero-背景效果)。
 
 ## 仓库与 README
 

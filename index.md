@@ -67,7 +67,7 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 {% endbox %}
 
 
-## 从蓝图开始，一键复刻
+## 从蓝图开始，一键启动
 
 {% box %}
 
@@ -117,86 +117,11 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 
 {% endbox %}
 
-## 安装与更新
-
-{% box %}
-{% tabs %}
-
-<!-- tab 稳定版 -->
-
-**安装方法**
-
-1. 打开终端并进入博客文件夹，执行：
-{% copy npm i hexo-theme-stellar %}
-
-2. 在 `blog/_config.yml` 文件中找到并修改：
-{% copy theme: stellar %}
-
-**更新方法**
-
-1. 打开终端并进入博客文件夹，执行：
-{% copy npm i hexo-theme-stellar %}
-
-2. 查看 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)，按说明完成迁移。
-
-{% note color:green 适用范围 稳定版适用于以内容创作为主，不需要自定义主题，追求稳定和可靠性的用户。 %}
-
-<!-- tab 最新版 -->
-
-**安装方法**
-
-1. 把 Stellar 主题仓库添加为博客仓库的子模块
-{% copy git submodule add https://github.com/xaoxuu/hexo-theme-stellar.git themes/stellar %}
-
-2. 在 `blog/_config.yml` 文件中找到并修改：
-{% copy theme: stellar %}
-
-**更新方法**
-
-1. 打开终端并进入主题文件夹，执行：
-{% copy git pull %}
-
-2. 查看 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)，按说明完成迁移。
-
-{% note color:blue 适用范围 最新版适用于希望第一时间体验新特性的用户。 %}
-
-<!-- tab 自定义 -->
-
-**安装方法**
-
-1. 把 Stellar 主题仓库 [fork](https://github.com/xaoxuu/hexo-theme-stellar) 到您的 GitHub 账号下
-
-2. 把您 fork 的 Stellar 主题仓库添加为博客仓库的子模块
-{% copy git submodule add https://github.com/#yourname#/hexo-theme-stellar.git themes/stellar %}
-
-3. 在 `blog/_config.yml` 文件中找到并修改：
-{% copy theme: stellar %}
-
-**更新方法**
-
-1. 在您 fork 的 Stellar 主题仓库打开终端，执行：
-{% copy git pull %}
-
-2. 查看 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)，按说明完成迁移。
-
-{% note color:yellow 适用范围 自定义版适用于对主题有自定义需求，且掌握了一定的前端知识和动手能力的用户。 %}
-
-<!-- tab 引用源码 -->
-
-**安装方法**
-
-下载源码放到 `themes/` 文件夹下面试用。
-
-{% note color:error 适用范围 仅适合测试，无法获得更新。 %}
-
-{% endtabs %}
-{% endbox %}
-
 ## 关于 Stellar
 
-{% quot 真正的简约不止删繁就简，而是在纷繁中建立秩序。它通过克制视觉元素、突出有效信息、删除无效内容，让注意力始终落在真正重要的东西上。 %}
+{% quot 真正的简约不止删繁就简，而是在纷繁中建立秩序。 %}
 
-{% image https://star-history.dera.page/svg?repos=xaoxuu/hexo-theme-stellar&type=date&legend=top-left %}
+{% image https://star-history.dera.page/svg?repos=xaoxuu/hexo-theme-stellar&type=date&legend=top-left  ratio:800/533 %}
 
 {% box %}
 {% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/contributors?per_page=100&direction=asc %}
@@ -204,3 +129,5 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 
 
 {% navbar [源代码](https://github.com/xaoxuu/hexo-theme-stellar) [版本记录](/wiki/stellar/support/releases/) [社区文章](/wiki/stellar/support/articles/) [参与贡献](/wiki/stellar/support/community/) %}
+
+{% rating id:default 给 Stellar 五星好评吧～ %}

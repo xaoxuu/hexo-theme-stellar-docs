@@ -1,16 +1,16 @@
 ---
 title: 配置对照
 date: 2026-09-05 20:49
-updated: 2026-09-06 20:15
+updated: 2026-09-06 23:50
 ---
 
-下表以 [1.44.0 默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/1.44.0/_config.yml)和页面实际用法为依据，列出升级到 v2 时需要修改的字段。v2 不会自动读取这些旧名称；新配置的完整用法见[主题参考](/wiki/stellar/reference/theme/)和[Collection 参考](/wiki/stellar/reference/collection/)。
+下表以 [1.44.0 默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/1.44.0/_config.yml)、Collection 读取链和页面实际用法为依据，覆盖从 1.44.0 升级时仍可出现的主题配置、Collection 与 Front Matter 输入。v2 不会自动读取这些旧名称；新配置的完整用法见[主题参考](/wiki/stellar/reference/theme/)和[Collection 参考](/wiki/stellar/reference/collection/)。
 
 ## 站点布局
 
 | 1.44.0 输入 | v2 目标与处理 |
 | :--- | :--- |
-| `logo.avatar/title/subtitle` | `leftbar.brand.image/name/tagline/href`；拆出 Markdown 链接及纯文本；不能直接搬 HTML |
+| `logo.avatar/title/subtitle` | `leftbar.brand.image.src/name/tagline/href`；从 Markdown 链接中拆出图片／文字和链接；不能直接搬 HTML |
 | `menubar.items` | `leftbar.menu` 数组；项目 theme 配色改为 accent，保留 id/title/icon/url |
 | `site_tree` | `profiles`；同时转换下面的类型名与子字段 |
 | index_blog / index_topic / index_wiki | blog_index / topic / wiki_index |
@@ -20,6 +20,7 @@ updated: 2026-09-06 20:15
 | `nav_tabs` 映射 | `listing_nav.enabled/tabs`，条目转换为 title/url |
 | `footer.social` | `leftbar.footer.actions`，逐项明确 link/button/dropdown/spacer |
 | `footer.content`、`footer.sitemap` | 分别核对站点页脚正文与 `footer.sections` 的标题／链接分栏；不是 XML sitemap 插件配置 |
+| `preconnect` | 路径不变，数组仍整体替换；v2 默认改为空数组，需要的资源 Origin 必须显式保留 |
 
 ## 内容默认值
 
@@ -58,6 +59,8 @@ updated: 2026-09-06 20:15
 | `plugins.<id>.inject` | 内置集成改用对应 features；自有可信 HTML 可放 inject.head_end/body_end，先检查加载时机及是否重复 |
 | `stellar`、`system` 内部元数据／资源路径 | 从站点覆盖中移除，以安装包和主题 Runtime 为准 |
 
+`search/comments/canonical/open_graph/structured_data/preconnect` 这些根名称仍存在，但内部字段和默认值已经变化，不能因为根名相同就整段复制。`comments` 的第三方参数保持服务方原字段名；其它根按上表逐项转换。
+
 ## 标签与动态数据
 
 v1 的标签插件配置不能只把根节点从 `tag_plugins` 改成 `tags`。下表列出需要继续转换或删除的输入；当前可用标签及参数以[标签插件参考](/wiki/stellar/reference/tags/)为准。
@@ -86,22 +89,40 @@ v1 的标签插件配置不能只把根节点从 `tag_plugins` 改成 `tags`。�
 | 1.44.0 输入 | v2 目标与处理 |
 | :--- | :--- |
 | 页面 wiki/topic/notebook | `collection.profile/id`；唯一归属可省略，有歧义时显式声明 |
-| Collection title/subtitle/repo/branch | `name/tagline/source.repository/source.branch` |
-| Collection base_dir/start/tree | `route.path/route.start/navigation.tree`；start 仅 Topic、tree 仅 Wiki |
-| Wiki coverpage/background/animation/preview/actions | `hero` 下相应开关、背景、效果、预览与按钮；只支持 Wiki |
+| Collection `title/subtitle` | `name/tagline`；若旧文件同时有 `name` 与 `title/headline`，保留短名为 `name`，把展示主标题放入 `headline` |
+| Collection `repo/branch` | `source.repository/source.branch` |
+| Collection `base_dir/path/start/tree` | `route.path/route.path/route.start/navigation.tree`；start 仅 Topic、tree 仅 Wiki |
+| Collection `sort/pin/order_by` | `listing.order/priority/sort`；排序方向改为结构化的 `field/direction` |
+| Collection `auto_excerpt/per_page` | `listing.excerpt_length/per_page`；只写到支持这些字段的 Topic 或 Notebook |
+| Collection `leftbar/rightbar` 字符串 | 对应 Region 的 `widgets` 数组；逗号列表拆项，`[]` 明确清空 |
+| Notebook `note_leftbar/note_rightbar` | 通用详情默认写入 `profiles.note.*.widgets`；仅个别页面不同则写该页 Region |
+| Collection `logo` | 主要迁入 `leftbar.brand`；旧版移动端也复用同一 Logo，需要继续显示时另配 `topbar.brand` 与 `topbar.enabled`；把图标、标题、标语与链接拆为结构化字段 |
+| Collection `search/menu/wiki_home` | `leftbar.brand.search`、`leftbar.menu`、`leftbar.brand.back_button`；布尔菜单开关需改成实际菜单数组 |
+| Wiki `available` | `audience`；这是项目卡片的“适用于”文字，不是 `visibility` |
+| Wiki `coverpage/background/animation/preview/actions` | `hero.enabled/background.image/background.effect/preview/actions`；只支持 Wiki，旧 `animation.params` 改为 effect `options` |
+| Wiki `homepage` | 不再单独配置；把目标页放到 `navigation.tree` 第一项，或按最终路由与目录让主题唯一推导 |
 | 页面 h1/subtitle/banner_info | `banner.headline/tagline` 与横幅对象，按旧字段实际用途转换 |
 | 顶层 type/indent/author/ai_label | `article.style/paragraph_indent/author/ai_label` |
 | references/license/share | `footer.references/license/share` |
-| menu_id/header | `active_menu/breadcrumb` 与 Region；拆分原来混合的开关 |
-| comments 布尔或服务对象 | `comments.enabled/provider/options`；线程标题与 ID 放 title/id |
+| 页面 `menu_id` | `active_menu` |
+| 页面 `comments` 布尔、`comments_service`、`comment_title/comment_id` | `comments.enabled/provider/title/id` |
+| 页面 `beaudar/utterances/giscus/twikoo/waline/artalk` 参数对象 | 移入 `comments.options`；全站默认参数仍写在主题 `comments.<provider>` |
+| 页面 `header` | `topbar.enabled`；若需要旧移动页头中的身份信息，同时配置 `topbar.brand` |
+| 页面 `logo` | 按显示位置拆为 `leftbar.brand` 与 `topbar.brand`；不再用一份对象隐式覆盖两个区域 |
+| 页面 `search` | v2 没有旧版 filter/placeholder 参数对象；需要入口时在 `leftbar.menu` 或 `topbar.menu` 放 `type: search` 项，Collection 范围由当前页面自动确定 |
+| 页面 `menu` | `leftbar.menu`；旧布尔开关要改为实际菜单数组，空数组明确隐藏 |
+| 页面 `nav_tabs` | 列表级导航迁入 `profiles.blog_index.listing_nav` 或 `profiles.wiki_index.listing_nav`；普通内容页改用 Region Menu 或 navbar 标签 |
+| 页面 `wiki_home` | 移入对应 Wiki Collection 的 `leftbar.brand.back_button` |
 | indexing | `visibility.searchable` |
 | pin/sticky | `listing.priority`；布尔 true 需显式转换为正整数，false 转 0，仅限支持置顶的页面 |
 | Notebook order_by/per_page | `listing.sort/per_page`；标签排序与集合排序分别验证 |
 | Notebook note_leftbar/note_rightbar | 审查原列表／详情差异，公共值进入 Collection Region，详情专属值放 profiles.note 或页面覆盖 |
 | mathjax/katex/mermaid 主题集成开关 | `render.math/diagrams`；其它第三方插件字段按插件本身协议核对 |
 
+`poster` 在 1.44.0 之前已经移除，不属于本次 1.44.0 → v2 的兼容输入；若更早的站点仍保留它，先按旧版本发布记录迁移到 1.44.0，再执行本表。
+
 ## 无等价项与默认变化
 
-有些旧字段没有一对一的替代项。自定义脚本、模板注入、缺图时的默认图片和路由设置，需要按原用途分别处理。若要保留旧版效果，可能需要在站点中显式配置。本表不包含开发期间的中间配置结构，主题内部模型的属性也不能直接写进站点配置。
+有些旧字段没有一对一的替代项。`dependencies`、`data_cache`、内部脚本 URL、Wiki `homepage`、标签插件的全局 OKR／复制／时间线策略等由 Runtime 接管或需要按内容重写；自定义脚本、模板注入、缺图时的默认图片和路由设置也要按原用途分别处理。若要保留旧版效果，可能需要在站点中显式配置。本表不包含开发期间的中间配置结构，主题内部模型的属性也不能直接写进站点配置。
 
 迁移后需要通过 Doctor 检查，并确认生成页面的效果，详见[迁移流程](/wiki/stellar/migration/v1-to-v2/)。

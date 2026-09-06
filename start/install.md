@@ -1,7 +1,7 @@
 ---
 title: 环境与安装
 date: 2022-10-21 13:15
-updated: 2026-09-06 02:23
+updated: 2026-09-07 00:36
 ---
 
 在已有 Hexo 站点中安装 Stellar，需要确认运行环境、选择主题版本，并设置 `theme: stellar`。还没有站点时，从[创建第一个站点](/wiki/stellar/start/first-site/)开始。
@@ -19,50 +19,119 @@ npx hexo version
 
 ## 选择安装版本
 
-v2 目前处于开发阶段，通过源码使用。`npm install hexo-theme-stellar` 安装的是 npm 上公开的稳定版，它不保证已经是 v2。
-
+{% box %}
 {% tabs %}
 
-<!-- tab v2 开发版 -->
+<!-- tab 从蓝图安装 -->
 
-在博客根目录添加主题源码，再安装主题自己的依赖：
+蓝图会创建一套已经配置好的独立站点，并安装它锁定的 Stellar 版本。选择最接近目标站点的蓝图，复制对应命令即可。
 
-```sh
-git submodule add https://github.com/xaoxuu/hexo-theme-stellar.git themes/stellar
-npm install --prefix themes/stellar
-```
+**安装方法**
 
-打开博客根目录的 `_config.yml`，设置：
+{% tabs active:2 %}
 
-```yaml blog/_config.yml
-theme: stellar
-```
+<!-- tab 留白 · 轻博客 -->
 
-源码会跟随主题仓库继续变化。准备长期使用或反馈问题时，记下当前 commit：
+适合长文、随笔与低干扰阅读：
 
-```sh
-git -C themes/stellar rev-parse HEAD
-```
+{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-lightblog --blueprint=lightblog --non-interactive %}
+{% copy cd stellar-lightblog && npm run server %}
 
-<!-- tab npm 稳定版 -->
+<!-- tab 星迹 · 博客 -->
 
-如果你只想使用已经公开发布的稳定版本：
+适合使用经典侧栏整理文章、分类、标签与专栏：
 
-```sh
-npm install hexo-theme-stellar
-```
+{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-blog --blueprint=blog --non-interactive %}
+{% copy cd stellar-blog && npm run server %}
 
-然后在 `_config.yml` 中设置 `theme: stellar`。用下面的命令确认实际装到哪个版本：
+<!-- tab 个人知识库 -->
 
-```sh
-npm ls hexo-theme-stellar
-```
+适合把博客文章、项目资料和长期主题放在同一个站点：
 
-本套 Wiki 讲的是 v2。版本号仍为 1.x 时，请查看对应版本的 Release 和旧文档，不要直接复制这里的 v2 配置。
+{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-knowledge --blueprint=knowledge --non-interactive %}
+{% copy cd stellar-knowledge && npm run server %}
+
+<!-- tab 项目文档 -->
+
+适合为单个项目维护首页、文档目录与内容页面：
+
+{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-docs --blueprint=docs --non-interactive %}
+{% copy cd stellar-docs && npm run server %}
 
 {% endtabs %}
 
-同一个站点不要同时保留 npm 包和 `themes/stellar` 源码。两份主题都在时，Hexo 实际加载哪一份很容易和你的判断不同。
+创建器会自动安装依赖。蓝图已经包含站点配置与主题依赖，不需要再执行其它安装 Tab 的命令。创建器不会覆盖非空目录；创建完成后，主题版本以站点的 `package.json` 和锁文件为准。完整目录和源码见 [Stellar Examples](https://github.com/xaoxuu/hexo-theme-stellar-examples)。
+
+{% note color:blue 适用范围 想直接从可运行示例开始，再逐步替换内容和配置。蓝图是创建起点，不会覆盖或自动升级已有站点。 %}
+
+<!-- tab 稳定版 -->
+
+**安装方法**
+
+1. 在博客根目录安装 npm 已公开的版本：
+{% copy npm install hexo-theme-stellar %}
+
+2. 在 `blog/_config.yml` 文件中找到并修改：
+{% copy theme: stellar %}
+
+3. 确认实际安装版本：
+{% copy npm ls hexo-theme-stellar %}
+
+**更新方法**
+
+1. 安装一个明确的稳定版本：
+{% copy npm install hexo-theme-stellar@版本号 %}
+
+2. 查看 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)，按说明完成迁移。
+
+{% note color:green 适用范围 只要已经发布到 npm，就使用稳定版安装方式。若实际安装仍显示 1.x，就不能直接使用本套 v2 配置。锁定部署时可以在包名后指定完整版本号。 %}
+
+<!-- tab 最新版 -->
+
+**安装方法**
+
+1. 在博客根目录把官方仓库的 `main` 分支添加为子模块，并安装主题自身的依赖：
+{% copy git submodule add -b main https://github.com/xaoxuu/hexo-theme-stellar.git themes/stellar %}
+{% copy npm install --prefix themes/stellar %}
+
+2. 在 `blog/_config.yml` 文件中找到并修改：
+{% copy theme: stellar %}
+
+**更新方法**
+
+1. 更新到官方 `main` 的最新提交，并重新安装依赖：
+{% copy git -C themes/stellar pull --ff-only origin main %}
+{% copy npm install --prefix themes/stellar %}
+
+2. 运行 Doctor 和生成；长期使用或反馈问题时，用 `git -C themes/stellar rev-parse HEAD` 记录实际提交。
+
+{% note color:blue 适用范围 官方 submodule 始终跟随 main 的当前源码，可能包含尚未发布到 npm 的变化；更新前查看 CHANGELOG 与迁移说明。 %}
+
+<!-- tab DIY -->
+
+**安装方法**
+
+1. 先把 [Stellar 官方仓库](https://github.com/xaoxuu/hexo-theme-stellar) Fork 到自己的 GitHub 账号。
+
+2. 把 `YOUR_GITHUB_NAME` 替换为自己的用户名，将 Fork 的 `main` 分支添加为子模块，并安装主题依赖：
+{% copy git submodule add -b main https://github.com/YOUR_GITHUB_NAME/hexo-theme-stellar.git themes/stellar %}
+{% copy npm install --prefix themes/stellar %}
+
+3. 在 `blog/_config.yml` 文件中找到并修改：
+{% copy theme: stellar %}
+
+**更新方法**
+
+1. 把官方更新合并到自己的 Fork 后，在博客根目录执行：
+{% copy git -C themes/stellar pull --ff-only origin main %}
+{% copy npm install --prefix themes/stellar %}
+
+2. 查看 [更新日志](https://github.com/xaoxuu/hexo-theme-stellar/releases)，按说明完成迁移。
+
+{% note color:yellow 适用范围 需要长期修改主题源码，并愿意自行同步官方更新和处理冲突。不要直接把修改提交到官方 submodule。 %}
+
+{% endtabs %}
+{% endbox %}
 
 ## 确认安装完成
 
@@ -75,8 +144,6 @@ Doctor 会检查 Node、Hexo、主题配置和内容文件。第一次运行时�
 
 生成完成后继续[创建第一个站点](/wiki/stellar/start/first-site/)。命令报错时，可按[Doctor 与问题排查](/wiki/stellar/support/doctor/)处理。
 
-## 更新主题
+## 更新前后检查
 
-源码安装需要更新子模块引用并重新安装依赖；npm 安装则更新到一个明确发布的版本。动手前记下当前版本、锁文件和自己的主题改动，更新后再跑一次 Doctor 和生成。
-
-修改过主题源码时，更新需要合并自己的改动，避免覆盖定制内容。
+更新前记录主题版本或 commit、锁文件和自己的主题改动；更新后重新安装依赖，再运行 Doctor 与生成。修改过主题源码时，应先合并自己的改动，避免更新时覆盖定制内容。
