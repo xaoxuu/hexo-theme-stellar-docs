@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "sources": {
+    "before_reorganization": "b7bb56c",
+    "before_v2_guides": "b14d8c9"
+  },
+  "entries": [
+    {
+      "from": "/wiki/stellar/advanced-settings/",
+      "to": "/wiki/stellar/guides/appearance/"
+    },
+    {
+      "from": "/wiki/stellar/articles/",
+      "to": "/wiki/stellar/support/articles/"
+    },
+    {
+      "from": "/wiki/stellar/authors/",
+      "to": "/wiki/stellar/guides/pages/"
+    },
+    {
+      "from": "/wiki/stellar/comments/",
+      "to": "/wiki/stellar/guides/comments/"
+    },
+    {
+      "from": "/wiki/stellar/contributors/",
+      "to": "/wiki/stellar/support/contributors/"
+    },
+    {
+      "from": "/wiki/stellar/examples/",
+      "to": "/wiki/stellar/support/examples/"
+    },
+    {
+      "from": "/wiki/stellar/front-matter/",
+      "to": "/wiki/stellar/reference/front-matter/"
+    },
+    {
+      "from": "/wiki/stellar/multilingual/",
+      "to": "/wiki/stellar/guides/multilingual/"
+    },
+    {
+      "from": "/wiki/stellar/notebooks/",
+      "to": "/wiki/stellar/guides/notebook/"
+    },
+    {
+      "from": "/wiki/stellar/pages/",
+      "to": "/wiki/stellar/guides/pages/"
+    },
+    {
+      "from": "/wiki/stellar/releases/",
+      "to": "/wiki/stellar/support/releases/"
+    },
+    {
+      "from": "/wiki/stellar/seo-settings/",
+      "to": "/wiki/stellar/guides/seo/"
+    },
+    {
+      "from": "/wiki/stellar/sidebar/",
+      "to": "/wiki/stellar/guides/layout/"
+    },
+    {
+      "from": "/wiki/stellar/tag-plugins/",
+      "to": "/wiki/stellar/reference/tags/"
+    },
+    {
+      "from": "/wiki/stellar/tag-plugins/express/",
+      "to": "/wiki/stellar/reference/tags/express/"
+    },
+    {
+      "from": "/wiki/stellar/tag-plugins/data/",
+      "to": "/wiki/stellar/reference/tags/data/"
+    },
+    {
+      "from": "/wiki/stellar/tag-plugins/container/",
+      "to": "/wiki/stellar/reference/tags/container/"
+    },
+    {
+      "from": "/wiki/stellar/theme-settings/",
+      "to": "/wiki/stellar/start/configuration/"
+    },
+    {
+      "from": "/wiki/stellar/third-party/graph/",
+      "to": "/wiki/stellar/guides/integrations/"
+    },
+    {
+      "from": "/wiki/stellar/third-party/katex/",
+      "to": "/wiki/stellar/guides/integrations/"
+    },
+    {
+      "from": "/wiki/stellar/third-party/mathjax/",
+      "to": "/wiki/stellar/guides/integrations/"
+    },
+    {
+      "from": "/wiki/stellar/third-party/memos/",
+      "to": "/wiki/stellar/guides/integrations/"
+    },
+    {
+      "from": "/wiki/stellar/todo/",
+      "to": "/wiki/stellar/support/roadmap/"
+    },
+    {
+      "from": "/wiki/stellar/topic/",
+      "to": "/wiki/stellar/guides/topic/"
+    },
+    {
+      "from": "/wiki/stellar/widgets/",
+      "to": "/wiki/stellar/guides/widgets/"
+    },
+    {
+      "from": "/wiki/stellar/wiki-settings/",
+      "to": "/wiki/stellar/guides/wiki/"
+    },
+    {
+      "from": "/wiki/stellar/wiki-settings/notes/",
+      "to": "/wiki/stellar/guides/wiki/"
+    }
+  ]
+}
