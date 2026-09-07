@@ -1,7 +1,7 @@
 ---
 title: Front Matter
 date: 2025-07-06 13:34
-updated: 2026-09-06 15:51
+updated: 2026-09-07 22:06
 ---
 
 Front Matter 是 Markdown 开头的 YAML 配置。主题字段使用 `snake_case`，第三方参数使用服务方原有的名称。Doctor 会报告不支持的主题字段，旧字段需要按[迁移说明](/wiki/stellar/migration/fields/)修改。
@@ -77,6 +77,11 @@ collection:
 | `render.math` | false / katex / mathjax；省略沿用全局渲染配置 |
 | `render.diagrams` | false / mermaid / 参数对象；省略沿用全局配置 |
 | `seo.open_graph` | 参数对象，当前页面 Open Graph 覆盖 |
-| `inject.head_end/body_end` | 可信 HTML 字符串，追加至相应位置 |
+| `inject.head_begin` | 可信 HTML 字符串，插入 `<head>` 后、主题 meta 前 |
+| `inject.head_end` | 可信 HTML 字符串，插入 `</head>` 前 |
+| `inject.body_begin` | 可信 HTML 字符串，插入 `<body>` 后、页面外壳前 |
+| `inject.body_end` | 可信 HTML 字符串，插入 `</body>` 前 |
 
 数学和图表设置决定浏览器加载哪种渲染工具，Hexo 使用的 Markdown 渲染器也需要支持相应语法。详见[第三方集成](/wiki/stellar/guides/integrations/)。
+
+页面注入追加在站点 `_config.stellar.yml` 的同位置内容之后；两段都非空时由主题插入一个换行。四个字段只接受字符串，内容会原样输出，不解析、不格式化也不转义，只应填写维护者完全信任的 HTML。

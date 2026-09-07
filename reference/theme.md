@@ -1,7 +1,7 @@
 ---
 title: 主题配置
 date: 2026-09-05 20:49
-updated: 2026-09-07 20:24
+updated: 2026-09-07 22:06
 ---
 
 本页适用于 v2 的 `_config.stellar.yml`。主题[默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/_config.yml)列出了完整配置和默认值，[校验规则](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/scripts/schema/config-rules.js)说明了类型和取值限制。不同版本可能有差异，请以安装版本为准。
@@ -191,6 +191,11 @@ profiles:
 | `open_graph.enabled` | true |
 | `open_graph.twitter_id` | null 或字符串 |
 | `structured_data.same_as` | 空数组，外部身份 URL |
-| `inject.head_end/body_end` | 空字符串，可信原始 HTML |
+| `inject.head_begin` | 空字符串；插入 `<head>` 后、主题 meta 前的可信原始 HTML |
+| `inject.head_end` | 空字符串；插入 `</head>` 前的可信原始 HTML |
+| `inject.body_begin` | 空字符串；插入 `<body>` 后、页面外壳前的可信原始 HTML |
+| `inject.body_end` | 空字符串；插入 `</body>` 前的可信原始 HTML |
+
+四个注入字段都只接受字符串。站点 `_config.stellar.yml` 的内容在前，页面 Front Matter 的同位置内容在后；两段都非空时由主题插入一个换行。内容不解析、不格式化也不转义，只应填写维护者完全信任的 HTML。这里不读取 Hexo `_config.yml` 中的同名配置。
 
 配置文件使用本页列出的字段。主题源码中的运行时对象和 camelCase 属性不直接用于 `_config.stellar.yml`。

@@ -1,7 +1,7 @@
 ---
 title: 配置对照
 date: 2026-09-05 20:49
-updated: 2026-09-07 20:24
+updated: 2026-09-07 22:06
 ---
 
 下表以 [1.44.0 默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/1.44.0/_config.yml)、Collection 读取链和页面实际用法为依据，覆盖从 1.44.0 升级时仍可出现的主题配置、Collection 与 Front Matter 输入。v2 不会自动读取这些旧名称；新配置的完整用法见[主题参考](/wiki/stellar/reference/theme/)和[Collection 参考](/wiki/stellar/reference/collection/)。
@@ -56,7 +56,7 @@ updated: 2026-09-07 20:24
 | `default` | 头像、链接卡片等备用资源进入 fallbacks，错误图进入 profiles.error.image；内容与 Brand 不再共用通用封面 |
 | `canonical.originalHost/officialHosts` | `canonical.host/allowed_hosts` |
 | `open_graph.enable`、`structured_data.links` | `open_graph.enabled`、`structured_data.same_as` |
-| `plugins.<id>.inject` | 内置集成改用对应 features；自有可信 HTML 可放 inject.head_end/body_end，先检查加载时机及是否重复 |
+| `plugins.<id>.inject` | 内置集成改用对应 features；自有可信 HTML 按加载时机放入 inject.head_begin/head_end/body_begin/body_end，先检查是否重复 |
 | `stellar`、`system` 内部元数据／资源路径 | 从站点覆盖中移除，以安装包和主题 Runtime 为准 |
 
 `search/comments/canonical/open_graph/structured_data/preconnect` 这些根名称仍存在，但内部字段和默认值已经变化，不能因为根名相同就整段复制。`comments` 的第三方参数保持服务方原字段名；其它根按上表逐项转换。
