@@ -1,7 +1,7 @@
 ---
 title: 主题配置
 date: 2026-09-05 20:49
-updated: 2026-09-06 15:51
+updated: 2026-09-07 20:24
 ---
 
 本页适用于 v2 的 `_config.stellar.yml`。主题[默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/_config.yml)列出了完整配置和默认值，[校验规则](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/scripts/schema/config-rules.js)说明了类型和取值限制。不同版本可能有差异，请以安装版本为准。
@@ -32,7 +32,7 @@ updated: 2026-09-06 15:51
 
 ## 页面类型
 
-`profiles.<profile>` 保存各类型的 Region 默认值及导航。Region 子字段沿用上表；省略继承，数组替换，允许的 null 表示继承。下表给出预设布局，实际内容还受可见性和上下文限制。
+`profiles.<profile>` 保存各类型的专属设置、Region 默认值及导航。Region 子字段沿用上表；省略继承，数组替换，允许的 null 表示继承。下表给出预设布局，实际内容还受可见性和上下文限制。
 
 | Profile | 用途／默认路径 | 默认 Leftbar Widget | 默认 Rightbar Widget |
 | :--- | :--- | :--- | :--- |
@@ -42,8 +42,8 @@ updated: 2026-09-06 15:51
 | `topic` | 专栏，`/topic/` 前缀 | related、recent | ghrepo、toc |
 | `wiki_index` | Wiki 列表，`/wiki/` | related、recent | 空 |
 | `wiki` | Wiki 页面 | tree、related | ghrepo、toc |
-| `notebook_index` | 笔记本总列表，`/notebooks/`；`path: null` 只关闭总列表 | recent | 空 |
-| `note_index` | 笔记本列表与标签页 | tagtree、recent | 空 |
+| `notebooks` | 全部笔记本，`/notebooks/`；`path: null` 只关闭总列表 | recent | 空 |
+| `notebook` | 单个笔记本的列表与标签页 | tagtree、recent | 空 |
 | `note` | 笔记详情 | tagtree、recent | toc |
 | `author` | 作者页，`/author/` | recent | 空 |
 | `page` | 普通独立页面 | recent | toc |
@@ -52,11 +52,18 @@ updated: 2026-09-06 15:51
 
 `active_menu` 为菜单 ID 或 null；默认 home、blog_index、post、topic、author、page、error 使用 `post`，其余 null。Wiki 默认清空固定菜单和底部操作。
 
-`path` 用于表中支持自定义路径的页面类型；文章的永久链接使用 `permalink`，集合路径使用 `route.path`。`wiki_index.path: null` 停止生成 Wiki 列表；`notebook_index.path: null` 只停止生成笔记本总列表，各 Notebook 的集合、标签和详情路由仍会生成。
+`path` 用于表中支持自定义路径的页面类型；文章的永久链接使用 `permalink`，集合路径使用 `route.path`。`wiki_index.path: null` 停止生成 Wiki 列表；`notebooks.path: null` 只停止生成笔记本总列表，各 Notebook 的集合、标签和详情路由仍会生成。
 
 `profiles.blog_index.listing_nav` 和 `profiles.wiki_index.listing_nav` 使用 `enabled/tabs`；默认分别 false/true，tabs 默认空，每项为 `title/url`。
 
-`profiles.home.comments` 使用 `enabled/title/id/provider/options`，默认关闭、其它字段 null、options 空对象。其覆盖语义同[页面评论](/wiki/stellar/reference/front-matter/#评论)。
+`profiles.home.comments` 与 `profiles.error.comments` 都使用 `enabled/title/id/provider/options`，默认关闭、其它字段 null、options 空对象。设为 `enabled: true` 时默认继承全局评论 Provider，覆盖语义同[页面评论](/wiki/stellar/reference/front-matter/#评论)。
+
+```yaml blog/_config.stellar.yml
+profiles:
+  error:
+    comments:
+      enabled: true
+```
 
 ## 文章、笔记与设置页
 
@@ -76,14 +83,14 @@ updated: 2026-09-06 15:51
 | `article.footer.license` | 默认 CC BY-NC-SA 4.0 文案 | string / false |
 | `article.footer.share` | 全部内置服务 | 字符串数组，空数组隐藏 |
 | `article.footer.show_tags` | true | boolean，文章页标签 |
-| `notebook.listing.per_page` | null | 非负整数或 null；0 不分页，null 继承 Hexo |
-| `notebook.listing.sort.field` | updated | date / updated / title |
-| `notebook.listing.sort.direction` | desc | asc / desc |
-| `notebook.listing.excerpt_length` | 128 | 非负整数 |
-| `notebook.tag_icons` | `{}` | 标签到图标的映射 |
-| `settings.about.items` | Hexo 与主题版本 | 数组，条目 `key/value/url`；value 与 url 支持主题变量 |
+| `profiles.notebook.listing.per_page` | null | 非负整数或 null；0 不分页，null 继承 Hexo |
+| `profiles.notebook.listing.sort.field` | updated | date / updated / title |
+| `profiles.notebook.listing.sort.direction` | desc | asc / desc |
+| `profiles.notebook.listing.excerpt_length` | 128 | 非负整数 |
+| `profiles.notebook.tag_icons` | `{}` | 标签到图标的映射 |
+| `profiles.settings.about.items` | Hexo 与主题版本 | 数组，条目 `key/value/url`；value 与 url 支持主题变量 |
 
-分享服务为 `wechat/weibo/x/telegram/whatsapp/email/link/system`。主题级 `notebook` 只配置列表与标签图标，不接受 `footer`；Wiki、Topic、Notebook 的内容页脚在 Collection 或 Front Matter 中配置，默认继承 Article 许可协议并关闭分享。页面作者和 AI 标记见 Front Matter，它们不是主题 article 的全局字段。
+分享服务为 `wechat/weibo/x/telegram/whatsapp/email/link/system`。`profiles.notebook` 只配置 Notebook Collection 的列表默认值与标签图标，不接受 `footer`；Wiki、Topic、Notebook 的内容页脚在 Collection 或 Front Matter 中配置，默认继承 Article 许可协议并关闭分享。页面作者和 AI 标记见 Front Matter，它们不是主题 article 的全局字段。
 
 ## 外观
 
@@ -171,7 +178,7 @@ updated: 2026-09-06 15:51
 | `services.github.api_url/raw_url/gist_url` | GitHub 官方 API、Raw、Gist 完整 HTTP(S) 地址 |
 | `preconnect` | 空数组；资源 Origin 列表 |
 | `fallbacks.avatar/link_card/cover` | 非空资源地址，默认主题占位资源；用于对应的头像、链接卡片或 SEO 图片 |
-| `error_page.image` | 错误页插图资源地址，null 隐藏 |
+| `profiles.error.image` | 错误页插图资源地址，null 隐藏 |
 
 默认 endpoint 的完整地址见[默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/_config.yml)。这些备用图片不适用于所有卡片或 Brand；缺图时的显示方式见[行为参考](/wiki/stellar/reference/behavior/#图片与-Brand-来源)。
 

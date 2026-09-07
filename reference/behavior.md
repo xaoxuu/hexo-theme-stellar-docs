@@ -1,7 +1,7 @@
 ---
 title: 配置与行为
 date: 2026-09-05 20:49
-updated: 2026-09-06 15:51
+updated: 2026-09-07 20:24
 ---
 
 本页说明配置的覆盖顺序、内容归属、排序和错误处理。完整字段见[主题配置](/wiki/stellar/reference/theme/)、[Collection](/wiki/stellar/reference/collection/)与 [Front Matter](/wiki/stellar/reference/front-matter/)。
@@ -36,7 +36,7 @@ updated: 2026-09-06 15:51
 
 不同内容类型支持的功能不同。例如，Wiki 支持 Hero 和目录树，Notebook 支持笔记列表设置；字段需要写在支持它的页面或集合中。
 
-`profiles.notebook_index.path: null` 只关闭“全部笔记本”总索引，并移除 Note Brand 返回按钮和面包屑中的总索引链接。各 Notebook 的集合、标签与详情路由仍会生成；没有显式 `route.path` 的 Notebook 会直接从自身 ID 派生路径。
+`profiles.notebooks.path: null` 只关闭“全部笔记本”总索引，并移除 Note Brand 返回按钮和面包屑中的总索引链接。各 Notebook 的集合、标签与详情路由仍会生成；没有显式 `route.path` 的 Notebook 会直接从自身 ID 派生路径。
 
 ## 排序与可见性
 

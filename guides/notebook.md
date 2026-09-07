@@ -1,7 +1,7 @@
 ---
 title: 笔记本
 date: 2025-06-14 19:48
-updated: 2026-09-06 15:51
+updated: 2026-09-07 20:24
 footer:
   references:
     - '[PR#464 @calfzhou](https://github.com/xaoxuu/hexo-theme-stellar/pull/464)'
@@ -56,17 +56,18 @@ tags: [web/network, tools]
 ## 统一默认值
 
 ```yaml blog/_config.stellar.yml
-notebook:
-  listing:
-    excerpt_length: 128
-    sort:
-      field: updated
-      direction: desc
-  tag_icons:
-    web: default:documents
+profiles:
+  notebook:
+    listing:
+      excerpt_length: 128
+      sort:
+        field: updated
+        direction: desc
+    tag_icons:
+      web: default:documents
 ```
 
-主题级 `notebook` 只保存列表默认值和标签图标，不接受 `footer`。未被实际标签使用的 `tag_icons` 键会被忽略。列表页和详情页分别使用 `profiles.note_index` 与 `profiles.note`，再叠加 Collection 的 Region。Notebook `cover` 用于集合卡片，笔记自己的 `cover` 用于笔记卡片。
+`profiles.notebook` 同时保存单个 Notebook 列表页的 Region、列表默认值和标签图标，不接受 `footer`。未被实际标签使用的 `tag_icons` 键会被忽略。笔记详情页使用 `profiles.note`，再叠加 Collection 的 Region。Notebook `cover` 用于集合卡片，笔记自己的 `cover` 用于笔记卡片。
 
 Notebook 与 Wiki、Topic 一样，默认继承全局 Article 许可协议和标签开关，但不显示分享按钮。在 Notebook Collection 或单篇笔记中设置 `footer.share: true` 可恢复全局 Article 分享服务，也可以用数组选择服务；`footer.show_tags` 控制笔记正文末尾的标签行。
 
@@ -74,7 +75,7 @@ Notebook 与 Wiki、Topic 一样，默认继承全局 Article 许可协议和标
 
 ```yaml blog/_config.stellar.yml
 profiles:
-  notebook_index:
+  notebooks:
     path: null
 ```
 

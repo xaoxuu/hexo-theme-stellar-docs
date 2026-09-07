@@ -1,7 +1,7 @@
 ---
 title: 配置对照
 date: 2026-09-05 20:49
-updated: 2026-09-06 23:50
+updated: 2026-09-07 20:24
 ---
 
 下表以 [1.44.0 默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/1.44.0/_config.yml)、Collection 读取链和页面实际用法为依据，覆盖从 1.44.0 升级时仍可出现的主题配置、Collection 与 Front Matter 输入。v2 不会自动读取这些旧名称；新配置的完整用法见[主题参考](/wiki/stellar/reference/theme/)和[Collection 参考](/wiki/stellar/reference/collection/)。
@@ -14,7 +14,7 @@ updated: 2026-09-06 23:50
 | `menubar.items` | `leftbar.menu` 数组；项目 theme 配色改为 accent，保留 id/title/icon/url |
 | `site_tree` | `profiles`；同时转换下面的类型名与子字段 |
 | index_blog / index_topic / index_wiki | blog_index / topic / wiki_index |
-| notebooks / notes / error_page | notebook_index / note_index / error；笔记详情仍是 note |
+| notebooks / notes / error_page | notebooks / notebook / error；笔记详情仍是 note |
 | profile `base_dir/menu_id` | `path/active_menu`；修改后确认生成页面的路径 |
 | profile `leftbar/rightbar` 字符串 | Region 对象的 `widgets` 数组；逗号列表拆项，空列表显式 `[]` |
 | `nav_tabs` 映射 | `listing_nav.enabled/tabs`，条目转换为 title/url |
@@ -32,8 +32,8 @@ updated: 2026-09-06 23:50
 | `article.license/share/tags` | `article.footer.license/share/show_tags`；保留原站点的开关意图 |
 | `article.related_posts.enable/max_count` | `article.related_posts_limit`；原来关闭则设 0 |
 | `article.ai_label` 样式／默认值配置 | 样式不再是站点参数；实际内容标记写入 Collection/Page `article.ai_label` |
-| `notebook.auto_excerpt/per_page/order_by` | `notebook.listing.excerpt_length/per_page/sort`；`-updated` 转 `{field: updated, direction: desc}` |
-| `notebook.tagcons` | `notebook.tag_icons`；只保留仍有实际标签匹配的键 |
+| `notebook.auto_excerpt/per_page/order_by` | `profiles.notebook.listing.excerpt_length/per_page/sort`；`-updated` 转 `{field: updated, direction: desc}` |
+| `notebook.tagcons` | `profiles.notebook.tag_icons`；只保留仍有实际标签匹配的键 |
 | `notebook.license/share` | 不再是主题级 Notebook 字段；按原适用范围写入各 Notebook Collection 的 `footer.license/share`。Collection 默认关闭分享，`true` 恢复全局 Article 值，数组显式选择服务 |
 
 ## 功能与资源
@@ -53,7 +53,7 @@ updated: 2026-09-06 23:50
 | `data_cache` | 缓存策略由 Runtime 内部管理；无对应公开数值开关 |
 | `api_host` | 按用途进入 `services.github` 或 `services.github_card` 的完整地址 |
 | `style` | 按用途进入 appearance，颜色、排版、圆角、背景分别迁移 |
-| `default` | 头像、链接卡片等备用资源进入 fallbacks，错误图进入 error_page.image；内容与 Brand 不再共用通用封面 |
+| `default` | 头像、链接卡片等备用资源进入 fallbacks，错误图进入 profiles.error.image；内容与 Brand 不再共用通用封面 |
 | `canonical.originalHost/officialHosts` | `canonical.host/allowed_hosts` |
 | `open_graph.enable`、`structured_data.links` | `open_graph.enabled`、`structured_data.same_as` |
 | `plugins.<id>.inject` | 内置集成改用对应 features；自有可信 HTML 可放 inject.head_end/body_end，先检查加载时机及是否重复 |

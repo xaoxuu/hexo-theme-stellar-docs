@@ -1,7 +1,7 @@
 ---
 title: 评论服务
 date: 2023-12-06 21:55
-updated: 2026-09-06 02:41
+updated: 2026-09-07 21:02
 ---
 
 Stellar v2 内置 6 个评论 Provider：`beaudar`、`utterances`、`giscus`、`twikoo`、`waline` 和 `artalk`。主题级配置都写在 `_config.stellar.yml` 的 `comments` 下：`provider` 选择当前服务，服务同名对象保存该客户端的参数。
@@ -156,7 +156,7 @@ comments:
 
 内容级 `options` 按键覆盖主题级 `comments.<provider>` 参数。切换 Provider、更改页面路径或更换映射规则前，先确认原服务使用的线程键，避免现有讨论失去入口。
 
-## 首页与加载
+## 首页、404 与加载
 
 首页默认关闭评论，并且只会在首页第一页渲染。启用方式与页面覆盖字段一致：
 
@@ -171,6 +171,15 @@ profiles:
       options:
         data-mapping: specific
         data-term: home
+```
+
+404 页面同样默认关闭评论。需要作为留言入口时，只需开启错误页 Profile；省略 Provider 会继承全局选择：
+
+```yaml blog/_config.stellar.yml
+profiles:
+  error:
+    comments:
+      enabled: true
 ```
 
 所有 Provider 都由主题在评论区接近视口时初始化。Artalk 通知链接含 `?atk_comment=<id>` 或 `#atk-comment-<id>` 时会立即加载并定位；Twikoo、Waline 和 Artalk 使用 `comments.id` 或当前路径作为线程键，Beaudar、Utterances 和 Giscus 使用各自参数袋中的映射字段。

@@ -1,7 +1,7 @@
 ---
 title: Widget 配置
 date: 2026-09-05 20:49
-updated: 2026-09-06 02:28
+updated: 2026-09-07 20:24
 ---
 
 Widget Catalog 由主题默认的 `_data/widgets.yml` 与站点 `source/_data/widgets.yml` 合并得到。顶部栏和侧栏的 `widgets` 数组可以引用 Catalog 实例，也可以直接声明当前使用位置的参数。完整操作流程见 [Widget 指南](/wiki/stellar/guides/widgets/)。
@@ -88,7 +88,7 @@ welcome:
 | :--- | :--- |
 | `expand_all` | false；展开所有分支 |
 | `expand_active` | true；展开当前标签所在分支 |
-| `show_tagcon` | true；显示 `notebook.tag_icons` 对应图标 |
+| `show_tagcon` | true；显示 `profiles.notebook.tag_icons` 对应图标 |
 
 ## ghrepo
 
