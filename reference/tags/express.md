@@ -1,7 +1,7 @@
 ---
 title: 表达类标签
 date: 2023-12-06 21:55
-updated: 2026-09-06 20:15
+updated: 2026-09-09 16:22
 ---
 
 ## emoji 表情包
@@ -204,7 +204,7 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 图片默认按可用宽度显示，链接后可以填写描述。设置 `download:true` 会显示指向当前图片的下载按钮；需要下载原图时，使用 `download:原图链接` 指定地址。
 
-{% image https://res.xaox.cc/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://res.xaox.cc/posts/202401131914137.jpg-hd ratio:1280/960 %}
+{% image https://res.xaox.cc/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://res.xaox.cc/posts/202401131914137.jpg-hd %}
 
 ```md 写法如下
 {% image https://res.xaox.cc/posts/202401131914137.jpg-hd 图片由 xaoxuu 拍摄于一个普通的阳光明媚的下午 download:https://res.xaox.cc/posts/202401131914137.jpg-hd ratio:1280/960 %}
@@ -218,21 +218,21 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 <!-- tab 限制宽度 -->
 
-{% image https://res.xaox.cc/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 ratio:720/1080 %}
+{% image https://res.xaox.cc/posts/202401131924265.jpg-hd width:350px 图片由 xaoxuu 拍摄于 Dattle 幼年时期 %}
 
 ```
 {% image https://res.xaox.cc/gh/cdn-x/xaoxuu@main/apple/documentation/watchkit/06d45110-1dd7-49a4-a413-9f5159ecdd0e.png width:200px padding:16px bg:white ratio:526/902 %}
 ```
 
 {% folding 如果不进行约束，在宽屏设备上会占用很大篇幅 %}
-{% image https://res.xaox.cc/posts/202401131924265.jpg-hd  ratio:720/1080 %}
+{% image https://res.xaox.cc/posts/202401131924265.jpg-hd %}
 {% endfolding %}
 
 <!-- tab 设置填充区域 -->
 
 可以设置填充宽度和颜色，支持 `bg:var(--card)` 动态颜色，能够适配暗黑模式：
 
-{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg bg:var(--card) padding:16px width:100px ratio:512/512 %}
+{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg bg:var(--card) padding:16px width:100px %}
 
 ```
 {% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg bg:var(--card) padding:16px ratio:512/512 %}
@@ -244,7 +244,7 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 `image` 标签默认支持点击放大，可用 `fancybox:false` 为单张图片关闭，也可用 `fancybox:true` 显式开启。相关脚本由主题按需加载。
 
-{% image fancybox:true https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/2022/Apple_Shot-on-iphone-macro-challenge_Cat_big.jpg.large_2x.jpg download:https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/2022/Images-of-Shot-on-iphone-macro-challenge.zip 图片来自 Apple 官网 ratio:1960/1470 %}
+{% image fancybox:true https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/2022/Apple_Shot-on-iphone-macro-challenge_Cat_big.jpg.large_2x.jpg download:https://www.apple.com.cn/newsroom/images/product/iphone/lifestyle/2022/Images-of-Shot-on-iphone-macro-challenge.zip 图片来自 Apple 官网 %}
 
 从 1.28.1 版本开始，如果想在页面中展示较小的图片，但在 fancybox 中展示较大的高清的图片，可以用 `fancybox:大图链接` 参数。
 
@@ -615,7 +615,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 
 <!-- okr kr-4 status:at_risk -->
 开发、测试和发布
-{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 ratio:512/512 %}
+{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 %}
 
 {% endokr %}
 

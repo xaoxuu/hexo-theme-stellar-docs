@@ -1,7 +1,7 @@
 ---
 title: 认识 Stellar
 date: 2022-10-21 13:15
-updated: 2026-09-06 20:15
+updated: 2026-09-09 16:22
 
 ---
 
@@ -74,7 +74,7 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 {% tabs active:2 %}
 <!-- tab 留白 · 轻博客 -->
 
-{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/lightblog-home.webp 留白轻博客首页 ratio:2864/1697 %}
+{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/lightblog-home.webp 留白轻博客首页 %}
 
 “留白”没有常驻侧栏，站点名字与菜单放在顶部。它适合长文、随笔和低干扰阅读，也是第一次使用时最简单的起点。
 
@@ -84,7 +84,7 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 
 <!-- tab 星迹 · 博客 -->
 
-{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/blog-home.webp 星迹经典侧栏博客首页 ratio:2864/1697 %}
+{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/blog-home.webp 星迹经典侧栏博客首页 %}
 
 “星迹”保留左侧站点身份和主菜单，文章可以按分类、标签、归档与专栏重新找到。侧栏提供固定的导航入口。
 
@@ -94,7 +94,7 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 
 <!-- tab 个人知识库 -->
 
-{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/knowledge-home.webp Stellar 个人知识库首页 ratio:2864/1697 %}
+{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/knowledge-home.webp Stellar 个人知识库首页 %}
 
 “个人知识库”把近期文章、专栏和两套 Wiki 放在一个站点里。博客记录变化，Wiki 保存以后还会反复查阅的内容。
 
@@ -105,7 +105,7 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 
 <!-- tab 项目文档 -->
 
-{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/docs-home.webp Stellar 单项目文档站首页 ratio:2864/1697 %}
+{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/docs-home.webp Stellar 单项目文档站首页 %}
 
 “项目文档”没有博客列表，打开就是项目首页。左侧目录负责阅读顺序，右侧目录帮助读者浏览当前页面。
 
@@ -121,7 +121,7 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 
 {% quot 真正的简约不止删繁就简，而是在纷繁中建立秩序。 %}
 
-{% image https://star-history.dera.page/svg?repos=xaoxuu/hexo-theme-stellar&type=date&legend=top-left  ratio:800/533 %}
+{% image https://star-history.dera.page/svg?repos=xaoxuu/hexo-theme-stellar&type=date&legend=top-left %}
 
 {% box %}
 {% friends api:https://api.github.xaox.cc/repos/xaoxuu/hexo-theme-stellar/contributors?per_page=100&direction=asc %}

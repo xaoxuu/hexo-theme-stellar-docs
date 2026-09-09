@@ -1,7 +1,7 @@
 ---
 title: 容器类标签
 date: 2023-12-06 21:55
-updated: 2026-09-06 14:10
+updated: 2026-09-09 16:22
 ---
 
 ## box 盒子容器
@@ -83,7 +83,7 @@ func setup() {
 {% box child:tabs %}
 {% tabs %}
 <!-- tab 图文混排 -->
-{% image https://res.xaox.cc/posts/20250706162325884.webp-hd 个人电脑作为办公设备时，我们该如何保护隐私？ download:true ratio:1200/600 %}
+{% image https://res.xaox.cc/posts/20250706162325884.webp-hd 个人电脑作为办公设备时，我们该如何保护隐私？ download:true %}
 
 公司一般都会强制安装安防软件，这些软件要求开机自启动，要求有屏幕录制权限、完全的磁盘访问权限包括相册图库。因此如果使用自己的 MacBook 作为办公设备，必须要把生活区和工作区完全独立开，安装在两个磁盘分区，并且对磁盘分区进行加密。
 
@@ -211,7 +211,7 @@ func test() {
 {% tabs active:2 align:center %}
 
 <!-- tab 图片 -->
-{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/photos/hello@1x.png width:300px ratio:1179/390 %}
+{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/photos/hello@1x.png width:300px %}
 
 <!-- tab 代码块 -->
 ```swift
@@ -243,7 +243,7 @@ print("hello world")
 
 {% grid %}
 <!-- cell -->
-{% image https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 download:https://unsplash.com/photos/bcql6CtuNv0/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2Njg4NDAxMDI&force=true ratio:774/1161 %}
+{% image https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 download:https://unsplash.com/photos/bcql6CtuNv0/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2Njg4NDAxMDI&force=true %}
 <!-- cell -->
 **[Unsplash Photo](https://unsplash.com/photos/bcql6CtuNv0)**
 

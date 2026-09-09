@@ -1,7 +1,7 @@
 ---
 title: 数据类标签
 date: 2023-12-06 21:55
-updated: 2026-09-06 14:10
+updated: 2026-09-09 16:22
 ---
 
 ## timeline 时间线
@@ -33,7 +33,7 @@ updated: 2026-09-06 14:10
 {% timeline %}
 <!-- node 2021 年 2 月 16 日 -->
 主要部分功能已经开发的差不多了。
-{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/photos/hello@1x.png width:300px ratio:1179/390 %}
+{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/photos/hello@1x.png width:300px %}
 <!-- node 2021 年 2 月 11 日 -->
 今天除夕，也是生日，一个人在外地过年+过生日，熬夜开发新主题，尽量在假期结束前放出公测版。
 {% endtimeline %}
