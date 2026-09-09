@@ -1,7 +1,7 @@
 ---
 title: 数据类标签
 date: 2023-12-06 21:55
-updated: 2026-09-09 16:22
+updated: 2026-09-09 23:14
 ---
 
 ## timeline 时间线
@@ -306,12 +306,12 @@ group、repo、api 的选择顺序与 `friends` 相同，api 优先于 repo。�
 `wrap` 参数默认为 `true`：渲染结果保留在 `.data-service.ds-mdrender` 容器内；传 `wrap:false` 时渲染后不留外部容器，内容直接融入正文：
 
 ```md
-{% md https://raw.githubusercontent.com/xaoxuu/hexo-theme-stellar/main/README.md wrap:false %}
+## 如何交换友链？
+
+{% md https://raw.githubusercontent.com/xaoxuu/friends/refs/heads/main/README.md wrap:false %}
 ```
 
-{% folding 效果如下 %}
-{% md https://gcore.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar/README.md %}
-{% endfolding %}
+我的友链页面「[如何交换友链？](https://xaoxuu.com/friends/#%E5%A6%82%E4%BD%95%E4%BA%A4%E6%8D%A2%E5%8F%8B%E9%93%BE%EF%BC%9F)」这一章节用的就是 [README](https://github.com/xaoxuu/friends/) 的数据。
 
 > 说明：当 src 是 GitHub raw 地址（`raw.githubusercontent.com`）时，会使用 `services.github.raw_url` 的镜像站，README 内的相对图片/链接也会解析到同一镜像基址。
 
@@ -326,7 +326,7 @@ group、repo、api 的选择顺序与 `friends` 相同，api 优先于 repo。�
 {% ghcard xaoxuu/hexo-theme-stellar theme:dark %}
 ```
 
-{% link https://github.com/anuraghazra/github-readme-stats GitHub&nbsp;Card&nbsp;API %}
+{% link https://github.com/stats-organization/github-stats-extended GitHub&nbsp;Card&nbsp;API %}
 
 默认选择 `github_readme_stats` provider；需要使用自部署实例时，设置 `services.github_card.github_readme_stats.endpoint`：
 
@@ -335,7 +335,7 @@ services:
   github_card:
     provider: github_readme_stats
     github_readme_stats:
-      endpoint: https://github-readme-stats.vercel.app
+      endpoint: https://github-stats-extended.vercel.app
 ```
 
 ## gist 代码片段

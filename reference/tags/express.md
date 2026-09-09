@@ -1,7 +1,7 @@
 ---
 title: 表达类标签
 date: 2023-12-06 21:55
-updated: 2026-09-09 16:22
+updated: 2026-09-09 23:14
 ---
 
 ## emoji 表情包
@@ -615,7 +615,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 
 <!-- okr kr-4 status:at_risk -->
 开发、测试和发布
-{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar@main/assets/icon-v2-x512.webp height:64px 支持嵌套插入图片等其它简单组件 %}
 
 {% endokr %}
 
@@ -651,7 +651,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 
 <!-- okr kr-4 status:at_risk -->
 开发、测试和发布
-{% image https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg height:64px 支持嵌套插入图片等其它简单组件 ratio:512/512 %}
+{% image https://gcore.jsdelivr.net/gh/xaoxuu/hexo-theme-stellar@main/assets/icon-v2-x512.webp height:64px 支持嵌套插入图片等其它简单组件 ratio:512/512 %}
 
 {% endokr %}
 ```

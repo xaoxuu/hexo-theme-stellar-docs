@@ -1,7 +1,7 @@
 ---
 title: 认识 Stellar
 date: 2022-10-21 13:15
-updated: 2026-09-09 16:22
+updated: 2026-09-09 23:14
 
 ---
 
@@ -66,6 +66,12 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 {% navbar [了解详情](/wiki/stellar/reference/tags/data/) %}
 {% endbox %}
 
+
+{% box %}
+{% quot el:h3 icon:solar:document-text-bold-duotone color:blue 内容在远方，阅读如本地 %}
+用一个链接，将外部 Markdown 文件渲染到页面中。项目 README、共享文档，都能自然融入正文，像本地内容一样阅读，无需反复复制维护。
+{% navbar [了解详情](/wiki/stellar/reference/tags/data/#md-渲染外部-markdown-文件) %}
+{% endbox %}
 
 ## 从蓝图开始，一键启动
 
