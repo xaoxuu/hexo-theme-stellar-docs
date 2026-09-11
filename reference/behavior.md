@@ -1,7 +1,7 @@
 ---
 title: 配置与行为
 date: 2026-09-05 20:49
-updated: 2026-09-07 20:24
+updated: 2026-09-12 01:21
 ---
 
 本页说明配置的覆盖顺序、内容归属、排序和错误处理。完整字段见[主题配置](/wiki/stellar/reference/theme/)、[Collection](/wiki/stellar/reference/collection/)与 [Front Matter](/wiki/stellar/reference/front-matter/)。
@@ -23,7 +23,7 @@ updated: 2026-09-07 20:24
 - Region `enabled`、menu、actions 以及 Brand 整体 null：继承；Brand false：隐藏。
 - Brand 具体名称、图片等字段 null：隐藏对应内容。
 - 全局 Provider null：在允许关闭的服务上关闭；页面 comments.provider null：继承。
-- Collection 的内容页脚默认继承 Article 许可协议与标签开关，但关闭分享；`true` 恢复对应的全局 Article 值，`false` 或 `[]` 关闭。null 保持当前继承层级。
+- Collection 的内容页脚默认继承 Article 许可协议与标签开关；Wiki、Notebook 关闭分享，Topic 继承 Article 分享；`true` 恢复对应的全局 Article 值，`false` 或 `[]` 关闭。null 保持当前继承层级。
 - Notebook per_page null：继承 Hexo；0：不分页。
 
 空 YAML 值会进入相应字段的空值处理，不应通过批量把所有值改成 null 来迁移。各字段的具体用法见对应配置参考。
@@ -50,9 +50,9 @@ Collection 的 `visibility.listed/searchable` 是成员页默认，Front Matter 
 
 ## 图片与 Brand 来源
 
-页面 `cover/tagline` 只属于自己的列表呈现；Collection 对应字段不向成员卡片继承。`banner` 控制内容横幅，Hero 仅属于 Wiki 首页；这些语义字段不会互相替代。
+当前开发版中，页面 `cover` 同时提供列表和内容横幅图片，`tagline` 仍是列表小字；Collection 对应字段不向成员继承。`banner` 只在页面控制横幅开关、头像与文字；Hero 仅属于 Wiki 首页。
 
-Wiki/Notebook 默认使用 Collection Brand，Topic 使用站点 Brand。Brand 来源与 regular/compact 样式独立。Collection 缺图时使用无图样式或对应图标；仓库统计使用 Collection 自己的仓库，没有仓库时不生成该区域。
+Wiki/Notebook 默认使用 Collection Brand，Topic 使用站点 Brand。Brand 来源与 regular/compact 样式独立。Collection 缺图时使用无图样式或对应图标；regular Leftbar 的统计需要显式配置 `leftbar.brand.ghrepo` 或 `ghuser`，ghrepo 优先；不从 `source.repository` 或 ghuser Widget 推断。
 
 `fallbacks` 用于头像、链接卡片和 SEO 图片等场景，不会为所有缺图组件补上远程图片。
 
@@ -66,6 +66,10 @@ Doctor 严格检查配置文件，即使站点生成时忽略了错误，Doctor 
 
 ## 浏览器脚本与远程服务
 
-主题自动加载浏览器功能。若站点使用 Babel 或压缩工具处理生成文件，需保留 `public/js/runtime/**/*.js` 的原生 ESM 和相对导入，不能转成 CommonJS。
+主题自动加载浏览器功能。若站点使用 Babel 或压缩工具处理生成文件，需保留 `public/js/runtime/**/*.js` 的原生 ESM 和相对导入，不能转成 CommonJS。当前主题会自动为 hexo-minify 的 exclude 补入 `**/js/runtime/**`；其它后处理仍需站点自行配置。
 
 远程服务不可用时，组件会保留静态内容或显示空状态。请求缓存、超时和资源加载由主题管理，没有对应的 YAML 配置项。Doctor 不验证远程登录、服务权限或浏览器的实际视觉效果。
+
+## 同集合局部导航
+
+从 rc.3 起，`features.partial_navigation.enabled` 默认 true。同一集合且外壳签名一致时替换正文和右栏，同步标题、SEO 元数据、当前导航和历史滚动位置。页面级 Extension 先卸载再挂载，左栏与文档级 Extension 保留。跨集合、外壳不同、含非主题管理的可执行脚本或请求失败时整页跳转；局部插入的脚本不会重放。`features.link_prefetch.enabled` 独立控制预取，不保证局部导航一定可用。

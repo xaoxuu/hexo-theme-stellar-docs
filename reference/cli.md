@@ -1,10 +1,10 @@
 ---
 title: CLI 命令
 date: 2026-09-05 20:49
-updated: 2026-09-06 02:23
+updated: 2026-09-12 01:21
 ---
 
-命令在博客根目录运行，使用该站点实际安装的 Hexo 和主题。本页介绍 `doctor` 检查命令和 `new note` 笔记创建命令。
+命令在博客根目录运行，使用该站点实际安装的 Hexo 和主题。本页介绍 `doctor`、`new note` 和 rc.3 起提供的 `images` 命令。
 
 ## doctor
 
@@ -50,3 +50,16 @@ npx hexo stellar new note --notebook dev --title "网络排查" --tags "web/netw
 `--dry-run` 只打印计划。实际写入固定在博客根目录的 `source/notebooks/<id>/<title>.md`，不随 Collection route.path 改变；生成内容包含日期、标题和可选 tags，由标准目录推导归属。命令拒绝覆盖同名文件。自定义 source_dir 时尤其应先核对 dry-run 输出。
 
 命令会校验 Notebook 配置和新页面，写入失败时会清理本次创建的内容。它不会创建 Notebook、迁移已有站点或部署。
+
+## images
+
+```sh
+npx hexo stellar images
+npx hexo stellar images --dry-run
+npx hexo stellar images --page wiki/handbook/index.html
+npx hexo stellar images --refresh https://example.com/image.webp
+```
+
+命令先加载站点并渲染页面，从生成 HTML 收集图片，增量保存尺寸与 HSLA 平均色到 `source/_data/caches/images_metadata.json`。`--page` 限定生成路由，`--refresh` 强制重算指定 URL；`--dry-run` 只报告缺失项，不下载图片或写元数据。完整条目跳过，失败项延迟重试；处理失败给出 warning，不阻止构建。它不会压缩或替换原图，也不改 Markdown。
+
+`hexo server` 和 `hexo generate` 默认自动补齐元数据；`features.image_optimization.enabled: false` 关闭自动预处理，仍可复用缓存并手动执行 images。`features.lazy_loading.auto_aspect_ratio` 独立控制尺寸／比例补全，显式尺寸优先。

@@ -1,7 +1,7 @@
 ---
 title: 动态数据
 date: 2026-09-05 20:49
-updated: 2026-09-06 02:28
+updated: 2026-09-12 01:21
 ---
 
 站点信息、评分、投票、贡献者和 GitHub 卡片会在浏览器里按需读取数据。数据更新无需重新生成整站。
@@ -13,14 +13,14 @@ services:
   site_info:
     provider: site_info_api
     site_info_api:
-      endpoint: https://api.xaox.cc/site_info/v1?url={href}
+      endpoint: https://site-info.example.com/site_info/v1?url={href}
   rating:
     provider: star_vote
     star_vote:
-      endpoint: https://star-vote.xaox.cc/api/rating
+      endpoint: https://vote.example.com/api/rating
 ```
 
-`provider` 选择服务，同名子对象保存连接参数。默认地址是公共服务，可替换为兼容协议的自部署实例。Site Info、Rating、Vote 可用 `provider: null` 关闭。
+当前开发版（rc.4 之后）中，Site Info、Rating、Vote 默认选择 Provider，但 endpoint 留空，不请求公共实例。上面的 example.com 地址须替换为自己的兼容服务：Site Info 使用 site-info-api，评分和投票使用 star-vote。endpoint 省略或 null 不发请求，也可用 provider: null 关闭。
 
 ## GitHub 与贡献者
 
@@ -49,3 +49,5 @@ GitHub 地址使用完整 URL。贡献者映射的 `source_prefix` 对应站点�
 远程服务不可用时，组件会保留静态内容或显示空状态，正文仍可阅读。请求缓存和超时由主题管理，没有对应的站点配置项。
 
 Doctor 检查本地配置；接口是否可用需要在浏览器中确认。调试评分和投票时，可使用自己的测试实例，避免修改正式数据。
+
+普通 Markdown 文本链接、参考链接、远程 Markdown 和评论内链接可由 Site Info 补充图标。行内或带描述链接使用 favicon；普通链接卡片使用 appicon。接口失败保留静态信息，已有显式图标不会因失败被覆盖。

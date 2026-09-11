@@ -1,7 +1,7 @@
 ---
 title: 数据类标签
 date: 2023-12-06 21:55
-updated: 2026-09-11 15:58
+updated: 2026-09-12 01:21
 ---
 
 ## timeline 时间线
@@ -236,7 +236,7 @@ group、repo、api 的选择顺序与 `friends` 相同，api 优先于 repo。�
 {% sites 分组名 %}
 ```
 
-条目未配置 `icon` 或 `avatar` 时，网站卡片会复用 `services.site_info` 选中的 provider 自动补充信息区的圆形图标。主题默认选择 `site_info_api` 并使用 xaox.cc 公共实例；站点可覆盖 `services.site_info.site_info_api.endpoint` 为自部署地址，或设置 `provider: null` 关闭。请求失败时保留主题兜底图标且不显示错误；该接口不会自动获取网站截图。
+条目未配置 `appicon`、`icon` 或 `avatar` 时，网站卡片可复用 `services.site_info` 补充图标（appicon 优先，缺失时使用 API 的 icon）；静态与动态条目均按 appicon → icon → avatar 取值。当前开发版（rc.4 之后）默认选择 `site_info_api`，但 endpoint 留空；需设置 `services.site_info.site_info_api.endpoint` 为自部署地址，或设置 `provider: null` 关闭。请求失败时保留主题兜底图标且不显示错误；该接口不会自动获取网站截图。
 
 {% box Stellar v1.13.0 color:warning %}
 原 friends 和 sites 标签数据合并至 `links/xxx.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。

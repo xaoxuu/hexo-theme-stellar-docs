@@ -1,7 +1,7 @@
 ---
 title: 基础配置
 date: 2023-12-06 21:55
-updated: 2026-09-06 02:23
+updated: 2026-09-12 01:21
 ---
 
 本页介绍外观、菜单、搜索和评论的常用设置。除另有标注外，配置都写在博客根目录的 `_config.stellar.yml`。
@@ -32,14 +32,13 @@ leftbar:
       title: 关于
       icon: default:profile
       url: /about/
-    - type: search
 ```
 
 菜单是一个完整列表。写了这段以后，它会替换默认菜单，而不是追加在后面。菜单中的链接需要有对应页面；尚未创建的页面可以暂时不加入菜单。
 
 ## 站内搜索
 
-v2 默认启用本地搜索，无需额外配置。菜单里的 `type: search` 会提供入口，生成站点时主题会写出搜索索引。
+v2 默认启用本地搜索，生成站点时主题会写出搜索索引。当前开发版（rc.4 之后）入口位于 Leftbar Brand，由 leftbar.brand.search 控制，默认 true；请先按[Brand 指南](/wiki/stellar/guides/brand/)配置可显示的名称或图片。
 
 如果不想让某篇页面进入搜索，在那篇 Markdown 的开头写：
 

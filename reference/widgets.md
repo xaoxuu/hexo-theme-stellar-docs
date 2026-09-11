@@ -1,7 +1,7 @@
 ---
 title: Widget 配置
 date: 2026-09-05 20:49
-updated: 2026-09-07 20:24
+updated: 2026-09-12 01:21
 ---
 
 Widget Catalog 由主题默认的 `_data/widgets.yml` 与站点 `source/_data/widgets.yml` 合并得到。顶部栏和侧栏的 `widgets` 数组可以引用 Catalog 实例，也可以直接声明当前使用位置的参数。完整操作流程见 [Widget 指南](/wiki/stellar/guides/widgets/)。
@@ -215,3 +215,7 @@ latest_comment:
 未知实例、固定区域内容误放或位置不支持时会跳过该项。Doctor warning 提供 `widget`、`layout`、目标 `region` 和 `supported` 列表；只有 warning 时 `ok` 仍为 true。
 
 位置正确也不保证一定输出 DOM。上下文型 Widget 会在缺少 Wiki、Notebook、仓库、作者、标签或相关文章数据时返回空内容；动态 Widget 则还要在浏览器中核对请求与响应。排查步骤见 [Widget 没有显示](/wiki/stellar/guides/widgets/#Widget-没有显示)。
+
+## 桌面折叠侧栏
+
+当前开发版（rc.4 之后），Leftbar 折叠 Rail 支持 tree、related、linklist，以及固定菜单和设置入口；tagtree、toc、recent、GitHub、author、timeline、markdown、tagcloud 在展开或 Drawer 中显示。右栏在桌面跟随 Leftbar 折叠为紧凑目录，悬停或键盘聚焦时展开；中小屏仍使用抽屉。目录当前项指示器随滚动平滑移动，不增加配置字段。

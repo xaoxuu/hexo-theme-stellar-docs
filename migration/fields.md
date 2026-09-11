@@ -1,8 +1,10 @@
 ---
 title: 配置对照
 date: 2026-09-05 20:49
-updated: 2026-09-07 22:06
+updated: 2026-09-12 01:21
 ---
+
+> 版本范围：本页按 rc.4 之后的当前开发版源码核对（截至 2026-09-12）。其中新增或调整的配置不代表已发布 rc.4 的行为；使用 npm 候选版时请对照对应版本源码。
 
 下表以 [1.44.0 默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/1.44.0/_config.yml)、Collection 读取链和页面实际用法为依据，覆盖从 1.44.0 升级时仍可出现的主题配置、Collection 与 Front Matter 输入。v2 不会自动读取这些旧名称；新配置的完整用法见[主题参考](/wiki/stellar/reference/theme/)和[Collection 参考](/wiki/stellar/reference/collection/)。
 
@@ -19,7 +21,7 @@ updated: 2026-09-07 22:06
 | profile `leftbar/rightbar` 字符串 | Region 对象的 `widgets` 数组；逗号列表拆项，空列表显式 `[]` |
 | `nav_tabs` 映射 | `listing_nav.enabled/tabs`，条目转换为 title/url |
 | `footer.social` | `leftbar.footer.actions`，逐项明确 link/button/dropdown/spacer |
-| `footer.content`、`footer.sitemap` | 分别核对站点页脚正文与 `footer.sections` 的标题／链接分栏；不是 XML sitemap 插件配置 |
+| `footer.content`、`footer.sitemap` | 分别核对站点页脚正文与 `footer.sitemap` 的 title/items 分栏，items 使用 Markdown 字符串数组；不是 XML sitemap 插件配置 |
 | `preconnect` | 路径不变，数组仍整体替换；v2 默认改为空数组，需要的资源 Origin 必须显式保留 |
 
 ## 内容默认值
@@ -28,7 +30,8 @@ updated: 2026-09-07 22:06
 | :--- | :--- |
 | `article.type/indent` | `article.style/paragraph_indent`；缩进 true→always、false→never，省略按 auto |
 | `article.pin_style/card_style/cover_ratio/auto_excerpt/card_tags` | `article.listing.pinned_layout/card_layout/cover_ratio/excerpt_length/show_tags` |
-| `article.banner_ratio/category_color/reading_time` | `article.banner.ratio/category_colors/show_reading_time` |
+| `article.category_color/reading_time` | `article.category_colors/show_reading_time` |
+| `article.banner_ratio` | 当前横幅比例由样式控制，无公开比例字段；图片取页面 cover |
 | `article.license/share/tags` | `article.footer.license/share/show_tags`；保留原站点的开关意图 |
 | `article.related_posts.enable/max_count` | `article.related_posts_limit`；原来关闭则设 0 |
 | `article.ai_label` 样式／默认值配置 | 样式不再是站点参数；实际内容标记写入 Collection/Page `article.ai_label` |
@@ -43,9 +46,9 @@ updated: 2026-09-07 22:06
 | `search.service: local_search/algolia_search` | `search.provider: local/algolia` |
 | `search.local_search.field/content/cache_ttl` | `search.local.scope/include_content/cache_ttl_seconds` |
 | `search.local_search.skip_search` | 在实际匹配的页面设置 `visibility.searchable: false`；先保留匹配清单 |
-| 搜索索引 path、lazy_load、Algolia js | 当前索引与资源生命周期由主题管理，不保留对应调参入口 |
+| 搜索索引 path、lazy_load、Algolia js | 索引路径与加载时机由主题管理；客户端地址使用 search.algolia.js |
 | `comments.service/comment_title` | `comments.provider/title`；第三方参数保留原字段名 |
-| 评论 js/css/src/meta_css 与 custom_css | 内部资源由主题管理；确有自有样式用可信 inject；不要作为 Provider 参数照搬 |
+| 评论 js/css/src/meta_css 与 custom_css | js/css/meta_css 按 Provider 支持范围迁到 comments.<provider>；页面用 comments.options。src 不是资源入口，自有样式用可信 inject |
 | `tag_plugins` | `tags`；逐项按当前标签参考迁移子字段 |
 | `dependencies` | 整段移除；标签插件的懒加载资源、Swiper 和 Markdown 渲染器由 Runtime 管理 |
 | `plugins` | 按能力迁入 `features`，不能只改根名：preload→link_prefetch、scrollreveal→reveal、fancybox→lightbox；其它逐项核对 |
@@ -109,7 +112,7 @@ v1 的标签插件配置不能只把根节点从 `tag_plugins` 改成 `tags`。�
 | 页面 `beaudar/utterances/giscus/twikoo/waline/artalk` 参数对象 | 移入 `comments.options`；全站默认参数仍写在主题 `comments.<provider>` |
 | 页面 `header` | `topbar.enabled`；若需要旧移动页头中的身份信息，同时配置 `topbar.brand` |
 | 页面 `logo` | 按显示位置拆为 `leftbar.brand` 与 `topbar.brand`；不再用一份对象隐式覆盖两个区域 |
-| 页面 `search` | v2 没有旧版 filter/placeholder 参数对象；需要入口时在 `leftbar.menu` 或 `topbar.menu` 放 `type: search` 项，Collection 范围由当前页面自动确定 |
+| 页面 `search` | v2 没有旧版 filter/placeholder 参数对象；需要入口时使用 `leftbar.brand.search`，Collection 范围由当前页面自动确定 |
 | 页面 `menu` | `leftbar.menu`；旧布尔开关要改为实际菜单数组，空数组明确隐藏 |
 | 页面 `nav_tabs` | 列表级导航迁入 `profiles.blog_index.listing_nav` 或 `profiles.wiki_index.listing_nav`；普通内容页改用 Region Menu 或 navbar 标签 |
 | 页面 `wiki_home` | 移入对应 Wiki Collection 的 `leftbar.brand.back_button` |
@@ -120,6 +123,12 @@ v1 的标签插件配置不能只把根节点从 `tag_plugins` 改成 `tags`。�
 | mathjax/katex/mermaid 主题集成开关 | `render.math/diagrams`；其它第三方插件字段按插件本身协议核对 |
 
 `poster` 在 1.44.0 之前已经移除，不属于本次 1.44.0 → v2 的兼容输入；若更早的站点仍保留它，先按旧版本发布记录迁移到 1.44.0，再执行本表。
+
+## 从 rc.1 升级
+
+rc.2 起，顶层 notebook、settings.about、error_page.image 分别迁到 profiles.notebook、profiles.settings.about、profiles.error.image；profiles.notebook_index / note_index 改为 profiles.notebooks / notebook。rc.3 起页脚分栏使用 footer.sitemap，子项为 Markdown 字符串；card_hover 的 spotlight 与 tilt 独立开关，Topic 默认继承文章分享。
+
+当前开发版将搜索入口移到 leftbar.brand.search；横幅图片使用页面 cover，Collection 不再提供 banner；分享服务使用 qrcode/weibo/x/telegram/whatsapp/email。Site Info、Rating、Vote 的 endpoint 默认 null，需要自行部署填写。以上配置请按当前参考重写，不依赖旧字段自动转换。
 
 ## 无等价项与默认变化
 

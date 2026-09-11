@@ -1,8 +1,10 @@
 ---
 title: Front Matter
 date: 2025-07-06 13:34
-updated: 2026-09-07 22:06
+updated: 2026-09-12 01:21
 ---
+
+> 版本范围：本页按 rc.4 之后的当前开发版源码核对（截至 2026-09-12）。其中新增或调整的配置不代表已发布 rc.4 的行为；使用 npm 候选版时请对照对应版本源码。
 
 Front Matter 是 Markdown 开头的 YAML 配置。主题字段使用 `snake_case`，第三方参数使用服务方原有的名称。Doctor 会报告不支持的主题字段，旧字段需要按[迁移说明](/wiki/stellar/migration/fields/)修改。
 
@@ -24,9 +26,9 @@ collection:
 
 | 字段 | 类型与默认行为 |
 | :--- | :--- |
-| `cover/tagline` | string/null，当前页面列表封面与小字；省略不从集合继承 |
-| `banner.enabled` | boolean/null，内容横幅开关；省略或 null 继承 |
-| `banner.image/avatar/headline/tagline` | string/null，横幅图片、头像、标题和小字；覆盖集合值 |
+| `cover/tagline` | string/null，当前页面封面（列表与内容横幅共用）与列表小字；省略不从集合继承 |
+| `banner.enabled` | boolean/null，false 隐藏整个内容横幅 |
+| `banner.avatar/headline/tagline` | string/null，横幅头像、标题和小字；仅页面支持，标题默认页面标题 |
 | `article.style` | tech/story/null，继承主题或集合 |
 | `article.paragraph_indent` | auto/always/never/null，继承；auto 随排版决定 |
 | `article.author` | string/null，引用 authors.yml 的作者 ID |
@@ -39,7 +41,7 @@ collection:
 
 `active_menu` 为 string/null，匹配固定菜单 ID；`breadcrumb` 为 boolean/null。三个 Region 可覆盖 `enabled/widgets`；Topbar、Leftbar 支持 `brand/menu`，Leftbar 还有 `footer.actions`。
 
-结构见[主题 Region](/wiki/stellar/reference/theme/#布局、Brand-与导航)。页面 Leftbar Brand 可覆盖图片、名称、标语、链接与 style；Collection 专属的 source/back_button/search 选择放在集合文件中。
+结构见[主题 Region](/wiki/stellar/reference/theme/#布局、Brand-与导航)。页面 Leftbar Brand 可覆盖图片、名称、标语、链接、style、search、ghrepo 和 ghuser；Collection 专属的 source/back_button 放在集合文件中。
 
 ## 可见性与优先级
 
@@ -55,7 +57,7 @@ collection:
 
 `footer.references` 使用 Markdown 字符串数组，每项按 Markdown 渲染。虽然配置检查允许对象项，但当前模板不能保证将 title/url 对象显示为链接，因此请使用字符串。`footer.license` 接受文案字符串、false、true（恢复全局 Article 文案）或 null（继承）。`footer.share` 支持服务数组、false（隐藏）、true（恢复全局 Article 服务）或 null（继承）。`footer.show_tags` 为 boolean/null，也控制 Notebook 正文末尾的标签行。
 
-普通 Post 默认使用 `article.footer`；Wiki、Topic、Notebook Collection 默认继承全局许可协议和标签开关，但关闭分享。页面省略或填写 null 时继承当前 Collection，仍可用 true 恢复全局 Article 值。
+普通 Post 默认使用 `article.footer`；Wiki、Topic、Notebook Collection 默认继承全局许可协议和标签开关；Wiki、Notebook 关闭分享，Topic 继承全局分享。页面省略或填写 null 时继承当前 Collection，仍可用 true 恢复全局 Article 值。
 
 服务列表见[主题内容参考](/wiki/stellar/reference/theme/#文章、笔记与设置页)。这里的 footer 是内容页脚，与主题根级 footer 的站点分栏不同。
 

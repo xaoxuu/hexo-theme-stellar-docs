@@ -1,16 +1,18 @@
 ---
 title: Collection 配置
 date: 2026-09-05 20:49
-updated: 2026-09-06 22:41
+updated: 2026-09-12 01:21
 ---
 
-Collection 文件位于 `source/_data/wiki/`、`source/_data/topic/` 或 `source/_data/notebooks/`。文件路径提供 profile，文件名提供 ID；`name` 是必填非空名称。只需填写当前集合要修改的配置，其余值由主题提供。
+> 版本范围：本页按 rc.4 之后的当前开发版源码核对（截至 2026-09-12）。其中新增或调整的配置不代表已发布 rc.4 的行为；使用 npm 候选版时请对照对应版本源码。
+
+Collection 文件位于 `source/_data/wiki/`、`source/_data/topic/` 或 `source/_data/notebooks/`。文件路径提供 profile，文件名提供 ID；`name` 是显示名称；省略时使用 Collection ID 并给出 warning。只需填写当前集合要修改的配置，其余值由主题提供。
 
 ## 基本信息、路径与展示
 
 | 字段 | 类型／默认 | 适用范围与行为 |
 | :--- | :--- | :--- |
-| `name` | 非空 string，必填 | 全部；集合名称 |
+| `name` | 非空 string，可省略 | 全部；集合名称 |
 | `headline/tagline/description/audience` | string / null | 全部；标题、辅助文案、描述及受众 |
 | `tags` | string array，省略为空 | 全部；集合分类信息 |
 | `icon/cover` | string / null | 身份图标与集合列表封面 |
@@ -41,7 +43,7 @@ Collection 文件位于 `source/_data/wiki/`、`source/_data/topic/` 或 `source
 | `hero.preview.commands` | 数组，条目 `label/codes` |
 | `hero.actions` | 数组，条目 `title/url/icon` |
 
-Wiki、Topic、Notebook 等集合都支持内容横幅 `banner.enabled/image/avatar/headline/tagline`，分别是 boolean/null 与 string/null。页面按字段覆盖集合横幅。Hero、集合封面、图标与内容横幅互不替代。
+Collection 不配置 `banner`。成员页面用自己的 `cover` 提供内容横幅图片，用 Front Matter `banner.enabled/avatar/headline/tagline` 控制横幅内容；集合 cover 不继承到成员。Hero 背景仍单独使用 `hero.background.image`。
 
 ### Hero 背景效果
 
@@ -174,7 +176,7 @@ hero:
 
 顶部栏、左侧栏、右侧栏（Region）使用 `enabled/widgets`，Topbar 和 Leftbar 还支持 `brand/menu`，Leftbar 支持 `footer.actions`。它们沿用[主题结构](/wiki/stellar/reference/theme/#布局、Brand-与导航)，但作为局部覆盖：省略继承，数组整体替换，`[]` 清空。
 
-Collection 的 `leftbar.brand` 额外支持 `source: site/collection`、`back_button`、`search`。Wiki/Notebook 默认来源是 collection，Topic 默认 site；返回与集合搜索开关只在 collection 来源有效。`style: regular/compact` 与来源独立。Brand 整体可为 false 或 null；null 继承，false 隐藏。具体字段 null 隐藏对应内容。
+Collection 的 `leftbar.brand` 额外支持 `source: site/collection`、`back_button`。Wiki/Notebook 默认来源是 collection，Topic 默认 site；返回开关只在 collection 来源有效；search、ghrepo、ghuser 沿用共享 Leftbar Brand 字段，搜索适用于两种来源。`style: regular/compact` 与来源独立。Brand 整体可为 false 或 null；null 继承，false 隐藏。具体字段 null 隐藏对应内容。
 
 ## 成员默认值
 
@@ -182,14 +184,14 @@ Collection 的 `leftbar.brand` 额外支持 `source: site/collection`、`back_bu
 | :--- | :--- | :--- |
 | 导航 | `active_menu`、`breadcrumb` | 菜单 ID/null、boolean/null；导航按页面类型及集合上下文生成 |
 | 排版 | `article.style/paragraph_indent/author/ai_label` | 继承主题排版；作者/AI 标记由集合或页面指定 |
-| 页脚 | `footer.references/license/share/show_tags` | 许可协议和标签继承 Article；分享默认关闭；页面可覆盖 |
+| 页脚 | `footer.references/license/share/show_tags` | 许可协议和标签继承 Article；Topic 继承分享，Wiki/Notebook 关闭；页面可覆盖 |
 | 评论 | `comments.enabled/title/id/provider/options` | 继承全局服务，可按集合或页面替换 |
 | 源码 | `source.repository/branch` | string/null；GitHub owner/repo 与分支 |
 | 可见性 | `visibility.listed/searchable` | Collection 值是成员默认；Page 可再覆盖 |
 
 具体取值见 [Front Matter](/wiki/stellar/reference/front-matter/)，它与 Collection 共用这些内容覆盖结构。对象逐字段覆盖并不意味着所有 null 都有相同效果，详见[行为规则](/wiki/stellar/reference/behavior/#配置覆盖顺序与空值)。
 
-Wiki、Topic、Notebook Collection 的 `footer.share` 默认关闭。设置 `true` 会恢复全局 `article.footer.share`，数组显式选择服务，`false` 或 `[]` 关闭；许可协议同样可用 `true` 恢复全局 Article 文案。Collection 的 `visibility.listed: false` 会隐藏集合总入口，并成为成员页的默认列表状态；`searchable: false` 成为成员页的默认搜索状态。页面可以显式改回 `true`，详情路由仍然生成。
+Wiki、Notebook Collection 的 `footer.share` 默认关闭，Topic 默认继承全局 Article 分享。设置 `true` 会恢复全局 `article.footer.share`，数组显式选择服务，`false` 或 `[]` 关闭；许可协议同样可用 `true` 恢复全局 Article 文案。Collection 的 `visibility.listed: false` 会隐藏集合总入口，并成为成员页的默认列表状态；`searchable: false` 成为成员页的默认搜索状态。页面可以显式改回 `true`，详情路由仍然生成。
 
 ## 各集合类型支持的功能
 

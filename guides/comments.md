@@ -1,7 +1,7 @@
 ---
 title: 评论服务
 date: 2023-12-06 21:55
-updated: 2026-09-07 21:02
+updated: 2026-09-12 01:21
 ---
 
 Stellar v2 内置 6 个评论 Provider：`beaudar`、`utterances`、`giscus`、`twikoo`、`waline` 和 `artalk`。主题级配置都写在 `_config.stellar.yml` 的 `comments` 下：`provider` 选择当前服务，服务同名对象保存该客户端的参数。
@@ -18,7 +18,7 @@ comments:
     data-mapping: pathname
 ```
 
-设置 `provider: null` 会全站停用评论。`title` 可设置评论区标题，空字符串会隐藏标题。评论脚本和样式由主题按需加载；服务对象中不配置 `js`、`css`、`src` 或 `inject`。
+设置 `provider: null` 会全站停用评论。`title` 可设置评论区标题，空字符串会隐藏标题。从 rc.3 起可在服务对象覆盖客户端资源：六个 Provider 均支持 js，Waline 和 Artalk 支持 css，Waline 另支持 meta_css；页面在 comments.options 中覆盖。省略或 null 使用默认资源；Artalk 默认从最终 server 的 dist 目录加载配套 JS/CSS。src 与 inject 不是资源覆盖入口。当前开发版发现评论容器后立即异步加载，不等待进入视口，也不阻塞其它页面功能初始化。
 
 ## 各评论服务的参数
 

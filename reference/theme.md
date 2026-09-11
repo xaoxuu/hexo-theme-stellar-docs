@@ -1,10 +1,12 @@
 ---
 title: 主题配置
 date: 2026-09-05 20:49
-updated: 2026-09-07 22:06
+updated: 2026-09-12 01:21
 ---
 
 本页适用于 v2 的 `_config.stellar.yml`。主题[默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/_config.yml)列出了完整配置和默认值，[校验规则](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/scripts/schema/config-rules.js)说明了类型和取值限制。不同版本可能有差异，请以安装版本为准。
+
+> 版本范围：本页按 rc.4 之后的当前开发版源码核对（截至 2026-09-12）。其中新增或调整的配置不代表已发布 rc.4 的行为；使用 npm 候选版时请对照对应版本源码。
 
 下表按用途列出配置项。第三方服务的完整参数以服务方说明为准；对象和数组的覆盖方式见[行为参考](/wiki/stellar/reference/behavior/)。
 
@@ -19,16 +21,31 @@ updated: 2026-09-07 22:06
 | Brand `image.src`、`name`、`tagline` | string / null，默认 null | 图片与纯文本身份信息；null 隐藏 |
 | Brand `image.variant` | `avatar` / `icon` / `plain`，默认 `avatar` | 图片呈现方式 |
 | Brand `href` | string / null，默认 `/` | 安全导航链接 |
+| `leftbar.brand.search` | boolean，默认 true | Brand 搜索按钮；需配置搜索 Provider，Brand 本身需可见 |
+| `leftbar.brand.ghrepo/ghuser` | string / null，默认 null | regular Leftbar 的仓库／用户统计，ghrepo 优先；显式填写 owner/repo 或用户名 |
 | `leftbar.brand.style` | `regular` / `compact`，默认 `regular` | 视觉样式 |
-| `topbar.menu`、`leftbar.menu` | array | 顶部默认空；左侧默认博客、分类、标签、专栏、归档、友链、关于及搜索 |
-| Menu 项 | object | `type`（默认 link，可用 search）；链接填写非空 kebab-case 的 `id` 与 `url`，可配 title/icon/accent；搜索项只需 type |
+| `topbar.menu`、`leftbar.menu` | array | 顶部默认空；左侧默认博客、分类、标签、专栏、归档、友链、关于 |
+| Menu 项 | object | `type` 仅支持 link；链接填写非空 kebab-case 的 `id` 与 `url`，可配 title/icon/accent |
 | `topbar.widgets`、`leftbar.widgets`、`rightbar.widgets` | array，默认 `[]` | 内容 Widget 列表；profile 可继续覆盖 |
 | `leftbar.footer.actions` | array，默认 `[]` | 操作项；类型为 `link/button/dropdown/spacer` |
 | Action 项 | object | `type/icon/title/url/onclick/items`；link 用 url，button 用 onclick，dropdown 用 items；子项为 link 或 button |
-| `footer.content` | string | 站点页脚 Markdown，默认主题署名；支持主题变量，空串隐藏 |
-| `footer.sections` | array，默认 `[]` | 分栏项 `title/items`；子项 `title/url` |
+| `footer.content` | string | 站点页脚 Markdown，默认主题署名和 CC BY-NC-SA 4.0 许可说明；支持主题变量，空串隐藏 |
+| `footer.sitemap` | array，默认 `[]` | 分栏项 `title/items`；items 为 Markdown 字符串数组 |
 
-`source/back_button/search` 不属于主题固定 Brand 字段，见 [Collection Brand](/wiki/stellar/reference/collection/#Region-与-Brand)。
+`source/back_button` 是 Collection 专属 Brand 字段；`search` 可在主题、Profile、Collection、页面设置，见 [Collection Brand](/wiki/stellar/reference/collection/#Region-与-Brand)。
+
+### 页脚分栏示例
+
+```yaml blog/_config.stellar.yml
+footer:
+  sitemap:
+    - title: 博客
+      items:
+        - "[近期发布](/)"
+        - "[归档](/blog/archives/)"
+```
+
+`sitemap: []` 清空分栏，`content` 独立控制正文。此处 sitemap 是可见的页脚导航，与 XML sitemap 插件无关。
 
 ## 页面类型
 
@@ -77,7 +94,6 @@ profiles:
 | `article.listing.excerpt_length` | 128 | 非负整数；0 禁用自动摘要 |
 | `article.listing.show_tags` | false | boolean，卡片标签 |
 | `article.category_colors` | 内置“探索号”配色 | 分类名到 CSS 颜色的映射 |
-| `article.banner.ratio` | 2.5 | 正数 |
 | `article.show_reading_time` | false | boolean |
 | `article.related_posts_limit` | 0 | 非负整数；0 不显示相关文章 |
 | `article.footer.license` | 默认 CC BY-NC-SA 4.0 文案 | string / false |
@@ -90,7 +106,26 @@ profiles:
 | `profiles.notebook.tag_icons` | `{}` | 标签到图标的映射 |
 | `profiles.settings.about.items` | Hexo 与主题版本 | 数组，条目 `key/value/url`；value 与 url 支持主题变量 |
 
-分享服务为 `wechat/weibo/x/telegram/whatsapp/email/link/system`。`profiles.notebook` 只配置 Notebook Collection 的列表默认值与标签图标，不接受 `footer`；Wiki、Topic、Notebook 的内容页脚在 Collection 或 Front Matter 中配置，默认继承 Article 许可协议并关闭分享。页面作者和 AI 标记见 Front Matter，它们不是主题 article 的全局字段。
+分享服务为 `qrcode/weibo/x/telegram/whatsapp/email`。`profiles.notebook` 只配置 Notebook Collection 的列表默认值与标签图标，不接受 `footer`；Wiki、Topic、Notebook 的内容页脚在 Collection 或 Front Matter 中配置，默认继承 Article 许可协议，Topic 也继承 Article 分享；Wiki、Notebook 默认关闭分享。页面作者和 AI 标记见 Front Matter，它们不是主题 article 的全局字段。
+
+### 分享服务用法
+
+```yaml blog/_config.stellar.yml
+article:
+  footer:
+    share: [qrcode, weibo, x, telegram, whatsapp, email]
+```
+
+| 服务 | 用途与条件 |
+| :--- | :--- |
+| qrcode | 显示当前永久链接二维码；图片由 api.qrserver.com 生成，需可访问该服务 |
+| weibo | 打开微博分享页，携带链接、标题、图片与摘要 |
+| x | 打开 X 分享页，携带标题与链接 |
+| telegram | 打开 Telegram 分享页，携带标题与链接 |
+| whatsapp | 打开 WhatsApp 分享页，携带标题与链接 |
+| email | 打开 mailto，标题为主题、永久链接为正文；需要邮件客户端 |
+
+数组可选择任意内置服务；Collection／页面在 footer.share 设置同样的数组，或 true 恢复全局服务、false／[] 隐藏。未知服务不生成按钮。
 
 ## 外观
 
@@ -103,7 +138,8 @@ profiles:
 | `appearance.typography.font_family.body/code` | 字体列表；默认系统字体与 Menlo/Monaco/Consolas 等代码字体 |
 | `appearance.typography.font_size.root/inline_code/code_block` | CSS 长度，默认 16px / 85% / 0.8125rem |
 | `appearance.typography.content_align` | left；left / center / right / justify |
-| `appearance.typography.heading_prefixes.h2/h3/h4/h5` | 字符串，默认分别为井号、等号、竖线、冒号 |
+| `appearance.typography.font_smoothing` | antialiased；auto / none / antialiased |
+| `appearance.typography.font_weight` | 100、200、300、400、500、600、700、800、900 默认映射自身；目标数值 1–1000，只映射一次 |
 | `appearance.shape.corner` | superellipse(1.25)；round / scoop / bevel / notch / square / superellipse(...) |
 | `appearance.shape.radius.card_large/card/card_small/bar` | CSS 长度，默认 24px / 16px / 12px / 12px |
 | `appearance.shape.radius.image_large/image/image_small` | CSS 长度，默认 24px / 16px / 8px |
@@ -142,7 +178,7 @@ profiles:
 | `tags.emoji.sources` | 地址模板映射，使用 `{name}`；内置 twemoji、qq、aru、tieba、blobcat |
 | `tags.icon.default_color` | accent |
 | `tags.button.default_color` | theme |
-| `tags.mark.default_color` | yellow |
+| `tags.mark.default_color` | theme |
 | `tags.hashtag.default_color` | null |
 | `tags.gallery.size` | mix；s / m / l / xl / mix |
 | `tags.gallery.aspect_ratio` | square；original / square / portrait |
@@ -157,9 +193,14 @@ profiles:
 | `features.lazy_loading.transition/auto_aspect_ratio` | fade / true；transition 可选 blur/fade |
 | `features.lightbox.enabled/selector` | true / `.timenode p>img` |
 | `features.link_prefetch.enabled`、`features.reveal.enabled` | true |
-| `features.card_hover.enabled`、`features.heti.enabled` | false |
+| `features.card_hover.spotlight/tilt` | 均为 false，分别控制光照与倾斜 |
+| `features.heti.enabled` | false |
+| `features.partial_navigation.enabled` | true，同集合且外壳兼容时局部导航 |
+| `features.image_optimization.enabled` | true，自动增量提取图片尺寸与平均色 |
+| `features.reveal.duration/interval` | 800 / 200，非负数，单位毫秒；interval 为 0 时同时播放 |
+| `features.reveal.distance/blur` | 8 / 4，单位像素；distance 可负，blur 非负；0 分别关闭位移／模糊 |
 | `features.math.provider` | null；katex / mathjax / null |
-| `features.math.katex/mathjax` | 第三方参数对象，默认空对象 |
+| `features.math.katex/mathjax` | 第三方参数对象，默认含对应资源字段 |
 | `features.diagrams.provider` | null；mermaid / null |
 | `features.diagrams.mermaid.theme` | neutral；default / dark / forest / neutral |
 
@@ -168,19 +209,38 @@ profiles:
 | 字段 | 默认／约束 |
 | :--- | :--- |
 | `services.site_info.provider` | site_info_api / null |
-| `services.site_info.site_info_api.endpoint` | Site Info 公共接口，支持 `{href}` 占位 |
+| `services.site_info.site_info_api.endpoint` | 默认 null；填写自部署地址，支持 `{href}` 占位 |
 | `services.rating.provider`、`services.vote.provider` | star_vote / null |
-| `services.rating.star_vote.endpoint`、`services.vote.star_vote.endpoint` | 评分、投票公共接口 |
+| `services.rating.star_vote.endpoint`、`services.vote.star_vote.endpoint` | 默认 null；分别填写自部署评分、投票地址 |
 | `services.contributors.provider` | github |
 | `services.contributors.github.repositories` | 空数组；条目 `source_prefix/repository/branch`，branch 默认 main |
 | `services.github_card.provider` | github_readme_stats |
-| `services.github_card.github_readme_stats.endpoint` | GitHub Readme Stats 地址 |
+| `services.github_card.github_readme_stats.endpoint` | 默认 https://github-stats-extended.vercel.app |
 | `services.github.api_url/raw_url/gist_url` | GitHub 官方 API、Raw、Gist 完整 HTTP(S) 地址 |
 | `preconnect` | 空数组；资源 Origin 列表 |
 | `fallbacks.avatar/link_card/cover` | 非空资源地址，默认主题占位资源；用于对应的头像、链接卡片或 SEO 图片 |
 | `profiles.error.image` | 错误页插图资源地址，null 隐藏 |
 
 默认 endpoint 的完整地址见[默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/_config.yml)。这些备用图片不适用于所有卡片或 Brand；缺图时的显示方式见[行为参考](/wiki/stellar/reference/behavior/#图片与-Brand-来源)。
+
+### 第三方资源覆盖
+
+以下是完整资源入口；省略或 null 使用默认资源，不会关闭功能。先启用相应 Provider／功能并提供所需容器，再配置资源 URL。
+
+| 入口 | 可覆盖资源 |
+| :--- | :--- |
+| `search.algolia` | js |
+| `comments.beaudar/utterances/giscus/twikoo` | js |
+| `comments.waline` | js、css、meta_css |
+| `comments.artalk` | js、css；默认从 server 的 dist 目录取配套资源 |
+| `features.swiper/lightbox/heti` | js、css |
+| `features.lazy_loading/link_prefetch` | js |
+| `features.math.katex` | css、css_integrity；替换 CSS 时配套更新哈希，null 不附加 SRI |
+| `features.math.mathjax` | js |
+| `features.diagrams.mermaid` | js |
+| `services.markdown` | js；动态 Markdown 共享 Marked |
+
+例如 `features.lightbox.js: /vendor/fancybox.umd.js`，其 css 在同级设置。评论资源也可在页面 `comments.options` 中覆盖。资源字段接受非空地址字符串或 null；其它第三方业务参数仍遵循上游接口。Site Info、Rating、Vote 的 endpoint 不同于这些资源字段：它们留空表示不发服务请求。
 
 ## SEO 与可信注入
 

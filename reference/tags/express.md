@@ -1,7 +1,7 @@
 ---
 title: 表达类标签
 date: 2023-12-06 21:55
-updated: 2026-09-11 15:58
+updated: 2026-09-12 01:21
 ---
 
 ## emoji 表情包
@@ -104,7 +104,7 @@ tags:
 
 ## vote 投票
 
-这个功能在 {% mark 1.33.0 %} 版本后开始支持。Stellar 默认选择 `star_vote` provider，使用 xaox.cc 提供的公共 [star-vote](https://github.com/xaoxuu/star-vote) 服务；公共实例不可用时保留静态计数且不显示错误。需要独立数据或更高配额时，可以自行部署并覆盖对应服务的 endpoint。
+这个功能在 {% mark 1.33.0 %} 版本后开始支持。当前开发版（rc.4 之后）默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写投票 endpoint；未配置或服务失败时保留静态计数，不显示错误。
 
 {% tabs %}
 <!-- tab 效果 -->
@@ -123,7 +123,7 @@ tags:
 
 ## rating 评分
 
-这个功能在 {% mark 1.33.0 %} 版本后开始支持。Stellar 默认选择 `star_vote` provider，使用 xaox.cc 提供的公共 [star-vote](https://github.com/xaoxuu/star-vote) 服务；公共实例不可用时保留静态评分且不显示错误。需要独立数据或更高配额时，可以自行部署并覆盖对应服务的 endpoint。
+这个功能在 {% mark 1.33.0 %} 版本后开始支持。当前开发版（rc.4 之后）默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写评分 endpoint；未配置或服务失败时保留静态评分，不显示错误。
 
 {% tabs %}
 <!-- tab 效果 -->
@@ -146,11 +146,11 @@ services:
   rating:
     provider: star_vote
     star_vote:
-      endpoint: https://star-vote.xaox.cc/api/rating
+      endpoint: https://vote.example.com/api/rating
   vote:
     provider: star_vote
     star_vote:
-      endpoint: https://star-vote.xaox.cc/api/vote
+      endpoint: https://vote.example.com/api/vote
 ```
 
 ## mark 标记标签
@@ -543,7 +543,7 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 ```
 {% endtabs %}
 
-Stellar 默认使用 xaox.cc 的公共服务补全链接卡片。公共实例不可用时保留原始标题、图标和描述，不显示错误。随着网站流量增加，建议参考下方仓库的 `README` 自行部署并覆盖 endpoint。
+当前开发版（rc.4 之后）默认不请求公共 Site Info 实例。请按下方仓库说明自行部署并填写 endpoint；留空或请求失败时保留原始标题、图标和描述，不显示错误。普通卡片使用 appicon，带摘要的链接与行内链接使用 favicon。
 
 {% link https://github.com/xaoxuu/site-info-api %}
 
@@ -554,7 +554,7 @@ services:
   site_info:
     provider: site_info_api
     site_info_api:
-      endpoint: https://api.xaox.cc/site_info/v1?url={href}
+      endpoint: https://site-info.example.com/site_info/v1?url={href}
 ```
 
 ## button 按钮
