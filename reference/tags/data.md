@@ -1,7 +1,7 @@
 ---
 title: 数据类标签
 date: 2023-12-06 21:55
-updated: 2026-09-09 23:14
+updated: 2026-09-11 15:58
 ---
 
 ## timeline 时间线
@@ -66,7 +66,7 @@ updated: 2026-09-09 23:14
 ```
 
 效果如下：
-{% timeline api:https://raw.github.xaox.cc/xaoxuu/ghapi-json-generator/refs/heads/output/v2/repos/xaoxuu/blog-timeline/issues%3Fper_page%3D5/data.json %}{% endtimeline %}
+{% timeline api:https://api.github.xaox.cc/repos/xaoxuu/blog-timeline/issues?per_page=5 %}{% endtimeline %}
 
 <!-- tab 微博动态 -->
 
@@ -107,7 +107,7 @@ updated: 2026-09-09 23:14
 用法同静态和动态单独使用时一样，例如：
 
 ```
-{% timeline reversed:true api:https://raw.github.xaox.cc/xaoxuu/ghapi-json-generator/refs/heads/output/v2/repos/xaoxuu/blog-timeline/issues%3Fper_page%3D5/data.json %}
+{% timeline reversed:true api:https://api.github.xaox.cc/repos/xaoxuu/blog-timeline/issues?per_page=5 %}
 <!-- node 这条内容为静态数据 -->
 这条内容为静态数据，静态数据在 `deploy` 时就已经确定了。
 {% endtimeline %}

@@ -1,7 +1,7 @@
 ---
 title: 表达类标签
 date: 2023-12-06 21:55
-updated: 2026-09-09 23:14
+updated: 2026-09-11 15:58
 ---
 
 ## emoji 表情包
@@ -91,7 +91,7 @@ tags:
 | `default:` | 主题功能图标：日期、分类、返回、编辑、主题切换、置顶、标签等 | `default:calendar` |
 | `example:` | 仅用于配置示例的占位图标 | `example:planet` |
 | `github:` | GitHub 仓库卡片 | `github:star` |
-| `share:` | 文章分享按钮 | `share:wechat` |
+| `share:` | 文章分享按钮 | `share:qrcode` |
 | `chat:` | chat 聊天标签：浏览器来源、文件类型、界面控件 | `chat:qq` |
 | `quot:` | quot 强调引用图标 | `quot:quote-left` |
 | `weibo:` | 微博 / 时间线数据服务图标（转发 / 点赞） | `weibo:like` |
