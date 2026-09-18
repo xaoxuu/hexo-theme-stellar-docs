@@ -1,7 +1,7 @@
 ---
 title: 布局与导航
 date: 2023-12-06 21:55
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
 Stellar 把页面分成顶部栏、左侧栏和右侧栏。左边通常放站点名字与主菜单，右边适合目录或仓库信息；手机空间不够时，它们会收进抽屉。
@@ -36,7 +36,13 @@ profiles:
       widgets: [toc]
 ```
 
-菜单数组整体替换默认列表。链接项填写 `id/title/url`，非空 kebab-case 的 `id` 用于与 `active_menu` 匹配；当前开发版用 `leftbar.brand.search: true` 控制搜索入口（默认开启且需要 Brand 可见及搜索 Provider）。Topbar 开关、固定 Brand/Menu 与 Widget 列表分开配置。
+菜单数组整体替换默认列表。链接项填写 `id/title/url`，非空 kebab-case 的 `id` 用于与 `active_menu` 匹配；从 rc.5 起用 `leftbar.brand.search: true` 控制搜索入口（默认开启且需要 Brand 可见及搜索 Provider）。Topbar 开关、固定 Brand/Menu 与 Widget 列表分开配置。
+
+### 菜单列数（main 开发版）
+
+在 `_config.stellar.yml` 设置 `leftbar.menu_columns: 2` 即可使用双列菜单。支持 1–5 的整数，默认 1；1–2 列显示图标和标题，3–5 列仅显示居中的图标。图标布局仍须为每项填写 `title`，以提供提示和无障碍名称，并配置可辨识的 `icon`。
+
+Profile、Collection 和页面 Front Matter 均可在 `leftbar.menu_columns` 覆盖；省略或 null 继承上层设置。该字段只控制 Leftbar 固定菜单，不控制 Widget 网格或 Topbar。
 
 ## 为页面或集合单独配置
 

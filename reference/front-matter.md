@@ -1,10 +1,10 @@
 ---
 title: Front Matter
 date: 2025-07-06 13:34
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
-> 版本范围：本页按 rc.4 之后的当前开发版源码核对（截至 2026-09-12）。其中新增或调整的配置不代表已发布 rc.4 的行为；使用 npm 候选版时请对照对应版本源码。
+> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
 
 Front Matter 是 Markdown 开头的 YAML 配置。主题字段使用 `snake_case`，第三方参数使用服务方原有的名称。Doctor 会报告不支持的主题字段，旧字段需要按[迁移说明](/wiki/stellar/migration/fields/)修改。
 
@@ -40,6 +40,8 @@ collection:
 ## 导航与 Region
 
 `active_menu` 为 string/null，匹配固定菜单 ID；`breadcrumb` 为 boolean/null。三个 Region 可覆盖 `enabled/widgets`；Topbar、Leftbar 支持 `brand/menu`，Leftbar 还有 `footer.actions`。
+
+main 开发版支持 `leftbar.menu_columns`：1–5 的整数，省略或 null 继承；1–2 列显示图标和标题，3–5 列仅显示图标，仍需填写 title。
 
 结构见[主题 Region](/wiki/stellar/reference/theme/#布局、Brand-与导航)。页面 Leftbar Brand 可覆盖图片、名称、标语、链接、style、search、ghrepo 和 ghuser；Collection 专属的 source/back_button 放在集合文件中。
 

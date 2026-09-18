@@ -1,10 +1,10 @@
 ---
 title: 配置对照
 date: 2026-09-05 20:49
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
-> 版本范围：本页按 rc.4 之后的当前开发版源码核对（截至 2026-09-12）。其中新增或调整的配置不代表已发布 rc.4 的行为；使用 npm 候选版时请对照对应版本源码。
+> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
 
 下表以 [1.44.0 默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/1.44.0/_config.yml)、Collection 读取链和页面实际用法为依据，覆盖从 1.44.0 升级时仍可出现的主题配置、Collection 与 Front Matter 输入。v2 不会自动读取这些旧名称；新配置的完整用法见[主题参考](/wiki/stellar/reference/theme/)和[Collection 参考](/wiki/stellar/reference/collection/)。
 
@@ -128,7 +128,7 @@ v1 的标签插件配置不能只把根节点从 `tag_plugins` 改成 `tags`。�
 
 rc.2 起，顶层 notebook、settings.about、error_page.image 分别迁到 profiles.notebook、profiles.settings.about、profiles.error.image；profiles.notebook_index / note_index 改为 profiles.notebooks / notebook。rc.3 起页脚分栏使用 footer.sitemap，子项为 Markdown 字符串；card_hover 的 spotlight 与 tilt 独立开关，Topic 默认继承文章分享。
 
-当前开发版将搜索入口移到 leftbar.brand.search；横幅图片使用页面 cover，Collection 不再提供 banner；分享服务使用 qrcode/weibo/x/telegram/whatsapp/email。Site Info、Rating、Vote 的 endpoint 默认 null，需要自行部署填写。以上配置请按当前参考重写，不依赖旧字段自动转换。
+rc.5 将搜索入口移到 leftbar.brand.search；横幅图片使用页面 cover，Collection 不再提供 banner；分享服务使用 qrcode/weibo/x/telegram/whatsapp/email。Site Info、Rating、Vote 的 endpoint 默认 null，需要自行部署填写。以上配置请按当前参考重写，不依赖旧字段自动转换。
 
 ## 无等价项与默认变化
 

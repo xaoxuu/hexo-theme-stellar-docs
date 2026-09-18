@@ -1,7 +1,7 @@
 ---
 title: 配置与行为
 date: 2026-09-05 20:49
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
 本页说明配置的覆盖顺序、内容归属、排序和错误处理。完整字段见[主题配置](/wiki/stellar/reference/theme/)、[Collection](/wiki/stellar/reference/collection/)与 [Front Matter](/wiki/stellar/reference/front-matter/)。
@@ -50,7 +50,7 @@ Collection 的 `visibility.listed/searchable` 是成员页默认，Front Matter 
 
 ## 图片与 Brand 来源
 
-当前开发版中，页面 `cover` 同时提供列表和内容横幅图片，`tagline` 仍是列表小字；Collection 对应字段不向成员继承。`banner` 只在页面控制横幅开关、头像与文字；Hero 仅属于 Wiki 首页。
+从 rc.5 起，页面 `cover` 同时提供列表和内容横幅图片，`tagline` 仍是列表小字；Collection 对应字段不向成员继承。`banner` 只在页面控制横幅开关、头像与文字；Hero 仅属于 Wiki 首页。
 
 Wiki/Notebook 默认使用 Collection Brand，Topic 使用站点 Brand。Brand 来源与 regular/compact 样式独立。Collection 缺图时使用无图样式或对应图标；regular Leftbar 的统计需要显式配置 `leftbar.brand.ghrepo` 或 `ghuser`，ghrepo 优先；不从 `source.repository` 或 ghuser Widget 推断。
 

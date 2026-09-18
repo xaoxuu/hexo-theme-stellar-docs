@@ -1,10 +1,10 @@
 ---
 title: Collection 配置
 date: 2026-09-05 20:49
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
-> 版本范围：本页按 rc.4 之后的当前开发版源码核对（截至 2026-09-12）。其中新增或调整的配置不代表已发布 rc.4 的行为；使用 npm 候选版时请对照对应版本源码。
+> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
 
 Collection 文件位于 `source/_data/wiki/`、`source/_data/topic/` 或 `source/_data/notebooks/`。文件路径提供 profile，文件名提供 ID；`name` 是显示名称；省略时使用 Collection ID 并给出 warning。只需填写当前集合要修改的配置，其余值由主题提供。
 
@@ -36,18 +36,71 @@ Collection 文件位于 `source/_data/wiki/`、`source/_data/topic/` 或 `source
 | :--- | :--- |
 | `hero.enabled` | boolean / null，是否启用首页 Hero |
 | `hero.background.image` | string / null，背景图片 |
-| `hero.background.effect` | object / null；`type` 为 `ferrofluid`、`galaxy` 或 `light-rays`，`options` 为对应效果参数 |
+| `hero.background.video` | main 开发版；string / null，背景视频地址；优先于 effect，image 用作 poster 与底图 |
+| `hero.background.parallax` | main 开发版；number，默认 0.2，范围 0–1；0 关闭视差位移 |
+| `hero.background.effect` | object / null；`type` 为 `ferrofluid`、`galaxy`、`light-rays`，main 开发版另支持 `strands`，`options` 为对应效果参数 |
 | `hero.background.effect.runtime` | `pause_when_hidden/respect_reduced_motion` 可选 boolean，均默认 true |
 | `hero.preview.type` | terminal / image |
 | `hero.preview.src/alt` | 图片地址与替代文字 |
 | `hero.preview.commands` | 数组，条目 `label/codes` |
 | `hero.actions` | 数组，条目 `title/url/icon` |
 
-Collection 不配置 `banner`。成员页面用自己的 `cover` 提供内容横幅图片，用 Front Matter `banner.enabled/avatar/headline/tagline` 控制横幅内容；集合 cover 不继承到成员。Hero 背景仍单独使用 `hero.background.image`。
+Collection 不配置 `banner`。成员页面用自己的 `cover` 提供内容横幅图片，用 Front Matter `banner.enabled/avatar/headline/tagline` 控制横幅内容；集合 cover 不继承到成员。Hero 背景单独使用 `hero.background`。
+
+### 视频与滚动视差（main 开发版）
+
+```yaml blog/source/_data/wiki/handbook.yml
+hero:
+  enabled: true
+  background:
+    image: /images/wiki-poster.webp
+    video: /videos/wiki-hero.mp4
+    parallax: 0.2
+```
+
+`video` 接受站点资源路径或完整 URL，以静音、循环、自动播放和行内播放方式显示；自动播放仍受浏览器策略约束。设置视频后不加载 `effect`，`image` 同时作为视频 poster 和背景底图。静态图片、视频和动态效果都支持 `parallax`，默认 0.2，范围 0–1；设为 0 或系统启用减少动态效果时关闭位移。视频与未叠加动态效果的图片在 Hero 滚出视口时仍会渐隐，`parallax: 0` 不关闭该渐隐。
 
 ### Hero 背景效果
 
-`hero.background.image` 与动态效果可以同时配置：图片位于 Canvas 下方，动态效果加载失败时仍保留图片。没有图片时，Galaxy 和普通 Light Rays 使用黑色静态底色，Ferrofluid 使用其 `backgroundColor`；`lightMode: true` 的 Light Rays 使用白色底色。Canvas 不接收指针事件，不会遮挡 Hero 中的链接和按钮。
+`hero.background.image` 与动态效果可以同时配置：图片位于 Canvas 下方，动态效果加载失败时仍保留图片。没有图片时，Strands、Galaxy 和普通 Light Rays 使用黑色静态底色，Ferrofluid 使用其 `backgroundColor`；`lightMode: true` 的 Light Rays 使用白色底色。Canvas 不接收指针事件，不会遮挡 Hero 中的链接和按钮。
+
+#### Strands（main 开发版）
+
+流动的发光丝带，可叠加玻璃折射效果。需要浏览器支持 WebGL 2；无背景图片时使用黑色底色。
+
+```yaml blog/source/_data/wiki/handbook.yml
+hero:
+  enabled: true
+  background:
+    effect:
+      type: strands
+      options:
+        colors: ['#F97316', '#7C3AED', '#06B6D4']
+        glass: true
+```
+
+| 参数 | 类型／默认 | 用途与边界 |
+| :--- | :--- | :--- |
+| `colors` | 颜色数组，`['#F97316', '#7C3AED', '#06B6D4']` | 0–8 个六位十六进制颜色；`#` 可省略，空数组使用程序生成的配色 |
+| `count` | number，3 | 丝带数量；运行时四舍五入并限制到 1–12 |
+| `speed` | number，0.5 | 动画速度；可为负数以反向播放 |
+| `amplitude` | number，1 | 摆动幅度 |
+| `waviness` | number，1 | 波动程度 |
+| `thickness` | number，0.7 | 丝带粗细 |
+| `glow` | number，2.6 | 辉光强度 |
+| `taper` | number，3 | 丝带收尖程度 |
+| `spread` | number，1 | 丝带分散程度 |
+| `hueShift` | number，0 | 色相偏移 |
+| `intensity` | number，0.6 | 发光亮度 |
+| `saturation` | number，1.5 | 色彩饱和度 |
+| `opacity` | number，1 | 输出透明度，运行时限制到 0–1 |
+| `scale` | number，1.5 | 整体缩放 |
+| `glass` | boolean，false | 启用玻璃效果 |
+| `refraction` | number，1 | 玻璃折射强度，仅 glass 开启时生效 |
+| `dispersion` | number，1 | 玻璃色散强度，仅 glass 开启时生效 |
+| `glassSize` | number，1 | 玻璃区域尺寸，仅 glass 开启时生效 |
+
+数字参数在 Schema 中要求有限数值；运行时将 amplitude、waviness、glow、taper、spread、intensity、saturation 的负值按 0 处理，thickness、scale 最小为 0.0001；玻璃半径按 `max(0.0001, 0.46 × glassSize)` 计算。未知参数和不合法颜色不属于支持配置。
 
 #### Ferrofluid
 
@@ -158,7 +211,7 @@ hero:
 | `autoCenterRepulsion` | number，0 | 中心自动排斥强度 |
 | `transparent` | boolean，true | 是否使用透明 Canvas；false 时会覆盖背景图片 |
 
-三种效果都支持运行时策略：
+所有内置效果都支持运行时策略：
 
 ```yaml blog/source/_data/wiki/handbook.yml
 hero:
@@ -174,7 +227,7 @@ hero:
 
 ## Region 与 Brand
 
-顶部栏、左侧栏、右侧栏（Region）使用 `enabled/widgets`，Topbar 和 Leftbar 还支持 `brand/menu`，Leftbar 支持 `footer.actions`。它们沿用[主题结构](/wiki/stellar/reference/theme/#布局、Brand-与导航)，但作为局部覆盖：省略继承，数组整体替换，`[]` 清空。
+顶部栏、左侧栏、右侧栏（Region）使用 `enabled/widgets`，Topbar 和 Leftbar 还支持 `brand/menu`，Leftbar 支持 `footer.actions`，main 开发版另支持 `menu_columns`（1–5 的整数，null 继承）。它们沿用[主题结构](/wiki/stellar/reference/theme/#布局、Brand-与导航)，但作为局部覆盖：省略继承，数组整体替换，`[]` 清空。
 
 Collection 的 `leftbar.brand` 额外支持 `source: site/collection`、`back_button`。Wiki/Notebook 默认来源是 collection，Topic 默认 site；返回开关只在 collection 来源有效；search、ghrepo、ghuser 沿用共享 Leftbar Brand 字段，搜索适用于两种来源。`style: regular/compact` 与来源独立。Brand 整体可为 false 或 null；null 继承，false 隐藏。具体字段 null 隐藏对应内容。
 

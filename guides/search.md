@@ -1,7 +1,7 @@
 ---
 title: 站内搜索
 date: 2023-12-06 21:55
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
 Stellar 默认启用本地搜索，无需额外安装搜索索引生成器。它会在构建时写出索引，读者可以从结果直接跳到匹配的章节。
@@ -21,7 +21,7 @@ search:
 
 ## 搜索入口与范围
 
-当前开发版通过 `leftbar.brand.search` 控制 Brand 中的搜索按钮，默认 true；菜单只接受 link 项。Brand 需可见且 search.provider 非空。博客、Wiki、Topic 和 Notebook 根据页面归属提供相应的搜索范围；搜索范围按内容归属划分。Topic 可以在博客与当前专栏范围中检索，实际可用范围还受全局索引 scope 限制。
+rc.5 起通过 `leftbar.brand.search` 控制 Brand 中的搜索按钮，默认 true；菜单只接受 link 项。Brand 需可见且 search.provider 非空。博客、Wiki、Topic 和 Notebook 根据页面归属提供相应的搜索范围；搜索范围按内容归属划分。Topic 可以在博客与当前专栏范围中检索，实际可用范围还受全局索引 scope 限制。
 
 本地结果按章节定位，打开结果会携带关键词与标题 hash。可用 `Ctrl/⌘ + K` 打开搜索，`Esc` 关闭。
 

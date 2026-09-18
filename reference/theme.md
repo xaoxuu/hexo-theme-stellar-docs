@@ -1,12 +1,12 @@
 ---
 title: 主题配置
 date: 2026-09-05 20:49
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
 本页适用于 v2 的 `_config.stellar.yml`。主题[默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/_config.yml)列出了完整配置和默认值，[校验规则](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/scripts/schema/config-rules.js)说明了类型和取值限制。不同版本可能有差异，请以安装版本为准。
 
-> 版本范围：本页按 rc.4 之后的当前开发版源码核对（截至 2026-09-12）。其中新增或调整的配置不代表已发布 rc.4 的行为；使用 npm 候选版时请对照对应版本源码。
+> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
 
 下表按用途列出配置项。第三方服务的完整参数以服务方说明为准；对象和数组的覆盖方式见[行为参考](/wiki/stellar/reference/behavior/)。
 
@@ -24,6 +24,7 @@ updated: 2026-09-12 01:21
 | `leftbar.brand.search` | boolean，默认 true | Brand 搜索按钮；需配置搜索 Provider，Brand 本身需可见 |
 | `leftbar.brand.ghrepo/ghuser` | string / null，默认 null | regular Leftbar 的仓库／用户统计，ghrepo 优先；显式填写 owner/repo 或用户名 |
 | `leftbar.brand.style` | `regular` / `compact`，默认 `regular` | 视觉样式 |
+| `leftbar.menu_columns` | 1–5 的整数，默认 1 | main 开发版；1–2 列显示图标和标题，3–5 列只显示图标；支持 Profile、Collection、Page 覆盖 |
 | `topbar.menu`、`leftbar.menu` | array | 顶部默认空；左侧默认博客、分类、标签、专栏、归档、友链、关于 |
 | Menu 项 | object | `type` 仅支持 link；链接填写非空 kebab-case 的 `id` 与 `url`，可配 title/icon/accent |
 | `topbar.widgets`、`leftbar.widgets`、`rightbar.widgets` | array，默认 `[]` | 内容 Widget 列表；profile 可继续覆盖 |
@@ -208,6 +209,7 @@ article:
 
 | 字段 | 默认／约束 |
 | :--- | :--- |
+| `services.gravatar.base_url` | main 开发版；默认 `https://gravatar.com/avatar/`，完整 HTTP(S) 地址，须包含兼容服务的 `/avatar/` 路径；用于访客身份头像 |
 | `services.site_info.provider` | site_info_api / null |
 | `services.site_info.site_info_api.endpoint` | 默认 null；填写自部署地址，支持 `{href}` 占位 |
 | `services.rating.provider`、`services.vote.provider` | star_vote / null |

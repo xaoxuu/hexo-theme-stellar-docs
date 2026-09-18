@@ -1,7 +1,7 @@
 ---
 title: 环境与安装
 date: 2022-10-21 13:15
-updated: 2026-09-07 00:36
+updated: 2026-09-18 23:12
 ---
 
 在已有 Hexo 站点中安装 Stellar，需要确认运行环境、选择主题版本，并设置 `theme: stellar`。还没有站点时，从[创建第一个站点](/wiki/stellar/start/first-site/)开始。
@@ -27,6 +27,12 @@ npx hexo version
 蓝图会创建一套已经配置好的独立站点，并安装它锁定的 Stellar 版本。选择最接近目标站点的蓝图，复制对应命令即可。
 
 **安装方法**
+
+以下分蓝图的一行命令适用于 macOS / Linux。Windows 请使用 PowerShell 7+（`pwsh`）运行交互式安装器，再按提示选择蓝图与项目目录：
+
+```powershell
+& ([scriptblock]::Create((Invoke-RestMethod https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.ps1)))
+```
 
 {% tabs active:2 %}
 

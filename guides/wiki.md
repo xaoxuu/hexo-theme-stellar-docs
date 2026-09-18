@@ -1,7 +1,7 @@
 ---
 title: Wiki 文档
 date: 2023-12-06 21:55
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
 Wiki 通过目录组织一组页面，适合产品手册、项目文档和长期维护的专题。目录顺序由你指定，可以按阅读需要分组。
@@ -84,11 +84,11 @@ hero:
     image: /images/wiki-hero.webp
 ```
 
-图片支持站点相对路径或可访问的完整 URL。项目展示墙中的卡片封面使用根级 `cover`，当前开发版普通 Wiki 内容页横幅使用页面自身的 `cover`，它们不会替代 Hero 背景。
+图片支持站点相对路径或可访问的完整 URL。项目展示墙中的卡片封面使用根级 `cover`，从 rc.5 起普通 Wiki 内容页横幅使用页面自身的 `cover`，它们不会替代 Hero 背景。
 
 ### 动态效果
 
-当前内置 `ferrofluid`、`light-rays` 和 `galaxy` 三种效果。在 `hero.background.effect.type` 中选择效果，通过同级 `options` 调整参数；省略 `options` 时使用全部默认值。背景图片与动态效果可以同时配置，此时图片显示在动态效果下方。
+rc.5 内置 `ferrofluid`、`light-rays` 和 `galaxy`；main 开发版新增 `strands` 发光丝带效果。在 `hero.background.effect.type` 中选择效果，通过同级 `options` 调整参数；省略 `options` 时使用全部默认值。背景图片与动态效果可以同时配置，此时图片显示在动态效果下方。
 
 #### Ferrofluid
 
@@ -145,7 +145,7 @@ hero:
         mouseRepulsion: true
 ```
 
-Galaxy 显示具有纵深移动、辉光和鼠标排斥交互的星场。三种效果的全部参数、默认值、运行时策略和图片叠加规则见 [Collection 参考](/wiki/stellar/reference/collection/#Hero-背景效果)。
+Galaxy 显示具有纵深移动、辉光和鼠标排斥交互的星场。所有效果的全部参数、默认值、运行时策略和图片叠加规则见 [Collection 参考](/wiki/stellar/reference/collection/#Hero-背景效果)。
 
 ## 仓库与 README
 
@@ -167,3 +167,7 @@ navigation:
 少量页面可以把 `route.path` 设为 `/notes/` 并手工维护目录。标准 Wiki 命名空间外的页面建议显式声明 Collection；不要在已有 Notebook 使用的路由上重复创建 Wiki。
 
 目录链接不正确时，检查 `navigation.tree` 中的页面键与实际文件是否一致。侧栏设置见[布局与导航](/wiki/stellar/guides/layout/)。
+
+## 视频、视差与 Strands（main 开发版）
+
+Wiki Hero 可用 `hero.background.video` 设置背景视频，用 `image` 提供 poster；视频优先于动态效果。`hero.background.parallax` 默认 0.2，设为 0 可关闭滚动位移。发光丝带使用 `hero.background.effect.type: strands`，还可设置 `options.glass: true` 开启玻璃折射。完整示例、参数与降级规则见 [Collection Hero 参考](/wiki/stellar/reference/collection/#Hero-与横幅)。

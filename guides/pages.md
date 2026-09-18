@@ -1,7 +1,7 @@
 ---
 title: 文章与页面
 date: 2023-12-06 21:55
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
 随时间发布的内容放在 `source/_posts/`。关于、友链这类不属于时间线的内容，更适合放在 `source/<name>/index.md`。
@@ -26,7 +26,7 @@ article:
 
 ## 列表卡片与横幅
 
-> 版本范围：本页按 rc.4 之后的当前开发版源码核对（截至 2026-09-12）。其中新增或调整的配置不代表已发布 rc.4 的行为；使用 npm 候选版时请对照对应版本源码。
+> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
 
 ```yaml blog/source/_posts/一次散步.md
 cover: /images/walk-card.webp
@@ -68,7 +68,7 @@ article:
   ai_label: manual
 ```
 
-作者个人资料页在当前开发版中使用作者的 cover 作为横幅背景，avatar 为头像、description 为小字；作者页列表包含该作者的普通文章和 Topic 文章。
+作者个人资料页从 rc.5 起使用作者的 cover 作为横幅背景，avatar 为头像、description 为小字；作者页列表包含该作者的普通文章和 Topic 文章。
 
 AI 标记可选 `manual`、`reviewed`、`polished`、`generated`，用来说明内容的创作方式，按实际情况填写。
 

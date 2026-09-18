@@ -1,7 +1,7 @@
 ---
 title: 表达类标签
 date: 2023-12-06 21:55
-updated: 2026-09-12 01:21
+updated: 2026-09-18 23:12
 ---
 
 ## emoji 表情包
@@ -104,7 +104,7 @@ tags:
 
 ## vote 投票
 
-这个功能在 {% mark 1.33.0 %} 版本后开始支持。当前开发版（rc.4 之后）默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写投票 endpoint；未配置或服务失败时保留静态计数，不显示错误。
+这个功能在 {% mark 1.33.0 %} 版本后开始支持。从 rc.5 起默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写投票 endpoint；未配置或服务失败时保留静态计数，不显示错误。
 
 {% tabs %}
 <!-- tab 效果 -->
@@ -123,7 +123,7 @@ tags:
 
 ## rating 评分
 
-这个功能在 {% mark 1.33.0 %} 版本后开始支持。当前开发版（rc.4 之后）默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写评分 endpoint；未配置或服务失败时保留静态评分，不显示错误。
+这个功能在 {% mark 1.33.0 %} 版本后开始支持。从 rc.5 起默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写评分 endpoint；未配置或服务失败时保留静态评分，不显示错误。
 
 {% tabs %}
 <!-- tab 效果 -->
@@ -543,7 +543,7 @@ desc: 可选，是否显示摘要描述，为true时将会显示页面描述
 ```
 {% endtabs %}
 
-当前开发版（rc.4 之后）默认不请求公共 Site Info 实例。请按下方仓库说明自行部署并填写 endpoint；留空或请求失败时保留原始标题、图标和描述，不显示错误。普通卡片使用 appicon，带摘要的链接与行内链接使用 favicon。
+从 rc.5 起默认不请求公共 Site Info 实例。请按下方仓库说明自行部署并填写 endpoint；留空或请求失败时保留原始标题、图标和描述，不显示错误。普通卡片使用 appicon，带摘要的链接与行内链接使用 favicon。
 
 {% link https://github.com/xaoxuu/site-info-api %}
 
