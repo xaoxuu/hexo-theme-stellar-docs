@@ -1,0 +1,8 @@
+# 文档站只需要作者信息来渲染文章页脚的许可证署名（{author.name} / {author.url}）。
+# hidden 表示本仓库不生成作者页——作者页归主站 /author/xaoxuu/，这里不重复生成。
+xaoxuu:
+  name: 'Mr. X'
+  url: https://xaoxuu.com
+  avatar: https://res.xaox.cc/gh/cdn-x/xaoxuu@main/avatar/2025.webp
+  github: xaoxuu
+  hidden: true
