@@ -97,7 +97,7 @@ func setup() {
 `dropdown` 是一个通用的图标链接下拉菜单，可以用于正文内容，也被侧栏底部操作（`leftbar.footer.actions`）复用：
 
 {% dropdown direction:down 更多链接 %}
-- icon:default:documents [文档](/wiki/)
+- icon:default:documents [文档](https://xaoxuu.com/wiki/)
 - [GitHub](https://github.com/)
 {% enddropdown %}
 
