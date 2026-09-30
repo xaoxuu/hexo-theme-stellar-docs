@@ -1,10 +1,10 @@
 ---
 title: Collection 配置
 date: 2026-09-05 20:49
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
-> 适用版本：Stellar v2.0.0。从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
+> 从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
 
 Collection 文件位于 `source/_data/wiki/`、`source/_data/topic/` 或 `source/_data/notebooks/`。文件路径提供 profile，文件名提供 ID；`name` 是显示名称；省略时使用 Collection ID 并给出 warning。只需填写当前集合要修改的配置，其余值由主题提供。
 
@@ -62,7 +62,7 @@ hero:
 
 ### Hero 背景效果
 
-`hero.background.image` 与动态效果可以同时配置：图片位于 Canvas 下方，动态效果加载失败时仍保留图片。没有图片时，Strands、Galaxy 和普通 Light Rays 使用黑色静态底色，Ferrofluid 使用其 `backgroundColor`；`lightMode: true` 的 Light Rays 使用白色底色。Canvas 不接收指针事件，不会遮挡 Hero 中的链接和按钮。
+`hero.background.image` 与动态效果可以同时配置：图片位于 Canvas 下方，动态效果加载失败时仍保留图片。没有图片时，Strands、Galaxy 和普通 Light Rays 使用黑色静态底色，Ferrofluid 使用其 `backgroundColor`；`lightMode: true` 的 Light Rays 使用白色底色。Canvas 不拦截指针事件，Hero 中的链接和按钮仍可点击。
 
 #### Strands
 
@@ -242,7 +242,7 @@ Collection 的 `leftbar.brand` 额外支持 `source: site/collection`、`back_bu
 | 源码 | `source.repository/branch` | string/null；GitHub owner/repo 与分支 |
 | 可见性 | `visibility.listed/searchable` | Collection 值是成员默认；Page 可再覆盖 |
 
-具体取值见 [Front Matter](/wiki/stellar/reference/front-matter/)，它与 Collection 共用这些内容覆盖结构。对象逐字段覆盖并不意味着所有 null 都有相同效果，详见[行为规则](/wiki/stellar/reference/behavior/#配置覆盖顺序与空值)。
+具体取值见 [Front Matter](/wiki/stellar/reference/front-matter/)，它与 Collection 共用这些内容覆盖结构。对象逐字段覆盖时，不同 null 的效果各有不同，详见[行为规则](/wiki/stellar/reference/behavior/#配置覆盖顺序与空值)。
 
 Wiki、Notebook Collection 的 `footer.share` 默认关闭，Topic 默认继承全局 Article 分享。设置 `true` 会恢复全局 `article.footer.share`，数组显式选择服务，`false` 或 `[]` 关闭；许可协议同样可用 `true` 恢复全局 Article 文案。Collection 的 `visibility.listed: false` 会隐藏集合总入口，并成为成员页的默认列表状态；`searchable: false` 成为成员页的默认搜索状态。页面可以显式改回 `true`，详情路由仍然生成。
 

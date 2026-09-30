@@ -1,10 +1,10 @@
 ---
 title: Front Matter
 date: 2025-07-06 13:34
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
-> 适用版本：Stellar v2.0.0。从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
+> 从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
 
 Front Matter 是 Markdown 开头的 YAML 配置。主题字段使用 `snake_case`，第三方参数使用服务方原有的名称。Doctor 会报告不支持的主题字段，旧字段需要按[迁移说明](/wiki/stellar/migration/fields/)修改。
 
@@ -89,4 +89,4 @@ Leftbar 支持 `leftbar.menu_columns`：1–5 的整数，省略或 null 继承�
 
 数学和图表设置决定浏览器加载哪种渲染工具，Hexo 使用的 Markdown 渲染器也需要支持相应语法。详见[第三方集成](/wiki/stellar/guides/integrations/)。
 
-页面注入追加在站点 `_config.stellar.yml` 的同位置内容之后；两段都非空时由主题插入一个换行。四个字段只接受字符串，内容会原样输出，不解析、不格式化也不转义，只应填写维护者完全信任的 HTML。
+页面注入追加在站点 `_config.stellar.yml` 的同位置内容之后；两段都非空时由主题插入一个换行。四个字段只接受字符串，内容会原样输出，只应填写维护者完全信任的 HTML；渲染与信任要求见[自定义样式与脚本](/wiki/stellar/guides/customization/)。

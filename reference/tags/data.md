@@ -1,7 +1,7 @@
 ---
 title: 数据类标签
 date: 2023-12-06 21:55
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
 ## timeline 时间线
@@ -70,7 +70,7 @@ updated: 2026-09-30 14:04
 
 <!-- tab 微博动态 -->
 
-1. fork shaoyaoqian/WeiboSpider 的爬虫，修改自己的仓库名
+1. Fork shaoyaoqian/WeiboSpider 仓库，改成自己的仓库名
 2. 修改 `.github/workflows/main.yml` 中的微博ID为你想爬取的ID，修改完后每天会自动爬取你的微博，存储为 json 文件，输出文件在 {% mark output %} 分支
 
 ```md _posts/xxx.md
@@ -78,8 +78,6 @@ updated: 2026-09-30 14:04
 ```
 
 <!-- tab RSS 订阅 -->
-
-这个功能在 {% mark 1.34.0 color:dark %} 版本后开始支持：
 
 动态数据也可以直接拉取 RSS / Atom / JSON Feed 订阅源，适合配合 [RSSHub](https://docs.rsshub.app/) 聚合各类平台动态（如 B 站、微博等）：
 
@@ -152,7 +150,7 @@ updated: 2026-09-30 14:04
 
 `group` 读取 `source/_data/links/<group>.yml`。`api` 优先于 `repo`；仅填 `repo` 时，主题通过 `services.github.raw_url` 请求 `<owner/repo>/output/v2/data.json`。`posts:true` 选用友链与文章聚合适配器，只适用于动态数据。未提供 group、repo 或 api 时输出空容器。
 
-您可以在任何位置插入友链组，支持静态数据和动态数据，静态数据需要写在数据文件中：
+可以在任何位置插入友链组，支持静态数据和动态数据，静态数据需要写在数据文件中：
 
 ```yaml blog/source/_data/links/ios_developer.yml
 - title: 某某某
@@ -196,10 +194,6 @@ updated: 2026-09-30 14:04
 ```
 
 
-### 旧的动态友链仓库怎么升级？
-
-详见这篇文章：[《感谢 AI，动态友链获重磅升级！》](https://xaoxuu.com/blog/20250602/)
-
 ### 数据托管与加速
 
 支持把数据托管到任何其他地方来使用，例如：
@@ -220,17 +214,7 @@ updated: 2026-09-30 14:04
 
 group、repo、api 的选择顺序与 `friends` 相同，api 优先于 repo。未提供数据源时输出空容器。
 
-您可以在任何位置插入网站卡片组，支持静态数据和动态数据，静态数据需要写在数据文件中：
-
-```yaml blog/source/_data/links/分组名.yml
-- title: 标题
-  url: https://
-  cover:
-  icon:
-  description:
-```
-
-在需要的位置这样写：
+网站卡片使用与友链相同的 `links/<分组名>.yml` 数据文件，静态与动态写法一致：
 
 ```md
 {% sites 分组名 %}
@@ -238,8 +222,8 @@ group、repo、api 的选择顺序与 `friends` 相同，api 优先于 repo。�
 
 条目未配置 `appicon`、`icon` 或 `avatar` 时，网站卡片可复用 `services.site_info` 补充图标（appicon 优先，缺失时使用 API 的 icon）；静态与动态条目均按 appicon → icon → avatar 取值。默认选择 `site_info_api`，但 endpoint 留空；需设置 `services.site_info.site_info_api.endpoint` 为自部署地址，或设置 `provider: null` 关闭。请求失败时保留主题兜底图标且不显示错误；该接口不会自动获取网站截图。
 
-{% box Stellar v1.13.0 color:warning %}
-原 friends 和 sites 标签数据合并至 `links/xxx.yml` 文件，动态数据使用方法同友链，数据源格式相同，与友链共享数据，仅样式不同，也可以用 `sites` 标签做友链。
+{% box 数据文件共用 color:warning %}
+friends 和 sites 的数据都写在 `links/xxx.yml`：静态数据格式相同，动态数据用法与友链一致，仅展示样式不同，也可以用 `sites` 标签做友链。
 {% endbox %}
 
 
@@ -251,15 +235,7 @@ group、repo、api 的选择顺序与 `friends` 相同，api 优先于 repo。�
 
 `size` 默认 `s`。api 优先于 repo；动态数据使用正方形封面，静态数据读取 links 分组。未提供数据源时输出空容器。
 
-配置数据源：
-
-```yaml blog/source/_data/links/分组名.yml
-- title: 标题
-  url: https://
-  cover:
-  icon:
-  description:
-```
+数据源与友链共用 `links/<分组名>.yml`。
 
 文章中插入方式：
 
@@ -277,15 +253,7 @@ group、repo、api 的选择顺序与 `friends` 相同，api 优先于 repo。�
 
 `size` 默认 `xs`。api 优先于 repo；静态数据使用竖向封面。未提供数据源时输出空容器。
 
-配置数据源：
-
-```yaml blog/source/_data/links/分组名.yml
-- title: 标题
-  url: https://
-  cover:
-  icon:
-  description:
-```
+数据源与友链共用 `links/<分组名>.yml`。
 
 文章中插入方式：
 
@@ -303,7 +271,7 @@ group、repo、api 的选择顺序与 `friends` 相同，api 优先于 repo。�
 {% endfolding %}
 ```
 
-`wrap` 参数默认为 `true`：渲染结果保留在 `.data-service.ds-mdrender` 容器内；传 `wrap:false` 时渲染后不留外部容器，内容直接融入正文：
+`wrap` 参数默认为 `true`，渲染结果保留在一层容器内；传 `wrap:false` 时不再保留外部容器，内容直接融入正文：
 
 ```md
 ## 如何交换友链？
@@ -311,7 +279,7 @@ group、repo、api 的选择顺序与 `friends` 相同，api 优先于 repo。�
 {% md https://raw.githubusercontent.com/xaoxuu/friends/refs/heads/main/README.md wrap:false %}
 ```
 
-我的友链页面「[如何交换友链？](https://xaoxuu.com/friends/#%E5%A6%82%E4%BD%95%E4%BA%A4%E6%8D%A2%E5%8F%8B%E9%93%BE%EF%BC%9F)」这一章节用的就是 [README](https://github.com/xaoxuu/friends/) 的数据。
+友链页面的「[如何交换友链？](https://xaoxuu.com/friends/#%E5%A6%82%E4%BD%95%E4%BA%A4%E6%8D%A2%E5%8F%8B%E9%93%BE%EF%BC%9F)」章节用的就是 [README](https://github.com/xaoxuu/friends/) 的数据。
 
 > 说明：当 src 是 GitHub raw 地址（`raw.githubusercontent.com`）时，会使用 `services.github.raw_url` 的镜像站，README 内的相对图片/链接也会解析到同一镜像基址。
 

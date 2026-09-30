@@ -1,7 +1,7 @@
 ---
 title: 表达类标签
 date: 2023-12-06 21:55
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
 ## emoji 表情包
@@ -104,7 +104,7 @@ tags:
 
 ## vote 投票
 
-这个功能在 {% mark 1.33.0 %} 版本后开始支持。默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写投票 endpoint；未配置或服务失败时保留静态计数，不显示错误。
+默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写投票 endpoint；未配置或服务失败时保留静态计数，不显示错误。
 
 {% tabs %}
 <!-- tab 效果 -->
@@ -117,13 +117,13 @@ tags:
 ```
 {% vote id:default yes:solar:round-double-alt-arrow-up-bold no:solar:round-double-alt-arrow-down-bold 自定义图标 %}
 ```
-自定义图标遵循 icon 标签的规则，但是为了正常高亮，建议在本地的 `icon.yml` 文件中配置而不要使用在线图标。
+自定义图标遵循 icon 标签的规则，但是为了正常高亮，建议在本地的 `icons.yml` 文件中配置而不要使用在线图标。
 {% vote id:default yes:solar:round-double-alt-arrow-up-bold no:solar:round-double-alt-arrow-down-bold 自定义图标 %}
 {% endtabs %}
 
 ## rating 评分
 
-这个功能在 {% mark 1.33.0 %} 版本后开始支持。默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写评分 endpoint；未配置或服务失败时保留静态评分，不显示错误。
+默认选择 `star_vote` provider，但 endpoint 留空。请自行部署 [star-vote](https://github.com/xaoxuu/star-vote) 并填写评分 endpoint；未配置或服务失败时保留静态评分，不显示错误。
 
 {% tabs %}
 <!-- tab 效果 -->
@@ -289,8 +289,6 @@ fancybox: href # fancybox 放大地址，设置此值后会调用该链接放大
 
 > 因为本文是技术文章，所以你能看出两者样式的明显区别，而在非技术文章中，两者写法的样式是一样的。
 
-{% note 题外话 本来这个叫 quote，但是发现文章显示不全，和 box 标签以前命名为 noteblock 时的表现一样，可能又命中了 hexo 某些隐藏彩蛋。 %}
-
 ## quot 强调引用
 
 适合居中且醒目的引用：{% quot Stellar 是迄今为止最好用的主题 %}
@@ -322,7 +320,7 @@ tags:
 
 ### 使用任意图标
 
-从 1.26.5 版本开始，您可以通过 prefix 或 suffix 参数设置任意图标或图片，支持 URL 或 icons.yml 文件中配置，例如：
+可以通过 `prefix` 或 `suffix` 参数设置任意图标或图片，取值可以是 URL 或 `icons.yml` 中的图标键，例如：
 
 {% quot prefix:quot:question 这是一个 icons.yml 配置的示例 %}
 
@@ -466,7 +464,7 @@ footer: # 页脚信息
 ```yaml
 title: 标题（可选）
 content: 内容
-color: red/orange/yellow/green/cyan/blue/purple/light/dark/warning/error
+color: red/orange/amber/yellow/green/cyan/blue/purple/light/dark/warning/error
 ```
 {% endtabs %}
 
@@ -559,8 +557,6 @@ services:
 
 ## button 按钮
 
-这个功能在 {% button 1.26.6 https://github.com/xaoxuu/hexo-theme-stellar/tree/1.26.6 size:xs %} 版本后开始支持。
-
 {% button 文档 https://xaoxuu.com/wiki/stellar/ icon:default:documents %} {% button 源码 https://github.com/xaoxuu/hexo-theme-stellar/ icon:chat:file-code %} {% button 示例 https://github.com/xaoxuu/hexo-stellar-starter/ icon:rating:star %}
 
 ```md 写法如下
@@ -583,7 +579,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 
 ## okr 目标管理
 
-这个功能在 {% mark 1.20.0 color:dark %} 版本后开始支持，这是一个 OKR（Objectives and Key Results）示例：
+这是一个 OKR（Objectives and Key Results）示例：
 
 {% okr o1 %}
 
@@ -600,9 +596,9 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 完成主要页面设计稿
 {% tabs align:left %}
 <!-- tab 小提示1 -->
-您可以在 _config.yml 文件中修改标签的颜色和文案
+你可以在 _config.yml 文件中修改标签的颜色和文案
 <!-- tab 小提示2 -->
-您可以在 _config.yml 文件中增加任意的标签配置
+你可以在 _config.yml 文件中增加任意的标签配置
 {% endtabs %}
 
 <!-- okr kr3 percent:-12 status:unfinished -->
@@ -637,9 +633,9 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 完成主要页面设计稿
 {% tabs align:left %}
 <!-- tab 小提示1 -->
-您可以在 _config.yml 文件中修改标签的颜色和文案
+你可以在 _config.yml 文件中修改标签的颜色和文案
 <!-- tab 小提示2 -->
-您可以在 _config.yml 文件中增加任意的标签配置
+你可以在 _config.yml 文件中增加任意的标签配置
 {% endtabs %}
 
 <!-- okr kr3 percent:-12 status:unfinished -->
@@ -666,7 +662,7 @@ size: xs # 按钮尺寸，目前只有两种尺寸：默认是普通大小， xs
 
 {% copy curl -s https://sh.xaox.cc/install | sh prefix:$ %}
 
-您可以设置 `git:https` 或者 `git:ssh` 或者 `git:gh` 来快速放置一个 git 仓库链接：
+你可以设置 `git:https` 或者 `git:ssh` 或者 `git:gh` 来快速放置一个 git 仓库链接：
 {% copy git:https xaoxuu.com/hexo-theme-stellar prefix:HTTPS %}
 <!-- tab 写法 -->
 ```md
@@ -792,7 +788,7 @@ type: video/mp4 # 仅直接视频地址生效
 
 ## chat 聊天标签
 
-`chat` 由 [@且听风吟](https://github.com/HcGys) 贡献，内置 QQ 和微信风格。用户必须写在每个 chat 标签正文开头的 YAML 中，v2 不读取 `source/_data/chat_users.yml`。
+`chat` 由 [@且听风吟](https://github.com/HcGys) 贡献，内置 QQ 和微信风格。用户资料必须写在每个 chat 标签正文开头的 YAML 中，v2 不读取 `source/_data/chat_users.yml`。
 
 ```md 最小示例
 {% chat iphone11 style:wechat title:项目群 scene:group me:me %}

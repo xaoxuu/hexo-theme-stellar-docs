@@ -1,7 +1,7 @@
 ---
 title: CLI 命令
 date: 2026-09-05 20:49
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
 命令在博客根目录运行，使用该站点实际安装的 Hexo 和主题。本页介绍 `doctor`、`new note` 和 `images` 命令。
@@ -15,7 +15,7 @@ npx hexo stellar doctor --format json --silent
 
 `--format` 支持 text（默认）和 json。JSON 模式配合 Hexo 全局 `--silent` 抑制日志，方便机器读取。
 
-Doctor 读取默认 `source/` 下的 Markdown 与 `_data/wiki|topic|notebooks` YAML、根 `_config.yml` 与可选 `_config.stellar.yml`，并核对 Node ≥22、Hexo ≥8、主题是否启用、配置格式、内容归属、页面类型支持的字段和 Widget 位置。它不是对 Hexo 所有自定义配置文件及插件的通用检查器；使用自定义 source_dir 或多配置构建时还要验证实际构建输入。
+Doctor 读取默认 `source/` 下的 Markdown 与 `_data/wiki|topic|notebooks` YAML、根 `_config.yml` 与可选 `_config.stellar.yml`，并核对 Node ≥22、Hexo ≥8、主题是否启用、配置格式、内容归属、页面类型支持的字段和 Widget 位置。它检查的是上述固定范围；使用自定义 source_dir 或多配置构建时还要验证实际构建输入。
 
 | JSON 字段 | 含义 |
 | :--- | :--- |
@@ -25,7 +25,7 @@ Doctor 读取默认 `source/` 下的 Markdown 与 `_data/wiki|topic|notebooks` Y
 | `issues` | 错误数组 |
 | `warnings` | Widget 实例或位置等警告数组 |
 
-每项 issue 包含 `code/source/path/actualType/expected/migration`。warning 提供 code、severity、source、path、widget、layout、region、supported。`migration` 是诊断参考标识，不是保证可直接访问的 URL。
+每项 issue 包含 `code/source/path/actualType/expected/migration`。warning 提供 code、severity、source、path、widget、layout、region、supported。`migration` 是诊断参考标识，用于定位对应文档。
 
 | migration 标识 | 对应参考 |
 | :--- | :--- |

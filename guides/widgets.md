@@ -1,7 +1,7 @@
 ---
 title: Widget 组件
 date: 2023-12-06 21:55
-updated: 2026-09-06 02:47
+updated: 2026-09-30 15:49
 ---
 
 目录、文档树、最近更新、仓库信息、自定义文案和动态列表，都可以作为 Widget 放进 Topbar、Leftbar 或 Rightbar。一个 Widget 是否显示，同时取决于实例定义、所在 Region、当前页面上下文和数据是否可用。
@@ -63,7 +63,7 @@ rightbar:
 ---
 ```
 
-级联顺序是“站点全局 → Profile → Collection → Page”。最后一个明确写出的 `widgets` 数组整体替换上层数组，并不会追加：省略表示继承，`widgets: []` 表示清空内容 Widget。`enabled: false` 会关闭整个 Region；对于 Leftbar，单纯清空 `widgets` 不会删除固定 Brand、菜单和设置入口。完整规则见[配置覆盖顺序与空值](/wiki/stellar/reference/behavior/#配置覆盖顺序与空值)。
+级联顺序是“站点全局 → Profile → Collection → Page”。最后一个明确写出的 `widgets` 数组整体替换上层数组：省略表示继承，`widgets: []` 表示清空内容 Widget。`enabled: false` 会关闭整个 Region；对于 Leftbar，固定 Brand、菜单和设置入口始终保留。规则见[配置覆盖顺序与空值](/wiki/stellar/reference/behavior/#配置覆盖顺序与空值)。
 
 ## 复用、改写和删除实例
 
@@ -101,7 +101,7 @@ tagcloud: null
 
 ## 按用途选择组件
 
-主题内置 13 个内容 layout，完整清单如下；`latest_comment` 是基于 `timeline` 的内置 Catalog 实例。具体参数和位置能力见[Widget 配置参考](/wiki/stellar/reference/widgets/)。
+主题内置 13 个内容 layout，清单如下；`latest_comment` 是基于 `timeline` 的内置 Catalog 实例。具体参数和位置能力见[Widget 配置参考](/wiki/stellar/reference/widgets/)。
 
 | 用途 | Layout／实例 | 显示条件 |
 | :--- | :--- | :--- |
@@ -148,7 +148,7 @@ rightbar:
 ---
 ```
 
-GitHub API 地址由 `services.github.api_url` 设置。没有 `source.repository` 时，这两个 Widget 不输出内容；请求失败、限流或被网络策略拦截时，静态页面仍可阅读，但动态仓库数据不会补全。
+GitHub API 地址由 `services.github.api_url` 设置。没有 `source.repository` 时，这两个 Widget 不输出内容；请求失败、限流或被网络策略拦截时，静态页面仍可阅读，动态仓库数据留空。
 
 ## 自定义链接和 Markdown
 

@@ -1,7 +1,7 @@
 ---
 title: 布局与导航
 date: 2023-12-06 21:55
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
 Stellar 把页面分成顶部栏、左侧栏和右侧栏。左边通常放站点名字与主菜单，右边适合目录或仓库信息；手机空间不够时，它们会收进抽屉。
@@ -36,7 +36,7 @@ profiles:
       widgets: [toc]
 ```
 
-菜单数组整体替换默认列表。链接项填写 `id/title/url`，非空 kebab-case 的 `id` 用于与 `active_menu` 匹配；用 `leftbar.brand.search: true` 控制搜索入口（默认开启且需要 Brand 可见及搜索 Provider）。Topbar 开关、固定 Brand/Menu 与 Widget 列表分开配置。
+菜单数组整体替换默认列表。链接项填写 `id/title/url`，非空 kebab-case 的 `id` 用于与 `active_menu` 匹配；搜索入口由 `leftbar.brand.search` 控制，见[站内搜索](/wiki/stellar/guides/search/)。Topbar 开关、固定 Brand/Menu 与 Widget 列表分开配置。
 
 ### 菜单列数
 

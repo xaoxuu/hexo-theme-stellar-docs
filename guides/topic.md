@@ -1,7 +1,7 @@
 ---
 title: 专栏
 date: 2024-01-14 17:47
-updated: 2026-09-06 02:28
+updated: 2026-09-30 15:49
 ---
 
 几篇已经发布在博客里的文章，如果存在明确的阅读顺序，可以把它们整理成专栏（Topic）。文章仍然留在 `source/_posts/`，保留原来的分类、标签和发布时间。
@@ -36,10 +36,10 @@ collection:
 publish_list: [journey]
 ```
 
-专栏入口会从成员内容构建。`listing.sort.field` 可填写 date、updated、title，但当前系列导航和相应索引只按 date 排序，填写其它字段时保留输入顺序。需要确定的阅读顺序时使用 date asc/desc；专栏总列表按各系列首项日期降序展示。
+专栏入口会从成员内容构建。需要确定的阅读顺序时使用 date asc/desc；其它排序字段的效果、总列表顺序见[排序与可见性](/wiki/stellar/reference/behavior/#排序与可见性)。
 
 ## 封面与 Brand
 
-专栏 `cover` 与文章 `cover` 独立，文章未提供封面时不会继承专栏封面。Topic 默认继续使用站点 Brand；需要切换为 Collection 来源时见 [Brand 指南](/wiki/stellar/guides/brand/)。
+专栏 `cover` 与文章 `cover` 独立，文章封面需各自设置。Topic 默认继续使用站点 Brand；需要切换为 Collection 来源时见 [Brand 指南](/wiki/stellar/guides/brand/)。
 
 置顶通过成员文章的 `listing.priority` 设置。Topic 集合本身不支持 Wiki 集合的 `listing.priority/order`。

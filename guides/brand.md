@@ -1,10 +1,10 @@
 ---
 title: 站点名称与头像
 date: 2023-12-06 21:55
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
-> 适用版本：Stellar v2.0.0。从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
+> 从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
 
 Brand 是显示名称、标语、头像和链接的区域，可以放在顶部或左侧。博客通常显示站点信息，Wiki 和笔记本则可显示各自的项目名称。
 
@@ -48,12 +48,12 @@ leftbar:
     search: true
 ```
 
-`source/back_button` 是 Collection 专属字段，返回开关只适用于 `source: collection`。`search` 是共享 Leftbar Brand 字段，默认 true；还需启用 search.provider 并有可显示的 Brand 图片或名称。
+`source/back_button` 是 Collection 专属字段，返回开关只适用于 `source: collection`。`search` 是共享 Leftbar Brand 字段，用法见[站内搜索](/wiki/stellar/guides/search/)。
 
 ## 覆盖与隐藏
 
-Brand 对象按字段覆盖，具体文字和图片字段的 `null` 表示隐藏该部分；`brand: false` 隐藏整个 Brand。Brand 文字不解析 HTML 或 Markdown 链接，链接写入 `href`。默认固定 Brand 不自动读取 Hexo 标题、头像或副标题。
+Brand 对象按字段覆盖，具体文字和图片字段的 `null` 表示隐藏该部分；`brand: false` 隐藏整个 Brand。Brand 文字按纯文本显示，链接写入 `href`。默认固定 Brand 以 `leftbar.brand` 的配置为准。
 
-Collection 未配置图片时使用无图样式或对应图标。统计只在 regular Leftbar 显示，显式设置 `leftbar.brand.ghrepo: owner/repo` 后展示 Stars、Forks、最新 Tag；未设置 ghrepo 时可用 `leftbar.brand.ghuser: username` 显示 Followers、Following、Repos。两者默认 null，不从 Collection source.repository 或 Widget 推断。移动端主内容顶部与左侧栏中的 Brand 分别按各自布局显示。
+Collection 未配置图片时使用无图样式或对应图标。统计只在 regular Leftbar 显示，显式设置 `leftbar.brand.ghrepo: owner/repo` 后展示 Stars、Forks、最新 Tag；未设置 ghrepo 时可用 `leftbar.brand.ghuser: username` 显示 Followers、Following、Repos。两者默认 null，需要显式填写。移动端主内容顶部与左侧栏中的 Brand 分别按各自布局显示。
 
 站点名称与集合名称可以分别配置，字段定义见[主题配置](/wiki/stellar/reference/theme/#布局、Brand-与导航)和 [Collection 参考](/wiki/stellar/reference/collection/)。

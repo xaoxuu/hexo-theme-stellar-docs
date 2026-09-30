@@ -1,7 +1,7 @@
 ---
 title: 认识 Stellar
 date: 2022-10-21 13:15
-updated: 2026-09-30 14:21
+updated: 2026-09-30 15:49
 
 ---
 
@@ -49,27 +49,27 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 {% endbox %}
 
 {% box %}
-{% quot el:h3 icon:solar:window-frame-bold-duotone color:orange 复杂内容，也能一目了然 %}
-分栏、选项卡、折叠块和图库，让复杂内容各得其所。并排比较、逐步展开或集中展示，都能在 Markdown 中轻松完成。
+{% quot el:h3 icon:solar:window-frame-bold-duotone color:orange 灵活的内容布局 %}
+分栏、选项卡、折叠块和图库可以在 Markdown 中直接书写，用于并排比较、逐步展开或集中展示。
 {% navbar [了解详情](/wiki/stellar/reference/tags/container/) %}
 {% endbox %}
 
 {% box %}
-{% quot el:h3 icon:solar:notes-bold-duotone color:amber 不止于文字，表达更有声有色 %}
-{% tip 提示 pop:注解 %}、图片、音视频、引用、{% mark 标注 color:amber %}与对话，让重点更醒目，叙述更生动。每一种想法，都能找到合适的呈现方式。
+{% quot el:h3 icon:solar:notes-bold-duotone color:amber 丰富的表达方式 %}
+{% tip 提示 pop:注解 %}、图片、音视频、引用、{% mark 标注 color:amber %}与对话，让重点更醒目，叙述更生动。
 {% navbar [了解详情](/wiki/stellar/reference/tags/express/) %}
 {% endbox %}
 
 {% box %}
-{% quot el:h3 icon:solar:database-bold-duotone color:cyan 静态页面，也能常看常新 %}
-手写内容沉淀观点，外部数据保持新鲜。时间线、网站卡片和 GitHub 内容既能直接填写，也能从数据源读取。
+{% quot el:h3 icon:solar:database-bold-duotone color:cyan 静态内容与动态数据 %}
+时间线、网站卡片和 GitHub 内容既能直接填写，也能从数据源读取，数据更新无需重新生成整站。
 {% navbar [了解详情](/wiki/stellar/reference/tags/data/) %}
 {% endbox %}
 
 
 {% box %}
-{% quot el:h3 icon:solar:document-text-bold-duotone color:blue 内容在远方，阅读如本地 %}
-用一个链接，将外部 Markdown 文件渲染到页面中。项目 README、共享文档，都能自然融入正文，像本地内容一样阅读，无需反复复制维护。
+{% quot el:h3 icon:solar:document-text-bold-duotone color:blue 渲染外部 Markdown %}
+用一个链接，将外部 Markdown 文件渲染到页面中。项目 README、共享文档都能自然融入正文，无需反复复制维护。
 {% navbar [了解详情](/wiki/stellar/reference/tags/data/#md-渲染外部-markdown-文件) %}
 {% endbox %}
 

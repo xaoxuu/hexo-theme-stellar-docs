@@ -1,14 +1,14 @@
 ---
 title: 主题配置
 date: 2026-09-05 20:49
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
-本页适用于 v2 的 `_config.stellar.yml`。主题[默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/_config.yml)列出了完整配置和默认值，[校验规则](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/scripts/schema/config-rules.js)说明了类型和取值限制。不同版本可能有差异，请以安装版本为准。
+本页适用于 v2 的 `_config.stellar.yml`。主题[默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/_config.yml)列出了全部配置和默认值，[校验规则](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/scripts/schema/config-rules.js)说明了类型和取值限制。不同版本可能有差异，请以安装版本为准。
 
-> 适用版本：Stellar v2.0.0。从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
+> 从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
 
-下表按用途列出配置项。第三方服务的完整参数以服务方说明为准；对象和数组的覆盖方式见[行为参考](/wiki/stellar/reference/behavior/)。
+下表按用途列出配置项。第三方服务的参数以服务方说明为准；对象和数组的覆盖方式见[行为参考](/wiki/stellar/reference/behavior/)。
 
 ## 布局、Brand 与导航
 
@@ -228,7 +228,7 @@ article:
 
 ### 第三方资源覆盖
 
-以下是完整资源入口；省略或 null 使用默认资源，不会关闭功能。先启用相应 Provider／功能并提供所需容器，再配置资源 URL。
+以下是可覆盖的资源入口；省略或 null 使用默认资源，不会关闭功能。先启用相应 Provider／功能并提供所需容器，再配置资源 URL。
 
 | 入口 | 可覆盖资源 |
 | :--- | :--- |

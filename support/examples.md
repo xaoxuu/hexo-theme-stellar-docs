@@ -1,7 +1,7 @@
 ---
 title: 站点示例
 date: 2023-12-06 21:55
-updated: 2026-09-30 14:13
+updated: 2026-09-30 15:49
 ---
 
 ## 官方蓝图
@@ -47,7 +47,7 @@ curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/instal
 
 ## 社区站点
 
-下面的站点带有各自的内容和定制，并不代表 v2 的默认样式。可以参考它们的内容组织、页面排版和定制方式。
+下面的站点带有各自的内容和定制，样式与 v2 默认样式不同。可以参考它们的内容组织、页面排版和定制方式。
 
 {% sites api:https://raw.github.xaox.cc/xaoxuu/hexo-theme-stellar-showcase/output/v2/data.json %}
 

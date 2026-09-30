@@ -1,8 +1,10 @@
 ---
 title: 文章与页面
 date: 2023-12-06 21:55
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
+
+> 从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
 
 随时间发布的内容放在 `source/_posts/`。关于、友链这类不属于时间线的内容，更适合放在 `source/<name>/index.md`。
 
@@ -26,8 +28,6 @@ article:
 
 ## 列表卡片与横幅
 
-> 适用版本：Stellar v2.0.0。从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
-
 ```yaml blog/source/_posts/一次散步.md
 cover: /images/walk-card.webp
 tagline: 写给周末的一段小记
@@ -36,7 +36,7 @@ banner:
   tagline: 午后，沿溪向北
 ```
 
-根级 `cover` 同时用于列表卡片与内容横幅，`tagline` 用于列表小字，`banner` 控制横幅文字和头像；`banner.enabled: false` 可关闭整个横幅。文章页横幅默认使用 `cover` 作为背景图，可用 `banner.background: false` 改为纯色横幅，也可在主题配置用 `article.banner.background` 修改全站默认值。没有图片时可省略；Collection 的封面不会自动成为成员文章的封面。
+根级 `cover` 同时用于列表卡片与内容横幅，`tagline` 用于列表小字，`banner` 控制横幅文字和头像；`banner.enabled: false` 可关闭整个横幅。文章页横幅默认使用 `cover` 作为背景图，可用 `banner.background: false` 改为纯色横幅，也可在主题配置用 `article.banner.background` 修改全站默认值。没有图片时可省略；成员文章的封面需要各自设置。
 
 全站文章卡片和置顶区在主题配置中调整：
 
@@ -82,7 +82,7 @@ visibility:
   searchable: true
 ```
 
-正整数优先级越大越靠前，`0` 不置顶。列表与搜索开关彼此独立，隐藏列表不等于访问控制；已经生成的页面仍可通过 URL 访问。Wiki、Topic、Notebook 成员省略 `visibility` 时继承 Collection，页面仍可显式覆盖。Wiki 和普通 Page 不支持 `listing.priority`。
+正整数优先级越大越靠前，`0` 不置顶。列表与搜索开关彼此独立，隐藏列表只影响展示，已经生成的页面仍可通过 URL 访问。Wiki、Topic、Notebook 成员省略 `visibility` 时继承 Collection，页面仍可显式覆盖。Wiki 和普通 Page 不支持 `listing.priority`。
 
 ## 页脚与评论
 

@@ -1,10 +1,10 @@
 ---
 title: 配置与行为
 date: 2026-09-05 20:49
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
-本页说明配置的覆盖顺序、内容归属、排序和错误处理。完整字段见[主题配置](/wiki/stellar/reference/theme/)、[Collection](/wiki/stellar/reference/collection/)与 [Front Matter](/wiki/stellar/reference/front-matter/)。
+本页说明配置的覆盖顺序、内容归属、排序和错误处理。字段见[主题配置](/wiki/stellar/reference/theme/)、[Collection](/wiki/stellar/reference/collection/)与 [Front Matter](/wiki/stellar/reference/front-matter/)。
 
 ## 配置覆盖顺序与空值
 
@@ -72,4 +72,4 @@ Doctor 严格检查配置文件，即使站点生成时忽略了错误，Doctor 
 
 ## 同集合局部导航
 
-`features.partial_navigation.enabled` 默认 true。同一集合且外壳签名一致时替换正文和右栏，同步标题、SEO 元数据、当前导航和历史滚动位置；加载较慢时显示延迟反馈，快速切换不闪烁。页面级 Extension 先卸载再挂载，左栏与文档级 Extension 保留。跨集合、外壳不同、含非主题管理的可执行脚本或请求失败时整页跳转；局部插入的脚本不会重放。`features.link_prefetch.enabled` 独立控制预取，不保证局部导航一定可用。
+`features.partial_navigation.enabled` 默认 true。同一集合且页面外壳一致时替换正文和右栏，同步标题、SEO 元数据、当前导航和历史滚动位置；加载较慢时显示延迟反馈，快速切换不闪烁。页面级功能脚本会先卸载再挂载，左栏与文档级脚本保留。跨集合、外壳不同、含非主题管理的可执行脚本或请求失败时整页跳转；局部插入的脚本不会重放。`features.link_prefetch.enabled` 独立控制预取，不保证局部导航一定可用。

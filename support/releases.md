@@ -1,7 +1,7 @@
 ---
 title: 版本记录
 date: 2023-12-06 21:55
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
 ## 当前文档版本
@@ -28,14 +28,13 @@ v2 要求 **Node.js 22 或更高版本、Hexo 8 或更高版本**。升级后先
 
 ## v2 的关键能力
 
-相对 1.44.0，v2 的主要新增能力如下；每项的完整字段与默认值见对应指南或参考页。
+相对 1.44.0，v2 重写了配置结构、内容模型和浏览器运行时；逐项字段映射见[配置对照](/wiki/stellar/migration/fields/)。主要变化如下：
 
-- **内容系统**：用 Collection 统一描述 Wiki、Topic 与 Notebook，页面通过 `collection`、`route`、`navigation`、`listing` 等分组字段归属和排序；本地搜索默认开启，Wiki、Topic 与 Notebook 按内容归属提供搜索范围。
-- **导航与侧栏**：Topbar、Leftbar、Rightbar 使用 Region 配置，菜单、Widget 与底部操作分开；`leftbar.brand.search` 提供搜索入口，`leftbar.brand.ghrepo/ghuser` 显示仓库统计，`leftbar.menu_columns` 支持 1–5 列，`services.gravatar.base_url` 可替换访客头像镜像。桌面可默认折叠 Leftbar，右栏跟随显示紧凑目录。
-- **文章与横幅**：`cover` 同时提供列表卡片与内容横幅图片，`article.banner.background` 控制文章页横幅是否使用该图片，页面可用 `banner.background` 覆盖；作者页使用作者的 `cover` 作为横幅背景。
-- **Wiki Hero**：支持背景图片、视频与滚动视差，以及 `ferrofluid`、`light-rays`、`galaxy`、`strands` 四种动态效果；完整参数见 [Collection 参考](/wiki/stellar/reference/collection/#Hero-与横幅)。
-- **阅读体验**：同集合局部导航默认开启，加载较慢时显示延迟反馈；目录指示器随滚动平滑移动；评论容器出现后立即异步加载；Reveal 支持 `duration/interval/distance/blur`；搜索浮层带开合过渡。
-- **构建与资源**：图片尺寸与平均色只在正文和主题消费的封面区域增量提取；共享脚本、图标样式与图片失败回退改为外部资源以减少 HTML 体积；hexo-minify 会自动排除 Runtime ESM，保留原生模块语义。
+- **内容系统**：用 Collection 统一描述 Wiki、Topic 与 Notebook，页面通过 `collection`、`route`、`navigation`、`listing` 分组字段归属和排序；本地搜索默认开启。
+- **导航与侧栏**：Topbar、Leftbar、Rightbar 使用 Region 配置；`leftbar.brand.search` 提供搜索入口，`leftbar.brand.ghrepo/ghuser` 显示仓库统计，`leftbar.menu_columns` 支持 1–5 列，`services.gravatar.base_url` 可替换访客头像镜像。
+- **文章与横幅**：`cover` 同时提供列表卡片与内容横幅图片，`article.banner.background` 控制文章页横幅是否使用该图片；作者页使用作者的 `cover` 作为横幅背景。
+- **Wiki Hero**：支持背景图片、视频、滚动视差和 `ferrofluid`、`light-rays`、`galaxy`、`strands` 四种动态效果；参数见 [Collection 参考](/wiki/stellar/reference/collection/#Hero-与横幅)。
+- **阅读与构建**：同集合局部导航、目录指示器、Reveal 动画与搜索浮层过渡；图片尺寸和平均色增量提取，共享脚本与图标改为外部资源以减小 HTML 体积。
 
 Windows 用户可用 PowerShell 7+ 运行蓝图安装器，安装方式见[环境与安装](/wiki/stellar/start/install/)。
 

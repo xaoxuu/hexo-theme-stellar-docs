@@ -1,12 +1,12 @@
 ---
 title: 容器类标签
 date: 2023-12-06 21:55
-updated: 2026-09-09 16:22
+updated: 2026-09-30 15:49
 ---
 
 ## box 盒子容器
 
-note 标签就是使用 box 容器实现的，它们样式是相同的：
+note 标签由 box 容器实现，两者样式相同：
 
 ```md 语法格式
 {% box [title] [color:color] [child:codeblock/tabs] %}
@@ -94,7 +94,7 @@ func setup() {
 
 ## dropdown 下拉菜单
 
-`dropdown` 是一个通用的图标链接下拉菜单，可以用于正文内容，也被 Footer Social 复用：
+`dropdown` 是一个通用的图标链接下拉菜单，可以用于正文内容，也被侧栏底部操作（`leftbar.footer.actions`）复用：
 
 {% dropdown direction:down 更多链接 %}
 - icon:default:documents [文档](/wiki/)
@@ -117,13 +117,13 @@ func setup() {
 折叠块标签的语法格式为：
 
 ```
-{% folding title [codeblock:bool] [open:bool] [color:color] %}
+{% folding title [child:codeblock] [open:bool] [color:color] %}
 content
 {% endfolding %}
 ```
 
 ```yaml 参数说明
-codeblock: true/false
+child: codeblock
 open: true/false
 color: red/orange/yellow/green/cyan/blue/purple/light/dark
 ```
@@ -153,7 +153,7 @@ func test() {
 {% folding color:orange 警告，真的很危险 %}
 可以用颜色区分提示、警告等不同内容。
 {% folding color:red 最后一次警告，千万不要打开这个 %}
-不要说我们没有警告过你，Windows 10 不是為所有人設計，而是為每個人設計。
+不要说我们没有警告过你，Windows 10 不是为所有人设计，而是为每个人设计。
 {% endfolding %}
 {% endfolding %}
 {% endfolding %}
@@ -195,13 +195,12 @@ func test() {
 
 ## tabs 分栏容器
 
-`tabs` 移植自 [NexT](https://theme-next.js.org/docs/tag-plugins/tabs.html) 主题，在 Stellar 中的用法如下：
+`tabs` 是一个分栏容器，同一组内容一次只显示当前激活的一栏：
 
-- 支持设置 `align:center` 来使内容居中
-- 设置默认激活的标签方式为 `active:1` 而非 `, 1`
-- 不需要 `<!-- endtab -->` 来作为结束标识
-- 不需要 `tabs id` 来保证唯一性
-- 不支持 `@icon` 方式设置图标（因为 Stellar 不再内置 `fontawesome` 图标库）
+- 用 `align:center` 使内容居中。
+- 用 `active:1` 指定默认激活的栏（从 1 开始）。
+- 每栏以 `<!-- tab 标题 -->` 开启，不需要 `<!-- endtab -->` 结束标识，也不需要 `tabs id`。
+- 不支持通过 `@icon` 设置图标；需要图标时在栏内自行使用 `icon` 标签。
 - 轮廓样式简化，可以搭配其它容器类标签嵌套使用。
 
 {% tabs active:1 align:center %}
@@ -235,11 +234,11 @@ print("hello world")
 
 ## grid 网格分区容器
 
-这个功能在 {% mark 1.24.0 %} 版本后获得重构，支持固定列数、动态列数、设置间距和圆角。
+`grid` 支持固定列数、动态列数，以及自定义间距和圆角。
 
-{% quot el:h3 动态列数 %}
+### 动态列数
 
-默认的布局为【最小宽度为240px】即如果页面宽度大于 480px 则会显示为 2 列，大于 720px 则会显示为 3 列，以此类推，下面是效果：
+默认布局的最小宽度为 240px：页面宽度大于 480px 时显示为 2 列，大于 720px 时显示为 3 列，以此类推。效果如下：
 
 {% grid %}
 <!-- cell -->
@@ -281,7 +280,7 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 {% endgrid %}
 ```
 
-{% quot el:h3 固定列数 %}
+### 固定列数
 
 如果要固定为 2 列，可以这样写：
 
@@ -291,7 +290,7 @@ The Galactic Center is the rotational center of the Milky Way galaxy. Its centra
 {% endgrid %}
 ```
 
-{% quot el:h3 背景样式 %}
+### 背景样式
 
 普通 Box 样式：
 
@@ -348,7 +347,7 @@ cell 4
 ```
 
 
-{% quot el:h3 设置间距 %}
+### 设置间距
 
 默认间距为 `16px`，如果需要修改，可以这样写：
 
@@ -376,7 +375,7 @@ cell 3
 cell 4
 {% endgrid %}
 
-{% quot el:h3 设置圆角半径 %}
+### 设置圆角半径
 
 默认圆角半径等同于卡片的圆角半径，如果需要修改，可以这样写：
 
@@ -560,7 +559,7 @@ cell 4
 {% table style:wrap %}
 | 场景 | 示例内容 |
 | :--- | :--- |
-| 自动换行 | 这是一段比较长的说明文字，如果长度超出了页面宽度，会自动换行到下一行，而不是超出容器宽度 |
+| 自动换行 | 这是一段比较长的说明文字，如果长度超出了页面宽度，会在容器宽度内自动换行 |
 | 普通单元格 | 内容较短的单元格 |
 {% endtable %}
 

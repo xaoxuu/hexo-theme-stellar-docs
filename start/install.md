@@ -1,7 +1,7 @@
 ---
 title: 环境与安装
 date: 2022-10-21 13:15
-updated: 2026-09-30 14:13
+updated: 2026-09-30 15:49
 ---
 
 在已有 Hexo 站点中安装 Stellar，需要确认运行环境、选择主题版本，并设置 `theme: stellar`。还没有站点时，从[创建第一个站点](/wiki/stellar/start/first-site/)开始。
@@ -50,9 +50,9 @@ sh -c "$(curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/ma
 
 {% endtabs %}
 
-创建器会自动安装依赖。蓝图已经包含站点配置与主题依赖，不需要再执行其它安装 Tab 的命令。创建器不会覆盖非空目录；创建完成后，主题版本以站点的 `package.json` 和锁文件为准。需要脚本化安装时，可指定蓝图并加 `--non-interactive`，见[站点示例](/wiki/stellar/support/examples/)；完整目录和源码见 [Stellar Examples](https://github.com/xaoxuu/hexo-theme-stellar-examples)。
+创建器会自动安装依赖。蓝图已经包含站点配置与主题依赖，不需要再执行其它安装方式中的命令。创建器不会覆盖非空目录；创建完成后，主题版本以站点的 `package.json` 和锁文件为准。需要脚本化安装时，可指定蓝图并加 `--non-interactive`，见[站点示例](/wiki/stellar/support/examples/)；目录和源码见 [Stellar Examples](https://github.com/xaoxuu/hexo-theme-stellar-examples)。
 
-{% note color:blue 适用范围 想直接从可运行示例开始，再逐步替换内容和配置。蓝图是创建起点，不会覆盖或自动升级已有站点。 %}
+{% note color:blue 适用范围 想直接从可运行示例开始，再逐步替换内容和配置。 %}
 
 <!-- tab 稳定版 -->
 

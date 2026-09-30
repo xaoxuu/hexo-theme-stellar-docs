@@ -1,7 +1,7 @@
 ---
 title: 评论服务
 date: 2023-12-06 21:55
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
 Stellar v2 内置 6 个评论 Provider：`beaudar`、`utterances`、`giscus`、`twikoo`、`waline` 和 `artalk`。主题级配置都写在 `_config.stellar.yml` 的 `comments` 下：`provider` 选择当前服务，服务同名对象保存该客户端的参数。
@@ -18,11 +18,11 @@ comments:
     data-mapping: pathname
 ```
 
-设置 `provider: null` 会全站停用评论。`title` 可设置评论区标题，空字符串会隐藏标题。可在服务对象覆盖客户端资源：六个 Provider 均支持 js，Waline 和 Artalk 支持 css，Waline 另支持 meta_css；页面在 comments.options 中覆盖。省略或 null 使用默认资源；Artalk 默认从最终 server 的 dist 目录加载配套 JS/CSS。src 与 inject 不是资源覆盖入口。发现评论容器后立即异步加载，不等待进入视口，也不阻塞其它页面功能初始化。
+设置 `provider: null` 会全站停用评论。`title` 可设置评论区标题，空字符串会隐藏标题。可在服务对象覆盖客户端资源：六个 Provider 均支持 js，Waline 和 Artalk 支持 css，Waline 另支持 meta_css；页面在 comments.options 中覆盖。省略或 null 使用默认资源；Artalk 默认从最终 server 的 dist 目录加载配套 JS/CSS。src 与 inject 不是资源覆盖入口。发现评论容器后立即异步加载，页面其它功能不受影响。
 
 ## 各评论服务的参数
 
-下面逐项列出全部内置 Provider 的最小接入方式，以及主题默认配置预置的全部参数。服务同名对象是开放参数袋：除表中字段外，也可以继续填写对应客户端支持的原生选项，主题会保留字段名并传给客户端。
+下面逐项列出全部内置 Provider 的最小接入方式，以及主题默认配置预置的全部参数。服务同名对象是开放参数对象：除表中字段外，也可以继续填写对应客户端支持的原生选项，主题会保留字段名并传给客户端。
 
 ### Beaudar
 
@@ -122,7 +122,7 @@ Post、Page、Wiki、Topic 和 Notebook 的 Collection 或 Front Matter 都使�
 | `provider` | 为当前范围选择 6 个内置 Provider 之一；`null` 继承上层 |
 | `title` | 覆盖评论区标题；空字符串隐藏标题 |
 | `id` | Twikoo、Waline、Artalk 的稳定线程 ID；省略时使用当前 URL 路径 |
-| `options` | 覆盖当前 Provider 的客户端参数袋 |
+| `options` | 覆盖当前 Provider 的客户端参数对象 |
 
 例如，让一个页面使用独立的 Giscus Discussion：
 
@@ -182,6 +182,6 @@ profiles:
       enabled: true
 ```
 
-所有 Provider 都由主题在评论区接近视口时初始化。Artalk 通知链接含 `?atk_comment=<id>` 或 `#atk-comment-<id>` 时会立即加载并定位；Twikoo、Waline 和 Artalk 使用 `comments.id` 或当前路径作为线程键，Beaudar、Utterances 和 Giscus 使用各自参数袋中的映射字段。
+所有 Provider 都由主题在评论容器出现后立即初始化，不等待进入视口。Artalk 通知链接含 `?atk_comment=<id>` 或 `#atk-comment-<id>` 时会立即加载并定位；Twikoo、Waline 和 Artalk 使用 `comments.id` 或当前路径作为线程键，Beaudar、Utterances 和 Giscus 使用各自参数对象中的映射字段。
 
 评论区没有显示时，依次检查 `provider`、当前层级的 `enabled`、服务端或仓库授权、浏览器网络与跨域错误。Doctor 可以发现本地字段问题，但不会验证远程账号、仓库权限或服务端响应。

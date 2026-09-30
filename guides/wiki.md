@@ -1,12 +1,12 @@
 ---
 title: Wiki 文档
 date: 2023-12-06 21:55
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
 Wiki 通过目录组织一组页面，适合产品手册、项目文档和长期维护的专题。目录顺序由你指定，可以按阅读需要分组。
 
-如果你更想按标签自动整理内容，而不是手工维护目录，可以改用[笔记本](/wiki/stellar/guides/notebook/)。
+如果你更想按标签自动整理内容、无需手工维护目录，可以改用[笔记本](/wiki/stellar/guides/notebook/)。
 
 ## 创建文档项目
 
@@ -86,9 +86,9 @@ hero:
 
 图片支持站点相对路径或可访问的完整 URL。项目展示墙中的卡片封面使用根级 `cover`，普通 Wiki 内容页横幅使用页面自身的 `cover`，它们不会替代 Hero 背景。
 
-### 视频与滚动视差
+### 视频与动态效果
 
-需要视频背景时设置 `hero.background.video`，此时 `image` 作为 poster 与底图，并优先于动态效果：
+除静态图片外，`hero.background` 还支持视频和 `ferrofluid`、`light-rays`、`galaxy`、`strands` 四种动态效果。
 
 ```yaml blog/source/_data/wiki/handbook.yml
 hero:
@@ -99,83 +99,7 @@ hero:
     parallax: 0.2
 ```
 
-`video` 接受站点资源路径或完整 URL，以静音、循环、自动播放和行内播放方式显示；自动播放仍受浏览器策略约束。`parallax` 默认 0.2，范围 0–1，设为 0 关闭滚动位移；系统启用减少动效时也会关闭位移。视频与未叠加动态效果的图片在 Hero 滚出视口时渐隐，`parallax: 0` 不关闭该渐隐。
-
-### 动态效果
-
-内置 `ferrofluid`、`light-rays`、`galaxy` 和 `strands` 四种效果。在 `hero.background.effect.type` 中选择效果，通过同级 `options` 调整参数；省略 `options` 时使用全部默认值。背景图片与动态效果可以同时配置，此时图片显示在动态效果下方。
-
-#### Ferrofluid
-
-```yaml blog/source/_data/wiki/handbook.yml
-hero:
-  enabled: true
-  background:
-    effect:
-      type: ferrofluid
-      options:
-        colors: ['#ffffff', '#06B6D4', '#E0F2FE']
-        backgroundColor: '#03010A'
-        flowDirection: down
-        mouseInteraction: true
-```
-
-Ferrofluid 显示流动的磁流体轮廓，可使用最多八种颜色，并在鼠标附近产生磁性扰动。
-
-#### Light Rays
-
-```yaml blog/source/_data/wiki/handbook.yml
-hero:
-  enabled: true
-  background:
-    effect:
-      type: light-rays
-      options:
-        raysOrigin: top-center
-        raysColor: '#00ffff'
-        raysSpeed: 1.5
-        lightSpread: 0.8
-        rayLength: 1.2
-        followMouse: true
-        mouseInfluence: 0.1
-        noiseAmount: 0.1
-        distortion: 0.05
-```
-
-Light Rays 显示从指定方向投射的体积光束，并可跟随鼠标改变方向。
-
-#### Galaxy
-
-```yaml blog/source/_data/wiki/handbook.yml
-hero:
-  enabled: true
-  background:
-    effect:
-      type: galaxy
-      options:
-        starSpeed: 2
-        density: 2
-        hueShift: 140
-        mouseInteraction: true
-        mouseRepulsion: true
-```
-
-Galaxy 显示具有纵深移动、辉光和鼠标排斥交互的星场。所有效果的全部参数、默认值、运行时策略和图片叠加规则见 [Collection 参考](/wiki/stellar/reference/collection/#Hero-背景效果)。
-
-#### Strands
-
-```yaml blog/source/_data/wiki/handbook.yml
-hero:
-  enabled: true
-  background:
-    effect:
-      type: strands
-      options:
-        colors: ['#F97316', '#7C3AED', '#06B6D4']
-        glass: true
-```
-
-Strands 显示流动的发光丝带，可叠加玻璃折射效果；需要浏览器支持 WebGL 2。
+`video` 接受站点资源路径或完整 URL，以静音、循环、自动播放和行内播放方式显示，并优先于动态效果；作为 poster 的 `image` 同时用作底图。`parallax` 默认 0.2，范围 0–1，设为 0 关闭滚动位移。动态效果在 `hero.background.effect.type` 中选择，`options` 调整参数，省略时使用默认值；图片可与效果叠加，显示在效果下方。效果的全部参数、默认值、运行时策略和图片叠加规则见 [Collection 参考](/wiki/stellar/reference/collection/#Hero-背景效果)。
 
 ## 仓库与 README
 

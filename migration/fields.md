@@ -1,12 +1,12 @@
 ---
 title: 配置对照
 date: 2026-09-05 20:49
-updated: 2026-09-30 14:04
+updated: 2026-09-30 15:49
 ---
 
-> 适用版本：Stellar v2.0.0。本表只覆盖 1.44.0 到 v2.0.0 的净变化；v2 预发布候选之间的中间字段不属于迁移契约，按未知字段处理。
+> 本表只覆盖 1.44.0 到 v2.0.0 的净变化；v2 预发布候选之间的中间字段不属于迁移契约，按未知字段处理。
 
-下表以 [1.44.0 默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/1.44.0/_config.yml)、Collection 读取链和页面实际用法为依据，覆盖从 1.44.0 升级时仍可出现的主题配置、Collection 与 Front Matter 输入。v2 不会自动读取这些旧名称；新配置的完整用法见[主题参考](/wiki/stellar/reference/theme/)和[Collection 参考](/wiki/stellar/reference/collection/)。
+下表以 [1.44.0 默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/1.44.0/_config.yml)、Collection 读取链和页面实际用法为依据，覆盖从 1.44.0 升级时仍可出现的主题配置、Collection 与 Front Matter 输入。v2 不会自动读取这些旧名称；新配置的用法见[主题参考](/wiki/stellar/reference/theme/)和[Collection 参考](/wiki/stellar/reference/collection/)。
 
 ## 站点布局
 
@@ -21,7 +21,7 @@ updated: 2026-09-30 14:04
 | profile `leftbar/rightbar` 字符串 | Region 对象的 `widgets` 数组；逗号列表拆项，空列表显式 `[]` |
 | `nav_tabs` 映射 | `listing_nav.enabled/tabs`，条目转换为 title/url |
 | `footer.social` | `leftbar.footer.actions`，逐项明确 link/button/dropdown/spacer |
-| `footer.content`、`footer.sitemap` | 分别核对站点页脚正文与 `footer.sitemap` 的 title/items 分栏，items 使用 Markdown 字符串数组；不是 XML sitemap 插件配置 |
+| `footer.content`、`footer.sitemap` | 分别核对站点页脚正文与 `footer.sitemap` 的 title/items 分栏，items 使用 Markdown 字符串数组；此处 sitemap 指可见的页脚分栏 |
 | `preconnect` | 路径不变，数组仍整体替换；v2 默认改为空数组，需要的资源 Origin 必须显式保留 |
 
 `home`、`post`、`topic`、`wiki`、`note`、`author`、`page` 在 `profiles` 中同名保留；`blog_index`、`wiki_index` 是列表页的新类型名，`notebooks`、`notebook`、`error` 分别对应旧的 `notebooks`、`notes`、`error_page`。
@@ -109,7 +109,7 @@ v1 的标签插件配置不能只把根节点从 `tag_plugins` 改成 `tags`。�
 | Notebook `note_leftbar/note_rightbar` | 通用详情默认写入 `profiles.note.*.widgets`；仅个别页面不同则写该页 Region |
 | Collection `logo` | 主要迁入 `leftbar.brand`；旧版移动端也复用同一 Logo，需要继续显示时另配 `topbar.brand` 与 `topbar.enabled`；把图标、标题、标语与链接拆为结构化字段 |
 | Collection `search/menu/wiki_home` | `leftbar.brand.search`、`leftbar.menu`、`leftbar.brand.back_button`；布尔菜单开关需改成实际菜单数组 |
-| Wiki `available` | `audience`；这是项目卡片的“适用于”文字，不是 `visibility` |
+| Wiki `available` | `audience`；这是项目卡片的“适用于”文字 |
 | Wiki `coverpage/background/animation/preview/actions` | `hero.enabled/background.image/background.effect/preview/actions`；只支持 Wiki，旧 `animation.params` 改为 effect `options` |
 | Wiki `homepage` | 不再单独配置；把目标页放到 `navigation.tree` 第一项，或按最终路由与目录让主题唯一推导 |
 | 页面 h1/subtitle/banner_info | `banner.headline/tagline` 与横幅对象，按旧字段实际用途转换 |

@@ -1,7 +1,7 @@
 ---
 title: 笔记本
 date: 2025-06-14 19:48
-updated: 2026-09-07 20:24
+updated: 2026-09-30 15:49
 footer:
   references:
     - '[PR#464 @calfzhou](https://github.com/xaoxuu/hexo-theme-stellar/pull/464)'
@@ -79,6 +79,6 @@ profiles:
     path: null
 ```
 
-这不会关闭各 Notebook 的集合首页、标签页和笔记详情页。Note 的 Collection Brand 返回按钮和面包屑也不再链接总索引；若同时省略 Notebook `route.path`，集合路径会直接从 Notebook ID 派生。
+各 Notebook 的集合首页、标签页和笔记详情页仍会生成。Note 的 Collection Brand 返回按钮和面包屑会略去总索引链接；若同时省略 Notebook `route.path`，集合路径会直接从 Notebook ID 派生。
 
 Notebook 使用标签树整理内容，不支持 Wiki Hero、手工目录树或 Topic 的 `route.start`。
