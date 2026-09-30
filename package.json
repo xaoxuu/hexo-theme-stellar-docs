@@ -2,7 +2,7 @@
   "name": "hexo-theme-stellar-docs",
   "version": "0.0.0",
   "private": true,
-  "description": "Stellar 公开文档，独立构建为挂在 xaoxuu.com/wiki/stellar/ 下的静态站点",
+  "description": "Stellar \u516c\u5f00\u6587\u6863\uff0c\u72ec\u7acb\u6784\u5efa\u4e3a\u6302\u5728 xaoxuu.com/wiki/stellar/ \u4e0b\u7684\u9759\u6001\u7ad9\u70b9",
   "scripts": {
     "c": "hexo clean",
     "s": "hexo clean && hexo server --draft",
@@ -36,5 +36,13 @@
     "gulp-html-minifier-terser": "^7.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0"
+  },
+  "overrides": {
+    "hexo-generator-seo-friendly-sitemap": {
+      "ejs": "3.1.10"
+    },
+    "hexo-renderer-ejs": {
+      "ejs": "3.1.10"
+    }
   }
 }
