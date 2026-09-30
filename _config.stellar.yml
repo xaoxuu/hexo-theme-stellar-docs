@@ -81,9 +81,18 @@ fallbacks:
   link_card: https://res.xaox.cc/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg
   cover: https://res.xaox.cc/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg
 canonical:
-  # 文档站挂在主站的子路径下，canonicalUrl 只拼接 host + 页面路径，因此前缀写在 host 里。
-  host: xaoxuu.com/wiki/stellar
-  allowed_hosts: []
+  # 必须是裸域名。主题会把它的 base64 传给客户端，与 location.hostname 比对来判断
+  # 当前主机是否为主站；带上路径会让所有页面被误判为“非法克隆站”。
+  # 子路径前缀由 scripts/canonical-prefix.js 在生成的 canonical 上补齐。
+  host: xaoxuu.com
+  # 与主站一致：本站文档同样会被镜像到这些备用域名，访问时展示“官方备用站”提示。
+  allowed_hosts:
+    - backup.xaoxuu.com
+    - blog.xaoxuu.com
+    - xaoxuu.vercel.app
+    - xaoxuu.github.io
+    - xaoxuu.netlify.app
+    - xaoxuu.pages.dev
 structured_data:
   same_as:
     - https://github.com/xaoxuu
