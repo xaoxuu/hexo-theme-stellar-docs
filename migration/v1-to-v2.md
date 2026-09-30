@@ -1,10 +1,12 @@
 ---
 title: v2 迁移指南
 date: 2026-09-05 20:49
-updated: 2026-09-06 14:10
+updated: 2026-09-30 14:04
 ---
 
-本页介绍从 **Stellar 1.44.0** 升级到 v2 的步骤。使用更早版本时，还需查阅原版本到 1.44.0 之间的发布记录。v2 的配置结构有较大变化，旧配置需要转换后才能使用。
+本页介绍从 **Stellar 1.44.0** 升级到 **v2.0.0** 的步骤。使用更早版本时，还需查阅原版本到 1.44.0 之间的发布记录。v2 的配置结构有较大变化，旧配置需要转换后才能使用；v2 预发布候选之间的中间字段不属于迁移契约。
+
+升级前确认运行环境：v2 需要 **Node.js 22 或更高版本、Hexo 8 或更高版本**。
 
 ## 备份站点与主题
 
@@ -23,6 +25,8 @@ updated: 2026-09-06 14:10
 - Brand 的文字、图片和链接拆成独立字段，文字中不再嵌入 HTML 或 Markdown 链接。
 - 顶部栏和左右栏使用对象配置，组件列表写在 `widgets` 数组中。
 - 文章与集合的字段按内容类型区分，卡片封面、内容横幅、Hero 和头像分别配置。
+- 搜索入口从菜单移到 `leftbar.brand.search`；文章页横幅改用页面 `cover`，可用 `article.banner.background` 或页面 `banner.background` 控制背景图。
+- 分享服务改为 `qrcode/weibo/x/telegram/whatsapp/email`；Site Info、Rating、Vote 的 endpoint 默认留空，需要自行部署并填写地址。
 - 第三方服务参数保留原来的字段名；主题不再支持的资源路径和内部缓存设置需要移除。
 - v1 的 `about`、`users` 标签，`chat_users.yml`、`fcircle` 适配器及已移除的标签配置字段，按[标签与动态数据迁移表](/wiki/stellar/migration/fields/#标签与动态数据)逐项替换或删除。
 
@@ -41,7 +45,7 @@ npx hexo generate
 
 页面 URL 改变时，为旧地址设置到最终地址的跳转，同时检查章节锚点、canonical、站点地图和内链。静态跳转页与服务器 HTTP 301 的处理方式不同，应按托管平台支持的方式配置。
 
-本套文档的[路径与锚点映射表](https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/redirects.json)记录了旧页面和章节的新位置，由本站生成跳转页；旧正文仍可在 Git 历史中查阅。
+本套文档的[路径与锚点映射表](https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/redirects.json)记录了旧页面和章节的新位置，由本站生成跳转页；旧正文仍可在 Git 历史中查阅。v2 相对 1.44.0 的完整变化见[版本记录](/wiki/stellar/support/releases/)。
 
 ## 保存迁移记录与回退
 

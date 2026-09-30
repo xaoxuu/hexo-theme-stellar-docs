@@ -1,7 +1,7 @@
 ---
 title: 认识 Stellar
 date: 2022-10-21 13:15
-updated: 2026-09-09 23:14
+updated: 2026-09-30 14:21
 
 ---
 
@@ -77,47 +77,56 @@ Stellar 具备完整的博客体系，正如其它 Hexo 主题一样。
 
 {% box %}
 
-{% tabs active:2 %}
-<!-- tab 留白 · 轻博客 -->
+{% tabs active:1 %}
+<!-- tab 轻博客 -->
 
-{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/lightblog-home.webp 留白轻博客首页 %}
+{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.2/stellar/v2/lightblog-home.webp 轻博客首页 %}
 
-“留白”没有常驻侧栏，站点名字与菜单放在顶部。它适合长文、随笔和低干扰阅读，也是第一次使用时最简单的起点。
+没有常驻侧栏，站点名字与菜单放在顶部。适合长文、随笔和低干扰阅读，也是第一次使用时最简单的起点。
 
 {% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-lightblog --blueprint=lightblog --non-interactive %}
 
-[查看源码](https://github.com/xaoxuu/hexo-theme-stellar-examples/tree/main/case1-lightblog) · [从零搭建](/wiki/stellar/start/first-site/)
+[查看源码](https://github.com/xaoxuu/hexo-theme-stellar-examples/tree/main/case4011-lightblog) · [从零搭建](/wiki/stellar/start/first-site/)
 
-<!-- tab 星迹 · 博客 -->
+<!-- tab 极简博客 -->
 
-{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/blog-home.webp 星迹经典侧栏博客首页 %}
+{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.2/stellar/v2/minimalblog-home.webp 极简博客首页 %}
 
-“星迹”保留左侧站点身份和主菜单，文章可以按分类、标签、归档与专栏重新找到。侧栏提供固定的导航入口。
+保留左侧站点身份和主菜单，把视觉装饰降到最低。文章、分类、标签和归档各自承担一种查找方式，页面把注意力留给正文。
 
-{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-blog --blueprint=blog --non-interactive %}
+{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-minimalblog --blueprint=minimalblog --non-interactive %}
 
-[查看源码](https://github.com/xaoxuu/hexo-theme-stellar-examples/tree/main/case2-blog) · [调整导航](/wiki/stellar/guides/layout/)
+[查看源码](https://github.com/xaoxuu/hexo-theme-stellar-examples/tree/main/case4012-minimalblog) · [调整导航](/wiki/stellar/guides/layout/)
 
 <!-- tab 个人知识库 -->
 
-{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/knowledge-home.webp Stellar 个人知识库首页 %}
+{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.2/stellar/v2/knowledge-home.webp Stellar 个人知识库首页 %}
 
 “个人知识库”把近期文章、专栏和两套 Wiki 放在一个站点里。博客记录变化，Wiki 保存以后还会反复查阅的内容。
 
 {% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-knowledge --blueprint=knowledge --non-interactive %}
 
-
-[查看源码](https://github.com/xaoxuu/hexo-theme-stellar-examples/tree/main/case3-knowledge) · [用 Wiki 整理内容](/wiki/stellar/guides/wiki/)
+[查看源码](https://github.com/xaoxuu/hexo-theme-stellar-examples/tree/main/case4021-knowledge) · [用 Wiki 整理内容](/wiki/stellar/guides/wiki/)
 
 <!-- tab 项目文档 -->
 
-{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.1/stellar/v2/docs-home.webp Stellar 单项目文档站首页 %}
+{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.2/stellar/v2/docs-home.webp Stellar 单项目文档站首页 %}
 
 “项目文档”没有博客列表，打开就是项目首页。左侧目录负责阅读顺序，右侧目录帮助读者浏览当前页面。
 
 {% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-docs --blueprint=docs --non-interactive %}
 
-[查看源码](https://github.com/xaoxuu/hexo-theme-stellar-examples/tree/main/case4-docs) · [建立项目文档](/wiki/stellar/guides/wiki/)
+[查看源码](https://github.com/xaoxuu/hexo-theme-stellar-examples/tree/main/case4031-docs) · [建立项目文档](/wiki/stellar/guides/wiki/)
+
+<!-- tab 笔记本 -->
+
+{% image https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.1.2/stellar/v2/notebook-home.webp 笔记本首页 %}
+
+把站点当成一本持续生长的笔记本：先用笔记本与层级标签整理零散想法，主页保留一栏随时间发布的近况。
+
+{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-notebook --blueprint=notebook --non-interactive %}
+
+[查看源码](https://github.com/xaoxuu/hexo-theme-stellar-examples/tree/main/case4041-notebook) · [用笔记本整理内容](/wiki/stellar/guides/notebook/)
 
 {% endtabs %}
 

@@ -1,10 +1,10 @@
 ---
 title: CLI 命令
 date: 2026-09-05 20:49
-updated: 2026-09-12 01:21
+updated: 2026-09-30 14:04
 ---
 
-命令在博客根目录运行，使用该站点实际安装的 Hexo 和主题。本页介绍 `doctor`、`new note` 和 rc.3 起提供的 `images` 命令。
+命令在博客根目录运行，使用该站点实际安装的 Hexo 和主题。本页介绍 `doctor`、`new note` 和 `images` 命令。
 
 ## doctor
 

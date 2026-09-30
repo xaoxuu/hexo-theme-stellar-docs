@@ -1,10 +1,10 @@
 ---
 title: Collection 配置
 date: 2026-09-05 20:49
-updated: 2026-09-18 23:12
+updated: 2026-09-30 14:04
 ---
 
-> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
+> 适用版本：Stellar v2.0.0。从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
 
 Collection 文件位于 `source/_data/wiki/`、`source/_data/topic/` 或 `source/_data/notebooks/`。文件路径提供 profile，文件名提供 ID；`name` 是显示名称；省略时使用 Collection ID 并给出 warning。只需填写当前集合要修改的配置，其余值由主题提供。
 
@@ -36,9 +36,9 @@ Collection 文件位于 `source/_data/wiki/`、`source/_data/topic/` 或 `source
 | :--- | :--- |
 | `hero.enabled` | boolean / null，是否启用首页 Hero |
 | `hero.background.image` | string / null，背景图片 |
-| `hero.background.video` | main 开发版；string / null，背景视频地址；优先于 effect，image 用作 poster 与底图 |
-| `hero.background.parallax` | main 开发版；number，默认 0.2，范围 0–1；0 关闭视差位移 |
-| `hero.background.effect` | object / null；`type` 为 `ferrofluid`、`galaxy`、`light-rays`，main 开发版另支持 `strands`，`options` 为对应效果参数 |
+| `hero.background.video` | string / null，背景视频地址；优先于 effect，image 用作 poster 与底图 |
+| `hero.background.parallax` | number，默认 0.2，范围 0–1；0 关闭视差位移 |
+| `hero.background.effect` | object / null；`type` 为 `ferrofluid`、`galaxy`、`light-rays`、`strands`，`options` 为对应效果参数 |
 | `hero.background.effect.runtime` | `pause_when_hidden/respect_reduced_motion` 可选 boolean，均默认 true |
 | `hero.preview.type` | terminal / image |
 | `hero.preview.src/alt` | 图片地址与替代文字 |
@@ -47,7 +47,7 @@ Collection 文件位于 `source/_data/wiki/`、`source/_data/topic/` 或 `source
 
 Collection 不配置 `banner`。成员页面用自己的 `cover` 提供内容横幅图片，用 Front Matter `banner.enabled/avatar/headline/tagline` 控制横幅内容；集合 cover 不继承到成员。Hero 背景单独使用 `hero.background`。
 
-### 视频与滚动视差（main 开发版）
+### 视频与滚动视差
 
 ```yaml blog/source/_data/wiki/handbook.yml
 hero:
@@ -64,7 +64,7 @@ hero:
 
 `hero.background.image` 与动态效果可以同时配置：图片位于 Canvas 下方，动态效果加载失败时仍保留图片。没有图片时，Strands、Galaxy 和普通 Light Rays 使用黑色静态底色，Ferrofluid 使用其 `backgroundColor`；`lightMode: true` 的 Light Rays 使用白色底色。Canvas 不接收指针事件，不会遮挡 Hero 中的链接和按钮。
 
-#### Strands（main 开发版）
+#### Strands
 
 流动的发光丝带，可叠加玻璃折射效果。需要浏览器支持 WebGL 2；无背景图片时使用黑色底色。
 
@@ -227,7 +227,7 @@ hero:
 
 ## Region 与 Brand
 
-顶部栏、左侧栏、右侧栏（Region）使用 `enabled/widgets`，Topbar 和 Leftbar 还支持 `brand/menu`，Leftbar 支持 `footer.actions`，main 开发版另支持 `menu_columns`（1–5 的整数，null 继承）。它们沿用[主题结构](/wiki/stellar/reference/theme/#布局、Brand-与导航)，但作为局部覆盖：省略继承，数组整体替换，`[]` 清空。
+顶部栏、左侧栏、右侧栏（Region）使用 `enabled/widgets`，Topbar 和 Leftbar 还支持 `brand/menu`，Leftbar 支持 `footer.actions` 与 `menu_columns`（1–5 的整数，null 继承）。它们沿用[主题结构](/wiki/stellar/reference/theme/#布局、Brand-与导航)，但作为局部覆盖：省略继承，数组整体替换，`[]` 清空。
 
 Collection 的 `leftbar.brand` 额外支持 `source: site/collection`、`back_button`。Wiki/Notebook 默认来源是 collection，Topic 默认 site；返回开关只在 collection 来源有效；search、ghrepo、ghuser 沿用共享 Leftbar Brand 字段，搜索适用于两种来源。`style: regular/compact` 与来源独立。Brand 整体可为 false 或 null；null 继承，false 隐藏。具体字段 null 隐藏对应内容。
 

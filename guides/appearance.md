@@ -1,7 +1,7 @@
 ---
 title: 外观与排版
 date: 2023-12-06 21:55
-updated: 2026-09-18 23:12
+updated: 2026-09-30 14:04
 ---
 
 外观预设控制站点的整体样式，文章风格控制正文排版。选好预设后，还可以分别调整颜色、字体、圆角和背景。
@@ -56,8 +56,6 @@ appearance:
 圆角曲线支持 `round/scoop/bevel/notch/square` 及 `superellipse(...)`。背景、渐变、遮罩与字号的完整配置见[外观参考](/wiki/stellar/reference/theme/#外观)。使用连续曲率时检查目标浏览器的最终效果。
 
 ## 阅读增强
-
-> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
 
 ```yaml blog/_config.stellar.yml
 features:

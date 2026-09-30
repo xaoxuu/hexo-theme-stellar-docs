@@ -1,7 +1,7 @@
 ---
 title: 文章与页面
 date: 2023-12-06 21:55
-updated: 2026-09-18 23:12
+updated: 2026-09-30 14:04
 ---
 
 随时间发布的内容放在 `source/_posts/`。关于、友链这类不属于时间线的内容，更适合放在 `source/<name>/index.md`。
@@ -26,7 +26,7 @@ article:
 
 ## 列表卡片与横幅
 
-> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
+> 适用版本：Stellar v2.0.0。从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
 
 ```yaml blog/source/_posts/一次散步.md
 cover: /images/walk-card.webp
@@ -36,7 +36,7 @@ banner:
   tagline: 午后，沿溪向北
 ```
 
-根级 `cover` 同时用于列表卡片与内容横幅，`tagline` 用于列表小字，`banner` 控制横幅文字和头像；`banner.enabled: false` 可关闭整个横幅。没有图片时可省略；Collection 的封面不会自动成为成员文章的封面。
+根级 `cover` 同时用于列表卡片与内容横幅，`tagline` 用于列表小字，`banner` 控制横幅文字和头像；`banner.enabled: false` 可关闭整个横幅。文章页横幅默认使用 `cover` 作为背景图，可用 `banner.background: false` 改为纯色横幅，也可在主题配置用 `article.banner.background` 修改全站默认值。没有图片时可省略；Collection 的封面不会自动成为成员文章的封面。
 
 全站文章卡片和置顶区在主题配置中调整：
 
@@ -68,7 +68,7 @@ article:
   ai_label: manual
 ```
 
-作者个人资料页从 rc.5 起使用作者的 cover 作为横幅背景，avatar 为头像、description 为小字；作者页列表包含该作者的普通文章和 Topic 文章。
+作者个人资料页使用作者的 cover 作为横幅背景，avatar 为头像、description 为小字；作者页列表包含该作者的普通文章和 Topic 文章。
 
 AI 标记可选 `manual`、`reviewed`、`polished`、`generated`，用来说明内容的创作方式，按实际情况填写。
 

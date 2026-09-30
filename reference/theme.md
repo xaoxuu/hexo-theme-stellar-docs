@@ -1,12 +1,12 @@
 ---
 title: 主题配置
 date: 2026-09-05 20:49
-updated: 2026-09-18 23:12
+updated: 2026-09-30 14:04
 ---
 
 本页适用于 v2 的 `_config.stellar.yml`。主题[默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/_config.yml)列出了完整配置和默认值，[校验规则](https://github.com/xaoxuu/hexo-theme-stellar/blob/main/scripts/schema/config-rules.js)说明了类型和取值限制。不同版本可能有差异，请以安装版本为准。
 
-> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
+> 适用版本：Stellar v2.0.0。从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
 
 下表按用途列出配置项。第三方服务的完整参数以服务方说明为准；对象和数组的覆盖方式见[行为参考](/wiki/stellar/reference/behavior/)。
 
@@ -24,7 +24,7 @@ updated: 2026-09-18 23:12
 | `leftbar.brand.search` | boolean，默认 true | Brand 搜索按钮；需配置搜索 Provider，Brand 本身需可见 |
 | `leftbar.brand.ghrepo/ghuser` | string / null，默认 null | regular Leftbar 的仓库／用户统计，ghrepo 优先；显式填写 owner/repo 或用户名 |
 | `leftbar.brand.style` | `regular` / `compact`，默认 `regular` | 视觉样式 |
-| `leftbar.menu_columns` | 1–5 的整数，默认 1 | main 开发版；1–2 列显示图标和标题，3–5 列只显示图标；支持 Profile、Collection、Page 覆盖 |
+| `leftbar.menu_columns` | 1–5 的整数，默认 1 | 1–2 列显示图标和标题，3–5 列只显示图标；支持 Profile、Collection、Page 覆盖 |
 | `topbar.menu`、`leftbar.menu` | array | 顶部默认空；左侧默认博客、分类、标签、专栏、归档、友链、关于 |
 | Menu 项 | object | `type` 仅支持 link；链接填写非空 kebab-case 的 `id` 与 `url`，可配 title/icon/accent |
 | `topbar.widgets`、`leftbar.widgets`、`rightbar.widgets` | array，默认 `[]` | 内容 Widget 列表；profile 可继续覆盖 |
@@ -72,7 +72,7 @@ footer:
 
 `path` 用于表中支持自定义路径的页面类型；文章的永久链接使用 `permalink`，集合路径使用 `route.path`。`wiki_index.path: null` 停止生成 Wiki 列表；`notebooks.path: null` 只停止生成笔记本总列表，各 Notebook 的集合、标签和详情路由仍会生成。
 
-`profiles.blog_index.listing_nav` 和 `profiles.wiki_index.listing_nav` 使用 `enabled/tabs`；默认分别 false/true，tabs 默认空，每项为 `title/url`。
+`profiles.blog_index.listing_nav` 和 `profiles.wiki_index.listing_nav` 使用 `enabled/tabs`；两者默认都为 true，tabs 默认空，每项为 `title/url`。
 
 `profiles.home.comments` 与 `profiles.error.comments` 都使用 `enabled/title/id/provider/options`，默认关闭、其它字段 null、options 空对象。设为 `enabled: true` 时默认继承全局评论 Provider，覆盖语义同[页面评论](/wiki/stellar/reference/front-matter/#评论)。
 
@@ -89,6 +89,7 @@ profiles:
 | :--- | :--- | :--- |
 | `article.style` | tech | tech / story |
 | `article.paragraph_indent` | auto | auto / always / never |
+| `article.banner.background` | true | boolean；文章页横幅是否使用页面 `cover` 作为背景图，页面可用 `banner.background` 覆盖 |
 | `article.listing.pinned_layout` | carousel | carousel / flat |
 | `article.listing.card_layout` | hero | hero / classic |
 | `article.listing.cover_ratio` | 2 | 正数 |
@@ -197,7 +198,7 @@ article:
 | `features.card_hover.spotlight/tilt` | 均为 false，分别控制光照与倾斜 |
 | `features.heti.enabled` | false |
 | `features.partial_navigation.enabled` | true，同集合且外壳兼容时局部导航 |
-| `features.image_optimization.enabled` | true，自动增量提取图片尺寸与平均色 |
+| `features.image_optimization.enabled` | true，自动增量提取图片尺寸与平均色；只处理正文与横幅、封面、列表封面等主题消费的图片，页面框架图片不下载 |
 | `features.reveal.duration/interval` | 800 / 200，非负数，单位毫秒；interval 为 0 时同时播放 |
 | `features.reveal.distance/blur` | 8 / 4，单位像素；distance 可负，blur 非负；0 分别关闭位移／模糊 |
 | `features.math.provider` | null；katex / mathjax / null |
@@ -209,7 +210,7 @@ article:
 
 | 字段 | 默认／约束 |
 | :--- | :--- |
-| `services.gravatar.base_url` | main 开发版；默认 `https://gravatar.com/avatar/`，完整 HTTP(S) 地址，须包含兼容服务的 `/avatar/` 路径；用于访客身份头像 |
+| `services.gravatar.base_url` | 默认 `https://gravatar.com/avatar/`，完整 HTTP(S) 地址，须包含兼容服务的 `/avatar/` 路径；用于访客身份头像 |
 | `services.site_info.provider` | site_info_api / null |
 | `services.site_info.site_info_api.endpoint` | 默认 null；填写自部署地址，支持 `{href}` 占位 |
 | `services.rating.provider`、`services.vote.provider` | star_vote / null |

@@ -1,7 +1,7 @@
 ---
 title: 动态数据
 date: 2026-09-05 20:49
-updated: 2026-09-18 23:12
+updated: 2026-09-30 14:04
 ---
 
 站点信息、评分、投票、贡献者和 GitHub 卡片会在浏览器里按需读取数据。数据更新无需重新生成整站。
@@ -20,9 +20,9 @@ services:
       endpoint: https://vote.example.com/api/rating
 ```
 
-从 rc.5 起，Site Info、Rating、Vote 默认选择 Provider，但 endpoint 留空，不请求公共实例。上面的 example.com 地址须替换为自己的兼容服务：Site Info 使用 site-info-api，评分和投票使用 star-vote。endpoint 省略或 null 不发请求，也可用 provider: null 关闭。
+Site Info、Rating、Vote 默认选择 Provider，但 endpoint 留空，不请求公共实例。上面的 example.com 地址须替换为自己的兼容服务：Site Info 使用 site-info-api，评分和投票使用 star-vote。endpoint 省略或 null 不发请求，也可用 provider: null 关闭。
 
-## 访客头像镜像（main 开发版）
+## 访客头像镜像
 
 侧边栏访客身份与设置页共用 Gravatar 地址，可在主题配置替换为自己的兼容服务：
 

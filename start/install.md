@@ -1,7 +1,7 @@
 ---
 title: 环境与安装
 date: 2022-10-21 13:15
-updated: 2026-09-18 23:12
+updated: 2026-09-30 14:13
 ---
 
 在已有 Hexo 站点中安装 Stellar，需要确认运行环境、选择主题版本，并设置 `theme: stellar`。还没有站点时，从[创建第一个站点](/wiki/stellar/start/first-site/)开始。
@@ -24,49 +24,33 @@ npx hexo version
 
 <!-- tab 从蓝图安装 -->
 
-蓝图会创建一套已经配置好的独立站点，并安装它锁定的 Stellar 版本。选择最接近目标站点的蓝图，复制对应命令即可。
+蓝图会创建一套已经配置好的独立站点，并安装它锁定的 Stellar 版本。内置蓝图共 5 个：`lightblog`（轻博客）、`minimalblog`（极简博客）、`knowledge`（个人知识库）、`docs`（项目文档）与 `notebook`（笔记本）；对照与源码见[站点示例](/wiki/stellar/support/examples/)。
 
 **安装方法**
 
-以下分蓝图的一行命令适用于 macOS / Linux。Windows 请使用 PowerShell 7+（`pwsh`）运行交互式安装器，再按提示选择蓝图与项目目录：
+按系统复制命令，安装器会列出蓝图、确认项目目录并自动安装依赖：
+
+{% tabs %}
+
+<!-- tab macOS / Linux -->
+
+在终端（zsh、bash 等）中运行。安装器会读取终端输入，不要改成 `curl | sh` 这类管道写法：
+
+```sh
+sh -c "$(curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh)"
+```
+
+<!-- tab Windows -->
+
+使用 PowerShell 7+（`pwsh`）运行，不要在 zsh、bash 等终端中执行：
 
 ```powershell
 & ([scriptblock]::Create((Invoke-RestMethod https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.ps1)))
 ```
 
-{% tabs active:2 %}
-
-<!-- tab 留白 · 轻博客 -->
-
-适合长文、随笔与低干扰阅读：
-
-{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-lightblog --blueprint=lightblog --non-interactive %}
-{% copy cd stellar-lightblog && npm run server %}
-
-<!-- tab 星迹 · 博客 -->
-
-适合使用经典侧栏整理文章、分类、标签与专栏：
-
-{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-blog --blueprint=blog --non-interactive %}
-{% copy cd stellar-blog && npm run server %}
-
-<!-- tab 个人知识库 -->
-
-适合把博客文章、项目资料和长期主题放在同一个站点：
-
-{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-knowledge --blueprint=knowledge --non-interactive %}
-{% copy cd stellar-knowledge && npm run server %}
-
-<!-- tab 项目文档 -->
-
-适合为单个项目维护首页、文档目录与内容页面：
-
-{% copy curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh | sh -s -- create stellar-docs --blueprint=docs --non-interactive %}
-{% copy cd stellar-docs && npm run server %}
-
 {% endtabs %}
 
-创建器会自动安装依赖。蓝图已经包含站点配置与主题依赖，不需要再执行其它安装 Tab 的命令。创建器不会覆盖非空目录；创建完成后，主题版本以站点的 `package.json` 和锁文件为准。完整目录和源码见 [Stellar Examples](https://github.com/xaoxuu/hexo-theme-stellar-examples)。
+创建器会自动安装依赖。蓝图已经包含站点配置与主题依赖，不需要再执行其它安装 Tab 的命令。创建器不会覆盖非空目录；创建完成后，主题版本以站点的 `package.json` 和锁文件为准。需要脚本化安装时，可指定蓝图并加 `--non-interactive`，见[站点示例](/wiki/stellar/support/examples/)；完整目录和源码见 [Stellar Examples](https://github.com/xaoxuu/hexo-theme-stellar-examples)。
 
 {% note color:blue 适用范围 想直接从可运行示例开始，再逐步替换内容和配置。蓝图是创建起点，不会覆盖或自动升级已有站点。 %}
 

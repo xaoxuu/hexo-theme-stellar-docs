@@ -1,10 +1,10 @@
 ---
 title: 配置对照
 date: 2026-09-05 20:49
-updated: 2026-09-18 23:12
+updated: 2026-09-30 14:04
 ---
 
-> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
+> 适用版本：Stellar v2.0.0。本表只覆盖 1.44.0 到 v2.0.0 的净变化；v2 预发布候选之间的中间字段不属于迁移契约，按未知字段处理。
 
 下表以 [1.44.0 默认配置](https://github.com/xaoxuu/hexo-theme-stellar/blob/1.44.0/_config.yml)、Collection 读取链和页面实际用法为依据，覆盖从 1.44.0 升级时仍可出现的主题配置、Collection 与 Front Matter 输入。v2 不会自动读取这些旧名称；新配置的完整用法见[主题参考](/wiki/stellar/reference/theme/)和[Collection 参考](/wiki/stellar/reference/collection/)。
 
@@ -23,6 +23,8 @@ updated: 2026-09-18 23:12
 | `footer.social` | `leftbar.footer.actions`，逐项明确 link/button/dropdown/spacer |
 | `footer.content`、`footer.sitemap` | 分别核对站点页脚正文与 `footer.sitemap` 的 title/items 分栏，items 使用 Markdown 字符串数组；不是 XML sitemap 插件配置 |
 | `preconnect` | 路径不变，数组仍整体替换；v2 默认改为空数组，需要的资源 Origin 必须显式保留 |
+
+`home`、`post`、`topic`、`wiki`、`note`、`author`、`page` 在 `profiles` 中同名保留；`blog_index`、`wiki_index` 是列表页的新类型名，`notebooks`、`notebook`、`error` 分别对应旧的 `notebooks`、`notes`、`error_page`。
 
 ## 内容默认值
 
@@ -51,14 +53,20 @@ updated: 2026-09-18 23:12
 | 评论 js/css/src/meta_css 与 custom_css | js/css/meta_css 按 Provider 支持范围迁到 comments.<provider>；页面用 comments.options。src 不是资源入口，自有样式用可信 inject |
 | `tag_plugins` | `tags`；逐项按当前标签参考迁移子字段 |
 | `dependencies` | 整段移除；标签插件的懒加载资源、Swiper 和 Markdown 渲染器由 Runtime 管理 |
-| `plugins` | 按能力迁入 `features`，不能只改根名：preload→link_prefetch、scrollreveal→reveal、fancybox→lightbox；其它逐项核对 |
-| `data_services` | 服务地址进入对应 services Provider 参数；内部脚本路径不再配置 |
+| `plugins` | 按能力迁入 `features`，不能只改根名：preload→link_prefetch、scrollreveal→reveal、fancybox→lightbox、swiper→swiper、katex/mathjax→math、mermaid→diagrams、heti→heti、card_hover→card_hover（spotlight/tilt）；copycode 与 adaptive_text 由主题内置行为接管，tianli_gpt 等第三方插件注册从主题配置移除 |
+| `data_services.siteinfo` | `services.site_info`；provider 使用 `site_info_api`，自部署地址写入 `site_info_api.endpoint` |
+| `data_services.rating`、`data_services.vote` | `services.rating`、`services.vote`；provider 使用 `star_vote`，自部署地址写入对应 `star_vote.endpoint` |
+| `data_services.ghinfo`、`api_host.ghcard` 等 | `services.github_card` 与 `services.github`；填写完整服务地址 |
+| `data_services.contributors` | `services.contributors`；仓库映射写入 `contributors.github.repositories` |
+| `data_services.mdrender` | `services.markdown`；只保留可覆盖的共享 Markdown 资源，动态数据的内部脚本路径不再配置 |
+| `data_services.twikoo/waline/artalk/giscus` | 移入 `comments.<provider>`，服务方参数保留原字段名 |
+| `data_services.friends/sites/friends_and_posts/timeline/weibo/memos/voice/video/rss` | 没有对应的主题级配置；数据改由 `links/*.yml`、标签参数或站点自有实现提供，内部脚本路径不可覆盖 |
 | `data_cache` | 缓存策略由 Runtime 内部管理；无对应公开数值开关 |
-| `api_host` | 按用途进入 `services.github` 或 `services.github_card` 的完整地址 |
-| `style` | 按用途进入 appearance，颜色、排版、圆角、背景分别迁移 |
+| `api_host` | 按用途进入 `services.github` 或 `services.github_card` 的完整地址；`ghapi`、`ghraw`、`gist` 分别对应 GitHub 的 API、Raw、Gist 地址，`ghcard` 对应卡片服务 |
+| `style` | 按用途进入 appearance：`prefers_theme`→`appearance.color_scheme`（配合 `features.color_scheme_switch`）、`codeblock`→`appearance.code_block`、`color/gradient`→`appearance.colors/gradients`、`leftbar/site/error_page`→`appearance.backgrounds`；颜色、排版、圆角、背景分别迁移，`page_transition/loading/header_prefix` 无对应项 |
 | `default` | 头像、链接卡片等备用资源进入 fallbacks，错误图进入 profiles.error.image；内容与 Brand 不再共用通用封面 |
 | `canonical.originalHost/officialHosts` | `canonical.host/allowed_hosts` |
-| `open_graph.enable`、`structured_data.links` | `open_graph.enabled`、`structured_data.same_as` |
+| `open_graph.enable`、`structured_data.links` | `open_graph.enabled`、`structured_data.same_as`；`open_graph.twitter_id` 同名保留 |
 | `plugins.<id>.inject` | 内置集成改用对应 features；自有可信 HTML 按加载时机放入 inject.head_begin/head_end/body_begin/body_end，先检查是否重复 |
 | `stellar`、`system` 内部元数据／资源路径 | 从站点覆盖中移除，以安装包和主题 Runtime 为准 |
 
@@ -123,12 +131,6 @@ v1 的标签插件配置不能只把根节点从 `tag_plugins` 改成 `tags`。�
 | mathjax/katex/mermaid 主题集成开关 | `render.math/diagrams`；其它第三方插件字段按插件本身协议核对 |
 
 `poster` 在 1.44.0 之前已经移除，不属于本次 1.44.0 → v2 的兼容输入；若更早的站点仍保留它，先按旧版本发布记录迁移到 1.44.0，再执行本表。
-
-## 从 rc.1 升级
-
-rc.2 起，顶层 notebook、settings.about、error_page.image 分别迁到 profiles.notebook、profiles.settings.about、profiles.error.image；profiles.notebook_index / note_index 改为 profiles.notebooks / notebook。rc.3 起页脚分栏使用 footer.sitemap，子项为 Markdown 字符串；card_hover 的 spotlight 与 tilt 独立开关，Topic 默认继承文章分享。
-
-rc.5 将搜索入口移到 leftbar.brand.search；横幅图片使用页面 cover，Collection 不再提供 banner；分享服务使用 qrcode/weibo/x/telegram/whatsapp/email。Site Info、Rating、Vote 的 endpoint 默认 null，需要自行部署填写。以上配置请按当前参考重写，不依赖旧字段自动转换。
 
 ## 无等价项与默认变化
 

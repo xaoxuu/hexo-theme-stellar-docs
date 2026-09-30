@@ -1,10 +1,10 @@
 ---
 title: Front Matter
 date: 2025-07-06 13:34
-updated: 2026-09-18 23:12
+updated: 2026-09-30 14:04
 ---
 
-> 版本范围：以 `2.0.0-rc.5` 为发布基线，并核对截至 2026-09-18 的 main 源码（`5c6c7a7c`）。标注「main 开发版」的能力尚不包含在 rc.5 中；升级差异见[版本记录](/wiki/stellar/support/releases/)。
+> 适用版本：Stellar v2.0.0。从 v1 升级请先阅读[从 v1 迁移到 v2](/wiki/stellar/migration/v1-to-v2/)。
 
 Front Matter 是 Markdown 开头的 YAML 配置。主题字段使用 `snake_case`，第三方参数使用服务方原有的名称。Doctor 会报告不支持的主题字段，旧字段需要按[迁移说明](/wiki/stellar/migration/fields/)修改。
 
@@ -28,6 +28,7 @@ collection:
 | :--- | :--- |
 | `cover/tagline` | string/null，当前页面封面（列表与内容横幅共用）与列表小字；省略不从集合继承 |
 | `banner.enabled` | boolean/null，false 隐藏整个内容横幅 |
+| `banner.background` | boolean/null，是否用当前页面的 `cover` 作为横幅背景；省略继承主题 `article.banner.background` |
 | `banner.avatar/headline/tagline` | string/null，横幅头像、标题和小字；仅页面支持，标题默认页面标题 |
 | `article.style` | tech/story/null，继承主题或集合 |
 | `article.paragraph_indent` | auto/always/never/null，继承；auto 随排版决定 |
@@ -41,7 +42,7 @@ collection:
 
 `active_menu` 为 string/null，匹配固定菜单 ID；`breadcrumb` 为 boolean/null。三个 Region 可覆盖 `enabled/widgets`；Topbar、Leftbar 支持 `brand/menu`，Leftbar 还有 `footer.actions`。
 
-main 开发版支持 `leftbar.menu_columns`：1–5 的整数，省略或 null 继承；1–2 列显示图标和标题，3–5 列仅显示图标，仍需填写 title。
+Leftbar 支持 `leftbar.menu_columns`：1–5 的整数，省略或 null 继承；1–2 列显示图标和标题，3–5 列仅显示图标，仍需填写 title。
 
 结构见[主题 Region](/wiki/stellar/reference/theme/#布局、Brand-与导航)。页面 Leftbar Brand 可覆盖图片、名称、标语、链接、style、search、ghrepo 和 ghuser；Collection 专属的 source/back_button 放在集合文件中。
 
