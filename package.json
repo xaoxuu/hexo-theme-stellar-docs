@@ -24,7 +24,7 @@
     "hexo-renderer-marked": "^7.0.1",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-stellar": "git+https://github.com/xaoxuu/hexo-theme-stellar.git#82fb5f8823a8c14fc75828b3d4470b89820c7815",
+    "hexo-theme-stellar": "git+https://github.com/xaoxuu/hexo-theme-stellar.git#895b9ab6a29bf0eabde06f5a1ff0033bf13ec16c",
     "probe-image-size": "^7.3.0"
   },
   "devDependencies": {
