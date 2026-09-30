@@ -1,0 +1,54 @@
+name: build docs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: docs-dist
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build docs
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      # 主题由 package.json 的 npm 依赖提供，本仓库没有子模块。
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js (LTS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - name: Generate Public Files
+        run: |
+          npm i
+          npm install hexo-cli -g
+          npm run g
+      # 产物以静态文件形式发布到 gh-pages 分支，供主站构建时合并到 /wiki/stellar/。
+      # 这里只作分发通道；对外访问始终走主站域名，是否在仓库上开启 GitHub Pages 由站点自行决定。
+      - name: Publish dist branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          commit_message: ${{ github.event.head_commit.message }}
+      # 通知主站重新构建，让文档改动不必等下一次本站推送。
+      # 需要在本仓库配置 SITE_DISPATCH_TOKEN（对 xaoxuu/xaoxuu.com 有 dispatch 权限的 PAT）；
+      # 未配置时跳过，文档会在主站下次构建时生效。
+      - name: 触发主站重新构建
+        env:
+          DISPATCH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+        if: ${{ env.DISPATCH_TOKEN != '' }}
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ env.DISPATCH_TOKEN }}
+          repository: xaoxuu/xaoxuu.com
+          event-type: docs-updated

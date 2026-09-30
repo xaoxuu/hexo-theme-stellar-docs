@@ -1,0 +1,105 @@
+# Stellar 文档站（hexo-theme-stellar-docs）
+#
+# 独立构建 Stellar 的公开文档，产物是挂在主站 /wiki/stellar/ 子路径下的静态站点。
+# 正文位于 source/，工程文件都在仓库根目录，因此 exclude 只需处理正文目录里的迁移数据。
+
+# Site
+## 站点品牌与主站保持一致：文档是 xaoxuu.com 的子路径，标题与 og:site_name 应显示 XAOXUU，
+## 项目名（Stellar）由 _data/wiki/hexo-stellar.yml 提供。
+title: XAOXUU
+subtitle: 'For all time, always. | 风暴前夕'
+description: 'xaoxuu 目前主要从事于互联网行业，活跃于开源社区，热衷于探索未知、设计和打磨美妙的东西。代表作有：Stellar、ProHUD、心率管家等。'
+keywords:
+author: xaoxuu
+language: [zh-CN, en, zh-TW]
+timezone: Asia/Shanghai
+avatar: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/avatar/classic-64x@3x.webp
+email: me@xaoxuu.com
+
+# URL
+## 站点挂在主站的子路径下：站点自己的 public/ 就是 /wiki/stellar/ 的内容。
+## 链接前缀由 root 承载，canonical 前缀由 _config.stellar.yml 的 canonical.host 承载。
+url: https://xaoxuu.com/wiki/stellar
+root: /wiki/stellar/
+permalink: :title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: blog/tags
+archive_dir: blog/archives
+category_dir: blog/categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - assets/*
+
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 1
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: false
+  auto_detect: false
+  tab_replace: '    '
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: '    '
+
+# 文档站没有博客列表，禁用首页生成器，避免与根目录的 index.md 冲突。
+index_generator:
+  per_page: 0
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+meta_generator: true
+
+# Date / Time format
+date_format: ll
+time_format: HH:mm:ss
+updated_option: 'date'
+
+# Pagination
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+## 正文位于 source/，工程文件都在仓库根目录，因此这里只需排除正文目录里的迁移数据。
+exclude:
+  - redirects.json
+ignore:
+  - .DS_Store
+  - '**/.DS_Store'
+
+# Extensions
+theme: stellar
+
+########################### Plugins ###########################
+
+# npm i hexo-autonofollow
+## 与主站一致：指向本站域名的链接按站内链接处理，不加 nofollow 也不新开标签页。
+nofollow:
+  enable: true
+  exclude:
+    - xaoxuu.com
+
+# 部署由 CI 负责：构建产物作为静态文件发布，供主站合并到 /wiki/stellar/，不使用 hexo deploy。

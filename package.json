@@ -1,0 +1,40 @@
+{
+  "name": "hexo-theme-stellar-docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Stellar 公开文档，独立构建为挂在 xaoxuu.com/wiki/stellar/ 下的静态站点",
+  "scripts": {
+    "c": "hexo clean",
+    "s": "hexo clean && hexo server --draft",
+    "g": "hexo clean && hexo generate && npx gulp minify"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "hexo": {
+    "version": "8.1.2"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "hexo": "^8.1.2",
+    "hexo-autonofollow": "^1.0.1",
+    "hexo-filter-mermaid-diagrams": "^1.0.5",
+    "hexo-generator-seo-friendly-sitemap": "^0.2.1",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.1",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-stellar": "github:xaoxuu/hexo-theme-stellar#82fb5f8823a8c14fc75828b3d4470b89820c7815",
+    "probe-image-size": "^7.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.1.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-html-minifier-terser": "^7.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0"
+  }
+}

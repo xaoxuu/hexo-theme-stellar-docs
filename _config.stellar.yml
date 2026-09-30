@@ -1,0 +1,232 @@
+# Stellar 文档站的主题配置。
+#
+# 与主站的差异只有三处，其余保持与主站一致以维持视觉与行为统一：
+#   1. canonical.host 带上 /wiki/stellar 前缀（canonicalUrl 只用 host + 页面路径拼接）；
+#   2. profiles.wiki_index.path 置空，避免文档站再生成一份 /wiki/ 聚合索引（聚合归主站）；
+#   3. services.contributors 的 source_prefix 改为空，因为正文位于文档仓库根目录。
+
+topbar:
+  enabled: false
+  brand:
+    image:
+      src: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/avatar/classic-64x@3x.webp
+    name: XAOXUU
+    tagline: For all time, always.
+    href: /
+  menu: []
+  widgets: []
+
+leftbar:
+  enabled: true
+  brand:
+    image:
+      src: https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/avatar/classic-64x@3x.webp
+    name: XAOXUU
+    tagline: For all time, always.
+    href: /
+  menu: []
+  footer:
+    actions: []
+  widgets: []
+
+rightbar:
+  enabled: true
+  widgets: []
+
+footer:
+  # 与主站保持同一份页脚。文档是主站的子路径，主题渲染时会给绝对路径补上 root 前缀，
+  # 所以指向主站各板块的链接必须写成绝对地址，否则会被拼成 /wiki/stellar/... 而失效。
+  # 已知差异：主题用 escape_html 转义 href，会把 "/" 编码成 "&#x2F;"，Hexo 的外链
+  # 过滤按原始 HTML 正则匹配、因而误判本站绝对链接为外链，给它们加上 target="_blank"。
+  # 因此这些链接会新开标签页（主站是站内跳转）；修掉主题的 URL 转义后可消除。
+  sitemap:
+    - title: 博客
+      items:
+        - '[近期发布](https://xaoxuu.com/)'
+        - '[分类](https://xaoxuu.com/blog/categories/)'
+        - '[标签](https://xaoxuu.com/blog/tags/)'
+        - '[归档](https://xaoxuu.com/blog/archives/)'
+    - title: 项目
+      items:
+        - '[开源项目](https://xaoxuu.com/wiki/tags/开源项目/)'
+        - '[实用工具](https://xaoxuu.com/wiki/tags/实用工具/)'
+        - '[应用程序](https://xaoxuu.com/wiki/tags/应用程序/)'
+        - '[知识库](https://xaoxuu.com/wiki/tags/知识库/)'
+    - title: 密友
+      items:
+        - '[枋柚梓](https://inkss.cn)'
+        - '[MHuiG](https://blog.mhuig.top)'
+        - '[Colsrch](https://colsrch.cn)'
+        - '[杜老师说](https://dusays.com)'
+    - title: 关于
+      items:
+        - '[本站简介](https://xaoxuu.com/about/)'
+        - '[隐私政策](https://xaoxuu.com/privacy/)'
+        - '[GitHub](https://github.com/xaoxuu)'
+        - '[xaox.cc](https://xaox.cc)'
+  content: |
+    本站由 [@xaoxuu](https://xaoxuu.com) 使用 [{theme.name} {theme.version}]({theme.tree}) 创建，至今已连续在线 9 年。
+
+preconnect:
+  - https://res.xaox.cc
+  - https://npm.elemecdn.com
+  - https://gcore.jsdelivr.net
+  - https://xaoxuu.com
+  - https://atk.xaox.cc
+  - https://api.xaox.cc
+  - https://api.github.xaox.cc
+  - https://raw.github.xaox.cc
+fallbacks:
+  avatar: https://res.xaox.cc/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg
+  link_card: https://res.xaox.cc/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg
+  cover: https://res.xaox.cc/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg
+canonical:
+  # 文档站挂在主站的子路径下，canonicalUrl 只拼接 host + 页面路径，因此前缀写在 host 里。
+  host: xaoxuu.com/wiki/stellar
+  allowed_hosts: []
+structured_data:
+  same_as:
+    - https://github.com/xaoxuu
+
+inject:
+  head_end: |
+    <link rel="icon" type="image/png" sizes="192x192" href="https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/favicon/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/favicon/favicon.ico">
+    <link rel="manifest" href="https://gcore.jsdelivr.net/gh/cdn-x/xaoxuu@main/favicon/site.webmanifest">
+    <meta name="theme-color" content="#faf7f0">
+
+profiles:
+
+  # 文档站没有站点级菜单，关闭各 profile 的高亮项，避免出现「不支持的配置」告警。
+  home:
+    active_menu: null
+  blog_index:
+    active_menu: null
+  post:
+    active_menu: null
+  topic:
+    active_menu: null
+  author:
+    active_menu: null
+  page:
+    active_menu: null
+
+  wiki_index:
+    # 聚合索引归主站，文档站不生成第二份。
+    path: null
+
+  wiki:
+    active_menu: null
+    leftbar:
+      menu: []
+      widgets:
+        - tree
+        - related
+
+  settings:
+    about:
+      items:
+        - key: 博客框架
+          value: Hexo {hexo.version}
+          url: https://hexo.io/
+        - key: 主题版本
+          value: Stellar {theme.version}
+          url: '{theme.tree}'
+        - key: 返回主站
+          value: xaoxuu.com
+          url: /
+
+  error:
+    active_menu: null
+    image: https://res.xaox.cc/gh/cdn-x/placeholder@1.0.12/404/1c830bfcd517d.svg
+
+article:
+  category_colors:
+    'NEW': '#f44336'
+    '技术': '#2196f3'
+    '设计开发': '#03a9f4'
+    '经验': '#4caf50'
+    # wiki
+    '开源项目': '#4caf50'
+    '博客主题': '#ffa000'
+    '知识库': '#2196f3'
+    '前端': '#e91e63'
+    'iOS': '#009688'
+  footer:
+    license: '本文由 [{author.name}]({author.url}) 原创，采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。'
+
+comments:
+  provider: artalk
+  title: ''
+  giscus:
+    data-repo: xaoxuu/hexo-theme-stellar
+    data-repo-id: MDEwOlJlcG9zaXRvcnkxNTg4OTk5MTM=
+    data-category: Announcements
+    data-category-id: DIC_kwDOCY3uIc4B-d1K
+    data-mapping: number
+    data-term: '226'
+    data-theme: 'https://res.xaox.cc/gh/xaoxuu/giscus-theme@1.0.2/dist/preferred_color_scheme.css'
+  artalk:
+    server: https://res.xaox.cc/atk/
+    css: https://res.xaox.cc/unpkg/artalk@2.10.0/dist/artalk.css
+    js: https://res.xaox.cc/unpkg/artalk@2.10.0/dist/artalk.js
+    site: XAOXUU
+    imageUploader:
+      api: 'https://github-uploader.xaox.cc/api/v1/upload?user=cdn-x&repo=comments-assets'
+      resp: 'urls.gcore'
+
+tags:
+  emoji:
+    default_source: blobcat
+    sources:
+      twemoji: https://res.xaox.cc/gh/twitter/twemoji/assets/svg/{name}.svg
+      qq: https://res.xaox.cc/gh/cdn-x/emoticons@3.1/qq/{name}.gif
+      aru: https://res.xaox.cc/gh/cdn-x/emoticons@3.1/aru/{name}.gif
+      tieba: https://res.xaox.cc/gh/cdn-x/emoticons@3.1/tieba/{name}.png
+      blobcat: https://res.xaox.cc/gh/cdn-x/emoticons@3.1/blobcat/{name}.gif
+
+features:
+  reveal:
+    enabled: true
+  card_hover:
+    spotlight: true
+    tilt: false
+
+services:
+  gravatar:
+    base_url: https://weavatar.com/avatar/
+  site_info:
+    provider: site_info_api
+    site_info_api:
+      endpoint: https://api.xaox.cc/site_info/v1?url={href}
+  rating:
+    provider: star_vote
+    star_vote:
+      endpoint: https://star-vote.xaox.cc/api/rating
+  vote:
+    provider: star_vote
+    star_vote:
+      endpoint: https://star-vote.xaox.cc/api/vote
+  # 文档站不使用 {% contributors %}（贡献者页用的是外部 API 的 {% friends %}），
+  # 且 source_prefix 要求非空相对路径，正文在仓库根目录时没有可用前缀，故不配置。
+  github:
+    api_url: https://api.github.xaox.cc
+    raw_url: https://raw.github.xaox.cc
+    gist_url: https://gist.github.xaox.cc
+
+appearance:
+  preset: minimal
+  colors:
+    primary: hsl(40 96% 55%)
+    accent: hsl(24 100% 50%)
+    link: hsl(166 66% 32%)
+  typography:
+    font_family:
+      body: '"Iowan Old Style", "Palatino Linotype", "Noto Serif SC", "Songti SC", "Courier New", ui-serif, Georgia, "Times New Roman", serif'
+      code: 'Monaco, Menlo, Consolas, system-ui, "Courier New", monospace, sans-serif'
+  code_block:
+    scrollbar_width: 0px
+    highlight_stylesheet: https://res.xaox.cc/gh/highlightjs/cdn-release@11.9/build/styles/atom-one-dark.min.css

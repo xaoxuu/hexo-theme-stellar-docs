@@ -1,0 +1,92 @@
+name: Stellar
+headline: 每个人的独立博客
+tagline: 你的全能个人知识库
+tags: [博客主题]
+audience: 独立博主
+icon: https://res.xaox.cc/posts/20260907010644508.webp-x256
+cover: https://res.xaox.cc/posts/20260903124416431.webp-hd
+hero:
+  enabled: true
+  background:
+    video: https://res.xaox.cc/posts/20260918213835129.mp4
+  preview:
+    type: terminal
+    commands:
+      - label: npm
+        codes: |
+          npm install hexo-theme-stellar
+          npx hexo config theme stellar
+      - label: 蓝图
+        codes: |
+          sh -c "$(curl -fsSL https://github.com/xaoxuu/hexo-theme-stellar-examples/raw/main/install.sh)"
+  actions:
+    - title: 在线演示
+      url: /wiki/stellar/support/examples/
+      icon: default:monitor
+description: 基于 Hexo 的全能个人知识库，开箱即用，内置海量标签和动态数据组件。可用于个人博客、项目文档、知识库、专栏、笔记等。
+source:
+  repository: xaoxuu/hexo-theme-stellar
+leftbar:
+  widgets:
+    - tree
+    - related
+rightbar:
+  widgets: [ghrepo, toc]
+comments:
+  enabled: true
+  title: '评论区仅供交流，有问题请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues) 反馈。'
+  provider: giscus
+  options:
+    data-repo: xaoxuu/hexo-theme-stellar
+    data-mapping: number
+    data-term: 226
+# 文档站里正文位于站点根目录，因此 route.path 为 /；
+# 对外 URL 前缀由站点配置的 url/root 承载，canonical 前缀由 canonical.host 承载。
+route:
+  path: /
+navigation:
+  tree:
+    入门:
+      - index
+      - start/install
+      - start/first-site
+      - start/configuration
+    操作指南:
+      - guides/pages
+      - guides/wiki
+      - guides/notebook
+      - guides/topic
+      - guides/layout
+      - guides/brand
+      - guides/appearance
+      - guides/widgets
+      - guides/search
+      - guides/comments
+      - guides/services
+      - guides/multilingual
+      - guides/seo
+      - guides/customization
+      - guides/integrations
+    参考:
+      - reference/theme
+      - reference/collection
+      - reference/front-matter
+      - reference/behavior
+      - reference/cli
+      - reference/widgets
+      - reference/tags/index
+      - reference/tags/express
+      - reference/tags/data
+      - reference/tags/container
+    迁移:
+      - migration/v1-to-v2
+      - migration/fields
+      - migration/ai
+    支持:
+      - support/doctor
+      - support/examples
+      - support/releases
+      - support/community
+      - support/articles
+      - support/contributors
+      - support/roadmap
