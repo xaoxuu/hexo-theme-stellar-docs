@@ -192,19 +192,33 @@
       }
     },
     "https://github-stats-extended.vercel.app/api/?username=xaoxuu&&show_owner=true": {
-      "updatedAt": "2026-09-30T09:48:41.187Z",
+      "updatedAt": "2026-10-03T13:56:36.107Z",
       "error": "fetch failed",
-      "retryAfter": 1790848121187
+      "retryAfter": 1791122196107
     },
     "https://github-stats-extended.vercel.app/api/pin/?username=xaoxuu&repo=hexo-theme-stellar&theme=dark&show_owner=true": {
-      "updatedAt": "2026-09-30T09:48:45.681Z",
+      "updatedAt": "2026-10-03T13:56:36.105Z",
       "error": "fetch failed",
-      "retryAfter": 1790848125681
+      "retryAfter": 1791122196105
     },
     "https://images.unsplash.com/photo-1516571748831-5d81767b788d?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D": {
-      "updatedAt": "2026-09-30T09:48:30.661Z",
-      "error": "The operation was aborted due to timeout",
-      "retryAfter": 1790848110661
+      "updatedAt": "2026-10-03T13:56:26.759Z",
+      "dimensions": {
+        "status": "ready",
+        "width": 2574,
+        "height": 3861
+      },
+      "color": {
+        "status": "ready",
+        "algorithm": "hsla-mean-v1",
+        "size": 64,
+        "hsla": [
+          220.9492,
+          46.3242,
+          9.3563,
+          1
+        ]
+      }
     },
     "https://images.unsplash.com/photo-1524797905120-92940d3a18d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80": {
       "updatedAt": "2026-09-30T09:48:43.251Z",
@@ -245,9 +259,23 @@
       }
     },
     "https://images.unsplash.com/photo-1533274221104-015a584a1005?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D": {
-      "updatedAt": "2026-09-30T09:48:23.502Z",
-      "error": "The operation was aborted due to timeout",
-      "retryAfter": 1790848103502
+      "updatedAt": "2026-10-03T13:56:25.874Z",
+      "dimensions": {
+        "status": "ready",
+        "width": 800,
+        "height": 1200
+      },
+      "color": {
+        "status": "ready",
+        "algorithm": "hsla-mean-v1",
+        "size": 64,
+        "hsla": [
+          257.6369,
+          8.5406,
+          56.3791,
+          1
+        ]
+      }
     },
     "https://images.unsplash.com/photo-1539604214100-ab860d9082e0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D": {
       "updatedAt": "2026-09-30T09:48:15.655Z",
@@ -288,9 +316,23 @@
       }
     },
     "https://images.unsplash.com/photo-1625171515821-1870deb2743b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80": {
-      "updatedAt": "2026-09-30T09:48:35.230Z",
-      "error": "The operation was aborted due to timeout",
-      "retryAfter": 1790848115230
+      "updatedAt": "2026-10-03T13:56:26.071Z",
+      "dimensions": {
+        "status": "ready",
+        "width": 774,
+        "height": 1161
+      },
+      "color": {
+        "status": "ready",
+        "algorithm": "hsla-mean-v1",
+        "size": 64,
+        "hsla": [
+          340.1896,
+          18.4553,
+          47.9481,
+          1
+        ]
+      }
     },
     "https://images.unsplash.com/photo-1653979731557-530f259e0c2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80": {
       "updatedAt": "2026-09-30T09:48:08.498Z",
@@ -312,9 +354,23 @@
       }
     },
     "https://images.unsplash.com/photo-1688142202243-e218ad203952?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDYzfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D": {
-      "updatedAt": "2026-09-30T09:48:15.182Z",
-      "error": "fetch failed",
-      "retryAfter": 1790848095182
+      "updatedAt": "2026-10-03T13:56:25.953Z",
+      "dimensions": {
+        "status": "ready",
+        "width": 800,
+        "height": 1200
+      },
+      "color": {
+        "status": "ready",
+        "algorithm": "hsla-mean-v1",
+        "size": 64,
+        "hsla": [
+          183.6686,
+          25.5784,
+          12.5828,
+          1
+        ]
+      }
     },
     "https://images.unsplash.com/photo-1698843848092-588f9c1bb0bd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mzh8fHxlbnwwfHx8fHw%3D": {
       "updatedAt": "2026-09-30T09:48:20.228Z",
