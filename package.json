@@ -36,5 +36,13 @@
     "gulp-html-minifier-terser": "^7.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0"
+  },
+  "overrides": {
+    "hexo-generator-seo-friendly-sitemap": {
+      "ejs": "3.1.10"
+    },
+    "hexo-renderer-ejs": {
+      "ejs": "3.1.10"
+    }
   }
 }
