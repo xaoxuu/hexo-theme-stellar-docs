@@ -19,12 +19,12 @@
     "hexo": "^8.1.2",
     "hexo-autonofollow": "^1.0.1",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
-    "hexo-generator-seo-friendly-sitemap": "^0.2.1",
+    "hexo-generator-sitemap": "^3.0.1",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^7.0.1",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-stellar": "git+https://github.com/xaoxuu/hexo-theme-stellar.git#d3a09a0e56edd07d63627e5bc9f87521f65326b7",
+    "hexo-theme-stellar": "github:xaoxuu/hexo-theme-stellar#38e1468b72db8754f511786204c826a2e49b28e4",
     "probe-image-size": "^7.3.0"
   },
   "devDependencies": {
@@ -36,13 +36,5 @@
     "gulp-html-minifier-terser": "^7.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0"
-  },
-  "overrides": {
-    "hexo-generator-seo-friendly-sitemap": {
-      "ejs": "3.1.10"
-    },
-    "hexo-renderer-ejs": {
-      "ejs": "3.1.10"
-    }
   }
 }

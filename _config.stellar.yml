@@ -3,7 +3,7 @@
 # 与主站的差异只有三处，其余保持与主站一致以维持视觉与行为统一：
 #   1. canonical.host 带上 /wiki/stellar 前缀（canonicalUrl 只用 host + 页面路径拼接）；
 #   2. profiles.wiki_index.path 置空，避免文档站再生成一份 /wiki/ 聚合索引（聚合归主站）；
-#   3. services.contributors 的 source_prefix 改为空，因为正文位于文档仓库根目录。
+#   3. services.contributors 将站点正文映射到文档仓库的 source/ 目录。
 
 topbar:
   enabled: false
@@ -219,8 +219,14 @@ services:
     provider: star_vote
     star_vote:
       endpoint: https://star-vote.xaox.cc/api/vote
-  # 文档站不使用 {% contributors %}（贡献者页用的是外部 API 的 {% friends %}），
-  # 且 source_prefix 要求非空相对路径，正文在仓库根目录时没有可用前缀，故不配置。
+  contributors:
+    provider: github
+    github:
+      repositories:
+        - source_prefix: ''
+          repository_prefix: source/
+          repository: xaoxuu/hexo-theme-stellar-docs
+          branch: main
   github:
     api_url: https://api.github.xaox.cc
     raw_url: https://raw.github.xaox.cc
